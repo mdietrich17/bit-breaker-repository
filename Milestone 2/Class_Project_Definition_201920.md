@@ -20,6 +20,11 @@ The product is centered around three core features:
 ## Initial Requirements Elaboration and Elicitation
 
 ### Questions
+1. What is meant by offline confirmations?
+2. How does the login system validate and set up the DB?
+3. How is info getting put into the db initially?
+4. Should the site be able to be read on mobile devices?
+5. How much should the future subscription cost? 
 
 ### Interviews
 
@@ -34,11 +39,13 @@ The product is centered around three core features:
 5. "Standard" logins are fine.  Use email (must be unique) for username and then require an 8+ character password.  Will eventually need to confirm email to try to prevent some forms of misuse.  Admins and contractors must have an offline confirmation by our employees and then the "super" admin adds them manually.
 6. The core entity is the athlete.  They are essentially free agents in the system.  They can be a member of one or more teams at one time, then change at any time.  Later when we want to have teams and do predictive analysis we'll let the coaches assemble their own teams and add/remove athletes from their rosters.
 7. The first stats we want are: 1) display PR's prominantly in each race event, 2) show a historical picture/plot of performance, per race type and distance, 3) some measure of how they rank compared to other athletes, both current and historical, 4) something that shows how often they compete in each race event, i.e. which events are they competing in most frequently, and alternately, which events are they "avoiding"
-
+8. Google maps api that shows where the event took place
+9. Find team average per event
+10. Compare different teams with eachother through a list
 ## Initial Modeling
-
+[ER Diagram](ER_Diagram.png)
 ### Use Case Diagrams
-
+[Use Case Diagram](Use_Case.png)
 ### Other Modeling
 
 ## Identify Non-Functional Requirements
@@ -48,6 +55,8 @@ The product is centered around three core features:
 3. Site should never return debug error pages.  Web server should have a custom 404 page that is cute or funny and has a link to the main index page.
 4. All server errors must be logged so we can investigate what is going on in a page accessible only to Admins.
 5. English will be the default language.
+6. Employees must use 2 step-authentication.
+7. Emails cannot change because they require unique email once they are signed up.
 
 ## Identify Functional Requirements (User Stories)
 
@@ -67,19 +76,31 @@ T: Task
    4. [T] Re-enable login/register links
    5. [T] Manually test register and login; user should easily be able to see that they are logged in
 3. [E] As an administrator I want to be able to upload a spreadsheet of results so that new data can be added to our system
+    1. [U] As a coach I want to be able to send a spreadsheet for an administrator to add data to system
+    2. [U] As an administrator I want to be able to use different spreadsheet file types to add data to a database
+    3. [U] As an administrator I want to be able to verify the data after it is converted.
 4. [U] As a visitor I want to be able to search for an athlete and then view their athlete page so I can find out more information about them
 5. [U] As a visitor I want to be able to view race results for an athlete so I can see how they have performed
 6. [U] As a visitor I want to be able to view PR's (personal records) for an athlete so I can see their best performances
-7. [E] 
-    1. [U]
-        1. [T]
-        2. [T]
-        3. [T]
-    2. [U]
+7. [U] As an athlete I want a place to store all my athletic information so that I can compare how I am in relation to other athletes. 
 8. [U] As a robot I would like to be prevented from creating an account on your website so I don't ask millions of my friends to join your website and try to add comments about male enhancement drugs.
-7. 
+7. [U] As a coach , I would like to be able to get feedback as to the best athlete to assign to a race so that we can put our best athlete’s forward.
+    1. [T] Make a ranking system to show the best times from each athlete per event
+    2. [T] Make a scheduling program to prevent athletes from being assigned the same race at the same time
+8. [U] As I visitor I would like to see races from other countries so that I know which country has the best swimmer.
+    1. [T] Implement an international verification system to accept ID's from other nations
+    2. [T] Add an international portion to the database to account for different nationalities
+9. [U] As an athlete, I would like to be able to know the temperature of the pools that we swim in so that we can see if temperature does effect speed.
+    1. [T] Add a system to take in temperature data from temperature recording instruments
+    2. [T] Convert temperature from/to fahrenheit, Celcius, and Kelvin
+10. [U] As a visitor, I want to be able to create my own username (and not an email) so that I can login through a customized username instead of my default email.
+    1. [T] Seperate email from login page
+    2. [T] Make sure each username is unique during registrating. 
+11. [U] As a hacker, I don't want to be able to easily access the system using common hacking techniques
+12. [U] As a visitor I would like a place to comment so that I can show my support to my favorite athletes.
 
 ## Initial Architecture Envisioning
+[Architecture](Architecture.PNG)
 
 ## Agile Data Modeling
 
