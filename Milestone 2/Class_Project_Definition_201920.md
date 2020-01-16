@@ -20,6 +20,11 @@ The product is centered around three core features:
 ## Initial Requirements Elaboration and Elicitation
 
 ### Questions
+1. What is meant by offline confirmations?
+2. How does the login system validate and set up the DB?
+3. How is info getting put into the db initially?
+4. Should the site be able to be read on mobile devices?
+5. How much should the future subscription cost? 
 
 ### Interviews
 
@@ -36,9 +41,9 @@ The product is centered around three core features:
 7. The first stats we want are: 1) display PR's prominantly in each race event, 2) show a historical picture/plot of performance, per race type and distance, 3) some measure of how they rank compared to other athletes, both current and historical, 4) something that shows how often they compete in each race event, i.e. which events are they competing in most frequently, and alternately, which events are they "avoiding"
 
 ## Initial Modeling
-
+[ER Diagram](ER_Diagram.png)
 ### Use Case Diagrams
-
+[Use Case Diagram](Use_Case.png)
 ### Other Modeling
 
 ## Identify Non-Functional Requirements
@@ -77,9 +82,21 @@ T: Task
         3. [T]
     2. [U]
 8. [U] As a robot I would like to be prevented from creating an account on your website so I don't ask millions of my friends to join your website and try to add comments about male enhancement drugs.
-7. 
+7. [U] As a coach , I would like to be able to get feedback as to the best athlete to assign to a race so that we can put our best athlete’s forward.
+    1. [T] Make a ranking system to show the best times from each athlete per event
+    2. [T] Make a scheduling program to prevent athletes from being assigned the same race at the same time
+8. [U] As I visitor I would like to see races from other countries so that I know which country has the best swimmer.
+    1. [T] Implement an international verification system to accept ID's from other nations
+    2. [T] Add an international portion to the database to account for different nationalities
+9. [U] As an athlete, I would like to be able to know the temperature of the pools that we swim in so that we can see if temperature does effect speed.
+    1. [T] Add a system to take in temperature data from temperature recording instruments
+    2. [T] Convert temperature from/to fahrenheit, Celcius, and Kelvin
+10. [U] As a visitor, I want to be able to create my own username (and not an email) so that I can login through a customized username instead of my default email.
+    1. [T] Seperate email from login page
+    2. [T] Make sure each username is unique during registrating. 
 
 ## Initial Architecture Envisioning
+[Architecture](Architecture.PNG)
 
 ## Agile Data Modeling
 
