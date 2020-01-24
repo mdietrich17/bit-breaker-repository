@@ -7,15 +7,48 @@
     color: white;
 }
 
-h1{
+btn btn-default{
+    color:forestgreen; 
+}
+
+#profileImage {
+    border: solid;
+    border-color: white;
+    border-radius: 4em;
+}
+
+.navbar {
+    color: white;
+}
+
+footer {
+    
+    bottom: fixed;
+    text-align: center;
+    color: black;
+}
+
+.button{
+    color:blue; 
+}
+
+h1, h2{
     text-align:center; 
 }
 
-.jumbotron {
-    color:black; 
-    fill:black; 
+#profileHeader{
     text-align:center;
 }
+
+#jumbotron{
+    align-content:center; 
+    margin-left:10em; 
+    width: 75%;
+    color:black;
+    border-color:black;
+    border-radius:3em;
+}
+
 
 /* Set padding to keep content from hitting the edges */
 .body-content {
