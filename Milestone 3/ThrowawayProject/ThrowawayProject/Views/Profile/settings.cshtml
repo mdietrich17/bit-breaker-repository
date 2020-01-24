@@ -1,6 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "settings";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <h2>User Profile</h2>
@@ -11,7 +12,7 @@
 
 
             <center>
-                <h2> John Doe </h2>
+                <h1> John Doe </h1>
                 <img width="100px" height="100px" src="https://i.ytimg.com/vi/Wacz0-mRzWg/hqdefault.jpg " />
                 <br />
                 @Html.ActionLink("Edit Profile","edit","profile")
