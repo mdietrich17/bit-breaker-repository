@@ -13,18 +13,37 @@ namespace ThrowawayProject.Controllers
             return View();
         }
 
-        public ActionResult About()
-        {
-            ViewBag.Message = "Your application description page.";
+        //[HttpPost]
+        //public ActionResult Index(string searchString)
+        //{
+            //{
+            //    IQueryable<StockItem> products = db.StockItems;
+            //    ViewBag.Message = "Sorry the athlete that your looking for has not been found";
 
-            return View();
-        }
+            //    if (!String.IsNullOrEmpty(searchString))
+            //    {
+            //        products = products.Where(s => s.StockItemName.Contains(searchString));
+            //    }
 
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
+            //    return View(products.ToList());
+            //}
+        //}
 
-            return View();
-        }
+        // GET: Detail results (uses a ViewModel in Model folder)
+        //public ActionResult Details(int? id)
+        //{
+        //    if (id == null)
+        //    {
+        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+        //    }
+        //    StockItem stockItem = db.StockItems.Find(id);
+        //    if (stockItem == null)
+        //    {
+        //        return HttpNotFound();
+        //    }
+        //    StockDetailsViewModel viewModel = new StockDetailsViewModel(stockItem);
+        //    return View(viewModel);
+        //}
+
     }
 }
