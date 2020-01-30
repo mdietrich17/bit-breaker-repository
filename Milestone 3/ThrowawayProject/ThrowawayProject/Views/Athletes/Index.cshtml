@@ -1,0 +1,64 @@
+﻿@model IEnumerable<ThrowawayProject.Models.Athlete>
+
+@{
+    ViewBag.Title = "Search for Athletes";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Search for your favorite Athlete below</h2>
+
+
+<br />
+@using (Html.BeginForm("Index", "Athletes", FormMethod.Post))
+{
+    <div class="container-fluid" style="font-size:large;" id="searchBox">
+        Enter your search here:
+        @Html.TextBox("searchString", null, new { style = "width: 4000px; height: 30px;", placeholder = "   partial matches will be found" })
+        <input type="submit" id="searchBoxID" value="Search Now" />
+    </div>
+    <br />
+
+    if (Model != null)
+    {
+        if (Model.Count() != 0) // checking to make sure that there are items in the model.
+        {
+
+            <table class="table table-striped table-dark" id="resultsTable">
+                <tr>
+                    <th>@Html.Label("Name of the Item")</th>
+                    <th>@Html.Label("League")</th>
+                    <th> </th>
+                    <th>@Html.Label(" Details Below")</th>
+                </tr>
+
+                @foreach (var item in Model) // Iterate through all items in the model to produce search results.
+                {
+                    <tr>
+
+                        <td>
+
+                            @Html.DisplayFor(modelItem => item.NAME)
+                        </td>
+                        <td>@Html.DisplayFor(modelItem => item.GENDER)</td>
+                        <td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div id="searchAgain">
+                @Html.ActionLink("Start a new search", "Index")
+            </div>
+            <div class="container">
+                <img src="~/Images/notFound.png" id="notFoundPhoto" />
+            </div>
+
+        }
+
+    }
+
+}
