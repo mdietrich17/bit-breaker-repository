@@ -52,5 +52,11 @@ namespace ThrowawayProject.Controllers
             }
             return View(player);
         }
-              }
+
+        public ActionResult List()
+        {
+            var athletes = db.Athletes;
+            return View(athletes.ToList());
+        }
     }
+}
