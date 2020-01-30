@@ -14,8 +14,7 @@ using System.Net;
 
 namespace ThrowawayProject.Controllers
 {
-
-
+  
     [Authorize]
     public class AccountController : Controller
     {
@@ -468,6 +467,28 @@ namespace ThrowawayProject.Controllers
                 return Redirect(returnUrl);
             }
             return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize]
+        public ActionResult settings()
+        {
+
+            if (User.Identity.IsAuthenticated)
+            {
+                ApplicationDbContext db = new ApplicationDbContext();
+                string id = HttpContext.User.Identity.GetUserId();
+                ApplicationUser currentUser = UserManager.FindById(id);
+                ProfileSettings information = new ProfileSettings(currentUser);
+
+                return View(information);
+            }
+
+            else
+            {
+                return RedirectToAction("Index", "Login");
+            }
+
+
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

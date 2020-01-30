@@ -3,32 +3,40 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
+using System.Security.Principal;
+using ThrowawayProject.Models;
+using ThrowawayProject.Controllers;
+
 
 namespace ThrowawayProject.Controllers
 {
+    
     public class ProfileController : Controller
     {
         // GET: Profile
+
+
+        [Authorize]
         public ActionResult settings()
         {
-            // if The user active user has an Id go to their profile
-                /* 
-                if(Session["UID"] != null)
+            
+                if(User.Identity.IsAuthenticated)
                 {
-                    ViewBag.UserName = Session["UName"];
-                    return View();
-                }
-                */
                 
-            // if the user doe snot have an active id direct them to the login page. 
-            /*
+                string id = HttpContext.User.Identity.GetUserId();
+         
+                
+                
+                return View();
+                }
+  
             else
             {
                 return RedirectToAction("Index", "Login");
             }
-            */
 
-            return View();
+
         }
     }
 }
