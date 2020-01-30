@@ -363,6 +363,7 @@
     <Content Include="Views\Account\settings.cshtml" />
     <Content Include="Views\Athletes\Details.cshtml" />
     <Content Include="Views\Athletes\Index.cshtml" />
+    <Content Include="Views\Athletes\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
