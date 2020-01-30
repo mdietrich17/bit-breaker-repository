@@ -17,6 +17,46 @@ btn btn-default{
     border-radius: 4em;
 }
 
+#indexTitle {
+    text-align: center;
+    font-weight: bolder;
+    font-size: 6em;
+}
+
+.table-dark {
+}
+
+#notFoundPhoto {
+    width: 50%;
+    height: 50%;
+    margin-left: 20em;
+}
+
+#searchBox{
+text-align:center;
+color:black;
+
+}
+
+#indexLeadP, #reqButton {
+    text-align: center;
+    color: black;
+}
+
+#resultsTable {
+    width: 80%;
+    margin-left: 10em;
+    color:black; 
+    background-color:lightcyan;
+}
+
+#searchAgain {
+    margin-left: 40em;
+    color:black; 
+    
+}
+
+
 .navbar {
     color: white;
 }
