@@ -188,6 +188,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meet.cs" />
+    <Compile Include="Models\ProfileSettings.cs" />
     <Compile Include="Models\RaceResult.cs" />
     <Compile Include="Models\Team.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -359,6 +360,7 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Home\IndexList.cshtml" />
     <Content Include="Views\RaceResults\Index.cshtml" />
+    <Content Include="Views\Account\settings.cshtml" />
     <Content Include="Views\Athletes\Details.cshtml" />
     <Content Include="Views\Athletes\Index.cshtml" />
   </ItemGroup>
