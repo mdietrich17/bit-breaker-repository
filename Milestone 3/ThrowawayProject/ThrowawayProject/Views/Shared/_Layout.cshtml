@@ -6,6 +6,7 @@
     <title>@ViewBag.Title - Class Project - Bit Breakers</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <script src='https://www.google.com/recaptcha/api.js'></script>
 
 </head>
 <body>
@@ -21,11 +22,14 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+
           
        
                 <li>@Html.ActionLink("Profile", "settings", "Profile") </li>
                 <li>@Html.ActionLink("Search Athletes", "settings", "Profile") </li>
+                <li>@Html.ActionLink("Index", "Index", "RaceResults") </li>
                 </ul>
+               
                 
                 @Html.Partial("_LoginPartial")
             </div>
