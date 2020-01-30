@@ -183,6 +183,7 @@
     <Compile Include="Models\Athlete.cs" />
     <Compile Include="DAL\AthleteContext.cs" />
     <Compile Include="Models\Coach.cs" />
+    <Compile Include="Models\CaptchaResponse.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Meet.cs" />
