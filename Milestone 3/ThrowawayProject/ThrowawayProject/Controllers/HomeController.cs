@@ -26,5 +26,9 @@ namespace ThrowawayProject.Controllers
 
             return View();
         }
+        public ActionResult IndexList()
+        {
+            return View();
+        }
     }
 }

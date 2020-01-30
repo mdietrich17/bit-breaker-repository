@@ -1,10 +1,10 @@
 ﻿@model IEnumerable<ThrowawayProject.Models.RaceResult>
 
 @{
-    ViewBag.Title = "IndexList";
+    ViewBag.Title = "Index";
 }
 
-<h2>IndexList</h2>
+<h2>Index</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -41,9 +41,7 @@
             @Html.DisplayFor(modelItem => item.TIME)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Details", "Details", new { id=item.ID })
         </td>
     </tr>
 }
