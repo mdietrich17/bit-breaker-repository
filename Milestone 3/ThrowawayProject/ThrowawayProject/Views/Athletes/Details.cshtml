@@ -8,11 +8,10 @@
 <h2>Details</h2>
 
 <div>
-    <h4>Athlete</h4>
     <hr />
     <dl class="dl-horizontal">
         <dt>
-            @Html.DisplayNameFor(model => model.Team.NAME)
+            @{<text>Team Name</text>}
         </dt>
 
         <dd>
@@ -20,7 +19,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.NAME)
+            @{<text>Athlete Name</text>}
         </dt>
 
         <dd>
@@ -28,7 +27,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.GENDER)
+            @{<text>Gender</text>}
         </dt>
 
         <dd>
@@ -37,6 +36,40 @@
 
     </dl>
 </div>
+
+<div class="row">
+
+    <div class="col-md-7 tableStyle">
+        <h4 class="StockInfo"> Athlete Results </h4>
+        <div class="row">
+            <div class="col-md-10">
+                <table class="table">
+                    <tr>
+                        <th>
+                            @{<text>Race Type</text>}
+                        </th>
+                        <th>
+                            @{<text>Time Completed</text>}
+                        </th>
+                    </tr>
+
+                    @foreach (var item in Model.RaceResults)
+                    {
+                        <tr>
+                            <td>
+                                @item.NAME
+                            </td>
+                            <td>
+                                @item.TIME
+                            </td>
+                        </tr>
+                    }
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
 <p>
     |
     @Html.ActionLink("Back to List", "Index")
