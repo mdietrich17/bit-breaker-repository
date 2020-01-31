@@ -11,7 +11,7 @@ namespace ThrowawayProject.DAL
     public partial class AthleteContext : DbContext
     {
         public AthleteContext()
-            : base("name=AthleteContext")
+            : base("name=AzureConnection")
         {
         }
 
