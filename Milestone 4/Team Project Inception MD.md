@@ -1,19 +1,18 @@
-==========================================================================
 Team Project Inception
 ==========================================================================
 Summary of Our Approach to Software Development
 =====================================
 Our approach to software development is utilizing Agile Development techniques. This will include following best practices provided throughout the SCRUM handbook. We focus primarily on DAD methodologies and utilize a hybrid mix between the aforementioned to maximize our team efficiency.
-=====================================
+
 Initial Vision Discussion with Stakeholders
 =====================================
 Primary Stakeholder – Dr. Morgan, Amazing professor with an interest in services for minority populations. 
 Our family members are getting to a point in their life in which technology is becoming difficult or cumbersome to try to use. The problem is that social sites are populated with people who don't have the same concerns or requirements. They want a place to go for 65+ (only) people that has a simple clean UI that is comprehensive. This should help seniors find people and services that are useful to them in an easy to use environment. The goal is to be a place that seniors would want to communicate without all the background noise that consistently populates other social media platforms.  
-=====================================
+
 Vision statement
 =====================================
 Our vision is to build a web application for seniors (those who are 65+) who need a convenient, easy way to socialize and find activities, the Simply Seniors website is an information system that will provide a single, convenient point of access for seniors to find people and services near them. This includes information about events close to their proximity that may interest them, ways to group up with others with similar interests to join those events, and a convenient, easy to read, use, and navigate platform for seniors. Unlike other social media sites, our product will be very easy to use for seniors with a simple, generic, and convenient layout, as well as have seniors be able to find activities of interest near them, and be able to pair up with others with similar interests. 
-=====================================
+
 The product is centered around these core features:
 =====================================
 1. Create and store user profiles with photos. Information included in the profile will be (at least):
@@ -49,7 +48,7 @@ Icons should be labeled with text whenever possible. A help page that will allow
 
 4. Use an algorithm to match people personally. This will most likely be based on military service and/or hobbies that the user inputs either at creation of the account or later on. Simply Seniors will allow for people to be 'friends' and 'follow' the stories of other people using the platform. Would recommend people with shared interests (such as hobbies like book clubs, calligraphy, creative writing/poetry, knitting, dancing, crocheting, chess, etc), nearby (in their city, retirement center, etc) and/or mutual friends. This would allow them to make comments to each other and also make comments on people's comments. This would include the integration of a ‘like’ type system in which the user can rate a message, event or interaction. 
 ____________________________________________________________________________
-=====================================
+
 Additional features for project if time permits
 =====================================
 4.  Provide an entertainment center to users in the form of possibly: games, news, and non-copyrighted movies/music, and with those videos, subtitles could be provided. 
@@ -58,11 +57,10 @@ Additional features for project if time permits
 Version 2: We could just utilize Bootstrap V4 to build a super responsive site with alot of containers that would allow it to be used on chrome or safari within a phone’s environment. This would significantly reduce the work involved, however will not be nearly as mobile. 
 
 6. Make a user group system so that users can create their own group pages to organize their own events or discussions. There could be veterans group, or a group for selling stuff, or linked directly to residency living environments. 
-==========================================================================
+
   Initial Requirements Elaboration and Elicitation
 ==========================================================================  
- Questions/Interview Feedback 
-=====================================
+## Questions/Interview Feedback 
 1. How much would this service cost? If free, would it be permanently free or would there be any subscription charges? How about ads? 
     Answer: We would like this website to be free, but have non-intrusive ads that do not impact the user experience. DC
 2. Will this be set up cross-platform so it is accessible on tablets or phones, or just computers?
@@ -93,7 +91,7 @@ Version 2: We could just utilize Bootstrap V4 to build a super responsive site w
     Answer: The service will be free at first and once a user base has been established non-intrusive ads will be listed on website services. 
 15. If emails are optional, is there a different way to get back into your account if you get locked out, like security questions? 
     Answer: Users can receive a text message with a code that will allow them to reclaim their account and reset their password. 
-==========================================================================
+
 List of Needs and Features
 ==========================================================================
  1. They want a nice-looking site, with a clean light modern style, images that evoke inclusion and positivity. It should be easy to find the features available for free and then have an obvious link to register for an account or log in.  It should be fast and easily navigable for seniors and/or people with disabilities. It would be nice to be able to zoom or change the size of things on the screen and have limited customization options so that it is easy to use and learn. We will use bright colors and use imagery that promotes a positive healthy lifestyle.    
@@ -107,18 +105,18 @@ List of Needs and Features
 7. Advertisements for products that are focused directly to seniors. AARP, LYFT, rideshare or any type of products that are released that may fulfill a need of the demographic in general.                          
 8. We want to be able to geo-Reference: This will mean showing a Google Map or (similar product) of an area or event. This will also include providing directions through the mapping interface for people to reach our event or locations of interest throughout the community for Seniors. 
 9. They would like to be able to comment on other users’ profiles and posts, there should be a way to 'like' stuff and a way to hide types of posts that are of no interest to a person. They do not want adds popping up all the time messing up the user experience. 
-=====================================
-Initial Architecture Envisioning
+
+## Initial Architecture Envisioning
 [Architecture](architecture.PNG)
-=====================================
-Use Case Diagram(s)
+
+## Use Case Diagram(s)
 [Use Case Diagram](UseCase.PNG)
-=====================================
+
 Use case diagram was drawn up to represent the workflow throughout our system, which would be initiated by the user, this shows how entities may interact with each other. The initial instance begins with an event that has n 
-=====================================
-UI Diagram
+
+## UI Diagram
 [UI Diagram](UI_diagram.JPG)
-==========================================================================
+
 Identify Non-Functional Requirements
 ==========================================================================
 1. User accounts and data must be stored indefinitely. They could have records removed upon qualified reasons. 
@@ -130,10 +128,9 @@ Identify Non-Functional Requirements
 7. Employees and Admins must use 2 factor-authentication.
 8. Emails are optional but they can make user name on their own and there would be validation to ensure unique. 
 
-==========================================================================
 Identify Functional Requirements (User Stories)
 E: Epic					  U: User Story 				 T: Task  
-==========================================================================
+
 LOG-IN / AUTHENTICATION USER STORIES BELOW
 =====================================
 E - As a user, I want to be able to join this website, be able to sign back in later, and create a validated account so that I can access all the features of the site. 
@@ -145,7 +142,7 @@ E - As a user, I want to be able to join this website, be able to sign back in l
 		Description - We will research exactly how to change the default template for passwords, and then will go about changing that. Change the requirement for password in Visual Studios to be max 4 digits, and only numbers (no letters). We will ask them to verify when creating this so we can ensure they entered their numbers correctly. We will also have them be able to change this later in their account settings at any time (after registered). We will test this by logging out and back in after registration to test and see if this works. Potentially provide a password generator of some sort to streamline it for them, if we limit private data collected then our security process will not be as stringent. 
 	U - As a new user, I would like to receive an email or notification to validate or confirm my registration so that I know my account is actually working. 
 		Description - This would be a type of two step validation so that when a new account is created the user would have to validate that account in order to be able to actually use the site and then eventually build their profiles and interact with the functions therein. We potentially could just use a text message or maybe some other type of quick validation as sometimes emails can be difficult to access and/or take time for the user to go and be able to validation. We don’t want to add a layer of difficulty that would contradict our vision statement for this project. 
-=====================================
+
 PROFILES USER STORIES BELOW
 =====================================
 E - As a user I want to be able to create a user profile so that others will know my interests and/or hobbies and who I am. 
@@ -185,7 +182,7 @@ E - As an admin (employee or contractor), I want to be able to enter, edit, and 
         Description- Use a google api that takes the admins listed phone number and sends a text code message when they attempt to log into the site. This code will be required it be put into a text in addition their username and password in order for them to access their account. This code will have a grace time of 5 minutes to prevent possible misuse. 
 	U - As an admin, I want to require captcha logins in an effort to safeguard our site and our users to ensure that we do not allow robots to register or spam our website.
         Description- Generate a simple captcha that is very user friendly while providing a decent amount of security for the individual. This captcha will be located upon the registration page, so when a user attempts to register to use the website they will have to fulfill the conditions of the captcha in addition to the standard parameters listed (Email, username, password, etc). If the user does not fulfill the requirements of captcha they will be prevented from making an account. If they fail 4 or more times, they will be prevented from using the website (5 minute cooldown).
-=====================================
+
 EASE OF ACCESS USER STORIES BELOW
 =====================================
 E - As a user, I want to be able to see a nice-looking site, with a clean light modern style, images that evoke inclusion and positivity. I would like to be able to see a simple webpage that doesn’t have too many options to choose from (not too complicated), is easy to navigate, and every page is simple to understand (maybe big text) so that I can easily maneuver the website and enjoy my experience.
@@ -199,7 +196,7 @@ E - As a user, I want to be able to see a nice-looking site, with a clean light 
 	    Description- Help pages should be very clear on what they cover as well as the tutorials within. Everything should be short, simple, and easy to understand without losing too many details on how to work the website. A big list of tutorials may be confusing or frustrating to search for some users so it may be better to have a search function or to have a page for categories that then go to more specific ideas. Some tutorials or help pages may be featured so that commonly accessed ones show up on the categories page to help users faster.
 	U - As a user, I would like to see videos, links to tutorials, and/or FAQ on the help page so that I can learn how to use the website.
 	    Description- This would involve integrating videos into our help documents so that they link to YouTube videos of the actions that we are trying to explain to the user. This will need to be implemented in a clean way without too much activity and clutter. We can use many existing tutorials throughout the internet to link to in an effort to provide a comprehensive library of help topics. This would include a way to search for help topics in an easy way and must have some algorithm to “find” the item that they are looking for and how to prioritize the results that are displayed back to the user. 
-=====================================
+
 SOCIAL NETWORKING USER STORIES BELOW
 =====================================
 E - As a user, I would like to be able to post (text and/or images), comment on my friends posts, and share their posts so I can see what they post and share my opinions.
@@ -289,16 +286,16 @@ E - As a user, I would like to have reminders set up so I can be reminded to tak
 E* - As a business, I would like to be able to advertise on the website with products relevant to specific users so I can make money
 
 *Depends on if we implement monetization of the application.
-==========================================================================
-Agile Data Modeling
+
+## Agile Data Modeling
 [ER Diagram](ERDiagram.PNG)
-==========================================================================
- Timeline and Release Plan
+
+Timeline and Release Plan
 =====================================
 We intend to follow the continuous release method that has been outline for us to follow (intermittently released every 2 weeks in 2 week sprint cycles). Our release will be hosted on Azure’s Cloud platform throughout the entirety of this project. 
  We will be utilizing Github as a team repository and tracking software to maximize efficiency. All work will be tracked with online tool named Pivotal Tracker. Pivotal will be used to track all EPICS and user stories and also to assign work to developers. We will utilize this tool to track our backlog and use it to prioritize user stories based on Product Owner feedback. Bit Breakers intends to launch our full release in June 2020. 
 01/22/2020 - 02/03/2020 ---- Inception and modeling phase
-=====================================
+
 Identification of Risks
 =====================================
 1. If someone makes an account and steal information from users.
@@ -311,7 +308,7 @@ Identification of Risks
 8. Technical Debt (minimize this at all costs)
 
 
-=====================================
-Google Docs Link For Updates On This Doc:
+
+## Google Docs Link For Updates On This Doc:
 https://docs.google.com/document/d/1nFeuD5GrqJQM9sGuCab0LIRFFDGBmADb4iGMEzKOdfE/edit
-=====================================
+
