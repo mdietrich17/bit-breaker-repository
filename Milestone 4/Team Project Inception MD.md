@@ -107,15 +107,15 @@ List of Needs and Features
 9. They would like to be able to comment on other users’ profiles and posts, there should be a way to 'like' stuff and a way to hide types of posts that are of no interest to a person. They do not want adds popping up all the time messing up the user experience. 
 
 ## Initial Architecture Envisioning
-[Architecture](architecture.PNG)
+[Architecture](architecture.png)
 
 ## Use Case Diagram(s)
-[Use Case Diagram](UseCase.PNG)
+[Use Case Diagram](UseCase.png)
 
 Use case diagram was drawn up to represent the workflow throughout our system, which would be initiated by the user, this shows how entities may interact with each other. The initial instance begins with an event that has n 
 
 ## UI Diagram
-[UI Diagram](UI_diagram.JPG)
+[UI Diagram](UI_diagram.jpg)
 
 Identify Non-Functional Requirements
 ==========================================================================
