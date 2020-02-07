@@ -7,15 +7,7 @@ Guidelines
 1. Use standard C# naming conventions as shown per Microsoft VS documents: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/inside-a-program/coding-conventions
 2. Use RESTful style when creating controllers (i.e., a new controller for differentiable entities)
 3. For every function, write comments above the function. Additionally, any code that needs additional explanations (and is not straightforward), write comments for it. 
-4. Put curly braces on their own line, ie:
-if(n < 0)
-{
- 
-}
-else	
-{
- 
-}
+4. Put curly braces on their own line
 
 ## Javascript
 1. Use external script files 

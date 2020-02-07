@@ -26,16 +26,16 @@ The contents of this repository includes:
 
 
 Bit Breaker Members
-Dennis Cherepanov - GitHub: https://github.com/Cherepanovdennis 
-Jon Gillespie - GitHub: https://github.com/jgillespie17 
-Madison Klienstuber - GitHub: https://github.com/mjklienst 
-Mike Dietrich - GitHub: https://github.com/mdietrich17 
+1. Dennis Cherepanov - GitHub: https://github.com/Cherepanovdennis 
+2. Jon Gillespie - GitHub: https://github.com/jgillespie17 
+3. Madison Klienstuber - GitHub: https://github.com/mjklienst 
+4. Mike Dietrich - GitHub: https://github.com/mdietrich17 
 
 Simply Seniors Project
-The project that the Bit Breakers team has decided to tackle for their senior capstone is the creation of the Simply Seniors web service. This project is to allow seniors to communicate with each other in a convenient way, as our family members are getting to a point in their life in which technology is becoming difficult or cumbersome to try to use. The problem is that social sites are populated with people who don't have the same concerns or requirements. They want a place to go for 65+ (only) people that has a simple clean UI that is comprehensive. This should help seniors find people and services that are useful to them in an easy to use environment. The goal is to be a place that seniors would want to communicate without all the background noise that consistently populates other social media platforms.  
+1. The project that the Bit Breakers team has decided to tackle for their senior capstone is the creation of the Simply Seniors web service. This project is to allow seniors to communicate with each other in a convenient way, as our family members are getting to a point in their life in which technology is becoming difficult or cumbersome to try to use. The problem is that social sites are populated with people who don't have the same concerns or requirements. They want a place to go for 65+ (only) people that has a simple clean UI that is comprehensive. This should help seniors find people and services that are useful to them in an easy to use environment. The goal is to be a place that seniors would want to communicate without all the background noise that consistently populates other social media platforms.  
 
 Vision Statement
-For seniors (those who are 65+) who need a convenient, easy way to socialize and find activities, the Simply Seniors website is an information system that will provide a single, convenient point of access for seniors to find people and services near them. This includes information about events close to their proximity that may interest them, ways to group up with others with similar interests to join those events, and a convenient, easy to read, use, and navigate platform for seniors. Unlike other social media sites, our product will be very easy to use for seniors with a simple, generic, and convenient layout, as well as have seniors be able to find activities of interest near them, and be able to pair up with others with similar interests. 
+1. For seniors (those who are 65+) who need a convenient, easy way to socialize and find activities, the Simply Seniors website is an information system that will provide a single, convenient point of access for seniors to find people and services near them. This includes information about events close to their proximity that may interest them, ways to group up with others with similar interests to join those events, and a convenient, easy to read, use, and navigate platform for seniors. Unlike other social media sites, our product will be very easy to use for seniors with a simple, generic, and convenient layout, as well as have seniors be able to find activities of interest near them, and be able to pair up with others with similar interests. 
 
 How do I get started?
 1. Fork the repository.
@@ -52,10 +52,10 @@ How do I get started?
 12. Once you get the repository, read the project foundation documentation found in the Milestones folders.
 
 Contributing
-For contributing and coding guidelines when working on this project, see the Guidelines file. The list of contributors for this project is in the “Bit Breaker Members” section of this document. Please add your name to this document when you become a contributor.
+1. For contributing and coding guidelines when working on this project, see the Guidelines file. The list of contributors for this project is in the “Bit Breaker Members” section of this document. Please add your name to this document when you become a contributor.
 
 Software Construction Process
-For this project, we are following Agile methodologies, specifically Disciplined Agile Delivery process framework. We follow a two-week sprint cycle that involves daily SCRUM meetings, weekly sprint planning sessions, an end of sprint review and retrospective. To contribute to this project, one will need to be involved in this process with the StarTech team.
+1. For this project, we are following Agile methodologies, specifically Disciplined Agile Delivery process framework. We follow a two-week sprint cycle that involves daily SCRUM meetings, weekly sprint planning sessions, an end of sprint review and retrospective. To contribute to this project, one will need to be involved in this process with the StarTech team.
 
 Tools, Configurations, and Packages
-Tools is a list of all the software, libraries, tools, packages, and versions used on this project. Make sure you are using the same ones to avoid any compatibility errors. Tools page is at the root of our repository, named “Tools.md”
+1. Tools is a list of all the software, libraries, tools, packages, and versions used on this project. Make sure you are using the same ones to avoid any compatibility errors. Tools page is at the root of our repository, named “Tools.md”
