@@ -195,10 +195,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-ThrowawayProject-20200123105315.mdf" />
-    <Content Include="App_Data\aspnet-ThrowawayProject-20200123105315_log.ldf">
-      <DependentUpon>aspnet-ThrowawayProject-20200123105315.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\Athletedown.sql" />
     <Content Include="App_Data\Athleteup.sql" />
     <Content Include="App_Data\down.sql" />
