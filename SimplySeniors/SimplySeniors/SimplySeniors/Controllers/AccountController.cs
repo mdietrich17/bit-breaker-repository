@@ -9,6 +9,8 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using SimplySeniors.Models;
+using Newtonsoft.Json;
+using System.Net;
 
 namespace SimplySeniors.Controllers
 {
@@ -142,6 +144,15 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
+        // Used by captcha to validate if the captcha was verified by the user or not
+        public static CaptchaResponse ValidateCaptcha(string response)
+        {
+            string secret = System.Web.Configuration.WebConfigurationManager.AppSettings["recaptchaPrivateKey"];
+            var client = new WebClient();
+            var jsonResult = client.DownloadString(string.Format("https://www.google.com/recaptcha/api/siteverify?secret={0}&response={1}", secret, response));
+            return JsonConvert.DeserializeObject<CaptchaResponse>(jsonResult.ToString());
+        }
+
         //
         // POST: /Account/Register
         [HttpPost]
@@ -149,8 +160,15 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register(RegisterViewModel model)
         {
+            CaptchaResponse response = ValidateCaptcha(Request["g-recaptcha-response"]);
+
+
             if (ModelState.IsValid)
             {
+                if(response.Success == false) // if captcha fails redirect
+                {
+                    return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString());
+                }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
