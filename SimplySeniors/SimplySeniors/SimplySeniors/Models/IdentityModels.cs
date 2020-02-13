@@ -22,7 +22,7 @@ namespace SimplySeniors.Models
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
-        //: base("AzureConnection", throwIfV1Schema: false)
+        // : base("AzureConnection", throwIfV1Schema: false)
         {
             // Disable code-first migrations
             Database.SetInitializer<ApplicationDbContext>(null);
