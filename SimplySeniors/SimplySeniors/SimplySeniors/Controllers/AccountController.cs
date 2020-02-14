@@ -12,6 +12,7 @@ using SimplySeniors.Models;
 using Newtonsoft.Json;
 using System.Net;
 
+
 namespace SimplySeniors.Controllers
 {
     [Authorize]
@@ -168,6 +169,7 @@ namespace SimplySeniors.Controllers
                 if(response.Success == false) // if captcha fails redirect
                 {
                     return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString());
+                    
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -198,17 +200,20 @@ namespace SimplySeniors.Controllers
 
         public void sendemail(ApplicationUser user)
         {
+            string code = UserManager.GenerateEmailConfirmationToken(user.Id);
+            string codeHtmlVersion = HttpUtility.UrlEncode(code);
+
             System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
-            new System.Net.Mail.MailAddress("", "Web Registration"),
+            new System.Net.Mail.MailAddress("cherepanovdennis@gmail.com", "Web Registration"),
             new System.Net.Mail.MailAddress(user.Email));
             m.Subject = "Email confirmation";
-            m.Body = string.Format("<p> Dear {0} < BR /> Thank you for your registration, please click on the below link to complete your registration: < a href =\"{1}\" title =\"User Email Confirm\">{1}</a> </p>",
+            m.Body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the below link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">{1}</a> </p>",
             user.UserName, Url.Action("ConfirmEmail", "Account",
-            new { userId= user.Id, Code = user.Email }, Request.Url.Scheme));
+            new { userId= user.Id, Code = codeHtmlVersion }, protocol: Request.Url.Scheme));
             m.IsBodyHtml = true;
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential("", "");
+            smtp.Credentials = new System.Net.NetworkCredential("cherepanovdennis@gmail.com", "Cherepanovvasilyfedora");
             smtp.Port = 587;
             smtp.EnableSsl = true;
             smtp.Send(m);
@@ -220,11 +225,14 @@ namespace SimplySeniors.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
+            string hi = userId;
+            string hello = code;
             if (userId == null || code == null)
             {
                 return View("Error");
             }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            var newcode = Server.UrlDecode(code);
+            var result = await UserManager.ConfirmEmailAsync(userId, newcode);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
