@@ -189,6 +189,12 @@ namespace SimplySeniors.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        [AllowAnonymous]
+        public ActionResult Confirm(string Email)
+        {
+            ViewBag.Email = Email; 
+            return View();
+        }
 
         public void sendemail(ApplicationUser user)
         {
@@ -196,9 +202,9 @@ namespace SimplySeniors.Controllers
             new System.Net.Mail.MailAddress("", "Web Registration"),
             new System.Net.Mail.MailAddress(user.Email));
             m.Subject = "Email confirmation";
-            m.Body = string.Format("Dear {0} < BR /> Thank you for your registration, please click on the below link to complete your registration: < a href =\"{1}\" title =\"User Email Confirm\">{1}</a>",
+            m.Body = string.Format("<p> Dear {0} < BR /> Thank you for your registration, please click on the below link to complete your registration: < a href =\"{1}\" title =\"User Email Confirm\">{1}</a> </p>",
             user.UserName, Url.Action("ConfirmEmail", "Account",
-            new { Token = user.Id, Email = user.Email }, Request.Url.Scheme));
+            new { userId= user.Id, Code = user.Email }, Request.Url.Scheme));
             m.IsBodyHtml = true;
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
             smtp.UseDefaultCredentials = false;
