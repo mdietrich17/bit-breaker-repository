@@ -1,6 +1,8 @@
-﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
+﻿/*CONTENT FOR ALL PAGES*/
+
+body {
+    background-color: paleturquoise;
+   
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -9,12 +11,57 @@
     padding-right: 15px;
 }
 
+/*HOME PAGE STYLING BELOW*/
+
+#welcomeBanner {
+    text-align: center;
+    font-size: 5em;
+    padding-top: .5em;
+    font-weight: 800;
+}
+
+#homeHeader{
+    font-weight:600; 
+    padding-top:1em; 
+    text-align:center; 
+}
+
+#welcomeMessage {
+    
+    text-align: center;
+}
+
+#homeImage{
+    margin-left:70px; 
+}
+
+#homePhoto{
+    border:solid;
+    border-color:black; 
+    border-radius:40em; 
+    opacity:.4;
+}
+
+/*NAVBAR CUSTOMIZATION IS BELOW*/
+
+#navBar{
+    font-size: 2em;
+}
+
+li {
+    padding-right: 1em;
+}
+
+
 /* Override the default bootstrap behavior where horizontal description lists 
    will truncate terms that are too long to fit in the left column 
 */
 .dl-horizontal dt {
     white-space: normal;
 }
+
+
+
 
 /* Set width on the form input elements since they're 100% wide by default */
 input,
@@ -23,6 +70,3 @@ textarea {
     max-width: 280px;
 }
 
-.li {
-    padding: 2em;
-}
