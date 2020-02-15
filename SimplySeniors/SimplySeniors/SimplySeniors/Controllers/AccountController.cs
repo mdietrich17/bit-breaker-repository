@@ -182,8 +182,6 @@ namespace SimplySeniors.Controllers
                     sendemail(user);
                     return RedirectToAction("Confirm", "Account", new { Email = user.Email });
 
-
-                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
@@ -207,7 +205,7 @@ namespace SimplySeniors.Controllers
             new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Web Registration"),
             new System.Net.Mail.MailAddress(user.Email));
             m.Subject = "Email confirmation";
-            m.Body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the below link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">{1}</a> </p>",
+            m.Body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
             user.UserName, Url.Action("ConfirmEmail", "Account",
             new { userId= user.Id, Code = codeHtmlVersion }, protocol: Request.Url.Scheme));
             m.IsBodyHtml = true;
