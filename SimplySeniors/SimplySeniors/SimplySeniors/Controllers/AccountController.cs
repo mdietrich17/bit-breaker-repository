@@ -12,6 +12,7 @@ using SimplySeniors.Models;
 using Newtonsoft.Json;
 using System.Net;
 
+
 namespace SimplySeniors.Controllers
 {
     [Authorize]
@@ -168,20 +169,19 @@ namespace SimplySeniors.Controllers
                 if(response.Success == false) // if captcha fails redirect
                 {
                     return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString());
+                    
                 }
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
+
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    sendemail(user);
+                    return RedirectToAction("Confirm", "Account", new { Email = user.Email });
 
-                    return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
@@ -189,17 +189,48 @@ namespace SimplySeniors.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+        [AllowAnonymous]
+        public ActionResult Confirm(string Email)
+        {
+            ViewBag.Email = Email; 
+            return View();
+        }
+
+        public void sendemail(ApplicationUser user)
+        {
+            string code = UserManager.GenerateEmailConfirmationToken(user.Id);
+            string codeHtmlVersion = HttpUtility.UrlEncode(code);
+
+            System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+            new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Web Registration"),
+            new System.Net.Mail.MailAddress(user.Email));
+            m.Subject = "Email confirmation";
+            m.Body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
+            user.UserName, Url.Action("ConfirmEmail", "Account",
+            new { userId= user.Id, Code = codeHtmlVersion }, protocol: Request.Url.Scheme));
+            m.IsBodyHtml = true;
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("teamBitBreakers@gmail.com", "WesternOreg0n");
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+
+        }
 
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
+            string hi = userId;
+            string hello = code;
             if (userId == null || code == null)
             {
                 return View("Error");
             }
-            var result = await UserManager.ConfirmEmailAsync(userId, code);
+            var newcode = Server.UrlDecode(code);
+            var result = await UserManager.ConfirmEmailAsync(userId, newcode);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
         }
 
