@@ -204,7 +204,7 @@ namespace SimplySeniors.Controllers
             string codeHtmlVersion = HttpUtility.UrlEncode(code);
 
             System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
-            new System.Net.Mail.MailAddress("cherepanovdennis@gmail.com", "Web Registration"),
+            new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Web Registration"),
             new System.Net.Mail.MailAddress(user.Email));
             m.Subject = "Email confirmation";
             m.Body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the below link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">{1}</a> </p>",
@@ -213,7 +213,7 @@ namespace SimplySeniors.Controllers
             m.IsBodyHtml = true;
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
             smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential("cherepanovdennis@gmail.com", "Cherepanovvasilyfedora");
+            smtp.Credentials = new System.Net.NetworkCredential("teamBitBreakers@gmail.com", "WesternOreg0n");
             smtp.Port = 587;
             smtp.EnableSsl = true;
             smtp.Send(m);
