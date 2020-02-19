@@ -4,61 +4,80 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3>Profile Details</h3>
 
 <div>
-    <h4>Profile</h4>
+    <h1>@Html.DisplayFor(model => model.FIRSTNAME) @Html.DisplayFor(model => model.LASTNAME)</h1>
+    <h6>@Html.DisplayNameFor(model => model.VETSTATUS) @Html.DisplayFor(model => model.VETSTATUS)</h6>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FIRSTNAME)
-        </dt>
+    <!--Beware all who enter this land of divs-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.BIRTHDAY) </p>
+            </div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.LOCATION) </p>
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.BIRTHDAY)
+            </div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.LOCATION)
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div class="col-md-8">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.OCCUPATION) </p>
+            </div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.FAMILY) </p>
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.OCCUPATION)
+            </div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.FAMILY)
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div class="col-md-8">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.BIO) </p>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FIRSTNAME)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LASTNAME)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LASTNAME)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BIRTHDAY)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BIRTHDAY)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LOCATION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LOCATION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VETSTATUS)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VETSTATUS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BIO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BIO)
-        </dd>
-
-    </dl>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.BIO)
+            </div>
+            <div class="col-md"></div>
+        </div>
+    </div>
 </div>
 <p>
     @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
