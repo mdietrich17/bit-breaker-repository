@@ -47,7 +47,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,BIO")] Profile profile)
+        public ActionResult Create([Bind(Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,BIO")] Profile profile)
+        public ActionResult Edit([Bind(Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
             if (ModelState.IsValid)
             {
