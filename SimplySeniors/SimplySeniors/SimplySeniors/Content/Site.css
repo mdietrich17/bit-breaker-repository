@@ -2,6 +2,7 @@
 /*SECTIONS ON LEFT, MSGS ON RIGHT*/
 
 body {
+ 
     background-color: paleturquoise;
    
 }
@@ -16,7 +17,7 @@ textarea {
     max-width: 280px;                                   /* Set width on the form input elements since they're 100% wide by default */
 }
 
-.body-content {                                         /* Set padding to keep content from hitting the edges */
+.body-content { /* Set padding to keep content from hitting the edges */
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -68,11 +69,21 @@ li {
     text-align: center;
     color: black;
 }
-#resultsTable {
-    width: 80%;
-    margin-left: 10em;
+
+#resultsTable{
+    background: lightblue;
+    border: solid;
+    border-color: black;
+    width: 70%;
+    margin-left: 13em;
     color: black;
-    background-color: lightcyan;
+}
+
+#noProfilePhotoFoundImage{
+    width: 40%;
+
+    height: 50%;
+    padding: inherit;   
 }
 
 #searchAgain {
@@ -80,6 +91,30 @@ li {
     color: black;
 }
 
+tr {
+    padding: 2em;
+}
+
+#profileCardHeader {
+    font-weight: 900; 
+}
+
+#profileSearchNotFoundBox {
+    border-radius: 1em; 
+    text-align: center;
+}
+
+#profileCardBody {
+    text-align: left;
+}
+
 #searchHeader {
+    font-weight: 600; 
+    padding-top: 1em; 
     text-align: center; 
+}
+
+#searchBoxID:hover {
+    background: green;
+    border: black;
 }

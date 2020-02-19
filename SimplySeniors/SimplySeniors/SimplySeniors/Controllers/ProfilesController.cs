@@ -18,7 +18,7 @@ namespace SimplySeniors.Controllers
         // GET: Profiles
         public ActionResult Index()
         {
-            return View(db.Profiles.ToList());
+            return View();
         }
 
         // HTTP POST method was created for searching profiles in the Profiles/index. 
