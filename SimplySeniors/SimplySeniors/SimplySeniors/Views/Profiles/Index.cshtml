@@ -4,15 +4,18 @@
     ViewBag.Title = "Search Profiles";
 }
 
-<h1 id="searchHeader">Search for members within our community!</h1>
+<h1 id="searchHeader">Find members within our community!</h1>
 <br />
+
 @using (Html.BeginForm("Index", "Profiles", FormMethod.Post))
 {
-    <div class="container-fluid" style="font-size:large;" id="searchBox">
-        Search by a person's name: 
-        @Html.TextBox("searchString", null, new { style = "width: 4000px; height: 30px;", placeholder = "Partial matches will be found" })
-        <input type="submit" id="searchBoxID" value="Search Now" />
-    </div>
+    <div class="container" style="font-size:large;" id="searchBox">
+        <h3>Search by a person's name:
+        @Html.TextBox("searchString", null, new {id="textBox", style = "border-radius:6px; font-size:20px; width: 5000px; height: 40px;", placeholder = "Partial matches will be found"})
+        <input class="form-control-lg" type="submit" id="searchBoxID" value="Search Now" />
+    </h3>
+        </div>
+
     <br />
 
     if (Model != null)
@@ -22,7 +25,7 @@
 
             <table class="table table-striped table-dark" id="resultsTable">
                 <tr>
-                    <th>@Html.Label("Profile Photo")</th>
+                    <th id="photoHeader">@Html.Label("Profile Photo")</th>
                     <th>@Html.Label("Person's Name")</th>
                     <th>@Html.Label("Location")</th>
                     <th> </th>
@@ -32,11 +35,9 @@
                 @foreach (var item in Model) // Iterate through all items in the model to produce search results.
                 {
                     <tr>
-                      
-
                         <td>
                             <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                       </td>
+                        </td>
                         <td>
                             @Html.DisplayFor(modelItem => item.FIRSTNAME)
                             @Html.DisplayFor(modelItem => item.LASTNAME)
@@ -44,7 +45,7 @@
                         <td>@Html.DisplayFor(modelItem => item.LOCATION)</td>
                         <td>
                         <td>
-                            @Html.ActionLink("See Profile", "Details", new {id = item.ID})
+                            @Html.ActionLink("See Profile", "Details", new { id = item.ID })
                         </td>
                     </tr>
                 }
@@ -58,11 +59,10 @@
             <div class="card" id="profileSearchNotFoundBox">
                 <div class="card-header">
                     <h1 id="profileCardHeader">Yikes!</h1>
-
                 </div>
                 <div class="card-body" id="profileCardBody">
-                    <h2>The name you searched for was not found, please use the link above to try again.</h2>
-                    </div>
+                    <h2>No records were found that matched your search, please use the link above to try again.</h2>
+                </div>
             </div>
 
         }
