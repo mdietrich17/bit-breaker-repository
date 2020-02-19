@@ -30,14 +30,16 @@
     <div class="container body-content">
         @RenderBody()
         <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - BitBreakers Industries</p>
-        </footer>
-    </div>
+        <div class="footer">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - BitBreakers Industries</p>
+            </footer>
+            </div>
+        </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    <script src='https://www.google.com/recaptcha/api.js'></script>
-    @RenderSection("scripts", required: false)
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        <script src='https://www.google.com/recaptcha/api.js'></script>
+        @RenderSection("scripts", required: false)
 </body>
 </html>
