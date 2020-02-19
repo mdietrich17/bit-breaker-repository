@@ -17,10 +17,12 @@
                     <span class="icon-bar"></span>
                  </button>
                 @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                
             </div>
             <div class="collapse navbar-collapse" id="navBar">
                 <ul class="navbar-nav mr-auto">
                     <li id="navBarItem">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li id="navBarItem">@Html.ActionLink("Profile Index", "Index", "Profiles")</li>
                </ul>
                 @Html.Partial("_LoginPartial")
             </div>
