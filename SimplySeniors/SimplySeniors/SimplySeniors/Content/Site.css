@@ -64,6 +64,22 @@ li {
 
 /* PROFILE SEARCH PAGE STYLING BELOW*/
 
+#searchBox {
+    text-align: center;
+    color: black;
+}
+#resultsTable {
+    width: 80%;
+    margin-left: 10em;
+    color: black;
+    background-color: lightcyan;
+}
 
+#searchAgain {
+    text-align: center;
+    color: black;
+}
 
-
+#searchHeader {
+    text-align: center; 
+}
