@@ -218,6 +218,8 @@ namespace SimplySeniors.Controllers
 
         }
 
+
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
@@ -242,6 +244,25 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
+        public void sendemailpass(ApplicationUser user, string code)
+        {
+            System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+            new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Password Reset"),
+            new System.Net.Mail.MailAddress(user.Email));
+            m.Subject = "Password Reset";
+            m.Body = string.Format("<p> Dear {0} <br/> Hi we heard you wanted to reset your password, please click on the link to reset your password: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
+            user.UserName, Url.Action("ResetPassword", "Account",
+            new { userId = user.Id, Code = code }, protocol: Request.Url.Scheme));
+            m.IsBodyHtml = true;
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("teamBitBreakers@gmail.com", "WesternOreg0n");
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+
+        }
+
         //
         // POST: /Account/ForgotPassword
         [HttpPost]
@@ -260,10 +281,11 @@ namespace SimplySeniors.Controllers
 
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
-                // string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
+                sendemailpass(user, code);
                 // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
                 // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
-                // return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
             // If we got this far, something failed, redisplay form
