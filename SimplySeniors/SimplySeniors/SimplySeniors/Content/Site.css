@@ -1,12 +1,22 @@
 ﻿/*CONTENT FOR ALL PAGES*/
+/*SECTIONS ON LEFT, MSGS ON RIGHT*/
 
 body {
     background-color: paleturquoise;
    
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
+.dl-horizontal dt {                                     /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
+    white-space: normal;
+}
+                                                  
+input,
+select,
+textarea {
+    max-width: 280px;                                   /* Set width on the form input elements since they're 100% wide by default */
+}
+
+.body-content {                                         /* Set padding to keep content from hitting the edges */
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -52,21 +62,8 @@ li {
     padding-right: 1em;
 }
 
-
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
-}
+/* PROFILE SEARCH PAGE STYLING BELOW*/
 
 
 
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
-}
 

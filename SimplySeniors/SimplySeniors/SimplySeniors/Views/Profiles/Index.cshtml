@@ -1,78 +1,55 @@
 ﻿@model IEnumerable<SimplySeniors.Models.Profile>
 
 @{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Search Profiles";
 }
 
+<h1 id="searchHeader">Search for members of the community</h1>
+<br />
+@using (Html.BeginForm("Index", "Profiles", FormMethod.Post))
+{
+    <div class="container-fluid" style="font-size:large;" id="searchBox">
+        Enter your search here:
+        @Html.TextBox("searchString", null, new { style = "width: 4000px; height: 30px;", placeholder = "    Partial matches will be found" })
+        <input type="submit" id="searchBoxID" value="Search Now" />
+    </div>
+    <br />
 
-<h2>Index</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.FIRSTNAME)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LASTNAME)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BIRTHDAY)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.LOCATION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.VETSTATUS)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.OCCUPATION)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.FAMILY)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.BIO)
-        </th>
-        <th></th>
-    </tr>
-
-    @foreach (var item in Model)
+    if (Model != null)
     {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.FIRSTNAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LASTNAME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BIRTHDAY)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LOCATION)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.VETSTATUS)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.OCCUPATION)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FAMILY)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.BIO)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
-                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-            </td>
-        </tr>
+        if (Model.Count() != 0) // checking to make sure that there are items in the model.
+        {
+            <table class="table-bordered" id="resultsTable">
+                <tr>
+                    <th>@Html.Label("Person's Name")</th>
+                    <th>@Html.Label("Details Below")</th>
+                </tr>
+
+                @foreach (var item in Model) // Iterate through all items in the model to produce search results.
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FIRSTNAME)
+                            @Html.DisplayFor(modelItem => item.LASTNAME)
+                        </td>
+                        <td>
+                            @Html.ActionLink("Details", "Details", new { id = item.ID })
+                        </td>
+                    </tr>
+                }
+            </table>
+        }
+        else
+        {
+            <div id="searchAgain">
+                @Html.ActionLink("Start a new search", "Index")
+            </div>
+            <div class="container">
+                <h2> You have searched for something we cannot find, please try again.</h2>
+            </div>
+
+        }
+
     }
 
-</table>
+}
