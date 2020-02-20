@@ -59,6 +59,11 @@ textarea {
     font-size: 2em;
 }
 
+#nabarLoginContainer {
+    font-size: 14px;
+    color: white;
+}
+
 li {
     padding-right: 1em;
 }

@@ -1,4 +1,6 @@
-﻿<!DOCTYPE html>
+﻿@using SimplySeniors.Models
+@model LoginViewModel
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -15,9 +17,9 @@
             <div class="navbar-brand">
                 <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
-                 </button>
+                </button>
                 @Html.ActionLink(" ", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-                
+
             </div>
             <div class="collapse navbar-collapse" id="navBar">
                 <ul class="navbar-nav mr-auto">
@@ -25,10 +27,34 @@
                     <li id="navBarItem">@Html.ActionLink("Search Profiles", "Index", "Profiles")</li>
                     <li id="navBarItem">@Html.ActionLink("Services", "Services", "Home")</li>
                 </ul>
-                @Html.Partial("_LoginPartial")
+                @*@Html.Partial("_LoginPartial")*@
+                <div class="col-md-12" id="nabarLoginContainer">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Email, new { @class = "control-label" })
+                            <div class="col-sm-4">
+                                @Html.TextBoxFor(m => m.Email, new { @class = "form-inline" })
+                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            </div>
+
+                            @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 control-label" })
+                        
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-inline" })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                <input type="submit" value="Log in" class="btn btn-outline-primary" />
+                        
+                        </div>
+
+                    }
+                </div>
             </div>
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
