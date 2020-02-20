@@ -1,0 +1,14 @@
+﻿
+@{
+    ViewBag.Title = "AfterLogin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<h2>After Login</h2>
+@if (Session["log"] != null)
+{
+<p>
+    You are sucessfully signed in now!
+    Welcome @Session["log"].ToString() + "feel free to look around"
+    
+</p>
+}  

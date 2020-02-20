@@ -56,17 +56,15 @@ textarea {
 /*NAVBAR CUSTOMIZATION IS BELOW*/
 
 #navBar{
-    font-size: 24px;
+    font-size: 28px;
 }
 
 #nabarLoginContainer {
-    margin-left: 22em;
-    font-size: 14px;
+    margin-left: 13em;
+    font-size: 18px;
     border-radius: 1em; 
     background: lightblue;
- 
-
-    float: right;
+    
 }
 
 #navbarLoginButton {
@@ -76,6 +74,10 @@ textarea {
 #navbarFormGroup {
 
     padding: 1em; 
+}
+
+#navbarFormGroup.border {
+    color: black;
 }
 
 label {

@@ -363,6 +363,7 @@
     <Content Include="Views\Profiles\Index.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
     <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Account\AfterLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

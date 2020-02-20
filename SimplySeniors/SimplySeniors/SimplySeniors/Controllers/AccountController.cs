@@ -94,6 +94,18 @@ namespace SimplySeniors.Controllers
             }
         }
 
+        public ActionResult AfterLogin()
+        {
+            if (Session["log"] != null)
+            {
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
+        }
+
         //
         // GET: /Account/VerifyCode
         [AllowAnonymous]
