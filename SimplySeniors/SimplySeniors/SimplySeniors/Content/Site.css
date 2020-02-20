@@ -75,6 +75,11 @@ li {
     color: black;
 }
 
+#searchBoxID:hover {
+    background: lightgreen;
+    border: black;
+}
+
 #resultsTable{
     background: lightblue;
     border: solid;
@@ -95,7 +100,6 @@ li {
     text-align: center;
     color: black;
 }
-
 
 #profileCardHeader {
     font-weight: 900; 
@@ -123,8 +127,30 @@ li {
     padding-top: 1em; 
     text-align: center; 
 }
+/*SERVICES PAGE STYLING BELOW*/
 
-#searchBoxID:hover {
-    background: lightgreen;
-    border: black;
+#firstSlide, #secondSlide, #thirdSlide {
+    border-radius: 40em; 
+    opacity: .3;
+    height: 100%;
+    margin-left: 250px; 
 }
+
+#servicesCarouselText {
+  color: black;
+  padding-bottom: 10em; 
+}
+#myCarousel {
+    padding-bottom: 4em; 
+}
+
+#servicesHeader {
+    font-size: 50px; 
+    font-weight: 600; 
+    border-radius: .5em;
+    border: white; 
+    padding: 1em;
+    text-align: center;
+ 
+}
+

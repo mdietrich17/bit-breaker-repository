@@ -1,0 +1,99 @@
+﻿
+@{
+    ViewBag.Title = "Services";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1 id="servicesHeader">Services offered by and for our community!</h1>
+
+<div id="myCarousel" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
+        <li data-target="#myCarousel" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img class="first-slide" id="firstSlide" src="/Photos/carPhotoOne.jpg" alt="First slide">
+            <div class="container">
+                <div class="carousel-caption text-center" id="servicesCarouselText">
+                    <h1>We will be adding services regularly</h1>
+                    <p>Please check back often and prepare to be amazed! Make an account now if you need one.</p>
+                    <p><a class="btn btn-lg btn-primary" href="/Account/Register" role="button">Register Today!</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="second-slide" id="secondSlide" src="/Photos/carPhotoTwo.jpg" alt="Second slide">
+            <div class="container">
+                <div class="carousel-caption text-center" id="servicesCarouselText">
+                    <h1>We will offer Help !</h1>
+                    <p>check out our help section from the options above if you would like to see what we have. </p>
+                </div>
+            </div>
+        </div>
+        <div class="carousel-item">
+            <img class="third-slide" id="thirdSlide" src="/Photos/carPhotoThree.jpg" alt="Third slide">
+            <div class="container">
+                <div class="carousel-caption text-center" id="servicesCarouselText">
+                    <h1>Events are coming soon!</h1>
+                    <p>Soon you will be able to add  your own events and find events that are going on around you! Please be patient we are currently undergoing construction. </p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+    </a>
+</div>
+<div class="container marketing">
+
+    <div class="row">
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="/Photos/aarp.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>AARP</h2>
+            <p>American Association of Retired Persons (AARP), nonprofit, nonpartisan organization that works to address the needs and interests of middle-aged and elderly people in the United States. Its membership is open to all persons age 50 or older, whether working or retired. It is headquartered in Washington, D.C.</p>
+            <p><a class="btn btn-secondary" href="https://www.aarp.org/" role="button">See their site &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <img class="rounded-pill" src="/Photos/meals.jpg" alt="Generic placeholder image" width="140" height="140">
+            <h2>MEALS</h2>
+            <p>Meals on Wheels are hot, nutritious lunches that are delivered Monday through Friday to the homebound elderly who meet these requirements: 60 years of age or older (or the spouse of a person 60 years of age or older) ... unable to come in to a Meals on Wheels People center for a meal.</p>
+            <p><a class="btn btn-secondary" href="https://www.marionpolkfoodshare.org/programs/meals-on-wheels/" role="button">More Info &raquo;</a></p>
+        </div>
+        <div class="col-lg-4">
+            <img class="rounded-circle" src="/Photos/lyft.png" alt="Generic placeholder image" width="140" height="140">
+            <h2>LYFT</h2>
+            <p>Ridesharing matches you with a nearby driver who will pick you up and take you where you want to go. Lyft is the app you use to get a ride in minutes. Just tap request and a driver's there. By taking Lyft, you can help your community reduce traffic and take cars off the road</p>
+            <p><a class="btn btn-secondary" href="https://www.lyft.com/blog/posts/how-does-lyft-work" role="button">Find out more &raquo;</a></p>
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7">
+            <h2 class="featurette-heading">Your development team.<span class="text-muted"> We're working hard to bring you features!</span></h2>
+            <p class="lead"></p>Our vision is to build a web application for seniors (those who are 65+) who need a convenient, easy way to socialize and find activities. The Simply Seniors website is an information system that will provide a single, convenient point of access for seniors to find people and services near them. This includes information about events close to their proximity that may interest them, ways to group up with others with similar interests to join those events, and a convenient, easy to read, use, and navigate platform for seniors. Unlike other social media sites, our product will be very easy to use for seniors with a simple, generic, and convenient layout, as well as have seniors be able to find activities of interest near them, and be able to pair up with others with similar interests.
+        </div>
+        <div class="col-md-5">
+            <img class="featurette-image img-fluid mx-auto" src="/Photos/devTeam.jpg" alt="Generic placeholder image">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+    <div class="row featurette">
+        <div class="col-md-7 order-md-2">
+            <h2 class="featurette-heading">Oh yeah, it's going to be good.<span class="text-muted"> See for yourself.</span></h2>
+            <p class="lead">We intend to be done with development in June of 2020. That will have all features included and working. We utilize an Agile delivery system that focuses on Continuous Deployment. The illustration to the left shows this process. Please stay with us while we release things to make your experience even better. If you have any questions or comments please notify us, we would love to hear from you.</p>
+        </div>
+        <div class="col-md-5 order-md-1">
+            <img class="featurette-image img-fluid mx-auto" src="/Photos/development.png" width="400px" height="440px alt="Generic placeholder image">
+        </div>
+    </div>
+    <hr class="featurette-divider">
+
+</div>
