@@ -27,3 +27,11 @@ INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS,
 	('Leif', 'Eriksson', '0970-11-15', 'Vinland', 1, 'Viking turned Explorer','Leif Liefsson', 'I found Canada, pretty cool eh?' ),
 	('Marco', 'Polo', '1254-01-08', 'Peking', 0, 'Explorer turned pool game', 'MARCO! POLO!', 'Mongolia rough yo'),
 	('Sacagawea', 'Shoshone', '1788-05-01', 'Astoria', 0, 'Actual Explorer', 'Sacagawea but on a coin', 'I led dudes accross the United States')
+
+INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO) VALUES
+	('Bill', 'Gates', '1962-02-01', 'Seattle', 0, 'Inventer', 'Melinda Gates' ,'I am allergic to apples'),
+	('Steve', 'Jobs', '1964-10-03', 'Seattle', 0, 'Inventer','Eve Jobs', 'I only use doors, no windows'),
+	('Elon', 'Musk', '1971-06-28', 'Canada', 0, 'Visionary', 'Talulah Riley', 'I like sending cars to space and buiding weird machines' ),
+	('Mark', 'Zuckerberg', '1984-05-14', 'New York', 1, 'Tech Kid','Priscilla Chan', 'I always have to explain how the internet works to politicians' ),
+	('Soros', 'George', '1930-08-12', 'Hungary', 0, 'Investor', 'Tamiko Bolton', 'I give money to places to make way more money back'),
+	('Buffett', 'Warren', '1930-08-30', 'Nebraska', 0, 'American Business Magnate', 'Astrid Menks', 'If you fail today then learn and push forward for tomorrow')
