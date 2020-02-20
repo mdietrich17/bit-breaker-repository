@@ -56,16 +56,34 @@ textarea {
 /*NAVBAR CUSTOMIZATION IS BELOW*/
 
 #navBar{
-    font-size: 2em;
+    font-size: 24px;
 }
 
 #nabarLoginContainer {
+    margin-left: 22em;
     font-size: 14px;
-    color: white;
+    border-radius: 1em; 
+    background: lightblue;
+ 
+
+    float: right;
+}
+
+#navbarLoginButton {
+   margin-left: .5em; 
+}
+
+#navbarFormGroup {
+
+    padding: 1em; 
+}
+
+label {
+    padding: .5em; 
 }
 
 li {
-    padding-right: 1em;
+    padding-right: 2em;
 }
 
 /* PROFILE SEARCH PAGE STYLING BELOW*/

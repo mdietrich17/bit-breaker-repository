@@ -24,28 +24,24 @@
             <div class="collapse navbar-collapse" id="navBar">
                 <ul class="navbar-nav mr-auto">
                     <li id="navBarItem">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li id="navBarItem">@Html.ActionLink("Search Profiles", "Index", "Profiles")</li>
+                    <li id="navBarItem">@Html.ActionLink("Search", "Index", "Profiles")</li>
                     <li id="navBarItem">@Html.ActionLink("Services", "Services", "Home")</li>
                 </ul>
                 @*@Html.Partial("_LoginPartial")*@
-                <div class="col-md-12" id="nabarLoginContainer">
+                <div class="col-md-7" id="nabarLoginContainer">
                     @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-inline", role = "form" }))
                     {
                         @Html.AntiForgeryToken()
 
                         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                        <div class="form-group">
+                        <div class="form-group" id="navbarFormGroup">
                             @Html.LabelFor(m => m.Email, new { @class = "control-label" })
-                            <div class="col-sm-4">
-                                @Html.TextBoxFor(m => m.Email, new { @class = "form-inline" })
-                                @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
-                            </div>
-
-                            @Html.LabelFor(m => m.Password, new { @class = "col-sm-2 control-label" })
-                        
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-inline" })
-                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                                <input type="submit" value="Log in" class="btn btn-outline-primary" />
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-inline" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+                            @Html.LabelFor(m => m.Password, new { @class = "control-label" })
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-inline" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            <input type="submit" id="navbarLoginButton" value="Sign In Now" class="btn btn-outline-primary" />
                         
                         </div>
 
