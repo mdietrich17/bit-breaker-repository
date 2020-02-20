@@ -1,6 +1,6 @@
 ﻿
-ALTER TABLE [dbo].[HobbyBridge] DROP CONSTRAINT [FK_dbo.Profiles_dbo.Hobbies_HobbiesID]
-ALTER TABLE [dbo].[HobbyBridge] DROP CONSTRAINT [FK_dbo.Profiles_dbo.Profile_ProfileID]
+ALTER TABLE [dbo].[HobbyBridge] DROP CONSTRAINT [FK_dbo.HobbyBridge_dbo.Hobbies_ID]
+ALTER TABLE [dbo].[HobbyBridge] DROP CONSTRAINT [FK_dbo.HobbyBridge_dbo.Profile_ID]
 
 
 DROP TABLE [dbo].[Profile]
