@@ -2,34 +2,47 @@
 @{
     ViewBag.Title = "HelpPage";
 }
+<!--Including construction emojis/stickers-->
+    <head>
+        <meta name='viewport' content='width=device-width, initial-scale=1'>
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <!--Get your own code at fontawesome.com-->
+    </head>
 
 <!-- Side navigation -->
-    <div class="sidenav">
-        <br /><br />
-        <a id="CreateAcc" href="#">Creating an Account</a>
-        <a id="HomePage" href="#">Home</a>
-        <a id="ProfilePage" href="#">Profile</a>
-        <a id="Friend" href="#">Friending</a>
-        <a id="Messaging" href="#">Messaging</a>
-        <a id="Services" href="#">Services</a>
-        <a id="Events" href="#">Events</a>
-        <a id="FAQ" href="#">FAQ</a>
-        <a id="Contact" href="#">Contact Us</a>
-        <a id="Vids" href="#">Help Videos</a>
-    </div>
+<div class="sidenav">
+    <br /><br />
+    <a id="CreateAcc" href="#">Creating an Account</a>
+    <a id="HomePage" href="#">Home</a>
+    <a id="ProfilePage" href="#">Profile</a>
+    <a id="Friend" href="#">Friending</a>
+    <a id="Messaging" href="#">Messaging</a>
+    <a id="Services" href="#">Services</a>
+    <a id="Events" href="#">Events</a>
+    <a id="FAQ" href="#">FAQ</a>
+    <a id="Contact" href="#">Contact Us</a>
+    <a id="Vids" href="#">Help Videos</a>
+</div>
 
 <!-- Page content -->
 <div class="main">
-    <br />
-    <h2 id="helpTitle">Help and Information Center</h2>
+    <br /><br />
+    <h2 id="helpTitle">Help and Information Center</h2><br />
     <div id="descBox">
         <div id="descriptionOutside">
-            <div id="description">Welcome to the Help Page! Select a button on the left-hand side to learn more about our website's features.</div>
+            <div id="description">
+                Welcome to the <b>Help Page</b>! Select a button on the left-hand side to learn more about our website's features. <br /><br /> Please be patient as we are <i style='font-size:18px' class='fas'>&#xf7d9;</i>
+                currently undergoing construction <i style='font-size:18px' class='fas'>&#xf6e3;</i> and developing features for this website for you to enjoy. As we progress through the construction phase, we will add more to our <b>Help Page</b>. We plan to be done with construction by June of 2020. Thank you very much for your patience. In the meantime, enjoy what we do have to offer and continuously add throughout the construction process!
+            </div>
+        </div>
+        <div id="helpPic">
+            <img src="/Photos/help.PNG" alt="HelpPic">
         </div>
     </div>
     <br />
 </div>
 
-    @section scripts {
-        <script type="text/javascript" src="~/Scripts/main.js"></script>
-    }
+
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+}

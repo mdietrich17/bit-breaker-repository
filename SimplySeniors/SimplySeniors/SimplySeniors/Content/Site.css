@@ -197,7 +197,7 @@ li {
 /*Title at top of help page*/
 #helpTitle {
     margin-left: 200px;
-    text-shadow: 2px 2px blue;
+    text-shadow: 2px 2px white;
 }
 
 /* Description box for help page */
@@ -207,7 +207,7 @@ li {
     border: 3px solid;
     padding: 50px;
     margin: 20px;
-    border-radius: 50px;
+    border-radius: 10px;
 }
 
 #descTitle {
@@ -218,6 +218,18 @@ li {
 #FAQList li {
     font-weight: bold;
 }
+
+#helpPic {
+    margin-left: 200px;
+}
+
+    #helpPic img {
+        max-width: 35%;
+        margin-left: 570px;
+        margin-bottom: -70px;
+        margin-top: -170px;
+        opacity: 0.5;
+    }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
