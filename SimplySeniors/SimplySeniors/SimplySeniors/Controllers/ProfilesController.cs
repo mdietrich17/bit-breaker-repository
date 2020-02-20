@@ -18,8 +18,26 @@ namespace SimplySeniors.Controllers
         // GET: Profiles
         public ActionResult Index()
         {
-            return View(db.Profiles.ToList());
+            return View();
         }
+
+        // HTTP POST method was created for searching profiles in the Profiles/index. 
+        [HttpPost]
+        public ActionResult Index(string searchString)
+        {
+            {
+                IQueryable<Profile> products = db.Profiles;
+                ViewBag.Message = "Sorry your product is not found";         // Insert message if item is not found. 
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    products = products.Where(s => s.LASTNAME.Contains(searchString));   // Searching for matches through last name. 
+                }
+                return View(products.ToList());
+            }
+        }
+
+
 
         // GET: Profiles/Details/5
         public ActionResult Details(int? id)

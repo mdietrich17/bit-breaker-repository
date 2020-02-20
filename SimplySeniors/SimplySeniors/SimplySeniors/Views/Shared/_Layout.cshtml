@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Simply Seniors</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> @* Loading Bootstrap sytlesheet - make sure to keep it as the first stylesheet listed.*@
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> @* Loading Bootstrap stylesheet - make sure to keep it as the first stylesheet listed.*@
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -22,9 +22,7 @@
             <div class="collapse navbar-collapse" id="navBar">
                 <ul class="navbar-nav mr-auto">
                     <li id="navBarItem">@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li id="navBarItem">@Html.ActionLink("Profile Index", "Index", "Profiles")</li>
-
-
+                    <li id="navBarItem">@Html.ActionLink("Search Profiles", "Index", "Profiles")</li>
                     <li id="navBarItem">@Html.ActionLink("Services", "Services", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")

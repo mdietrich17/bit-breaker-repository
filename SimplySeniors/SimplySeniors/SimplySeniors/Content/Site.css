@@ -1,12 +1,23 @@
 ﻿/*CONTENT FOR ALL PAGES*/
+/*SECTIONS ON LEFT, MSGS ON RIGHT*/
 
 body {
+ 
     background-color: paleturquoise;
    
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
+.dl-horizontal dt {                                     /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
+    white-space: normal;
+}
+                                                  
+input,
+select,
+textarea {
+    max-width: 280px;                                   /* Set width on the form input elements since they're 100% wide by default */
+}
+
+.body-content { /* Set padding to keep content from hitting the edges */
     padding-left: 15px;
     padding-right: 15px;
 }
@@ -52,26 +63,70 @@ li {
     padding-right: 1em;
 }
 
+/* PROFILE SEARCH PAGE STYLING BELOW*/
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+#searchBox {
+    background: lightblue;
+    border: solid;
+    width: 80%;
+    padding: 2em;
+    border-radius: 3em; 
+    text-align: center;
+    color: black;
 }
 
-
-
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#searchBoxID:hover {
+    background: lightgreen;
+    border: black;
 }
 
+#resultsTable{
+    background: lightblue;
+    border: solid;
+    border-color: black;
+    width: 70%;
+    margin-left: 11em;
+    color: black;
+}
 
+#noProfilePhotoFoundImage{
+    width: 40%;
 
+    height: 50%;
+    padding: inherit;   
+}
+
+#searchAgain {
+    text-align: center;
+    color: black;
+}
+
+#profileCardHeader {
+    font-weight: 900; 
+}
+
+#profileSearchNotFoundBox {
+    border-radius: 1em; 
+    text-align: center;
+}
+
+#profileCardBody {
+    text-align: left;
+}
+
+#photoHeader {
+    padding-left:2em; 
+}
+
+#textBox:hover {
+    
+}
+
+#searchHeader {
+    font-weight: 600; 
+    padding-top: 1em; 
+    text-align: center; 
+}
 /*SERVICES PAGE STYLING BELOW*/
 
 #firstSlide, #secondSlide, #thirdSlide {
@@ -98,3 +153,4 @@ textarea {
     text-align: center;
  
 }
+
