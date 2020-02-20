@@ -9,12 +9,28 @@
 	[OCCUPATION] NVARCHAR (128) NOT NULL,
 	[FAMILY] NVARCHAR (128), /*Probably needs to make a new table if we want to add feature*/ 
 	[BIO] NVARCHAR (2048)
-	CONSTRAINT [PK_dbo.Profiles] PRIMARY KEY CLUSTERED ([ID] ASC)
+	CONSTRAINT [PK_dbo.Profile] PRIMARY KEY CLUSTERED ([ID] ASC)
 	/**
 	FOR FUTURE USE PROBABLY
 	CONSTRAINT [FK_dbo.Profiles_dbo.Friends_FriendsID] FOREIGN KEY ([FriendsID]) REFERENCES dbo.Friends ([ID])
 	CONSTRAINT [FK_dbo.Profiles_dbo.Groups_GroupID] FOREIGN KEY ([GroupID]) REFERENCES dbo.Groups ([ID])
 	**/
+);
+
+CREATE TABLE [dbo].[Hobbies]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[NAME] NVARCHAR (30) NOT NULL,
+	[DESCRIPTION] TEXT NOT NULL
+	CONSTRAINT [PK_dbo.Hobbies] PRIMARY KEY CLUSTERED ([ID] ASC)
+);
+
+CREATE TABLE [dbo].[HobbyBridge]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	CONSTRAINT [FK_dbo.Profiles_dbo.Hobbies_HobbiesID] FOREIGN KEY ([ID]) REFERENCES dbo.Hobbies ([ID]),
+	CONSTRAINT [FK_dbo.Profiles_dbo.Profile_ProfileID] FOREIGN KEY ([ID]) REFERENCES dbo.Profile ([ID]),
+	CONSTRAINT [PK_dbo.HobbyBridge] PRIMARY KEY CLUSTERED ([ID] ASC)
 );
 
 
@@ -35,3 +51,8 @@ INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS,
 	('Mark', 'Zuckerberg', '1984-05-14', 'New York', 1, 'Tech Kid','Priscilla Chan', 'I always have to explain how the internet works to politicians' ),
 	('Soros', 'George', '1930-08-12', 'Hungary', 0, 'Investor', 'Tamiko Bolton', 'I give money to places to make way more money back'),
 	('Buffett', 'Warren', '1930-08-30', 'Nebraska', 0, 'American Business Magnate', 'Astrid Menks', 'If you fail today then learn and push forward for tomorrow')
+
+INSERT INTO [dbo].[Hobbies] (NAME, DESCRIPTION) VALUES
+	('Golf', 'A boring sport that old people and Tiger Woods play'),
+	('Fishing', 'A slow activity that old people and young boomers do'),
+	('Bingo', 'An activity that both the young and the old enjoy')
