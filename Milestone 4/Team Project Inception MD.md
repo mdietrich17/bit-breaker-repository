@@ -403,6 +403,11 @@ Timeline and Release Plan
 =====================================
 We intend to follow the continuous release method that has been outline for us to follow (intermittently released every 2 weeks in 2 week sprint cycles). Our release will be hosted on Azure’s Cloud platform throughout the entirety of this project. 
  We will be utilizing Github as a team repository and tracking software to maximize efficiency. All work will be tracked with online tool named Pivotal Tracker. Pivotal will be used to track all EPICS and user stories and also to assign work to developers. We will utilize this tool to track our backlog and use it to prioritize user stories based on Product Owner feedback. Bit Breakers intends to launch our full release in June 2020. 
+
+A more detailed timeline of our project can be found here: [Simply Seniors Timeline](Timeline.jpeg) 
+or click on the following link: https://www.lucidchart.com/documents/edit/31ceec1a-6c55-477a-9b54-6a11e0280966?shared=true#
+
+
 01/22/2020 - 02/03/2020 ---- Inception and modeling phase
 
 Identification of Risks
