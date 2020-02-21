@@ -33,8 +33,6 @@ CREATE TABLE [dbo].[HobbyBridge]
 	CONSTRAINT [PK_dbo.HobbyBridge] PRIMARY KEY CLUSTERED ([ID] ASC),
 	CONSTRAINT [FK_dbo.HobbyBridge_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID]),
 	CONSTRAINT [FK_dbo.HobbyBridge_dbo.Hobbies_ID] FOREIGN KEY ([HobbiesID]) REFERENCES [dbo].[Hobbies] ([ID])
-	
-	
 );
 
 
@@ -59,12 +57,18 @@ INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS,
 INSERT INTO [dbo].[Hobbies] (NAME, DESCRIPTION) VALUES
 	('Golf', 'A boring sport that old people and Tiger Woods play'),
 	('Fishing', 'A slow activity that old people and young boomers do'),
-	('Bingo', 'An activity that both the young and the old enjoy')
+	('Bingo', 'An activity that both the young and the old enjoy'),
+	('Hunting', 'Age old boomer activity to rid the world of deer'),
+	('Cartography', 'Age old activity to show boomers places they havent destroyed'),
+	('Pillaging', 'Acient activity now labeled, "Nestle Corporation"')
 
 INSERT INTO [dbo].[HobbyBridge] (ProfileID, HobbiesID) VALUES
-	(6, 1),
 	(6, 2),
-	(6, 3),
+	(6, 4),
+	(6, 5),
 	(1, 1),
 	(1, 2),
-	(1, 3)
+	(1, 3),
+	(2, 3),
+	(4, 6),
+	(5, 6)
