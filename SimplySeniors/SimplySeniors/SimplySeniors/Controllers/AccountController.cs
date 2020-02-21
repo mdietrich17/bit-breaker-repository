@@ -166,11 +166,7 @@ namespace SimplySeniors.Controllers
 
             if (ModelState.IsValid)
             {
-                if(response.Success == false) // if captcha fails redirect
-                {
-                    return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString());
-                    
-                }
+
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
@@ -179,9 +175,12 @@ namespace SimplySeniors.Controllers
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                     // Send an email with this link
-                    sendemail(user);
-                    return RedirectToAction("Confirm", "Account", new { Email = user.Email });
-
+                    if (response.Success == true) //captcha worked, move on ahead
+                    {
+                        sendemail(user);
+                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+                    }
+                    else {return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString()); } //captcha failed redirect. 
                 }
                 AddErrors(result);
             }
@@ -278,8 +277,6 @@ namespace SimplySeniors.Controllers
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
                 }
-                var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
-
                 // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
