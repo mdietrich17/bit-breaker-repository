@@ -8,12 +8,14 @@ using System.Web;
 using System.Web.Mvc;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
+using SimplySeniors.Models.ViewModel;
 
 namespace SimplySeniors.Controllers
 {
     public class ProfilesController : Controller
     {
         private ProfileContext db = new ProfileContext();
+        private HobbiesContext db2 = new HobbiesContext();
 
         // GET: Profiles
         public ActionResult Index()
@@ -47,11 +49,15 @@ namespace SimplySeniors.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Profile profile = db.Profiles.Find(id);
+
+            IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME);
+            string hobbies = string.Join(", ", bridges.ToList());
+            PDViewModel viewModel = new PDViewModel(profile, hobbies);
             if (profile == null)
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            return View(viewModel);
         }
 
         // GET: Profiles/Create

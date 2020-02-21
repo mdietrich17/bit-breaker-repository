@@ -1,4 +1,4 @@
-﻿@model SimplySeniors.Models.Profile
+﻿@model SimplySeniors.Models.ViewModel.PDViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -7,28 +7,36 @@
 <h3>Profile Details</h3>
 
 <div>
-    <h1>@Html.DisplayFor(model => model.FIRSTNAME) @Html.DisplayFor(model => model.LASTNAME)</h1>
-    <h6>@Html.DisplayNameFor(model => model.VETSTATUS) @Html.DisplayFor(model => model.VETSTATUS)</h6>
+    <h1>@Html.DisplayFor(model => model.ProfileFirstName) @Html.DisplayFor(model => model.ProfileLastName)</h1>
+    <h6>@Html.DisplayNameFor(model => model.ProfileVet) @Html.DisplayFor(model => model.ProfileVet)</h6>
     <hr />
     <!--Beware all who enter this land of divs-->
     <div class="container">
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md">
-                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.BIRTHDAY) </p>
-            </div>
-            <div class="col-md">
-                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.LOCATION) </p>
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ListHobbies)</p>
+                @Html.DisplayFor(model => model.ListHobbies)
             </div>
             <div class="col-md"></div>
         </div>
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md">
-                @Html.DisplayFor(model => model.BIRTHDAY)
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
             </div>
             <div class="col-md">
-                @Html.DisplayFor(model => model.LOCATION)
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileLocation) </p>
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileBirthday)
+            </div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileLocation)
             </div>
             <div class="col-md"></div>
         </div>
@@ -40,20 +48,20 @@
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md">
-                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.OCCUPATION) </p>
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileOccupation) </p>
             </div>
             <div class="col-md">
-                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.FAMILY) </p>
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
             </div>
             <div class="col-md"></div>
         </div>
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md">
-                @Html.DisplayFor(model => model.OCCUPATION)
+                @Html.DisplayFor(model => model.ProfileOccupation)
             </div>
             <div class="col-md">
-                @Html.DisplayFor(model => model.FAMILY)
+                @Html.DisplayFor(model => model.ProfileFamily)
             </div>
             <div class="col-md"></div>
         </div>
@@ -65,7 +73,7 @@
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md">
-                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.BIO) </p>
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
             </div>
 
             <div class="col-md"></div>
@@ -73,13 +81,13 @@
         <div class="row">
             <div class="col-md"></div>
             <div class="col-md">
-                @Html.DisplayFor(model => model.BIO)
+                @Html.DisplayFor(model => model.ProfileBIO)
             </div>
             <div class="col-md"></div>
         </div>
+
     </div>
-</div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) 
     @Html.ActionLink("Back to List", "Index")
 </p>
