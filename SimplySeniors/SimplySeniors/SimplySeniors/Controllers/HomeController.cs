@@ -13,18 +13,19 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult HelpPage()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "Your application help page.";
 
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Services()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Services that are offered in our community.";
 
             return View();
         }
+
     }
 }

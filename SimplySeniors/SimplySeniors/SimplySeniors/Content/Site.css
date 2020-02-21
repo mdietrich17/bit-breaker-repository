@@ -1,14 +1,30 @@
 ﻿/*CONTENT FOR ALL PAGES*/
+/*SECTIONS ON LEFT, MSGS ON RIGHT*/
 
 body {
+ 
     background-color: paleturquoise;
    
 }
 
-/* Set padding to keep content from hitting the edges */
-.body-content {
+.dl-horizontal dt {                                     /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
+    white-space: normal;
+}
+                                                  
+input,
+select,
+textarea {
+    max-width: 280px;                                   /* Set width on the form input elements since they're 100% wide by default */
+}
+
+.body-content { /* Set padding to keep content from hitting the edges */
     padding-left: 15px;
     padding-right: 15px;
+}
+
+/* Moving footer to the right a little (for bootstrap 4 leftside navbars so text won't be covered) */
+.footer {
+    padding-left: 50px;
 }
 
 /*HOME PAGE STYLING BELOW*/
@@ -52,21 +68,178 @@ li {
     padding-right: 1em;
 }
 
+/* PROFILE SEARCH PAGE STYLING BELOW*/
 
-/* Override the default bootstrap behavior where horizontal description lists 
-   will truncate terms that are too long to fit in the left column 
-*/
-.dl-horizontal dt {
-    white-space: normal;
+#searchBox {
+    background: lightblue;
+    border: solid;
+    width: 80%;
+    padding: 2em;
+    border-radius: 3em; 
+    text-align: center;
+    color: black;
 }
 
-
-
-
-/* Set width on the form input elements since they're 100% wide by default */
-input,
-select,
-textarea {
-    max-width: 280px;
+#searchBoxID:hover {
+    background: lightgreen;
+    border: black;
 }
 
+#resultsTable{
+    background: lightblue;
+    border: solid;
+    border-color: black;
+    width: 70%;
+    margin-left: 11em;
+    color: black;
+}
+
+#noProfilePhotoFoundImage{
+    width: 40%;
+
+    height: 50%;
+    padding: inherit;   
+}
+
+#searchAgain {
+    text-align: center;
+    color: black;
+}
+
+#profileCardHeader {
+    font-weight: 900; 
+}
+
+#profileSearchNotFoundBox {
+    border-radius: 1em; 
+    text-align: center;
+}
+
+#profileCardBody {
+    text-align: left;
+}
+
+#photoHeader {
+    padding-left:2em; 
+}
+
+#textBox:hover {
+    
+}
+
+#searchHeader {
+    font-weight: 600; 
+    padding-top: 1em; 
+    text-align: center; 
+}
+/*SERVICES PAGE STYLING BELOW*/
+
+#firstSlide, #secondSlide, #thirdSlide {
+    border-radius: 40em; 
+    opacity: .3;
+    height: 100%;
+    margin-left: 250px; 
+}
+
+#servicesCarouselText {
+  color: black;
+  padding-bottom: 10em; 
+}
+#myCarousel {
+    padding-bottom: 4em; 
+}
+
+#servicesHeader {
+    font-size: 50px; 
+    font-weight: 600; 
+    border-radius: .5em;
+    border: white; 
+    padding: 1em;
+    text-align: center;
+ 
+}
+
+/*HELP PAGE CSS*/
+
+/* The sidebar menu */
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 140px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Start a little under main menu nav bar */
+    left: 0;
+    background-color: #353942; /* Grey */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+}
+
+    /* The navigation menu links */
+    .sidenav a {
+        padding: 6px 8px 6px 16px;
+        text-decoration: none;
+        font-size: 20px;
+        color: #818181;
+        display: block;
+        color: White; /* White */
+    }
+        /* When you mouse over the navigation links, change their color */
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+/* Style page content */
+.main {
+    margin-left: 150px; /* Moving description box to middle */
+    padding: 0px 10px;
+}
+
+/*Title at top of help page*/
+#helpTitle {
+    margin-left: 200px;
+    text-shadow: 2px 2px white;
+}
+
+/* Description box for help page */
+#descBox {
+    background: white;
+    width: 800px;
+    border: 3px solid;
+    padding: 50px;
+    margin: 20px;
+    border-radius: 10px;
+}
+
+#descTitle {
+    font-weight: bold;
+}
+
+/*Bolding the FAQ questions on FAQ page*/
+#FAQList li {
+    font-weight: bold;
+}
+
+#helpPic {
+    margin-left: 200px;
+}
+
+    #helpPic img {
+        max-width: 35%;
+        margin-left: 570px;
+        margin-bottom: -70px;
+        margin-top: -170px;
+        opacity: 0.5;
+    }
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+        .sidenav a {
+            font-size: 18px;
+        }
+}
+
+/*END HELP PAGE*/

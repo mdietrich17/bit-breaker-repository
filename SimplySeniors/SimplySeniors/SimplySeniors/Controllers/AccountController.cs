@@ -89,7 +89,7 @@ namespace SimplySeniors.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
+                    ModelState.AddModelError("", "Invalid login attempt. For login and registration help, <a href=\"/Home/HelpPage\" > click here </a>");
                     return View(model);
             }
         }
@@ -218,25 +218,7 @@ namespace SimplySeniors.Controllers
 
         }
 
-        public void sendemailpass(ApplicationUser user, string code)
-        {
 
-            System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
-            new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Web Registration"),
-            new System.Net.Mail.MailAddress(user.Email));
-            m.Subject = "Password Reset";
-            m.Body = string.Format("<p> Hi {0} <br/> We heard you wanted to reset your password, please click on the link to reset your password: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
-            user.UserName, Url.Action("ResetPassword", "Account",
-            new { userId = user.Id, Code = code }, protocol: Request.Url.Scheme));
-            m.IsBodyHtml = true;
-            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
-            smtp.UseDefaultCredentials = false;
-            smtp.Credentials = new System.Net.NetworkCredential("teamBitBreakers@gmail.com", "WesternOreg0n");
-            smtp.Port = 587;
-            smtp.EnableSsl = true;
-            smtp.Send(m);
-
-        }
 
         //
         // GET: /Account/ConfirmEmail
@@ -262,6 +244,25 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
+        public void sendemailpass(ApplicationUser user, string code)
+        {
+            System.Net.Mail.MailMessage m = new System.Net.Mail.MailMessage(
+            new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Password Reset"),
+            new System.Net.Mail.MailAddress(user.Email));
+            m.Subject = "Password Reset";
+            m.Body = string.Format("<p> Dear {0} <br/> Hi we heard you wanted to reset your password, please click on the link to reset your password: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
+            user.UserName, Url.Action("ResetPassword", "Account",
+            new { userId = user.Id, Code = code }, protocol: Request.Url.Scheme));
+            m.IsBodyHtml = true;
+            System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
+            smtp.UseDefaultCredentials = false;
+            smtp.Credentials = new System.Net.NetworkCredential("teamBitBreakers@gmail.com", "WesternOreg0n");
+            smtp.Port = 587;
+            smtp.EnableSsl = true;
+            smtp.Send(m);
+
+        }
+
         //
         // POST: /Account/ForgotPassword
         [HttpPost]
@@ -277,9 +278,13 @@ namespace SimplySeniors.Controllers
                     // Don't reveal that the user does not exist or is not confirmed
                     return View("ForgotPasswordConfirmation");
                 }
-                var code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
 
+                // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
+                // Send an email with this link
+                string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 sendemailpass(user, code);
+                // var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);		
+                // await UserManager.SendEmailAsync(user.Id, "Reset Password", "Please reset your password by clicking <a href=\"" + callbackUrl + "\">here</a>");
                 return RedirectToAction("ForgotPasswordConfirmation", "Account");
             }
 
