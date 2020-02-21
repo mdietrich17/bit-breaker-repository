@@ -37,5 +37,6 @@ namespace SimplySeniors.Models
        
         [StringLength(2048)]
         public string BIO { get; set; }
+
     }
 }

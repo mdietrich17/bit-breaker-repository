@@ -172,6 +172,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\HobbiesController.cs" />
+    <Compile Include="Controllers\HobbyBridgesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
@@ -180,18 +182,18 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CaptchaResponse.cs" />
+    <Compile Include="Models\Hobbies.cs" />
+    <Compile Include="Models\HobbyBridge.cs" />
+    <Compile Include="DAL\HobbiesContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Models\Profile.cs" />
+    <Compile Include="Models\ViewModel\PDViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205.mdf" />
-    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205_log.ldf">
-      <DependentUpon>aspnet-SimplySeniors-20200210062205.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\down.sql" />
     <Content Include="App_Data\MainDown.sql" />
     <Content Include="App_Data\MainUp.sql" />
@@ -205,6 +207,19 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Photos\aarp.jpg" />
+    <Content Include="Photos\carPhotoThree.jpg" />
+    <Content Include="Photos\carPhotoTwo.jpg" />
+    <Content Include="Photos\development.png" />
+    <Content Include="Photos\devTeam.jpg" />
+    <Content Include="Photos\help.png" />
+    <Content Include="Photos\homeIcon.jpg" />
+    <Content Include="Photos\homeRoundImage.jpg" />
+    <Content Include="Photos\carPhotoOne.jpg" />
+    <Content Include="Photos\lyft.png" />
+    <Content Include="Photos\meals.jpg" />
+    <Content Include="Photos\noimageavailble.jpg" />
+    <Content Include="Photos\profileSearchBackground.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -239,6 +254,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\main.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -359,6 +375,12 @@
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
     <Content Include="Views\Account\Confirm.cshtml" />
+    <Content Include="Views\Home\HelpPage.cshtml" />
+    <Content Include="Views\Home\Services.cshtml" />
+    <Content Include="Views\Hobbies\Create.cshtml" />
+    <Content Include="Views\Hobbies\Edit.cshtml" />
+    <Content Include="Views\Hobbies\Index.cshtml" />
+    <Content Include="Views\HobbyBridges\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -371,9 +393,7 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Photos\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
