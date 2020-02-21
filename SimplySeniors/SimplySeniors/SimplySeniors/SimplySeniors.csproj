@@ -194,6 +194,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205.mdf" />
+    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205_log.ldf">
+      <DependentUpon>aspnet-SimplySeniors-20200210062205.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\down.sql" />
     <Content Include="App_Data\MainDown.sql" />
     <Content Include="App_Data\MainUp.sql" />
