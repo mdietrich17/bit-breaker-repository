@@ -61,16 +61,34 @@ textarea {
 /*NAVBAR CUSTOMIZATION IS BELOW*/
 
 #navBar{
-    font-size: 2em;
+    font-size: 28px;
+}
+
+#hamburgerMenu {
+    
+    border-color: black;
+    padding: 1px;
+    color: white; 
+}
+
+#iconList {
+    
+    margin-left: 4em;
+    font-weight: 300;
+ 
+}
+
+#registrationStuff {
+    color: white;
+    font-size: 18px;
+    padding: inherit;
+    float: right; 
 }
 
 li {
-    padding-right: 1em;
+    padding: 15px; 
 }
 
-#logo {
-    margin-left: auto;
-}
 
 /* PROFILE SEARCH PAGE STYLING BELOW*/
 
