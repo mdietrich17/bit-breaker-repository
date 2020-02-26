@@ -2,19 +2,17 @@
 /*SECTIONS ON LEFT, MSGS ON RIGHT*/
 
 body {
- 
     background-color: paleturquoise;
-   
 }
 
-.dl-horizontal dt {                                     /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
+.dl-horizontal dt { /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
     white-space: normal;
 }
-                                                  
+
 input,
 select,
 textarea {
-    max-width: 280px;                                   /* Set width on the form input elements since they're 100% wide by default */
+    max-width: 280px; /* Set width on the form input elements since they're 100% wide by default */
 }
 
 .body-content { /* Set padding to keep content from hitting the edges */
@@ -22,8 +20,7 @@ textarea {
     padding-right: 15px;
 }
 
-/* Moving footer to the right a little (for bootstrap 4 leftside navbars so text won't be covered) */
-.footer {
+.footer { /* Moving footer to the right a little (for bootstrap 4 leftside navbars so text won't be covered) */
     padding-left: 50px;
 }
 
@@ -36,31 +33,30 @@ textarea {
     font-weight: 800;
 }
 
-#homeHeader{
-    font-weight:600; 
-    padding-top:1em; 
-    text-align:center; 
-}
-
-#welcomeMessage {
-    
+#homeHeader {
+    font-weight: 600;
+    padding-top: 1em;
     text-align: center;
 }
 
-#homeImage{
-    margin-left:70px; 
+#welcomeMessage {
+    text-align: center;
 }
 
-#homePhoto{
-    border:solid;
-    border-color:black; 
-    border-radius:40em; 
-    opacity:.4;
+#homeImage {
+    margin-left: 70px;
+}
+
+#homePhoto {
+    border: solid;
+    border-color: black;
+    border-radius: 40em;
+    opacity: .4;
 }
 
 /*NAVBAR CUSTOMIZATION IS BELOW*/
 
-#navBar{
+#navBar {
     font-size: 2em;
 }
 
@@ -75,7 +71,7 @@ li {
     border: solid;
     width: 80%;
     padding: 2em;
-    border-radius: 3em; 
+    border-radius: 3em;
     text-align: center;
     color: black;
 }
@@ -85,7 +81,7 @@ li {
     border: black;
 }
 
-#resultsTable{
+#resultsTable {
     background: lightblue;
     border: solid;
     border-color: black;
@@ -94,11 +90,10 @@ li {
     color: black;
 }
 
-#noProfilePhotoFoundImage{
+#noProfilePhotoFoundImage {
     width: 40%;
-
     height: 50%;
-    padding: inherit;   
+    padding: inherit;
 }
 
 #searchAgain {
@@ -107,11 +102,11 @@ li {
 }
 
 #profileCardHeader {
-    font-weight: 900; 
+    font-weight: 900;
 }
 
 #profileSearchNotFoundBox {
-    border-radius: 1em; 
+    border-radius: 1em;
     text-align: center;
 }
 
@@ -120,49 +115,48 @@ li {
 }
 
 #photoHeader {
-    padding-left:2em; 
+    padding-left: 2em;
 }
 
 #textBox:hover {
-    
 }
 
 #searchHeader {
-    font-weight: 600; 
-    padding-top: 1em; 
-    text-align: center; 
+    font-weight: 600;
+    padding-top: 1em;
+    text-align: center;
 }
+
 /*SERVICES PAGE STYLING BELOW*/
 
 #firstSlide, #secondSlide, #thirdSlide {
-    border-radius: 40em; 
+    border-radius: 40em;
     opacity: .3;
     height: 100%;
-    margin-left: 250px; 
+    margin-left: 250px;
 }
 
 #servicesCarouselText {
-  color: black;
-  padding-bottom: 10em; 
+    color: black;
+    padding-bottom: 10em;
 }
+
 #myCarousel {
-    padding-bottom: 4em; 
+    padding-bottom: 4em;
 }
 
 #servicesHeader {
-    font-size: 50px; 
-    font-weight: 600; 
+    font-size: 50px;
+    font-weight: 600;
     border-radius: .5em;
-    border: white; 
+    border: white;
     padding: 1em;
     text-align: center;
- 
 }
 
-/*HELP PAGE CSS*/
+/*HELP PAGE CSS STYLING BELOW*/
 
-/* The sidebar menu */
-.sidenav {
+.sidenav { /* The sidebar menu */
     height: 100%; /* Full-height: remove this if you want "auto" height */
     width: 140px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
@@ -174,8 +168,7 @@ li {
     padding-top: 20px;
 }
 
-    /* The navigation menu links */
-    .sidenav a {
+    .sidenav a { /* The navigation menu links */
         padding: 6px 8px 6px 16px;
         text-decoration: none;
         font-size: 20px;
@@ -183,25 +176,23 @@ li {
         display: block;
         color: White; /* White */
     }
-        /* When you mouse over the navigation links, change their color */
-        .sidenav a:hover {
-            color: #f1f1f1;
+
+        .sidenav a:hover { /* When you mouse over the navigation links, change their color */
+            color: orange;
         }
 
-/* Style page content */
-.main {
+
+.main { /* Style page content */
     margin-left: 150px; /* Moving description box to middle */
     padding: 0px 10px;
 }
 
-/*Title at top of help page*/
-#helpTitle {
+#helpTitle { /*Title at top of help page*/
     margin-left: 200px;
     text-shadow: 2px 2px white;
 }
 
-/* Description box for help page */
-#descBox {
+#descBox { /* Description box for help page */
     background: white;
     width: 800px;
     border: 3px solid;
@@ -214,8 +205,7 @@ li {
     font-weight: bold;
 }
 
-/*Bolding the FAQ questions on FAQ page*/
-#FAQList li {
+#FAQList li { /*Bolding the FAQ questions on FAQ page*/
     font-weight: bold;
 }
 
@@ -231,8 +221,8 @@ li {
         opacity: 0.5;
     }
 
-/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
+@media screen and (max-height: 450px) { /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+
     .sidenav {
         padding-top: 15px;
     }
@@ -242,4 +232,47 @@ li {
         }
 }
 
-/*END HELP PAGE*/
+/*EVENTS PAGE STYLING BELOW*/
+
+#eventTitle {
+    font-size: 50px;
+    font-weight: 600;
+    padding: 0.5em;
+    text-align: center;
+    text-shadow: 2px 2px white;
+}
+
+#eventTable {
+    background-color: lightcyan;
+    margin-top: 10px;
+}
+
+#eventButton {
+    background-color: darkcyan;
+    border: none;
+    border-radius: 30px;
+    color: white;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+    #eventButton .btn-default {
+        color: white;
+    }
+
+#eventLink a {
+    color: black;
+    font-size: 20px;
+    text-shadow: 2px 2px yellow;
+}
+
+#eventLink input {
+    color: black;
+    font-size: 20px;
+    text-shadow: 1px 1px red;
+}

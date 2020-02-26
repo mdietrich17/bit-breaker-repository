@@ -172,6 +172,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\HobbiesController.cs" />
     <Compile Include="Controllers\HobbyBridgesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -182,6 +183,8 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CaptchaResponse.cs" />
+    <Compile Include="Models\Event.cs" />
+    <Compile Include="DAL\EventContext.cs" />
     <Compile Include="Models\Hobbies.cs" />
     <Compile Include="Models\HobbyBridge.cs" />
     <Compile Include="DAL\HobbiesContext.cs" />
@@ -381,6 +384,11 @@
     <Content Include="Views\Hobbies\Edit.cshtml" />
     <Content Include="Views\Hobbies\Index.cshtml" />
     <Content Include="Views\HobbyBridges\Index.cshtml" />
+    <Content Include="Views\Events\Create.cshtml" />
+    <Content Include="Views\Events\Delete.cshtml" />
+    <Content Include="Views\Events\Details.cshtml" />
+    <Content Include="Views\Events\Edit.cshtml" />
+    <Content Include="Views\Events\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

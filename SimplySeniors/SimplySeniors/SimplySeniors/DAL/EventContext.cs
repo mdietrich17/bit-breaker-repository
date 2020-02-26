@@ -7,16 +7,14 @@ namespace SimplySeniors.DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class ProfileContext : DbContext
+    public partial class EventContext : DbContext
     {
-        public ProfileContext()
-           // : base("name=AzureConnection")
-            : base("name=ProfileContext")
-
+        public EventContext()
+            : base("name=EventContext")
         {
         }
 
-        public virtual DbSet<Profile> Profiles { get; set; }
+        public virtual DbSet<Event> Events { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

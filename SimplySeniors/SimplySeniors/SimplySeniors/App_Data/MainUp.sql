@@ -35,6 +35,22 @@ CREATE TABLE [dbo].[HobbyBridge]
 	CONSTRAINT [FK_dbo.HobbyBridge_dbo.Hobbies_ID] FOREIGN KEY ([HobbiesID]) REFERENCES [dbo].[Hobbies] ([ID])
 );
 
+CREATE TABLE [dbo].[Events]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[NAME] NVARCHAR (128) NOT NULL,
+	[DESCRIPTION] NVARCHAR (2048) NOT NULL,
+	[LOCATION] NVARCHAR (128) NOT NULL,
+	[STARTTIME] DATETIME NOT NULL,
+	[ENDTIME] DATETIME NOT NULL,
+	/** uncomment below line to add connection to profile db once connection set up
+	[PERSONID] INT NOT NULL, 
+	**/
+	CONSTRAINT [PK_dbo.Events] PRIMARY KEY CLUSTERED ([ID] ASC)
+	/** uncomment below line to set up connection between owner and event once connection is set up
+	CONSTRAINT[FK_dbo.Profile] FOREIGN KEY (PERSONID) REFERENCES Profile(ID)
+	**/
+);
 
 /****** SEED DATA ******/
 
@@ -44,7 +60,7 @@ INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS,
 	('Juan', 'de Fuca', '1536-02-11', 'Vancouver Island', 0, 'Explorer', 'Juan Jr.', 'I found a really rainy place' ),
 	('Leif', 'Eriksson', '0970-11-15', 'Vinland', 1, 'Viking turned Explorer','Leif Liefsson', 'I found Canada, pretty cool eh?' ),
 	('Marco', 'Polo', '1254-01-08', 'Peking', 0, 'Explorer turned pool game', 'MARCO! POLO!', 'Mongolia rough yo'),
-	('Sacagawea', 'Shoshone', '1788-05-01', 'Astoria', 0, 'Actual Explorer', 'Sacagawea but on a coin', 'I led dudes accross the United States')
+	('Sacagawea', 'Shoshone', '1788-05-01', 'Astoria', 0, 'Actual Explorer', 'Sacagawea but on a coin', 'I led dudes accross the United States');
 
 INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO) VALUES
 	('Bill', 'Gates', '1962-02-01', 'Seattle', 0, 'Inventer', 'Melinda Gates' ,'I am allergic to apples'),
@@ -52,7 +68,7 @@ INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS,
 	('Elon', 'Musk', '1971-06-28', 'Canada', 0, 'Visionary', 'Talulah Riley', 'I like sending cars to space and buiding weird machines' ),
 	('Mark', 'Zuckerberg', '1984-05-14', 'New York', 1, 'Tech Kid','Priscilla Chan', 'I always have to explain how the internet works to politicians' ),
 	('Soros', 'George', '1930-08-12', 'Hungary', 0, 'Investor', 'Tamiko Bolton', 'I give money to places to make way more money back'),
-	('Buffett', 'Warren', '1930-08-30', 'Nebraska', 0, 'American Business Magnate', 'Astrid Menks', 'If you fail today then learn and push forward for tomorrow')
+	('Buffett', 'Warren', '1930-08-30', 'Nebraska', 0, 'American Business Magnate', 'Astrid Menks', 'If you fail today then learn and push forward for tomorrow');
 
 INSERT INTO [dbo].[Hobbies] (NAME, DESCRIPTION) VALUES
 	('Golf', 'A boring sport that old people and Tiger Woods play'),
@@ -60,7 +76,7 @@ INSERT INTO [dbo].[Hobbies] (NAME, DESCRIPTION) VALUES
 	('Bingo', 'An activity that both the young and the old enjoy'),
 	('Hunting', 'Age old boomer activity to rid the world of deer'),
 	('Cartography', 'Age old activity to show boomers places they havent destroyed'),
-	('Pillaging', 'Acient activity now labeled, "Nestle Corporation"')
+	('Pillaging', 'Acient activity now labeled, "Nestle Corporation"');
 
 INSERT INTO [dbo].[HobbyBridge] (ProfileID, HobbiesID) VALUES
 	(6, 2),
@@ -71,4 +87,9 @@ INSERT INTO [dbo].[HobbyBridge] (ProfileID, HobbiesID) VALUES
 	(1, 3),
 	(2, 3),
 	(4, 6),
-	(5, 6)
+	(5, 6);
+
+INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTTIME, ENDTIME, LOCATION)	VALUES
+('Ghirardelli Wedding', 'A beautiful wedding open for the public, everyone is invited!', '03/15/2021 12:00:00', '03/15/2021 19:00:00', 'State Street Event Center'),
+('Spy Retirement Banquet', 'Spies only. No other information provided because the spies should already know the info for this event.', '04/12/2020 17:00:00', '04/12/2020 21:00:00', 'United Artists Headquarters'),
+('Bachelorette Party', 'Party with the gals, byob', '06/05/2020 19:00:00', '06/06/2020 05:00:00', 'The Amado');

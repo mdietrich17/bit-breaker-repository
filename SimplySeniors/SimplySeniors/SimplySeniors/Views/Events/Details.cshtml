@@ -1,0 +1,57 @@
+﻿@model SimplySeniors.Models.Event
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 id="eventTitle">Details of Event</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @{<text>Name</text>}
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NAME)
+        </dd>
+
+        <dt>
+            @{<text>Description</text>}
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DESCRIPTION)
+        </dd>
+
+        <dt>
+            @{<text>Location</text>}
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LOCATION)
+        </dd>
+
+        <dt>
+            @{<text>Start Time</text>}
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.STARTTIME)
+        </dd>
+
+        <dt>
+            @{<text>End Time</text>}
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ENDTIME)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
