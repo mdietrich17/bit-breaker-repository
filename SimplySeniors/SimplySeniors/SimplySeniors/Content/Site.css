@@ -68,6 +68,10 @@ li {
     padding-right: 1em;
 }
 
+#logo {
+    margin-left: auto;
+}
+
 /* PROFILE SEARCH PAGE STYLING BELOW*/
 
 #searchBox {

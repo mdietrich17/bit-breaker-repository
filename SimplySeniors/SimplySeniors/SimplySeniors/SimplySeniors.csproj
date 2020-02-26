@@ -220,6 +220,8 @@
     <Content Include="Photos\meals.jpg" />
     <Content Include="Photos\noimageavailble.jpg" />
     <Content Include="Photos\profileSearchBackground.jpg" />
+    <Content Include="Photos\SimplySeniorIcon.png" />
+    <Content Include="Photos\SimplySeniorIcon2.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
