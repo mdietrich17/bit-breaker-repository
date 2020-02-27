@@ -17,6 +17,17 @@
 	**/
 );
 
+CREATE TABLE [dbo].[Images] /*DB is to store images uploaded to Simply Seniors Website*/
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[NAME] NVARCHAR (30) NOT NULL ,
+	[SIZE] INT NOT NULL, 
+	[ImageData] VARBINARY(max),
+	[ProfileID] INT
+	CONSTRAINT [PK_dbo.Images] PRIMARY KEY CLUSTERED ([ID] ASC)
+	CONSTRAINT [FK_dbo.Images_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID])
+);
+
 CREATE TABLE [dbo].[Hobbies]
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,
@@ -72,3 +83,4 @@ INSERT INTO [dbo].[HobbyBridge] (ProfileID, HobbiesID) VALUES
 	(2, 3),
 	(4, 6),
 	(5, 6)
+
