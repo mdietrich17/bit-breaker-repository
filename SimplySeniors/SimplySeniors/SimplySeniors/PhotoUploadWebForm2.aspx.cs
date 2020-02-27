@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Net;
+using SimplySeniors.Models;
 
 namespace SimplySeniors
 {
@@ -29,8 +30,8 @@ namespace SimplySeniors
              HttpPostedFile postedFile = FileUpload1.PostedFile;
              string fileName = Path.GetFileName(postedFile.FileName);
              string fileExtension = Path.GetExtension(fileName);
+             //int profileIdentifier = 1; 
              int fileSize = postedFile.ContentLength; 
-
              if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
              {
                  Stream stream = postedFile.InputStream; 
@@ -57,7 +58,15 @@ namespace SimplySeniors
                      };
                      cmd.Parameters.Add(paramSize);
 
-                     SqlParameter paramImageData = new SqlParameter()
+                    SqlParameter paramProfileIdentifier = new SqlParameter()
+                    {
+                        ParameterName = "@ProfileId",
+                        Value = 1
+                    };
+                    cmd.Parameters.Add(paramProfileIdentifier);
+
+
+                    SqlParameter paramImageData = new SqlParameter()
                      {
                          ParameterName = "@ImageData",
                          Value = bytes

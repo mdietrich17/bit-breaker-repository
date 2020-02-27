@@ -14,10 +14,10 @@
         <asp:Button CssClass="btn-outline-primary" Value="Upload" ID="btnUpload" runat="server" OnClick="btnUpload_Click" Height="33px" Width="128px"/>
         <br/>
         <br/>
-        <asp:Label ID="lblMessage" runat="server"></asp:Label>
+        <asp:Label ID="lblMessage" runat="server">Upload</asp:Label>
         <br/>
         <br/>
-        <asp:HyperLink ID="hyperlink"  runat="server">See your Photo </asp:HyperLink>
+        <asp:HyperLink ID="hyperlink"  runat="server">See your Photo by clicking here</asp:HyperLink>
     </form>
 </body>
 </html>
