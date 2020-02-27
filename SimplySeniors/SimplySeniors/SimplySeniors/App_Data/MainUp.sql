@@ -41,7 +41,9 @@ CREATE TABLE [dbo].[Events]
 	[NAME] NVARCHAR (128) NOT NULL,
 	[DESCRIPTION] NVARCHAR (2048) NOT NULL,
 	[LOCATION] NVARCHAR (128) NOT NULL,
+	[STARTDATE] DATE NOT NULL,
 	[STARTTIME] DATETIME NOT NULL,
+	[ENDDATE] DATE NOT NULL,
 	[ENDTIME] DATETIME NOT NULL,
 	/** uncomment below line to add connection to profile db once connection set up
 	[PERSONID] INT NOT NULL, 
@@ -89,7 +91,7 @@ INSERT INTO [dbo].[HobbyBridge] (ProfileID, HobbiesID) VALUES
 	(4, 6),
 	(5, 6);
 
-INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTTIME, ENDTIME, LOCATION)	VALUES
-('Ghirardelli Wedding', 'A beautiful wedding open for the public, everyone is invited!', '03/15/2021 12:00:00', '03/15/2021 19:00:00', 'State Street Event Center'),
-('Spy Retirement Banquet', 'Spies only. No other information provided because the spies should already know the info for this event.', '04/12/2020 17:00:00', '04/12/2020 21:00:00', 'United Artists Headquarters'),
-('Bachelorette Party', 'Party with the gals, byob', '06/05/2020 19:00:00', '06/06/2020 05:00:00', 'The Amado');
+INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTDATE, STARTTIME, ENDDATE, ENDTIME, LOCATION)	VALUES
+('Ghirardelli Wedding', 'A beautiful wedding open for the public, everyone is invited!', '03/09/2021', '05:00 PM', '03/09/2021', '09:00 PM', 'State Street Event Center'),
+('Spy Retirement Banquet', 'Spies only. No other information provided because the spies should already know the info for this event.', '04/12/2020', '06:30 PM', '04/12/2020', '11:00 PM', 'United Artists Headquarters'),
+('Bachelorette Party', 'Party with the gals, byob', '06/05/2020', '10:00 PM', '06/06/2020', '05:00 AM', 'The Amado');
