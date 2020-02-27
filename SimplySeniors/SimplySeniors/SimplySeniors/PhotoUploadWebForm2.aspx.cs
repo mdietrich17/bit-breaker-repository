@@ -41,10 +41,48 @@ namespace SimplySeniors
                  using (SqlConnection con = new SqlConnection(cs) )
                  {
                      SqlCommand cmd = new SqlCommand("spUploadImage", con);
-                     cmd.CommandType = CommandType.StoredProcedure; 
+                     cmd.CommandType = CommandType.StoredProcedure;
+
+                     SqlParameter paramName = new SqlParameter()
+                     {
+                         ParameterName = "@Name",
+                         Value = fileName
+                     };
+                     cmd.Parameters.Add(paramName);
+                    
+                     SqlParameter paramSize = new SqlParameter()
+                     {
+                         ParameterName = "@Size",
+                         Value = fileSize
+                     };
+                     cmd.Parameters.Add(paramSize);
+
+                     SqlParameter paramImageData = new SqlParameter()
+                     {
+                         ParameterName = "@ImageData",
+                         Value = bytes
+                     };
+                     cmd.Parameters.Add(paramImageData);
+
+                     SqlParameter paramNewId = new SqlParameter()
+                     {
+                         ParameterName = "@NewId",
+                         Value = -1,
+                         Direction = ParameterDirection.Output
+                     };
+                     cmd.Parameters.Add(paramNewId);
+
+                     con.Open();
+                     cmd.ExecuteNonQuery(); 
+                     con.Close();
+                     lblMessage.Visible = true;
+                     lblMessage.Text = "Upload was Successful!";
+                     lblMessage.ForeColor = System.Drawing.Color.Green;
+                     hyperlink.Visible = true;
+                     hyperlink.NavigateUrl = "~/WebForm2.aspx?Id=" + cmd.Parameters["@NewId"].Value.ToString();
                  }
              }
-            else {
+             else {
                 lblMessage.Visible = true;
                 lblMessage.Text = "You can only upload .jpg, .png, .gif and .bmp to your account.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;

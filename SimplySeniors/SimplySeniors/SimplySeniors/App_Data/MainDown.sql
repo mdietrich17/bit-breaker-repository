@@ -6,3 +6,4 @@ ALTER TABLE [dbo].[HobbyBridge] DROP CONSTRAINT [FK_dbo.HobbyBridge_dbo.Profile_
 DROP TABLE [dbo].[Profile]
 DROP TABLE [dbo].[Hobbies]
 DROP TABLE [dbo].[HobbyBridge]
+DROP TABLE [dbo].[Images]

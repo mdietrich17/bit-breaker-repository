@@ -6,6 +6,6 @@
 as
 Begin
 	INSERT into Images
-	values(@Name, @size, @ImageData)
+	values(@Name, @Size, @ImageData)
 	Select @NewId = SCOPE_IDENTITY()
 End
