@@ -215,9 +215,7 @@
     <Content Include="Photos\carPhotoTwo.jpg" />
     <Content Include="Photos\development.png" />
     <Content Include="Photos\devTeam.jpg" />
-    <Content Include="Photos\fungroup.jpg" />
     <Content Include="Photos\fungroup2.png" />
-    <Content Include="Photos\fungroup3.jpg" />
     <Content Include="Photos\help.png" />
     <Content Include="Photos\homeIcon.jpg" />
     <Content Include="Photos\homeRoundImage.jpg" />
