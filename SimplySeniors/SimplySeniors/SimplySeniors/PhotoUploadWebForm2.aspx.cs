@@ -79,7 +79,7 @@ namespace SimplySeniors
                      lblMessage.Text = "Upload was Successful!";
                      lblMessage.ForeColor = System.Drawing.Color.Green;
                      hyperlink.Visible = true;
-                     hyperlink.NavigateUrl = "~/WebForm2.aspx?Id=" + cmd.Parameters["@NewId"].Value.ToString();
+                     hyperlink.NavigateUrl = "~/PhotoUploadWebForm1.aspx?Id=" + cmd.Parameters["@NewId"].Value.ToString();
                  }
              }
              else {

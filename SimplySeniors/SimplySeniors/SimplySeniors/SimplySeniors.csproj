@@ -209,6 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\down.sql" />
+    <Content Include="App_Data\getImageProcess.sql" />
     <Content Include="App_Data\MainDown.sql" />
     <Content Include="App_Data\MainUp.sql" />
     <Content Include="App_Data\up.sql" />
