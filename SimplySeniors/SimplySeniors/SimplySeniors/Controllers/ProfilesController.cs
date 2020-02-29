@@ -52,14 +52,13 @@ namespace SimplySeniors.Controllers
         public ActionResult Create([Bind(Exclude = "USERID", Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO" )] Profile profile)
         {
             ModelState.Remove("USERID"); // user doesn't input a key so we need to get the key of the current user logged in who created the profile.
-            profile.USERID = User.Identity.GetUserId();
-            bool test = ModelState.IsValid;
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
+            profile.USERID = User.Identity.GetUserId(); //get id of current user
+            var errors = ModelState.Values.SelectMany(v => v.Errors); // debugging for errors
             if (ModelState.IsValid)
             {
                 db.Profiles.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index"); //edit this line maddy for redirect
             }
 
             return View(profile);
