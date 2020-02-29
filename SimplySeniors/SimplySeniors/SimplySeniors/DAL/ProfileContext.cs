@@ -11,7 +11,7 @@ namespace SimplySeniors.DAL
     {
         public ProfileContext()
             : base("name=AzureConnection")
-           // : base("name=ProfileContext")
+          //  : base("name=ProfileContext")
 
         {
         }
