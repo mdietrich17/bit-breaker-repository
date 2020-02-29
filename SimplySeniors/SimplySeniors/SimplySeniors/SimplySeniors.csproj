@@ -177,6 +177,7 @@
     <Compile Include="Controllers\HobbyBridgesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -191,6 +192,9 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
+    <Compile Include="Models\Post.cs" />
+    <Compile Include="Models\PostBridge.cs" />
+    <Compile Include="DAL\PostContext.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -392,6 +396,11 @@
     <Content Include="Views\Events\Details.cshtml" />
     <Content Include="Views\Events\Edit.cshtml" />
     <Content Include="Views\Events\Index.cshtml" />
+    <Content Include="Views\Posts\Create.cshtml" />
+    <Content Include="Views\Posts\Delete.cshtml" />
+    <Content Include="Views\Posts\Details.cshtml" />
+    <Content Include="Views\Posts\Edit.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
