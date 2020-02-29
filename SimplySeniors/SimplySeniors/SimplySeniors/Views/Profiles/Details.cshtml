@@ -1,82 +1,93 @@
-﻿@model SimplySeniors.Models.Profile
+﻿@model SimplySeniors.Models.ViewModel.PDViewModel
 
 @{
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h3>Profile Details</h3>
 
 <div>
-    <h4>Profile</h4>
+    <h1>@Html.DisplayFor(model => model.ProfileFirstName) @Html.DisplayFor(model => model.ProfileLastName)</h1>
+    <h6>@Html.DisplayNameFor(model => model.ProfileVet) @Html.DisplayFor(model => model.ProfileVet)</h6>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.FIRSTNAME)
-        </dt>
+    <!--Beware all who enter this land of divs-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ListHobbies)</p>
+                @Html.DisplayFor(model => model.ListHobbies)
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
+            </div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileLocation) </p>
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileBirthday)
+            </div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileLocation)
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div class="col-md-8">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileOccupation) </p>
+            </div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileOccupation)
+            </div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileFamily)
+            </div>
+            <div class="col-md"></div>
+        </div>
+        <div class="row justify-content-lg-center">
+            <div class="col-md-8">
+                <hr />
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
+            </div>
 
-        <dd>
-            @Html.DisplayFor(model => model.FIRSTNAME)
-        </dd>
+            <div class="col-md"></div>
+        </div>
+        <div class="row">
+            <div class="col-md"></div>
+            <div class="col-md">
+                @Html.DisplayFor(model => model.ProfileBIO)
+            </div>
+            <div class="col-md"></div>
+        </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.LASTNAME)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LASTNAME)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BIRTHDAY)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BIRTHDAY)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.LOCATION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.LOCATION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.VETSTATUS)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.VETSTATUS)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.OCCUPATION)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.OCCUPATION)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.FAMILY)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.FAMILY)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.BIO)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.BIO)
-        </dd>
-
-    </dl>
-</div>
+    </div>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.ID }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) 
     @Html.ActionLink("Back to List", "Index")
 </p>

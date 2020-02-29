@@ -8,19 +8,38 @@ using System.Web;
 using System.Web.Mvc;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
-using Microsoft.AspNet.Identity;
+using SimplySeniors.Models.ViewModel;
 
 namespace SimplySeniors.Controllers
 {
     public class ProfilesController : Controller
     {
         private ProfileContext db = new ProfileContext();
+        private HobbiesContext db2 = new HobbiesContext();
 
         // GET: Profiles
         public ActionResult Index()
         {
-            return View(db.Profiles.ToList());
+            return View();
         }
+
+        // HTTP POST method was created for searching profiles in the Profiles/index. 
+        [HttpPost]
+        public ActionResult Index(string searchString)
+        {
+            {
+                IQueryable<Profile> products = db.Profiles;
+                ViewBag.Message = "Sorry your product is not found";         // Insert message if item is not found. 
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    products = products.Where(s => s.LASTNAME.Contains(searchString) || s.FIRSTNAME.Contains(searchString));   // Searching for matches through last name. 
+                }
+                return View(products.ToList());
+            }
+        }
+
+
 
         // GET: Profiles/Details/5
         public ActionResult Details(int? id)
@@ -30,11 +49,15 @@ namespace SimplySeniors.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Profile profile = db.Profiles.Find(id);
+
+            IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME);
+            string hobbies = string.Join(", ", bridges.ToList());
+            PDViewModel viewModel = new PDViewModel(profile, hobbies);
             if (profile == null)
             {
                 return HttpNotFound();
             }
-            return View(profile);
+            return View(viewModel);
         }
 
         // GET: Profiles/Create
@@ -46,15 +69,10 @@ namespace SimplySeniors.Controllers
         // POST: Profiles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Exclude = "USERID", Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO" )] Profile profile)
+        public ActionResult Create([Bind(Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
-            ModelState.Remove("USERID"); // user doesn't input a key so we need to get the key of the current user logged in who created the profile.
-            profile.USERID = User.Identity.GetUserId();
-            bool test = ModelState.IsValid;
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
             if (ModelState.IsValid)
             {
                 db.Profiles.Add(profile);
@@ -63,11 +81,6 @@ namespace SimplySeniors.Controllers
             }
 
             return View(profile);
-        }
-        
-       public bool checkvalue(Profile newprofile) //Model state doesn't work since the user does not input their foreign key. 
-        {
-            return true;
         }
 
         // GET: Profiles/Edit/5
@@ -90,7 +103,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
+        public ActionResult Edit([Bind(Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
             if (ModelState.IsValid)
             {
