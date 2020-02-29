@@ -178,7 +178,7 @@ namespace SimplySeniors.Controllers
                     if (response.Success == true) //captcha worked, move on ahead
                     {
                         sendemail(user);
-                        return RedirectToAction("Create", "Profiles");
+                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
                     }
                     else {return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString()); } //captcha failed redirect. 
                 }
