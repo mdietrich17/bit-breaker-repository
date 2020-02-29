@@ -57,6 +57,8 @@ CREATE TABLE [dbo].[Events]
 );
 
 /****** SEED DATA ******/
+INSERT INTO [DBO].[AspNetUsers] (Id, Email, EmailConfirmed, PhoneNumberConfirmed, TwoFactorEnabled,LockoutEnabled,AccessFailedCount,UserName) VALUES
+('AAA-123', 'throwaway@gmail.com', 0, 0, 0, 0, 0, 'Dennis')
 
 INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO, USERID) VALUES
 	('Chris', 'Columbus', '1451-09-01', 'Bahamas', 0, 'Explorer', 'Chris Jr.' ,'I discovered india guys i swear','AAA-123'),

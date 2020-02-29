@@ -71,6 +71,4 @@ GO
 CREATE NONCLUSTERED INDEX [IX_UserId] ON dbo.AspNetUserRoles([UserId] ASC);
 GO
 CREATE NONCLUSTERED INDEX [IX_RoleId] ON dbo.AspNetUserRoles([RoleId] ASC);
-GO
-INSERT INTO [DBO].[AspNetUsers] (Id, Email, EmailConfirmed, PhoneNumberConfirmed, TwoFactorEnabled,LockoutEnabled,AccessFailedCount,UserName) VALUES
-('AAA-123', 'throwaway@gmail.com', 0, 0, 0, 0, 0, 'Dennis')
+
