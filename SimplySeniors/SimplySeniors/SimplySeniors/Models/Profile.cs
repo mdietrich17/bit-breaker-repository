@@ -12,6 +12,10 @@ namespace SimplySeniors.Models
         public int ID { get; set; }
 
         [Required]
+        [StringLength(128)]
+        public string USERID { get; set; }
+
+        [Required]
         [StringLength(50)]
         public string FIRSTNAME { get; set; }
 
@@ -22,21 +26,18 @@ namespace SimplySeniors.Models
         [Column(TypeName = "date")]
         public DateTime BIRTHDAY { get; set; }
 
-        [Required]
         [StringLength(128)]
         public string LOCATION { get; set; }
 
         public bool? VETSTATUS { get; set; }
 
-        [Required]
         [StringLength(128)]
         public string OCCUPATION { get; set; }
 
         [StringLength(128)]
         public string FAMILY { get; set; }
-       
+
         [StringLength(2048)]
         public string BIO { get; set; }
-
     }
 }

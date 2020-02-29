@@ -178,6 +178,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
+    <Compile Include="Models\Profile.cs" />
+    <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -190,13 +192,15 @@
     <Compile Include="DAL\HobbiesContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
-    <Compile Include="DAL\ProfileContext.cs" />
-    <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205.mdf" />
+    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205_log.ldf">
+      <DependentUpon>aspnet-SimplySeniors-20200210062205.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\down.sql" />
     <Content Include="App_Data\MainDown.sql" />
     <Content Include="App_Data\MainUp.sql" />
