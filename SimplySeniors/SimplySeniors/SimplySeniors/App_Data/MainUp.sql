@@ -63,7 +63,7 @@ INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS,
 	('Ferdinand', 'Magellan', '1480-02-03', 'Chile', 0, 'Explorer','Ferdinand Jr.', 'I will go around the world guys srsly', 'AAA-123'),
 	('Juan', 'de Fuca', '1536-02-11', 'Vancouver Island', 0, 'Explorer', 'Juan Jr.', 'I found a really rainy place' , 'AAA-123' ),
 	('Leif', 'Eriksson', '0970-11-15', 'Vinland', 1, 'Viking turned Explorer','Leif Liefsson', 'I found Canada, pretty cool eh?', 'AAA-123' ),
-	('Marco', 'Polo', '1254-01-08', 'Peking', 0, 'Explorer turned pool game', 'MARCO! POLO!', 'Mongolia rough yo', 'EEE-YYY'),
+	('Marco', 'Polo', '1254-01-08', 'Peking', 0, 'Explorer turned pool game', 'MARCO! POLO!', 'Mongolia rough yo', 'AAA-123'),
 	('Sacagawea', 'Shoshone', '1788-05-01', 'Astoria', 0, 'Actual Explorer', 'Sacagawea but on a coin', 'I led dudes accross the United States', 'AAA-123');
 
 INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO, USERID) VALUES
