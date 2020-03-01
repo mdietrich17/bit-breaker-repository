@@ -1,15 +1,17 @@
 ﻿CREATE TABLE [dbo].[Profile]
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,
+	[USERID] NVARCHAR (128) NOT NULL,  /* Fk refrences must be done with the same data type, default ASPNet ID uses nvarchar rather than INT */
 	[FIRSTNAME] NVARCHAR (50) NOT NULL,
 	[LASTNAME] NVARCHAR (50) NOT NULL,
 	[BIRTHDAY] DATE NOT NULL,
-	[LOCATION] NVARCHAR (128) NOT NULL,
+	[LOCATION] NVARCHAR (128),
 	[VETSTATUS] BIT,
-	[OCCUPATION] NVARCHAR (128) NOT NULL,
+	[OCCUPATION] NVARCHAR (128),
 	[FAMILY] NVARCHAR (128), /*Probably needs to make a new table if we want to add feature*/ 
 	[BIO] NVARCHAR (2048)
 	CONSTRAINT [PK_dbo.Profile] PRIMARY KEY CLUSTERED ([ID] ASC)
+	CONSTRAINT [FK_dbo.Profile_dbo.AspNetUsers_ID] FOREIGN KEY ([USERID]) REFERENCES dbo.AspNetUsers ([Id]) 
 	/**
 	FOR FUTURE USE PROBABLY
 	CONSTRAINT [FK_dbo.Profiles_dbo.Friends_FriendsID] FOREIGN KEY ([FriendsID]) REFERENCES dbo.Friends ([ID])
