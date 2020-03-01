@@ -59,9 +59,13 @@ CREATE TABLE [dbo].[Posts]
 	[ID] INT IDENTITY (1,1) NOT NULL,
 	[Title] NVARCHAR(64) NOT NULL,
 	[Body] NVARCHAR(256),
-	CONSTRAINT [PK_dbo.Posts] PRIMARY KEY CLUSTERED ([ID] ASC)
+	[ProfileID] INT NOT NULL,
+	CONSTRAINT [PK_dbo.Posts] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.Posts_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID])
+	
 );
 
+/*
 CREATE TABLE [dbo].[PostBridge]
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,
@@ -71,6 +75,7 @@ CREATE TABLE [dbo].[PostBridge]
 	CONSTRAINT [FK_dbo.PostBridge_dbo.Posts_ID] FOREIGN KEY ([PostID]) REFERENCES [dbo].[Posts] ([ID]),
 	CONSTRAINT [FK_dbo.PostBridge_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID])
 );
+*/
 
 /****** SEED DATA ******/
 
@@ -114,14 +119,16 @@ INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTDATE, STARTTIME, ENDDATE, EN
 ('Spy Retirement Banquet', 'Spies only. No other information provided because the spies should already know the info for this event.', '04/12/2020', '06:30 PM', '04/12/2020', '11:00 PM', 'United Artists Headquarters'),
 ('Bachelorette Party', 'Party with the gals, byob', '06/05/2020', '10:00 PM', '06/06/2020', '05:00 AM', 'The Amado');
 
-INSERT INTO [dbo].[Posts] (Title, Body) VALUES 
-('Felt cute might delete later idk', 'Nothing'),
-('Something something politics', 'politics politics politics...controversial statement'),
-('Coronavirus scary', 'But not as scary as how refreshing sprite actually is(NOT SPONSORED)'),
-('Got smallpox again lmao', 'Please donate to my gofundme'),
-('Feeling seasick','please someone give me an orange my teeth are falling out'),
-('FORTNITE GAMEPLAY (EPISODE 2006)','MAKE SURE TO LIKE, COMMENT, AND SUBSCRIBE FOR MORE 1337 wins');
+INSERT INTO [dbo].[Posts] (Title, Body, ProfileID) VALUES 
+('Felt cute might delete later idk', 'Nothing', 1),
+('Something something politics', 'politics politics politics...controversial statement', 2),
+('Coronavirus scary', 'But not as scary as how refreshing sprite actually is(NOT SPONSORED)', 3),
+('Got smallpox again lmao', 'Please donate to my gofundme', 4),
+('Feeling seasick','please someone give me an orange my teeth are falling out', 5),
+('FORTNITE GAMEPLAY (EPISODE 2006)','MAKE SURE TO LIKE, COMMENT, AND SUBSCRIBE FOR MORE 1337 wins', 6);
 
+
+/*
 INSERT INTO [dbo].[PostBridge] (PostID, ProfileID) VALUES
 (1, 1),
 (2, 2),
@@ -129,4 +136,5 @@ INSERT INTO [dbo].[PostBridge] (PostID, ProfileID) VALUES
 (4, 4),
 (5, 5),
 (6, 6)
+*/
 

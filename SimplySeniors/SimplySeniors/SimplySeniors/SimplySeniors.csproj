@@ -193,7 +193,6 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Models\Post.cs" />
-    <Compile Include="Models\PostBridge.cs" />
     <Compile Include="DAL\PostContext.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />

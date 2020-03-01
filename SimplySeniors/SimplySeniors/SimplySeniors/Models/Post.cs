@@ -8,12 +8,6 @@ namespace SimplySeniors.Models
 
     public partial class Post
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Post()
-        {
-            PostBridges = new HashSet<PostBridge>();
-        }
-
         public int ID { get; set; }
 
         [Required]
@@ -23,7 +17,6 @@ namespace SimplySeniors.Models
         [StringLength(256)]
         public string Body { get; set; }
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<PostBridge> PostBridges { get; set; }
+        public int ProfileID { get; set; }
     }
 }

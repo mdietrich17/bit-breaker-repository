@@ -16,6 +16,7 @@ namespace SimplySeniors.Controllers
     {
         private ProfileContext db = new ProfileContext();
         private HobbiesContext db2 = new HobbiesContext();
+        private PostContext db3 = new PostContext();
 
         // GET: Profiles
         public ActionResult Index()
@@ -52,7 +53,8 @@ namespace SimplySeniors.Controllers
 
             IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME);
             string hobbies = string.Join(", ", bridges.ToList());
-            PDViewModel viewModel = new PDViewModel(profile, hobbies);
+            List<Post> postlist = db3.Posts.Where(x => x.ProfileID == id).ToList();
+            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist);
             if (profile == null)
             {
                 return HttpNotFound();
