@@ -325,3 +325,17 @@ li {
         opacity: 0.5;
         border-radius: 20px;
     }
+
+/*PROFILE DETAILS PAGE STYLEING BELOW*/
+
+div#box 
+{
+    background-color: blanchedalmond;
+    width: 300px;
+    height: 160px;
+    color: black;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+}
