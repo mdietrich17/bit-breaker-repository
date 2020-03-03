@@ -46,7 +46,7 @@
         @Html.LabelFor(model => model.LOCATION, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.LOCATION, new { htmlAttributes = new { @class = "form-control" } })
-            <h3>Please put in the name of your city, for example: Monmouth</h3>
+            <h3>Please put in the name of your city</h3>
             @Html.ValidationMessageFor(model => model.LOCATION, "", new { @class = "text-danger" })
         </div>
     </div>
@@ -66,7 +66,7 @@
         @Html.LabelFor(model => model.OCCUPATION, htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.OCCUPATION, new { htmlAttributes = new { @class = "form-control" } })
-            <h3>What you do for a living. Example: Carpenter</h3>
+            <h3>What you do for a living?</h3>
             @Html.ValidationMessageFor(model => model.OCCUPATION, "", new { @class = "text-danger" })
         </div>
     </div>
