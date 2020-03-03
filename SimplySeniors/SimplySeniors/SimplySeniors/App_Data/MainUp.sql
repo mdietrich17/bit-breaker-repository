@@ -80,7 +80,7 @@ CREATE TABLE [dbo].[PostBridge]
 */
 
 /****** SEED DATA ******/
-DELETE FROM [DBO].[AspNetUsers]
+DELETE FROM [DBO].[AspNetUsers] Where AspNetUsers.Id = 'AAA-123' /* remove one seed data while maintaining other user information */
 INSERT INTO [DBO].[AspNetUsers] (Id, Email, EmailConfirmed, PhoneNumberConfirmed, TwoFactorEnabled,LockoutEnabled,AccessFailedCount,UserName) VALUES
 ('AAA-123', 'throwaway@gmail.com', 0, 0, 0, 0, 0, 'Dennis')
 
