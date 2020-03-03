@@ -9,6 +9,8 @@ using System.Web.Mvc;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
 using SimplySeniors.Models.ViewModel;
+using Microsoft.AspNet.Identity;
+using System.Globalization;
 
 namespace SimplySeniors.Controllers
 {
@@ -71,12 +73,40 @@ namespace SimplySeniors.Controllers
         // POST: Profiles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
+        public ActionResult Create([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
+            ModelState.Remove("USERID"); // user doesn't input a key so we need to get the key of the current user logged in who created the profile.
+            profile.USERID = User.Identity.GetUserId(); //get user id of current user
+            var errors = ModelState.Values.SelectMany(v => v.Errors); // debugging for errors
+            DateTime currentTime, userbirthday = new DateTime();
+            currentTime = DateTime.Now; //get the current date
+            currentTime = currentTime.AddYears(-65); // -65 years to determine if the user meets our standards.
+            var data = ViewData.ModelState["BIRTHDAY"].Value; // get model data
+            string BirthdayString = data.AttemptedValue; //get string date from data, must be converted to datetime for comparison. 
+            
+
+            string[] validformats = new[] { "MM/dd/yyyy", "yyyy/MM/dd", "MM/dd/yyyy HH:mm:ss",
+                                        "MM/dd/yyyy hh:mm tt", "yyyy-MM-dd HH:mm:ss,fff" }; //Accepted user input formats
+
+            CultureInfo provider = new CultureInfo("en-US"); //US time standard
+            if (!DateTime.TryParseExact(BirthdayString, validformats, provider, DateTimeStyles.None, out userbirthday)) //attempt to convert, check to see if it fails
+            {
+                ModelState.AddModelError("BIRTHDAY", "Invalid Formatting, try something like this 01/23/1932"); //if failed inform of invalid format
+            }
+
+            else if (userbirthday >= currentTime) // dont continue if first if failed, check if user is old enough to register return an error if they are not
+            {
+                ModelState.AddModelError("BIRTHDAY", "I'm Sorry, but you must be 65 Years or older to make a profile");
+                return View(profile);
+            }
+
+
             if (ModelState.IsValid)
             {
+                profile.BIRTHDAY = userbirthday; //Correct formatting for DB
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("Index");

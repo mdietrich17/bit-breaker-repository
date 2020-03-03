@@ -80,22 +80,25 @@ CREATE TABLE [dbo].[PostBridge]
 */
 
 /****** SEED DATA ******/
+DELETE FROM [DBO].[AspNetUsers]
+INSERT INTO [DBO].[AspNetUsers] (Id, Email, EmailConfirmed, PhoneNumberConfirmed, TwoFactorEnabled,LockoutEnabled,AccessFailedCount,UserName) VALUES
+('AAA-123', 'throwaway@gmail.com', 0, 0, 0, 0, 0, 'Dennis')
 
-INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO) VALUES
-	('Chris', 'Columbus', '1451-09-01', 'Bahamas', 0, 'Explorer', 'Chris Jr.' ,'I discovered india guys i swear'),
-	('Ferdinand', 'Magellan', '1480-02-03', 'Chile', 0, 'Explorer','Ferdinand Jr.', 'I will go around the world guys srsly'),
-	('Juan', 'de Fuca', '1536-02-11', 'Vancouver Island', 0, 'Explorer', 'Juan Jr.', 'I found a really rainy place' ),
-	('Leif', 'Eriksson', '0970-11-15', 'Vinland', 1, 'Viking turned Explorer','Leif Liefsson', 'I found Canada, pretty cool eh?' ),
-	('Marco', 'Polo', '1254-01-08', 'Peking', 0, 'Explorer turned pool game', 'MARCO! POLO!', 'Mongolia rough yo'),
-	('Sacagawea', 'Shoshone', '1788-05-01', 'Astoria', 0, 'Actual Explorer', 'Sacagawea but on a coin', 'I led dudes accross the United States');
+INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO, USERID) VALUES
+	('Chris', 'Columbus', '1451-09-01', 'Bahamas', 0, 'Explorer', 'Chris Jr.' ,'I discovered india guys i swear','AAA-123'),
+	('Ferdinand', 'Magellan', '1480-02-03', 'Chile', 0, 'Explorer','Ferdinand Jr.', 'I will go around the world guys srsly', 'AAA-123'),
+	('Juan', 'de Fuca', '1536-02-11', 'Vancouver Island', 0, 'Explorer', 'Juan Jr.', 'I found a really rainy place' , 'AAA-123' ),
+	('Leif', 'Eriksson', '0970-11-15', 'Vinland', 1, 'Viking turned Explorer','Leif Liefsson', 'I found Canada, pretty cool eh?', 'AAA-123' ),
+	('Marco', 'Polo', '1254-01-08', 'Peking', 0, 'Explorer turned pool game', 'MARCO! POLO!', 'Mongolia rough yo', 'AAA-123'),
+	('Sacagawea', 'Shoshone', '1788-05-01', 'Astoria', 0, 'Actual Explorer', 'Sacagawea but on a coin', 'I led dudes accross the United States', 'AAA-123');
 
-INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO) VALUES
-	('Bill', 'Gates', '1962-02-01', 'Seattle', 0, 'Inventer', 'Melinda Gates' ,'I am allergic to apples'),
-	('Steve', 'Jobs', '1964-10-03', 'Seattle', 0, 'Inventer','Eve Jobs', 'I only use doors, no windows'),
-	('Elon', 'Musk', '1971-06-28', 'Canada', 0, 'Visionary', 'Talulah Riley', 'I like sending cars to space and buiding weird machines' ),
-	('Mark', 'Zuckerberg', '1984-05-14', 'New York', 1, 'Tech Kid','Priscilla Chan', 'I always have to explain how the internet works to politicians' ),
-	('Soros', 'George', '1930-08-12', 'Hungary', 0, 'Investor', 'Tamiko Bolton', 'I give money to places to make way more money back'),
-	('Buffett', 'Warren', '1930-08-30', 'Nebraska', 0, 'American Business Magnate', 'Astrid Menks', 'If you fail today then learn and push forward for tomorrow');
+INSERT INTO [dbo].[Profile] (FIRSTNAME, LASTNAME, BIRTHDAY, LOCATION, VETSTATUS, OCCUPATION, FAMILY, BIO, USERID) VALUES
+	('Bill', 'Gates', '1962-02-01', 'Seattle', 0, 'Inventer', 'Melinda Gates' ,'I am allergic to apples','AAA-123'),
+	('Steve', 'Jobs', '1964-10-03', 'Seattle', 0, 'Inventer','Eve Jobs', 'I only use doors, no windows','AAA-123'),
+	('Elon', 'Musk', '1971-06-28', 'Canada', 0, 'Visionary', 'Talulah Riley', 'I like sending cars to space and buiding weird machines','AAA-123' ),
+	('Mark', 'Zuckerberg', '1984-05-14', 'New York', 1, 'Tech Kid','Priscilla Chan', 'I always have to explain how the internet works to politicians','AAA-123' ),
+	('Soros', 'George', '1930-08-12', 'Hungary', 0, 'Investor', 'Tamiko Bolton', 'I give money to places to make way more money back','AAA-123'),
+	('Buffett', 'Warren', '1930-08-30', 'Nebraska', 0, 'American Business Magnate', 'Astrid Menks', 'If you fail today then learn and push forward for tomorrow','AAA-123');
 
 INSERT INTO [dbo].[Hobbies] (NAME, DESCRIPTION) VALUES
 	('Golf', 'A boring sport that old people and Tiger Woods play'),
