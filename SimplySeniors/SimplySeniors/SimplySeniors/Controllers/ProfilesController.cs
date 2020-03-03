@@ -73,7 +73,7 @@ namespace SimplySeniors.Controllers
         // POST: Profiles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize]
+        [Authorize] //only logged in users can make a profile
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
@@ -97,10 +97,9 @@ namespace SimplySeniors.Controllers
                 ModelState.AddModelError("BIRTHDAY", "Invalid Formatting, try something like this 01/23/1932"); //if failed inform of invalid format
             }
 
-            else if (userbirthday >= currentTime) // dont continue if first if failed, check if user is old enough to register return an error if they are not
+            else if (userbirthday >= currentTime) // dont continueif failed, check if user is old enough to register, return an error if they are not
             {
-                ModelState.AddModelError("BIRTHDAY", "I'm Sorry, but you must be 65 Years or older to make a profile");
-                return View(profile);
+                ModelState.AddModelError("BIRTHDAY", "I'm sorry, but you must be 65 Years or older to make a profile");
             }
 
 
