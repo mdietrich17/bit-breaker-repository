@@ -61,7 +61,8 @@ textarea {
 }
 
     #navBar a {
-         text-decoration: none; 
+        text-decoration: none;
+        margin-right: -10px;
     }
 
     #navBar a:hover {
@@ -90,7 +91,8 @@ textarea {
 }
 
     #registrationStuff a {
-         color: #AAE2DF; 
+        color: #AAE2DF;
+        margin-right: 10px;
     }
 
 li {
@@ -338,4 +340,61 @@ div#box
     margin-right: 10px;
     margin-top: 7px;
     margin-bottom: 7px;
+}
+
+/*USER HOME PAGE STYLING BELOW*/
+
+#homePageTable {
+    width: 100%;
+    color: black;
+    font-size: 70px;
+    text-shadow: 2px 2px grey;
+    margin-left: -60px;
+}
+
+    #homePageTable img {
+        width: 70%;
+        border: solid;
+        border-color: lightblue;
+        border-width: 2px;
+        border-radius: 90px;
+    }
+
+    #smallWeather {
+        font-size: 25px;
+        text-shadow: 1px 1px blue;
+    }
+
+#homePageTable2 {
+    width: 90%;
+    font-size: 30px;
+    text-shadow: 2px 2px white;
+    border: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+}
+
+#postBox {
+    background: white;
+    border-right-style: dotted;
+    width: 70%;
+}
+
+#postDescription {
+    font-size: 20px;
+}
+
+#friendsList {
+    background: lightblue;
+    border-style: dotted;
+    width: 30%;
+}
+
+#friendInfo {
+    font-size: 20px;
+}
+
+#homeHeader {
+    font-size: 40px;
 }

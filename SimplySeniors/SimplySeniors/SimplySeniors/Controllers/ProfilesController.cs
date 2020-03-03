@@ -108,7 +108,7 @@ namespace SimplySeniors.Controllers
                 profile.BIRTHDAY = userbirthday; //Correct formatting for DB
                 db.Profiles.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("Index"); //edit this line maddy
+                return RedirectToAction("HomePage","UserHomePage"); //edit this line maddy
             }
 
             return View(profile);

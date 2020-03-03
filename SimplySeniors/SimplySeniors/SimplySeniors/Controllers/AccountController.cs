@@ -83,7 +83,8 @@ namespace SimplySeniors.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("HomePage", "UserHomePage"); //to redirect to the homepage
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -433,6 +434,7 @@ namespace SimplySeniors.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+                   // return RedirectToAction("HomePage", "UserHomePage"); //to redirect to the homepage
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:

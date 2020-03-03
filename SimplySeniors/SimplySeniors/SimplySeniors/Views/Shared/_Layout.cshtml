@@ -22,9 +22,10 @@
                 <a href="@Url.Action("Index","Home")">
                     <img id="logo" src="~/Photos/SimplySeniorIcon.png" alt="Site Logo" style="height:80px; width: auto; padding: 0px;" /></a>
                 <ul class="navbar-nav mr-auto" id="iconList">
+                    <li id="navBarItem">@Html.ActionLink("Home", "HomePage", "UserHomePage")</li>
+                    <li id="navBarItem">@Html.ActionLink("Search", "Index", "Profiles")</li>
                     <li id="navBarItem">@Html.ActionLink("Services", "Services", "Home")</li>
                     <li id="navBarItem">@Html.ActionLink("Events", "Index", "Events")</li>
-                    <li id="navBarItem">@Html.ActionLink("Search", "Index", "Profiles")</li>
                     <li id="navBarItem">@Html.ActionLink("Help", "HelpPage", "Home")</li>
                 </ul>
                 <div id="registrationStuff">

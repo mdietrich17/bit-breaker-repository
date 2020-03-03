@@ -1,0 +1,40 @@
+﻿@model SimplySeniors.Models.ViewModel.UserHomeViewModel
+
+@{
+    ViewBag.Title = "HomePage";
+}
+
+<br />
+<br />
+<table id="homePageTable">
+    <tr>
+        <td>
+            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ProfileFirstName)
+            @Html.DisplayFor(model => model.ProfileLastName)
+        </td>
+        <td id="smallWeather">
+        Weather<br />62°
+        </td>
+    </tr>
+</table>
+
+<br />
+<br />
+
+<table id="homePageTable2">
+    <tr>
+        <td id="postBox">
+            <div id="homeHeader">Posts</div> <hr /> Post 1 <br /> 
+            <div id="postDescription">This is a post</div> <br /> Post 2 <br /> 
+            <div id="postDescription">This is another post!!!</div>
+        </td>
+        <td id="friendsList">
+            <div id="homeHeader">Friends List</div> <hr /> Friend 1 <br /> 
+            <div id="friendInfo">This is friend 1</div> <br /> Friend 2 <br /> 
+            <div id="friendInfo">This is another friend</div>
+        </td>
+    </tr>
+</table>
