@@ -347,13 +347,13 @@ div#box
 #homePageTable {
     width: 100%;
     color: black;
-    font-size: 70px;
-    text-shadow: 2px 2px grey;
+    font-size: 50px;
+    text-shadow: 2px 2px white;
     margin-left: -60px;
 }
 
     #homePageTable img {
-        width: 70%;
+        width: 60%;
         border: solid;
         border-color: lightblue;
         border-width: 2px;
@@ -361,34 +361,13 @@ div#box
     }
 
     #smallWeather {
-        font-size: 25px;
+        font-size: 30px;
         text-shadow: 1px 1px blue;
     }
 
-#homePageTable2 {
-    width: 90%;
-    font-size: 30px;
-    text-shadow: 2px 2px white;
-    border: solid;
-    border-color: black;
-    color: black;
-    text-align: center;
-}
-
-#postBox {
-    background: white;
-    border-right-style: dotted;
-    width: 70%;
-}
-
 #postDescription {
     font-size: 20px;
-}
-
-#friendsList {
-    background: lightblue;
-    border-style: dotted;
-    width: 30%;
+    text-align: left;
 }
 
 #friendInfo {
@@ -398,3 +377,38 @@ div#box
 #homeHeader {
     font-size: 40px;
 }
+
+#boxPostFriend {
+    width: 90%;
+    font-size: 30px;
+    text-shadow: 2px 2px white;
+    border: solid;
+    border-color: black;
+    color: black;
+    text-align: center;
+}
+
+    #boxPostFriend.col-md-8 {
+        height: 100%;
+        margin-top: 10px;
+        background: white;
+        border-width: 2px;
+    }
+
+    #boxPostFriend.col-md-3 {
+        height: 100%;
+        margin-top: 10px;
+        background: lightblue;
+        border-width: 2px;
+        border-radius: 70px;
+    }
+
+    #boxPostFriend.col-md-offset-3 {
+        margin-left: 50px;
+    }
+
+    #status {
+        text-align: left;
+        text-shadow: 2px 2px lightblue;
+
+    }
