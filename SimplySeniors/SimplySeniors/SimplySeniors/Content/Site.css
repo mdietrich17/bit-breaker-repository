@@ -288,6 +288,7 @@ li {
 #eventButton {
     background-color: darkcyan;
     border: none;
+    box-shadow: 0px 5px 5px #888888;
     border-radius: 30px;
     color: white;
     padding: 5px 20px;
@@ -301,6 +302,10 @@ li {
 
     #eventButton .btn-default {
         color: white;
+    }
+
+    #eventButton:hover {
+        background-color: blue;
     }
 
 #eventLink a {
@@ -345,6 +350,9 @@ div#box
 /*USER HOME PAGE STYLING BELOW*/
 
 #homePageTable {
+    background: lightcyan;
+    box-shadow: 0px 5px 5px #888888;
+    border-radius: 90px;
     width: 100%;
     color: black;
     font-size: 50px;
@@ -353,7 +361,7 @@ div#box
 }
 
     #homePageTable img {
-        width: 60%;
+        width: 50%;
         border: solid;
         border-color: lightblue;
         border-width: 2px;
@@ -368,6 +376,7 @@ div#box
 #postDescription {
     font-size: 20px;
     text-align: left;
+    font-weight: 300;
 }
 
 #friendInfo {
@@ -381,8 +390,7 @@ div#box
 #boxPostFriend {
     width: 90%;
     font-size: 30px;
-    border: solid;
-    border-color: black;
+    box-shadow: 0px 5px 5px #888888;
     color: black;
     text-align: center;
 }
@@ -392,6 +400,7 @@ div#box
         margin-top: 10px;
         background: white;
         border-width: 2px;
+        border-radius: 20px;
     }
 
     #boxPostFriend.col-md-3 {
@@ -406,8 +415,16 @@ div#box
         margin-left: 50px;
     }
 
-    #status {
+    #statusName {
         text-align: left;
         text-shadow: 2px 2px lightblue;
+    }
 
+        #statusName img {
+            width: 15%;
+            border-width: 1px;
+            border-radius: 90px;
+        }
+    #statusTitle {
+        text-align: left;
     }

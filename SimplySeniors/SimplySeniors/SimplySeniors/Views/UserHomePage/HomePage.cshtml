@@ -21,20 +21,29 @@
     </tr>
 </table>
 
-<br />
-<a href="Posts/Create" id="postLink">Create Post</a> &nbsp &nbsp <a href="Posts/Details" id="postLink"> See My Posts</a>
+<br /><br />
+<button id="eventButton" onclick="window.location.href = '/Posts/Create'">
+    Create Post
+</button>
+<button id="eventButton" onclick="window.location.href = '/Posts/Index'">
+    See My Posts
+</button>
 
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
         <div id="homeHeader">Posts</div> <hr />
-        <div id="status">
+        <div id="statusName">
+            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
             @Html.DisplayFor(model => model.ProfileFirstName)
-            @Html.DisplayFor(model => model.ProfileLastName) <br />Painted My Nails
+            @Html.DisplayFor(model => model.ProfileLastName) 
+        </div> <div id="statusTitle">Painted My Nails
         </div><br />
         <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
-        <br /> <div id="status">
+        <br /> <div id="statusName">
+            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
             @Html.DisplayFor(model => model.ProfileFirstName)
-            @Html.DisplayFor(model => model.ProfileLastName) <br />Sunny Day
+            @Html.DisplayFor(model => model.ProfileLastName) 
+        </div><div id="statusTitle">Sunny Day
         </div><br />
         <div id="postDescription">It's so nice outside! Feels like summer already.</div><br />
     </div>
