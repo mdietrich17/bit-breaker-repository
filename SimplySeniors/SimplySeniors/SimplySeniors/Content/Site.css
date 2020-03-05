@@ -360,7 +360,7 @@ div#box
 }
 
     #homePageTable img {
-        width: 50%;
+        width: 40%;
         border: solid;
         border-color: lightblue;
         border-width: 2px;
@@ -420,7 +420,7 @@ div#box
         #statusName img {
             border: solid;
             border-color: lightblue;
-            width: 15%;
+            width: 10%;
             border-width: 1px;
             border-radius: 90px;
         }
