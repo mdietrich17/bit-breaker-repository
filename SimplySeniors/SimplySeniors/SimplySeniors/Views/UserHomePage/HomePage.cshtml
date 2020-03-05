@@ -32,24 +32,30 @@
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
         <div id="homeHeader">Posts</div> <hr />
-        <div id="statusName">
-            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-            @Html.DisplayFor(model => model.ProfileFirstName)
-            @Html.DisplayFor(model => model.ProfileLastName) 
-        </div> <div id="statusTitle">Painted My Nails
-        </div><br />
-        <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
-        <br /> <div id="statusName">
-            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-            @Html.DisplayFor(model => model.ProfileFirstName)
-            @Html.DisplayFor(model => model.ProfileLastName) 
-        </div><div id="statusTitle">Sunny Day
-        </div><br />
-        <div id="postDescription">It's so nice outside! Feels like summer already.</div><br />
+        <div id="individualPost">
+            <div id="statusName">
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                @Html.DisplayFor(model => model.ProfileFirstName)
+                @Html.DisplayFor(model => model.ProfileLastName)
+            </div> <div id="statusTitle">
+                Painted My Nails
+            </div><br />
+            <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
+        </div> <br />
+        <div id="individualPost">
+            <div id="statusName">
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                @Html.DisplayFor(model => model.ProfileFirstName)
+                @Html.DisplayFor(model => model.ProfileLastName)
+            </div><div id="statusTitle">
+                Sunny Day
+            </div><br />
+            <div id="postDescription">It's so nice outside! Feels like summer already.</div>
+        </div> <br />
+    </div><br />
+        <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
+            <div id="homeHeader">Friends List</div> <hr /> Amy Lastname <br />
+            <div id="friendInfo">Message Friend</div> <br /> James Person <br />
+            <div id="friendInfo">Message Friend</div><br />
+        </div>
     </div>
-    <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
-        <div id="homeHeader">Friends List</div> <hr /> Amy Lastname <br />
-        <div id="friendInfo">Message Friend</div> <br /> James Person <br />
-        <div id="friendInfo">Message Friend</div><br />
-    </div>
-</div>

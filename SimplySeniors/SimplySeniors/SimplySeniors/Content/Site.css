@@ -286,11 +286,11 @@ li {
 }
 
 #eventButton {
-    background-color: darkcyan;
+    background-color: lightcyan;
     border: none;
     box-shadow: 0px 5px 5px #888888;
     border-radius: 30px;
-    color: white;
+    color: black;
     padding: 5px 20px;
     text-align: center;
     text-decoration: none;
@@ -301,11 +301,11 @@ li {
 }
 
     #eventButton .btn-default {
-        color: white;
+        color: black;
     }
 
     #eventButton:hover {
-        background-color: blue;
+        background-color: lightblue;
     }
 
 #eventLink a {
@@ -357,7 +357,6 @@ div#box
     color: black;
     font-size: 50px;
     text-shadow: 2px 2px white;
-    margin-left: -60px;
 }
 
     #homePageTable img {
@@ -392,22 +391,20 @@ div#box
     font-size: 30px;
     box-shadow: 0px 5px 5px #888888;
     color: black;
+    border: solid;
     text-align: center;
+    border-width: 2px;
+    margin-top: 10px;
+    height: 100%;
 }
 
     #boxPostFriend.col-md-8 {
-        height: 100%;
-        margin-top: 10px;
         background: white;
-        border-width: 2px;
         border-radius: 20px;
     }
 
     #boxPostFriend.col-md-3 {
-        height: 100%;
-        margin-top: 10px;
-        background: lightblue;
-        border-width: 2px;
+        background: lightcyan;
         border-radius: 70px;
     }
 
@@ -421,10 +418,20 @@ div#box
     }
 
         #statusName img {
+            border: solid;
+            border-color: lightblue;
             width: 15%;
             border-width: 1px;
             border-radius: 90px;
         }
     #statusTitle {
         text-align: left;
+    }
+
+    #individualPost {
+        border: solid;
+        background-color: lightcyan;
+        padding: 10px;
+        border-radius: 20px;
+        border-width: 1px;
     }
