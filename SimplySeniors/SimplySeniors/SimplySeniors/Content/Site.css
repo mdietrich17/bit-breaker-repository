@@ -276,6 +276,12 @@ li {
 #uploadPhotoBox {
   margin-right: 10em; 
 }
+
+#uploadButton {
+    padding: .25em; 
+    
+}
+
 /*EVENTS PAGE STYLING BELOW*/
 
 #eventTitle {

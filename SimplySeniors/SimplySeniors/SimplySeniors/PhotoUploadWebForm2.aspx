@@ -1,5 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PhotoUploadWebForm2.aspx.cs" Inherits="SimplySeniors.PhotoUploadWebForm2" %>
 
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -12,7 +13,7 @@
     </style>
 </head>
 <body>
-    <div class="container" id="uploadPhotoBox" style="border: solid; border-radius: 1em; margin: 50px; background:antiquewhite">
+    <div class="container" id="uploadPhotoBox" style="border: solid; border-radius: 1em; margin: 50px; background:lightblue">
     <h1 style="margin-left: 25px">Upload photos here</h1>
 
     <div class="card-header">
@@ -29,12 +30,7 @@
         <br/>
         <br/>
         <asp:HyperLink ID="hyperlink" style="text-align: center; margin-left: 2.5em; margin-bottom: 2em; padding: 1em;" runat="server">See your Photo by clicking here</asp:HyperLink>
-        
-
-    </form> 
-        
-        
-
+  </form> 
     </div>
     </div>
 </body>
