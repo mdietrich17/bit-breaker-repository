@@ -11,6 +11,7 @@ using Microsoft.Owin.Security;
 using SimplySeniors.Models;
 using Newtonsoft.Json;
 using System.Net;
+using System.Web.Hosting;
 
 
 namespace SimplySeniors.Controllers
@@ -82,7 +83,8 @@ namespace SimplySeniors.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    //return RedirectToLocal(returnUrl);
+                    return RedirectToAction("HomePage", "UserHomePage"); //to redirect to the homepage
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -178,7 +180,7 @@ namespace SimplySeniors.Controllers
                     if (response.Success == true) //captcha worked, move on ahead
                     {
                         sendemail(user);
-                        return RedirectToAction("Confirm", "Account", new { Email = user.Email });
+                        return RedirectToAction("Create", "Profiles");
                     }
                     else {return Content("Error From Google ReCaptcha : " + response.ErrorMessage[0].ToString()); } //captcha failed redirect. 
                 }
@@ -204,9 +206,11 @@ namespace SimplySeniors.Controllers
             new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Web Registration"),
             new System.Net.Mail.MailAddress(user.Email));
             m.Subject = "Email confirmation";
-            m.Body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
+            string  path = System.IO.File.ReadAllText(HostingEnvironment.MapPath("~/Template/") + "EmailTemplate" + ".html"); //path for template
+            string body = string.Format("<p> Dear {0} <br/> Thank you for your registration, please click on the link to complete your registration: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
             user.UserName, Url.Action("ConfirmEmail", "Account",
-            new { userId= user.Id, Code = codeHtmlVersion }, protocol: Request.Url.Scheme));
+            new { userId = user.Id, Code = codeHtmlVersion }, protocol: Request.Url.Scheme)); //message
+            m.Body = appendmessage(path, body);
             m.IsBodyHtml = true;
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
             smtp.UseDefaultCredentials = false;
@@ -214,6 +218,25 @@ namespace SimplySeniors.Controllers
             smtp.Port = 587;
             smtp.EnableSsl = true;
             smtp.Send(m);
+
+        }
+
+       public string appendmessage(string emailtemplatepath, string message)
+        {
+            var template = new HtmlAgilityPack.HtmlDocument();
+            template.LoadHtml(emailtemplatepath);
+            foreach(var item in template.DocumentNode.Descendants())
+            {
+                if (item.Id == "insideboxid")
+                {
+                    var loadbody = new HtmlAgilityPack.HtmlDocument();
+                    loadbody.LoadHtml(message);
+                    var paragraph = loadbody.DocumentNode.SelectSingleNode("//p");
+                    item.AppendChild(paragraph);
+                }
+            }
+
+            return template.DocumentNode.OuterHtml;
 
         }
 
@@ -249,9 +272,11 @@ namespace SimplySeniors.Controllers
             new System.Net.Mail.MailAddress("teamBitBreakers@gmail.com", "Password Reset"),
             new System.Net.Mail.MailAddress(user.Email));
             m.Subject = "Password Reset";
-            m.Body = string.Format("<p> Dear {0} <br/> Hi we heard you wanted to reset your password, please click on the link to reset your password: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
+            string path = System.IO.File.ReadAllText(HostingEnvironment.MapPath("~/Template/") + "EmailTemplate" + ".html"); //path for template
+            string body = string.Format("<p> Dear {0} <br/> Hi we heard you wanted to reset your password, please click on the link to reset your password: <a href =\"{1}\" title =\"User Email Confirm\">Click Here</a> </p>",
             user.UserName, Url.Action("ResetPassword", "Account",
             new { userId = user.Id, Code = code }, protocol: Request.Url.Scheme));
+            m.Body = appendmessage(path, body);
             m.IsBodyHtml = true;
             System.Net.Mail.SmtpClient smtp = new System.Net.Mail.SmtpClient("smtp.gmail.com");
             smtp.UseDefaultCredentials = false;
@@ -409,6 +434,7 @@ namespace SimplySeniors.Controllers
             {
                 case SignInStatus.Success:
                     return RedirectToLocal(returnUrl);
+                   // return RedirectToAction("HomePage", "UserHomePage"); //to redirect to the homepage
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
