@@ -23,10 +23,11 @@ namespace SimplySeniors.Controllers
             // Get the ASP.NET Identity Id of the currently authorized user
             string id = User.Identity.GetUserId();
             ProfileContext profiledb = new ProfileContext();
+            PostContext db = new PostContext();
             // Get all profile info for current logged in user where the ASPNET ID = profile ID
             Profile profile = profiledb.Profiles.Where(u => u.USERID == id).FirstOrDefault();
-
-            UserHomeViewModel viewModel = new UserHomeViewModel(profile);
+            List<Post> postlist = db.Posts.Where(x => x.ProfileID == profile.ID).ToList();
+            UserHomeViewModel viewModel = new UserHomeViewModel(profile, postlist);
             if (profile == null)
             {
                 return HttpNotFound();

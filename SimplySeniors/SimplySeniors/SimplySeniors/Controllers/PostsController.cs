@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
 
@@ -14,6 +15,7 @@ namespace SimplySeniors.Controllers
     public class PostsController : Controller
     {
         private PostContext db = new PostContext();
+        private ProfileContext db1 = new ProfileContext();
 
         // GET: Posts
         public ActionResult Index()
@@ -49,6 +51,9 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,Title,Body")] Post post)
         {
+            string id = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == id).FirstOrDefault();
+            post.ProfileID = profile.ID;
             if (ModelState.IsValid)
             {
                 db.Posts.Add(post);
