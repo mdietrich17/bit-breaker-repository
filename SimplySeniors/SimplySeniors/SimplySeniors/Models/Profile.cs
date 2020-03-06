@@ -31,15 +31,13 @@ namespace SimplySeniors.Models
 
         public bool? VETSTATUS { get; set; }
 
-
         [StringLength(128)]
         public string OCCUPATION { get; set; }
 
         [StringLength(128)]
         public string FAMILY { get; set; }
-       
+
         [StringLength(2048)]
         public string BIO { get; set; }
-
     }
 }

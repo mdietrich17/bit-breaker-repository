@@ -32,9 +32,28 @@
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
         <div id="homeHeader">Posts</div> <hr />
+        <p class="font-weight-bold">User Posts</p>
+        @foreach (var item in Model.PostList)
+        {
+            <div id="individualPost">
+                <div id="statusName">
+                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                    @Html.DisplayFor(model => model.ProfileFirstName)
+                    @Html.DisplayFor(model => model.ProfileLastName)
+                </div>
+                <div id="statusTitle">
+                    @Html.DisplayFor(model => item.Title)
+                </div><br />
+                <div id="postDescription">
+                    @Html.DisplayFor(model => item.Body)
+                </div>
+
+            </div>
+        }
+        @*
         <div id="individualPost">
             <div id="statusName">
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
                 @Html.DisplayFor(model => model.ProfileFirstName)
                 @Html.DisplayFor(model => model.ProfileLastName)
             </div> <div id="statusTitle">
@@ -44,7 +63,7 @@
         </div> <br />
         <div id="individualPost">
             <div id="statusName">
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
                 @Html.DisplayFor(model => model.ProfileFirstName)
                 @Html.DisplayFor(model => model.ProfileLastName)
             </div><div id="statusTitle">
@@ -52,6 +71,7 @@
             </div><br />
             <div id="postDescription">It's so nice outside! Feels like summer already.</div>
         </div> <br />
+        *@
     </div><br />
         <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
             <div id="homeHeader">Friends List</div> <hr /> Amy Lastname <br />

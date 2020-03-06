@@ -9,11 +9,12 @@ namespace SimplySeniors.Models.ViewModel
 {
     public class UserHomeViewModel
     {
-        public UserHomeViewModel(Profile Profile)
+        public UserHomeViewModel(Profile Profile, List<Post> posts)
         {
             ProfileID = Profile.ID;
             ProfileFirstName = Profile.FIRSTNAME;
             ProfileLastName = Profile.LASTNAME;
+            PostList = posts;
         }
         public int ProfileID { get; set; }
 
@@ -21,5 +22,6 @@ namespace SimplySeniors.Models.ViewModel
 
         public string ProfileLastName { get; set; }
 
+        public List<Post> PostList { get; set; }
     }
 }
