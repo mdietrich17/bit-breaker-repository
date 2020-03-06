@@ -243,3 +243,9 @@ li {
 }
 
 /*END HELP PAGE*/
+
+/*PHOTO UPLOAD FORMS*/
+#uploadPhotoBox {
+    margin-left: 3em;
+    margin-right: 10em; 
+}
