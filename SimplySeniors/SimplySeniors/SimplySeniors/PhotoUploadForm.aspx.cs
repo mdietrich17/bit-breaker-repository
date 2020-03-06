@@ -85,15 +85,15 @@ namespace SimplySeniors
                      cmd.ExecuteNonQuery(); 
                      con.Close();
                      lblMessage.Visible = true;
-                     lblMessage.Text = "Your upload was successfully saved to the database";
+                     lblMessage.Text = "Your upload was successfully saved to the Simply Senior's database";
                      lblMessage.ForeColor = System.Drawing.Color.Green;
                      hyperlink.Visible = true;
-                     hyperlink.NavigateUrl = "~/PhotoUploadWebForm1.aspx?Id=" + cmd.Parameters["@NewId"].Value.ToString();
+                     hyperlink.NavigateUrl = "~/PhotoDownloadForm.aspx?Id=" + cmd.Parameters["@NewId"].Value.ToString();
                  }
              }
              else {
                 lblMessage.Visible = true;
-                lblMessage.Text = "You can only upload .jpg, .png, .gif and .bmp to your account.";
+                lblMessage.Text = "You can only upload .jpg, .png, .gif and .bmp.";
                 lblMessage.ForeColor = System.Drawing.Color.Red;
                 hyperlink.Visible = false; 
              }

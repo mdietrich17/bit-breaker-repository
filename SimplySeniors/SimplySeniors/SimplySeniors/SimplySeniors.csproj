@@ -200,19 +200,19 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
-    <Compile Include="PhotoUploadWebForm1.aspx.cs">
-      <DependentUpon>PhotoUploadWebForm1.aspx</DependentUpon>
+    <Compile Include="PhotoDownloadForm.aspx.cs">
+      <DependentUpon>PhotoDownloadForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PhotoUploadWebForm1.aspx.designer.cs">
-      <DependentUpon>PhotoUploadWebForm1.aspx</DependentUpon>
+    <Compile Include="PhotoDownloadForm.aspx.designer.cs">
+      <DependentUpon>PhotoDownloadForm.aspx</DependentUpon>
     </Compile>
-    <Compile Include="PhotoUploadWebForm2.aspx.cs">
-      <DependentUpon>PhotoUploadWebForm2.aspx</DependentUpon>
+    <Compile Include="PhotoUploadForm.aspx.cs">
+      <DependentUpon>PhotoUploadForm.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="PhotoUploadWebForm2.aspx.designer.cs">
-      <DependentUpon>PhotoUploadWebForm2.aspx</DependentUpon>
+    <Compile Include="PhotoUploadForm.aspx.designer.cs">
+      <DependentUpon>PhotoUploadForm.aspx</DependentUpon>
     </Compile>
     <Compile Include="Models\ViewModel\UserHomeViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -252,8 +252,8 @@
     <Content Include="Photos\meals.jpg" />
     <Content Include="Photos\noimageavailble.jpg" />
     <Content Include="Photos\profileSearchBackground.jpg" />
-    <Content Include="PhotoUploadWebForm1.aspx" />
-    <Content Include="PhotoUploadWebForm2.aspx" />
+    <Content Include="PhotoDownloadForm.aspx" />
+    <Content Include="PhotoUploadForm.aspx" />
     <Content Include="Photos\SimplySeniorIcon.png" />
     <Content Include="Photos\SimplySeniorIcon2.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />

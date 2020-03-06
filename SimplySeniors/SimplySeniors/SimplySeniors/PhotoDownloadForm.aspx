@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PhotoUploadWebForm1.aspx.cs" Inherits="SimplySeniors.PhotoUploadWebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PhotoDownloadForm.aspx.cs" Inherits="SimplySeniors.PhotoUploadWebForm1" %>
 
 <!DOCTYPE html>
 
