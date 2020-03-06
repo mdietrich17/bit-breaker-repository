@@ -30,14 +30,14 @@ namespace SimplySeniors
              HttpPostedFile postedFile = FileUpload1.PostedFile;
              string fileName = Path.GetFileName(postedFile.FileName);
              string fileExtension = Path.GetExtension(fileName);
-             //int profileIdentifier = 1; 
+             int profileIdentifier = 1; 
              int fileSize = postedFile.ContentLength; 
              if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
              {
                  Stream stream = postedFile.InputStream; 
                  BinaryReader binaryReader = new BinaryReader(stream);
                  byte[] bytes = binaryReader.ReadBytes((int) stream.Length);
-
+                
                  string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                  using (SqlConnection con = new SqlConnection(cs) )
                  {
@@ -61,7 +61,7 @@ namespace SimplySeniors
                     SqlParameter paramProfileIdentifier = new SqlParameter()
                     {
                         ParameterName = "@ProfileId",
-                        Value = 1
+                        Value = profileIdentifier
                     };
                     cmd.Parameters.Add(paramProfileIdentifier);
 
@@ -85,7 +85,7 @@ namespace SimplySeniors
                      cmd.ExecuteNonQuery(); 
                      con.Close();
                      lblMessage.Visible = true;
-                     lblMessage.Text = "Upload was Successful!";
+                     lblMessage.Text = "Your upload was successfully saved to the database";
                      lblMessage.ForeColor = System.Drawing.Color.Green;
                      hyperlink.Visible = true;
                      hyperlink.NavigateUrl = "~/PhotoUploadWebForm1.aspx?Id=" + cmd.Parameters["@NewId"].Value.ToString();
