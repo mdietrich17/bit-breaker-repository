@@ -17,6 +17,14 @@
 	**/
 );
 
+CREATE TABLE [dbo].[FileStore](
+[ID] [int] IDENTITY(1,1) NOT NULL,
+[FileContent] [image] NOT NULL,
+[MimeType] [nvarchar](50) NOT NULL,
+[FileName] [nvarchar](50) NOT NULL
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+
+
 CREATE TABLE [dbo].[Hobbies]
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,
