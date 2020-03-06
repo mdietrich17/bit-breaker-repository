@@ -32,7 +32,6 @@
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
         <div id="homeHeader">Posts</div> <hr />
-        <p class="font-weight-bold">User Posts</p>
         @foreach (var item in Model.PostList)
         {
             <div id="individualPost">
@@ -43,13 +42,12 @@
                 </div>
                 <div id="statusTitle">
                     @Html.DisplayFor(model => item.Title)
-                </div><br />
+                </div>
                 <div id="postDescription">
                     @Html.DisplayFor(model => item.Body)
                 </div>
 
             </div>
-            <br />
         }
         @*
         <div id="individualPost">
@@ -74,9 +72,15 @@
         </div> <br />
         *@
     </div><br />
-        <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
-            <div id="homeHeader">Friends List</div> <hr /> Amy Lastname <br />
-            <div id="friendInfo">Message Friend</div> <br /> James Person <br />
-            <div id="friendInfo">Message Friend</div><br />
-        </div>
+          <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
+              <div id="homeHeader">Friends List</div> <hr />
+              <div id="friendName"> 
+              <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+              Amy Lastname <br /></div>
+              <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+              <div id="friendName">
+              <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+              James Person <br /></div>
+              <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div><br />
+          </div>
     </div>

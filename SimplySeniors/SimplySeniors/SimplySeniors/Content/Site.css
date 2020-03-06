@@ -57,7 +57,7 @@ textarea {
 /*NAVBAR CUSTOMIZATION IS BELOW*/
 
 #navBar{
-    font-size: 28px;
+    font-size: 25px;
 }
 
     #navBar a {
@@ -353,7 +353,7 @@ div#box
     background: lightcyan;
     box-shadow: 0px 5px 5px #888888;
     border-radius: 90px;
-    width: 100%;
+    width: 93%;
     color: black;
     font-size: 50px;
     text-shadow: 2px 2px white;
@@ -376,10 +376,6 @@ div#box
     font-size: 20px;
     text-align: left;
     font-weight: 300;
-}
-
-#friendInfo {
-    font-size: 20px;
 }
 
 #homeHeader {
@@ -412,6 +408,26 @@ div#box
         margin-left: 50px;
     }
 
+    #boxPostFriend.col-md-3 img {
+        float: left;
+    }
+
+    #friendName {
+    font-size: 23px;
+    }
+
+    #friendName img {
+        border: solid;
+        border-color: lightblue;
+        width: 28%;
+        border-width: 1px;
+        border-radius: 90px;
+    }
+
+    #messageFriend {
+    font-size: 15px;
+    }
+
     #statusName {
         text-align: left;
         text-shadow: 2px 2px lightblue;
@@ -426,12 +442,15 @@ div#box
         }
     #statusTitle {
         text-align: left;
+        padding-bottom: 20px;
     }
 
     #individualPost {
         border: solid;
         background-color: lightcyan;
-        padding: 10px;
+        padding: 20px;
         border-radius: 20px;
         border-width: 1px;
+        margin-top: 20px;
+        margin-bottom: 20px;
     }
