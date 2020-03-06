@@ -9,3 +9,9 @@ DROP TABLE [dbo].[Hobbies]
 DROP TABLE [dbo].[Events]
 DROP TABLE [dbo].[Posts]
 DROP TABLE [dbo].[HobbyBridge]
+
+/** UPLOADING PHOTO STUFF BELOW **/
+DROP TABLE [dbo].[Images]
+DROP PROCEDURE spUploadImage 
+DROP PROCEDURE spGetImageById
+
