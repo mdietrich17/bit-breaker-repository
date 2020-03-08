@@ -37,7 +37,7 @@
     <form id="form1" runat="server">
     <asp:TextBox ID="txtCity" runat="server" Text="" />
     <asp:Button Text="Get Weather Information" runat="server" OnClick="GetWeatherInfo" />
-    <hr />
+    <br/>
     <table id="tblWeather" runat="server" border="0" cellpadding="0" cellspacing="0"
         visible="false">
         <tr>
@@ -66,7 +66,7 @@
                 Max:
                 <asp:Label ID="lblTempMax" runat="server" />
                 Day:
-                <asp:Label ID="lblTempCurrent" runat="server" />
+                <asp:Label ID="lblTempCurrent" runat="server" />)
          
             </td>
         </tr>
