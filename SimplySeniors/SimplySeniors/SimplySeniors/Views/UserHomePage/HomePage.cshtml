@@ -16,12 +16,10 @@
             @Html.DisplayFor(model => model.ProfileLastName)
         </td>
         <td>
-            <iframe runat="server" id="weatherReport" src="~/weather.aspx"></iframe>
+            <Iframe runat="server" id="weatherReport" src="~/weather.aspx"></Iframe>
        </td>
     </tr>
 </table>
-
-
 <br />
 <br />
 <button id="eventButton" onclick="window.location.href = '/Posts/Create'">
