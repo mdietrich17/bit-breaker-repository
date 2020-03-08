@@ -365,8 +365,10 @@ div#box
 
 #weatherReport {
     border: hidden;
-    margin-left: -.5em;
+    margin-left: -.5em; 
     margin-bottom: -2.25em;
+    width: 100%;
+    height: 260px; 
 }
 
 #homePageTable {
