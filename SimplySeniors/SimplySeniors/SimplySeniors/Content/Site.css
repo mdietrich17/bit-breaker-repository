@@ -361,6 +361,14 @@ div#box
 
 /*USER HOME PAGE STYLING BELOW*/
 
+
+
+#weatherReport {
+    border: hidden;
+    margin-left: -.5em;
+    margin-bottom: -2.25em;
+}
+
 #homePageTable {
     background: lightcyan;
     box-shadow: 0px 5px 5px #888888;
