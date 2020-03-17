@@ -239,6 +239,7 @@
     <Content Include="Photos\carPhotoTwo.jpg" />
     <Content Include="Photos\development.png" />
     <Content Include="Photos\devTeam.jpg" />
+    <Content Include="Photos\favicon-32x32.png" />
     <Content Include="Photos\fungroup2.png" />
     <Content Include="Photos\help.png" />
     <Content Include="Photos\homeIcon.jpg" />
