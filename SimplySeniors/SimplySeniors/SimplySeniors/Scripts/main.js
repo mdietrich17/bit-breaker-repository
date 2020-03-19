@@ -2,6 +2,9 @@
     if (window.location.hash == "#AccountHelp") {
         accInfo();
     }
+    if (window.location.hash == "#EventHelp") {
+        eventInfo();
+    }
 });
 
 function accInfo() {

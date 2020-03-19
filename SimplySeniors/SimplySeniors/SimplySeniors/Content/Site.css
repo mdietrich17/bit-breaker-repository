@@ -31,6 +31,7 @@ textarea {
     font-size: 5em;
     padding-top: .5em;
     font-weight: 800;
+    text-shadow: 3px 3px white;
 }
 
 #homeHeader {
