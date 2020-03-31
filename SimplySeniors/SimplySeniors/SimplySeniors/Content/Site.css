@@ -481,6 +481,7 @@ div#box
     display: table;
     position: static;
     padding-top: 20px;
+    width: 354px;
 }
 
     #registerBox h2 {
@@ -498,4 +499,19 @@ div#box
     border-radius: 80px;
     width: 800px;
     margin-left: 330px;
+}
+
+#registerBox input.form-control {
+    width: 223px;
+}
+
+.checkbox {
+    width: 200px;
+}
+
+#loginPic img {
+    margin-top: -540px;
+    border-radius: 80px;
+    width: 800px;
+    margin-left: 230px;
 }
