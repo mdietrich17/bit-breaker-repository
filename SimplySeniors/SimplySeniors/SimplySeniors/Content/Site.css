@@ -467,3 +467,35 @@ div#box
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+    /* REGISTRATION AND LOGIN FORMS */
+
+#registerBox {
+    margin-left: 25px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0px 25px 25px;
+    background: white;
+    box-shadow: 0px 0px 0px 5px rgba( 255,255,255,0.4 ), 0px 4px 20px rgba( 0,0,0,0.33 );
+    border-radius: 15px;
+    display: table;
+    position: static;
+    padding-top: 20px;
+}
+
+    #registerBox h2 {
+        text-shadow: 1px 1px lightblue;
+        text-align: center;
+    }
+
+    #registerBox p {
+        color: #8f8f8f;
+        font-weight: 300;
+    }
+
+#registerPic img {
+    margin-top: -640px;
+    border-radius: 80px;
+    width: 800px;
+    margin-left: 330px;
+}
