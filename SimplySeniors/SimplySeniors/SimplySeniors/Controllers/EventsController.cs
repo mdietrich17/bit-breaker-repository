@@ -47,7 +47,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NAME,DESCRIPTION,LOCATION,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,NAME,DESCRIPTION,COUNTRY,STATE,CITY,STREETADDRESS,ZIPCODE,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -79,7 +79,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NAME,DESCRIPTION,LOCATION,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,NAME,DESCRIPTION,COUNTRY,STATE,CITY,STREETADDRESS,ZIPCODE,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
         {
             if (ModelState.IsValid)
             {

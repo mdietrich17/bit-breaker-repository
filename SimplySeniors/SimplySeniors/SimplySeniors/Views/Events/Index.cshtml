@@ -10,7 +10,7 @@
     Create New Event
 </button>
 <div id="eventPic">
-    <img src="~/Photos/fungroup2.png" alt="eventPic">
+    <img src="~/Photos/fungroup3.png" alt="eventPic">
 </div>
 
 <table class="table" id="eventTable">
@@ -25,16 +25,10 @@
             @{<text>Location</text>}
         </th>
         <th>
-            @{<text>Start Date</text>}
+            @{<text>Date</text>}
         </th>
         <th>
-            @{<text>End Date</text>}
-        </th>
-        <th>
-            @{<text>Start Time</text>}
-        </th>
-        <th>
-            @{<text>End Time</text>}
+            @{<text>Time</text>}
         </th>
         <th></th>
     </tr>
@@ -49,19 +43,13 @@
                 @Html.DisplayFor(modelItem => item.DESCRIPTION)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LOCATION)
+                @Html.DisplayFor(modelItem => item.CITY)@{<text>, </text>} @Html.DisplayFor(modelItem => item.STATE)@{<text>, </text>}@Html.DisplayFor(modelItem => item.COUNTRY)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.STARTDATE)
+                @Html.DisplayFor(modelItem => item.STARTDATE) @{<text>-</text>} @Html.DisplayFor(modelItem => item.ENDDATE)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ENDDATE)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.STARTTIME)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ENDTIME)
+                @Html.DisplayFor(modelItem => item.STARTTIME) @{<text>-</text>} @Html.DisplayFor(modelItem => item.ENDTIME)
             </td>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { id = item.ID })
@@ -78,4 +66,5 @@
     <p>"Events Near You" feature is coming soon. <br /> You will soon be able to see events close to the location you provided on your profile.</p>
 </div>
 
-<br /><br /><p> For more information on how our events work, how to navigate the events page, or what events are displayed, click the <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#EventHelp'> click here</a>.</p>
+<br />
+<br /><p> For more information on how our events work, how to navigate the events page, or what events are displayed, click the <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#EventHelp'> click here</a>.</p>

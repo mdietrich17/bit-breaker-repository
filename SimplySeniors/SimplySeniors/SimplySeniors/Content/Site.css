@@ -334,15 +334,15 @@ li {
 }
 
 #eventPic {
-    margin-left: 250px;
+    margin-left: 200px;
 }
 
     #eventPic img {
         max-width: 27%;
         margin-left: 620px;
         margin-bottom: -70px;
-        margin-top: -200px;
-        opacity: 0.5;
+        margin-top: -155px;
+        opacity: 60%;
         border-radius: 20px;
     }
 

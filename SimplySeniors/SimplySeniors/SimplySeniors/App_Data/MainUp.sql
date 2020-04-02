@@ -53,7 +53,11 @@ CREATE TABLE [dbo].[Events]
 	[ID] INT IDENTITY (1,1) NOT NULL,
 	[NAME] NVARCHAR (128) NOT NULL,
 	[DESCRIPTION] NVARCHAR (2048) NOT NULL,
-	[LOCATION] NVARCHAR (128) NOT NULL,
+	[COUNTRY] NVARCHAR (128) NOT NULL,
+	[STATE] NVARCHAR (128) NOT NULL,
+	[CITY] NVARCHAR (128) NOT NULL,
+	[STREETADDRESS] NVARCHAR (128) NOT NULL,
+	[ZIPCODE] NVARCHAR (10) NOT NULL,
 	[STARTDATE] DATE NOT NULL,
 	[STARTTIME] DATETIME NOT NULL,
 	[ENDDATE] DATE NOT NULL,
@@ -130,10 +134,13 @@ INSERT INTO [dbo].[HobbyBridge] (ProfileID, HobbiesID) VALUES
 	(4, 6),
 	(5, 6);
 
-INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTDATE, STARTTIME, ENDDATE, ENDTIME, LOCATION)	VALUES
-('Ghirardelli Wedding', 'A beautiful wedding open for the public, everyone is invited!', '03/09/2021', '05:00 PM', '03/09/2021', '09:00 PM', 'State Street Event Center'),
-('Spy Retirement Banquet', 'Spies only. No other information provided because the spies should already know the info for this event.', '04/12/2020', '06:30 PM', '04/12/2020', '11:00 PM', 'United Artists Headquarters'),
-('Bachelorette Party', 'Party with the gals, byob', '06/05/2020', '10:00 PM', '06/06/2020', '05:00 AM', 'The Amado');
+INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTDATE, STARTTIME, ENDDATE, ENDTIME, COUNTRY, STATE, CITY, STREETADDRESS, ZIPCODE)	VALUES
+('Ghirardelli Wedding', 'A beautiful wedding open for the public, everyone is invited!', '03/09/2021', '05:00 PM', '03/09/2021', '09:00 PM', 'United States', 'Oregon', 'Monmouth', '345 Monmouth Ave N', '97361'),
+('Spy Retirement Banquet', 'Spies only. No other information provided because the spies should already know the info for this event.', '04/12/2020', '06:30 PM', '04/12/2020', '11:00 PM', 'United States', 'Oregon', 'Salem', '200 Commercial St SE', '97301'),
+('Birthday for Myrtle', 'Join Myrtle in her 72nd birthday celebration! Please email Myrtle directly to RSVP to this event.', '05/20/2020', '03:00 PM', '05/20/2020', '07:00 PM', 'United States', 'Washington', 'Seattle', '400 Broad St', '98109'),
+('Tai Chi', 'Come experience Tai Chi with professor Brad Gerbs and experience relaxation while also getting some exercise in!', '07/19/2020', '05:00 PM', '07/19/2020', '06:30 PM', 'United States', 'Utah', 'Park City', '1345 Lowell Ave', '84060'),
+('Knitting Camp', 'Come join us in the Beginners Knitting Class 2020 and make something to be proud of!', '04/15/2020', '06:00 PM', '04/22/2020', '06:00 PM', 'United States', 'Colorado', 'Denver', '4600 Humboldt St', '80216'),
+('Bachelorette Party', 'Party with the gals, byob', '06/05/2020', '10:00 PM', '06/06/2020', '05:00 AM', 'United States', 'Oregon', 'Portland', '1825 SW Broadway', '97201');
 
 INSERT INTO [dbo].[Posts] (Title, Body, ProfileID) VALUES 
 ('Felt cute might delete later idk', 'Nothing', 1),
