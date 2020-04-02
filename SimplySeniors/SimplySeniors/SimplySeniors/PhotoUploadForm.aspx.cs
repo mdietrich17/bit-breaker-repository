@@ -38,8 +38,8 @@ namespace SimplySeniors
                  BinaryReader binaryReader = new BinaryReader(stream);
                  byte[] bytes = binaryReader.ReadBytes((int) stream.Length);
                 
-                 string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-               //  string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+               //  string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                 string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
                 using (SqlConnection con = new SqlConnection(cs) )
                  {
