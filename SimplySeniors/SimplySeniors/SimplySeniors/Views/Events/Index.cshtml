@@ -41,34 +41,34 @@
 
     @foreach (var item in Model)
     {
-<tr>
-    <td>
-        @Html.DisplayFor(modelItem => item.NAME)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.DESCRIPTION)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.LOCATION)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.STARTDATE)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ENDDATE)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.STARTTIME)
-    </td>
-    <td>
-        @Html.DisplayFor(modelItem => item.ENDTIME)
-    </td>
-    <td>
-        @Html.ActionLink("Edit", "Edit", new { id = item.ID }) 
-        @Html.ActionLink("Details", "Details", new { id = item.ID }) 
-        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
-    </td>
-</tr>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DESCRIPTION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LOCATION)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STARTDATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ENDDATE)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.STARTTIME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ENDTIME)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+                @Html.ActionLink("Details", "Details", new { id = item.ID })
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
     }
 
 </table>
@@ -77,3 +77,5 @@
 <div id="eventTable" style="text-align:center">
     <p>"Events Near You" feature is coming soon. <br /> You will soon be able to see events close to the location you provided on your profile.</p>
 </div>
+
+<br /><br /><p> For more information on how our events work, how to navigate the events page, or what events are displayed, click the <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#EventHelp'> click here</a>.</p>

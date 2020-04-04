@@ -31,6 +31,7 @@ textarea {
     font-size: 5em;
     padding-top: .5em;
     font-weight: 800;
+    text-shadow: 3px 3px white;
 }
 
 #homeHeader {
@@ -196,7 +197,7 @@ li {
 
 .sidenav { /* The sidebar menu */
     height: 100%; /* Full-height: remove this if you want "auto" height */
-    width: 140px; /* Set the width of the sidebar */
+    width: 130px; /* Set the width of the sidebar */
     position: fixed; /* Fixed Sidebar (stay in place on scroll) */
     z-index: 1; /* Stay on top */
     top: 0; /* Start a little under main menu nav bar */
@@ -471,3 +472,51 @@ div#box
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+    /* REGISTRATION AND LOGIN FORMS */
+
+#registerBox {
+    margin-left: 25px;
+    margin-top: 60px;
+    margin-bottom: 40px;
+    padding: 0px 25px 25px;
+    background: white;
+    box-shadow: 0px 0px 0px 5px rgba( 255,255,255,0.4 ), 0px 4px 20px rgba( 0,0,0,0.33 );
+    border-radius: 15px;
+    display: table;
+    position: static;
+    padding-top: 20px;
+    width: 354px;
+}
+
+    #registerBox h2 {
+        text-shadow: 1px 1px lightblue;
+        text-align: center;
+    }
+
+    #registerBox p {
+        color: #8f8f8f;
+        font-weight: 300;
+    }
+
+#registerPic img {
+    margin-top: -640px;
+    border-radius: 80px;
+    width: 800px;
+    margin-left: 330px;
+}
+
+#registerBox input.form-control {
+    width: 223px;
+}
+
+.checkbox {
+    width: 200px;
+}
+
+#loginPic img {
+    margin-top: -540px;
+    border-radius: 80px;
+    width: 800px;
+    margin-left: 230px;
+}

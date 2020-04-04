@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Simply Seniors</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous"> @* Loading Bootstrap stylesheet - make sure to keep it as the first stylesheet listed.*@
+    <link rel="icon" type="image/png" sizes="16x16" href="~/Photos/favicon-32x32.png">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 
@@ -46,6 +47,8 @@
 
         @Scripts.Render("~/bundles/jquery")
         @Scripts.Render("~/bundles/bootstrap")
+        @Scripts.Render("~/Scripts/main.js")
+
         <script src='https://www.google.com/recaptcha/api.js'></script>
         @RenderSection("scripts", required: false)
 </body>

@@ -249,7 +249,10 @@
     <Content Include="Photos\carPhotoTwo.jpg" />
     <Content Include="Photos\development.png" />
     <Content Include="Photos\devTeam.jpg" />
+    <Content Include="Photos\favicon-32x32.png" />
     <Content Include="Photos\fungroup2.png" />
+    <Content Include="Photos\HappySeniorsYay.png" />
+    <Content Include="Photos\HappySeniorsYay2.png" />
     <Content Include="Photos\help.png" />
     <Content Include="Photos\homeIcon.jpg" />
     <Content Include="Photos\homeRoundImage.jpg" />
@@ -259,6 +262,9 @@
     <Content Include="Photos\noimageavailble.jpg" />
     <Content Include="Photos\profileSearchBackground.jpg" />
     <Content Include="PhotoDownloadForm.aspx" />
+    <Content Include="Photos\technologyFolkFade.jpg" />
+    <Content Include="Photos\technologyFolkFade.png" />
+    <Content Include="Photos\technologyFolkFade2.png" />
     <Content Include="PhotoUploadForm.aspx" />
     <Content Include="Photos\SimplySeniorIcon.png" />
     <Content Include="Photos\SimplySeniorIcon2.png" />

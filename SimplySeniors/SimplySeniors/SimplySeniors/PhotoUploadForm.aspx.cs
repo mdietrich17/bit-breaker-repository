@@ -42,7 +42,7 @@ namespace SimplySeniors
                 
                  string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                  //string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
-                 
+
                 using (SqlConnection con = new SqlConnection(cs) )
                  {
                      SqlCommand cmd = new SqlCommand("spUploadImage", con);
