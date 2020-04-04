@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="weather.aspx.cs" Inherits="SimplySeniors.Models.Default" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="weather.aspx.cs" Inherits="SimplySeniors.Models.WeatherAPI" %>
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
@@ -35,7 +35,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:TextBox ID="txtCity" runat="server" Text="" />
+    <asp:TextBox ID="txtCity" runat="server" Text="Monmouth, Oregon" /> <%-- Here is where you go to input the location for the mapping function. We can import their location into this cell once set up. --%>
     <asp:Button Text="Get Weather Information" runat="server" OnClick="GetWeatherInfo" />
     <br/>
     <table id="tblWeather" runat="server" border="0" cellpadding="0" cellspacing="0"

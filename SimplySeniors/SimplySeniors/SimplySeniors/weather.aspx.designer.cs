@@ -11,7 +11,7 @@ namespace SimplySeniors.Models
 {
 
 
-    public partial class Default
+    public partial class WeatherAPI
     {
 
         /// <summary>

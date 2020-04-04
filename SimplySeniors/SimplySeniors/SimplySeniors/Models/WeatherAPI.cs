@@ -8,7 +8,7 @@ using System.Web.Script.Serialization;
 
 namespace SimplySeniors.Models
 {
-    public partial class Default : System.Web.UI.Page
+    public partial class WeatherAPI : System.Web.UI.Page
     {
         protected void GetWeatherInfo(object sender, EventArgs e)
         {
@@ -17,7 +17,6 @@ namespace SimplySeniors.Models
             using (WebClient client = new WebClient())
             {
                 string json = client.DownloadString(url);
-
                 WeatherInfo weatherInfo = (new JavaScriptSerializer()).Deserialize<WeatherInfo>(json);
                 lblCity_Country.Text = weatherInfo.city.name + "," + weatherInfo.city.country;
                 imgCountryFlag.ImageUrl = string.Format("http://openweathermap.org/images/flags/{0}.png",

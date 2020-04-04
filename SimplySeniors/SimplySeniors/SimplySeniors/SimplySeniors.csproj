@@ -200,7 +200,7 @@
     <Compile Include="Models\Profile.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
-    <Compile Include="Models\Default.cs">
+    <Compile Include="Models\WeatherAPI.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="PhotoDownloadForm.aspx.cs">
