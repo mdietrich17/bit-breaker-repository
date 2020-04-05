@@ -11,6 +11,7 @@ using SimplySeniors.Models;
 using SimplySeniors.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
+using SimplySeniors.Attributes;
 using System.Web.Script.Serialization;
 
 namespace SimplySeniors.Controllers
@@ -18,7 +19,7 @@ namespace SimplySeniors.Controllers
     public class UserHomePageController : Controller
     {
         // GET: UserHomePage
-        [Authorize]
+        [CustomAuthorize]
         public ActionResult HomePage()
         {
             // Get the ASP.NET Identity Id of the currently authorized user

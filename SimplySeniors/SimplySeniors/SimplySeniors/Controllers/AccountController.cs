@@ -12,11 +12,12 @@ using SimplySeniors.Models;
 using Newtonsoft.Json;
 using System.Net;
 using System.Web.Hosting;
+using SimplySeniors.Attributes;
 
 
 namespace SimplySeniors.Controllers
 {
-    [Authorize]
+    
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
