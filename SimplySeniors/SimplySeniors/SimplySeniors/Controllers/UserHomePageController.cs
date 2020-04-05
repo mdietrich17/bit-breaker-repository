@@ -11,6 +11,7 @@ using SimplySeniors.Models;
 using SimplySeniors.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
+using System.Web.Script.Serialization;
 
 namespace SimplySeniors.Controllers
 {
@@ -34,5 +35,6 @@ namespace SimplySeniors.Controllers
             }
             return View(viewModel);
         }
+
     }
 }
