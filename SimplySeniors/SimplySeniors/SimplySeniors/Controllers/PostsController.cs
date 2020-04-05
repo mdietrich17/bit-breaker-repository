@@ -9,9 +9,11 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
+using SimplySeniors.Attributes;
 
 namespace SimplySeniors.Controllers
 {
+    [CustomAuthorize]
     public class PostsController : Controller
     {
         private PostContext db = new PostContext();

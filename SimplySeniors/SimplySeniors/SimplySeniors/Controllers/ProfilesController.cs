@@ -11,9 +11,11 @@ using SimplySeniors.Models;
 using SimplySeniors.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
+using SimplySeniors.Attributes;
 
 namespace SimplySeniors.Controllers
 {
+    
     public class ProfilesController : Controller
     {
         private ProfileContext db = new ProfileContext();
@@ -21,6 +23,7 @@ namespace SimplySeniors.Controllers
         private PostContext db3 = new PostContext();
 
         // GET: Profiles
+        [CustomAuthorize]
         public ActionResult Index()
         {
             return View();
@@ -28,6 +31,7 @@ namespace SimplySeniors.Controllers
 
         // HTTP POST method was created for searching profiles in the Profiles/index. 
         [HttpPost]
+        [CustomAuthorize]
         public ActionResult Index(string searchString)
         {
             {
@@ -45,6 +49,7 @@ namespace SimplySeniors.Controllers
 
 
         // GET: Profiles/Details/5
+        [CustomAuthorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -65,6 +70,7 @@ namespace SimplySeniors.Controllers
         }
 
         // GET: Profiles/Create
+        [AllowAnonymous]
         public ActionResult Create()
         {
             return View();
@@ -73,7 +79,8 @@ namespace SimplySeniors.Controllers
         // POST: Profiles/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
-        [Authorize] //only logged in users can make a profile
+        //only logged in users can make a profile
+        [AllowAnonymous]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
@@ -116,6 +123,7 @@ namespace SimplySeniors.Controllers
         }
 
         // GET: Profiles/Edit/5
+        [CustomAuthorize]
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -147,6 +155,7 @@ namespace SimplySeniors.Controllers
         }
 
         // GET: Profiles/Delete/5
+        [CustomAuthorize]
         public ActionResult Delete(int? id)
         {
             if (id == null)

@@ -13,7 +13,6 @@ namespace SimplySeniors.Attributes
 
 public class CustomAuthorizeAttribute : AuthorizeAttribute
     {
-        private ProfileContext db = new ProfileContext();
 
         public override void OnAuthorization(AuthorizationContext filterContext)
         {
@@ -28,7 +27,7 @@ public class CustomAuthorizeAttribute : AuthorizeAttribute
         {
             var user = filtercontext.HttpContext.User;
             var id = filtercontext.HttpContext.User.Identity.GetUserId(); //get user id
-            if(id == null) // null value user is not logged in
+            if (id == null) // null value user is not logged in
             {
                 //redirect to login page
                 filtercontext.Result = new RedirectToRouteResult(new System.Web.Routing.RouteValueDictionary{
@@ -36,6 +35,7 @@ public class CustomAuthorizeAttribute : AuthorizeAttribute
                         { "action", "Login" }}); //action method
                 return;
             }
+            ProfileContext db = new ProfileContext(); //Access the Db at this point since this is the most overhead. 
             bool? profile = db.Profiles.Where(x => x.USERID == id).Select(x => x.PROFILECREATED).FirstOrDefault(); // get if user has created created a profile
             if (profile == null || profile == false) //if user hasn't made a profile redirect them
             {
@@ -44,6 +44,7 @@ public class CustomAuthorizeAttribute : AuthorizeAttribute
                 {
                     {"controller", "Profiles" },
                     {"action", "Create" }});
+                return; //finish
             }
             else return; //user met all requirements let them go ahead
         }
