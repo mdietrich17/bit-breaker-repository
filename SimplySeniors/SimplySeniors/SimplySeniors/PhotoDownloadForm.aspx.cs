@@ -15,8 +15,8 @@ namespace SimplySeniors
         protected void Page_Load(object sender, EventArgs e)
         {
 
-           // string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+           // string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
             using (SqlConnection con = new SqlConnection(cs))
             {

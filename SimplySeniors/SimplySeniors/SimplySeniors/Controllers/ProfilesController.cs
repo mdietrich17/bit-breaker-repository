@@ -106,6 +106,7 @@ namespace SimplySeniors.Controllers
             if (ModelState.IsValid)
             {
                 profile.BIRTHDAY = userbirthday; //Correct formatting for DB
+                profile.PROFILECREATED = true; //user created profile
                 db.Profiles.Add(profile);
                 db.SaveChanges();
                 return RedirectToAction("HomePage","UserHomePage"); //edit this line maddy
