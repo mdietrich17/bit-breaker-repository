@@ -10,8 +10,10 @@ namespace SimplySeniors.DAL
     public partial class EventContext : DbContext
     {
         public EventContext()
+
           //  : base("name=EventContext")
              : base("name=AzureConnection")
+
         {
         }
 
