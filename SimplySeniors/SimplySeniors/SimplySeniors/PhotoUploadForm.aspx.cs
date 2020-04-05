@@ -10,6 +10,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.IO;
 using System.Net;
+using Microsoft.AspNet.Identity;
 using SimplySeniors.Models;
 
 namespace SimplySeniors
@@ -30,7 +31,8 @@ namespace SimplySeniors
              HttpPostedFile postedFile = FileUpload1.PostedFile;
              string fileName = Path.GetFileName(postedFile.FileName);
              string fileExtension = Path.GetExtension(fileName);
-             int profileIdentifier = 1;                                     // LINK TO USER PROFILES HERE!
+             int profileIdentifier = 1;
+            // var profileIdentifier = User.Identity.GetUserId().Cast<int>();
              int fileSize = postedFile.ContentLength; 
              if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
              {
@@ -38,8 +40,8 @@ namespace SimplySeniors
                  BinaryReader binaryReader = new BinaryReader(stream);
                  byte[] bytes = binaryReader.ReadBytes((int) stream.Length);
                 
-               //  string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                 string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+                 string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                 //string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
                 using (SqlConnection con = new SqlConnection(cs) )
                  {
@@ -62,12 +64,13 @@ namespace SimplySeniors
 
                     SqlParameter paramProfileIdentifier = new SqlParameter()
                     {
+                        
                         ParameterName = "@ProfileId",
                         Value = profileIdentifier
                     };
+                    string number = con.ClientConnectionId.ToString();
                     cmd.Parameters.Add(paramProfileIdentifier);
-
-
+                    
                     SqlParameter paramImageData = new SqlParameter()
                      {
                          ParameterName = "@ImageData",

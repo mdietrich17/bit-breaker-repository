@@ -31,6 +31,8 @@ namespace SimplySeniors.Models
 
         public bool? VETSTATUS { get; set; }
 
+        public bool? PROFILECREATED { get; set; }
+
         [StringLength(128)]
         public string OCCUPATION { get; set; }
 

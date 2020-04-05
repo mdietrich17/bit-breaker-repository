@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using SimplySeniors.Attributes;
 
 namespace SimplySeniors.Controllers
 {
@@ -13,6 +14,7 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
+        
         public ActionResult HelpPage()
         {
             ViewBag.Message = "Your application help page.";

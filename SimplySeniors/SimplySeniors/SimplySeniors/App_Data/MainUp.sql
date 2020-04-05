@@ -7,6 +7,7 @@
 	[BIRTHDAY] DATE NOT NULL,
 	[LOCATION] NVARCHAR (128),
 	[VETSTATUS] BIT,
+	[PROFILECREATED] BIT DEFAULT 0, 
 	[OCCUPATION] NVARCHAR (128),
 	[FAMILY] NVARCHAR (128), /*Probably needs to make a new table if we want to add feature*/ 
 	[BIO] NVARCHAR (2048)

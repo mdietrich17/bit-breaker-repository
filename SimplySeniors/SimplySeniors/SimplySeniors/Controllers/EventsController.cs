@@ -8,9 +8,11 @@ using System.Web;
 using System.Web.Mvc;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
+using SimplySeniors.Attributes;
 
 namespace SimplySeniors.Controllers
 {
+    [CustomAuthorize]
     public class EventsController : Controller
     {
         private EventContext db = new EventContext();
