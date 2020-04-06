@@ -15,7 +15,11 @@ namespace SimplySeniors
         protected void Page_Load(object sender, EventArgs e)
         {
 
+<<<<<<< HEAD
              string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+=======
+            string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+>>>>>>> dev
            //string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
 
