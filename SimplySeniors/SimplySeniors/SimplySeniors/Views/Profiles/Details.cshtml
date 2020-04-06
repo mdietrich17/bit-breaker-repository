@@ -23,6 +23,7 @@
 <br />
 <button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
 <button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
+@Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 
 <div>
 
@@ -139,6 +140,6 @@
 
     <p id="eventLink">
         @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
-        @Html.ActionLink("Back to List", "Index")
+        @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
     </p>
 </div>
