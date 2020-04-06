@@ -145,10 +145,8 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO,USERID,PROFILECREATED")] Profile profile)
         {
-            string test = profile.USERID;
-            bool? test1 = profile.PROFILECREATED;
-            var errors = ModelState.Values.SelectMany(v => v.Errors);
-            var time = profile;
+
+            
             if (ModelState.IsValid)
             {
                 db.Entry(profile).State = EntityState.Modified;
