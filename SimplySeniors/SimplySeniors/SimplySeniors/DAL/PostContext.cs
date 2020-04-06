@@ -11,8 +11,9 @@ namespace SimplySeniors.DAL
     {
         public PostContext()
 
-            : base("name=PostContext")
-           // : base("name=AzureConnection")
+           : base("name=PostContext")
+         //  : base("name=AzureConnection")
+
 
         {
         }

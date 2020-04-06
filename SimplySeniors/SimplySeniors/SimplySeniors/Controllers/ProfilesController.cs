@@ -143,9 +143,11 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
+       public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO,USERID,PROFILECREATED")] Profile profile)
         {
-            ModelState.Remove("USERID");
+
+            
+
             if (ModelState.IsValid)
             {
                 db.Entry(profile).State = EntityState.Modified;
