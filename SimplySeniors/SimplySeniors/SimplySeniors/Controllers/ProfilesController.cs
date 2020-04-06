@@ -116,7 +116,7 @@ namespace SimplySeniors.Controllers
                 profile.PROFILECREATED = true; //user created profile
                 db.Profiles.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("Create","HobbyBridges"); //edit this line maddy
+                return RedirectToAction("HomePage", "UserHomePage"); //edit this line maddy
             }
 
             return View(profile);
