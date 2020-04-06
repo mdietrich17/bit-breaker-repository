@@ -17,7 +17,7 @@
         </td>
         <td>
             <Iframe runat="server" id="weatherReport" src="~/weather.aspx"></Iframe>
-       </td>
+        </td>
     </tr>
 </table>
 <br />
@@ -25,10 +25,8 @@
 <button id="eventButton" onclick="window.location.href = '/Posts/Create'">
     Create Post
 </button>
-<button id="eventButton" onclick="window.location.href = '/Posts/Index'">
-    See My Posts
-</button>
-
+@Html.ActionLink("Edit Profile",  "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
+@Html.ActionLink("View Profile", "Details", "Profiles", new { id = Model.ProfileID}, new { id = "eventButton" })
 
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
