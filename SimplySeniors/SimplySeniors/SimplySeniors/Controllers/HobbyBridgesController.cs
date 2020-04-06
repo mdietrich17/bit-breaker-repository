@@ -6,6 +6,7 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using Microsoft.AspNet.Identity;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
 
@@ -14,6 +15,7 @@ namespace SimplySeniors.Controllers
     public class HobbyBridgesController : Controller
     {
         private HobbiesContext db = new HobbiesContext();
+        private ProfileContext db1 = new ProfileContext();
 
         // GET: HobbyBridges
         public ActionResult Index()
@@ -52,11 +54,15 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "ID,HobbiesID,ProfileID")] HobbyBridge hobbyBridge)
         {
+            string id = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == id).FirstOrDefault();
+            hobbyBridge.ProfileID = profile.ID;
             if (ModelState.IsValid)
             {
+     
                 db.HobbyBridges.Add(hobbyBridge);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HomePage", "UserHomePage");
             }
 
             ViewBag.HobbiesID = new SelectList(db.Hobbies, "ID", "NAME", hobbyBridge.HobbiesID);
