@@ -14,6 +14,7 @@ namespace SimplySeniors.DAL
             : base("name=EventContext")
            //  : base("name=AzureConnection")
 
+
         {
         }
 
