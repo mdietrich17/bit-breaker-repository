@@ -19,12 +19,13 @@
 	CONSTRAINT [FK_dbo.Profiles_dbo.Groups_GroupID] FOREIGN KEY ([GroupID]) REFERENCES dbo.Groups ([ID])
 	**/
 );
+Select * from dbo.Profile 
 
 CREATE TABLE [dbo].[Images] /*DB is to store images uploaded to Simply Seniors Website*/
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,
 	[NAME] NVARCHAR (30) NOT NULL ,
-	[SIZE] INT NOT NULL, 
+	[SIZE] INT NOT NULL,
 	[ImageData] VARBINARY(max) NOT NULL,
 	[ProfileID] INT NOT NULL
 	CONSTRAINT [PK_dbo.Images] PRIMARY KEY CLUSTERED ([ID] ASC)
