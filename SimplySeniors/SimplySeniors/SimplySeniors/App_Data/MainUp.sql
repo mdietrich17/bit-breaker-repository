@@ -12,19 +12,20 @@
 	[FAMILY] NVARCHAR (128), /*Probably needs to make a new table if we want to add feature*/ 
 	[BIO] NVARCHAR (2048)
 	CONSTRAINT [PK_dbo.Profile] PRIMARY KEY CLUSTERED ([ID] ASC)
-	--CONSTRAINT [FK_dbo.Profile_dbo.AspNetUsers_ID] FOREIGN KEY ([USERID]) REFERENCES dbo.AspNetUsers ([Id]) 
+	CONSTRAINT [FK_dbo.Profile_dbo.AspNetUsers_ID] FOREIGN KEY ([USERID]) REFERENCES dbo.AspNetUsers ([Id]) 
 	/**
 	FOR FUTURE USE PROBABLY
 	CONSTRAINT [FK_dbo.Profiles_dbo.Friends_FriendsID] FOREIGN KEY ([FriendsID]) REFERENCES dbo.Friends ([ID])
 	CONSTRAINT [FK_dbo.Profiles_dbo.Groups_GroupID] FOREIGN KEY ([GroupID]) REFERENCES dbo.Groups ([ID])
 	**/
 );
+Select * from dbo.Profile 
 
 CREATE TABLE [dbo].[Images] /*DB is to store images uploaded to Simply Seniors Website*/
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,
 	[NAME] NVARCHAR (30) NOT NULL ,
-	[SIZE] INT NOT NULL, 
+	[SIZE] INT NOT NULL,
 	[ImageData] VARBINARY(max) NOT NULL,
 	[ProfileID] INT NOT NULL
 	CONSTRAINT [PK_dbo.Images] PRIMARY KEY CLUSTERED ([ID] ASC)
