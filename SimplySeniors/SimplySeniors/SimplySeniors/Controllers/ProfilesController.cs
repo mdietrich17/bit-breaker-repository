@@ -116,7 +116,7 @@ namespace SimplySeniors.Controllers
                 profile.PROFILECREATED = true; //user created profile
                 db.Profiles.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("HomePage","UserHomePage"); //edit this line maddy
+                return RedirectToAction("Create","HobbyBridges"); //edit this line maddy
             }
 
             return View(profile);
@@ -143,15 +143,16 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO,USERID,PROFILECREATED")] Profile profile)
+       public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO,USERID,PROFILECREATED")] Profile profile)
         {
 
             
+
             if (ModelState.IsValid)
             {
                 db.Entry(profile).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Details", new { id = profile.ID });
             }
             return View(profile);
         }
