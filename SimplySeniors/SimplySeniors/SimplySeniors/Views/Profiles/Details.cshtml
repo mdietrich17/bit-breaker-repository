@@ -4,16 +4,33 @@
     ViewBag.Title = "Details";
 }
 
-<h3>Profile Details</h3>
+<br />
+<br />
+
+<table id="homePageTable">
+    <tr>
+        <td>
+            <img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ProfileFirstName)
+            @Html.DisplayFor(model => model.ProfileLastName)
+        </td>
+    </tr>
+</table>
+<br />
+<h6>@Html.DisplayNameFor(model => model.ProfileVet) @Html.DisplayFor(model => model.ProfileVet)</h6>
+<br />
+<button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
+<button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
 
 <div>
-    <h1>@Html.DisplayFor(model => model.ProfileFirstName) @Html.DisplayFor(model => model.ProfileLastName)</h1>
-    <h6>@Html.DisplayNameFor(model => model.ProfileVet) @Html.DisplayFor(model => model.ProfileVet)</h6>
+
     <hr />
     <!--Beware all who enter this land of divs-->
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="row">
 
                     <div class="col-md">
@@ -93,28 +110,35 @@
                 </div>
 
             </div>
-            <div class="col-md-6">
-                <p class="font-weight-bold">User Posts</p>
+
+            <div class="col-md-8" id="boxPostFriend">
+                <div id="homeHeader">User Posts</div> <hr />
+
                 @foreach (var item in Model.PostList)
                 {
-                    <div class="row">
-                        <div id="box" class="col-md-6">
-                            <p class="font-weight-bold"> @Html.DisplayFor(model => item.Title)</p>
-                            <hr />
-                            <p>@Html.DisplayFor(model => item.Body)</p>
+                    <div id="individualPost">
+                        <div id="statusName">
+                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                            @Html.DisplayFor(model => model.ProfileFirstName)
+                            @Html.DisplayFor(model => model.ProfileLastName)
                         </div>
+                        <div id="statusTitle">
+                            @Html.DisplayFor(model => item.Title)
+                        </div>
+                        <div id="postDescription">
+                            @Html.DisplayFor(model => item.Body)
+                        </div>
+
                     </div>
                 }
-                <p>
-                    @Html.ActionLink("Create Post", "Create", "Posts")
-                </p>
             </div>
-          
+
         </div>
     </div>
-   
+
 
     <p id="eventLink">
         @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
         @Html.ActionLink("Back to List", "Index")
-    </p></div>
+    </p>
+</div>
