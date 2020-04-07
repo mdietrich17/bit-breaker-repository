@@ -8,18 +8,11 @@
 
 <div>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @{<text>Name</text>}
-        </dt>
+    <dl class="dl-horizontal" id="eventDetails">
 
-        <dd>
+        <dd id="eventName">
             @Html.DisplayFor(model => model.NAME)
         </dd>
-
-        <dt>
-            @{<text>Description</text>}
-        </dt>
 
         <dd>
             @Html.DisplayFor(model => model.DESCRIPTION)
@@ -30,38 +23,29 @@
         </dt>
 
         <dd>
-            @Html.DisplayFor(model => model.LOCATION)
+            @Html.DisplayFor(model => model.STREETADDRESS)
+        </dd>
+        <dd>
+            @Html.DisplayFor(model => model.CITY)@{<text>,</text>} @Html.DisplayFor(model => model.STATE)@{<text>,</text>} @Html.DisplayFor(model => model.ZIPCODE)@{<text>,</text>} @Html.DisplayFor(model => model.COUNTRY)
         </dd>
 
         <dt>
-            @{<text>Start Date</text>}
+            @{<text>Date</text>}
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.STARTDATE)
-        </dd>
-
-        <dt>
-            @{<text>End Date</text>}
-        </dt>
-
-        <dd>
+            @{<text>-</text>}
             @Html.DisplayFor(model => model.ENDDATE)
         </dd>
 
         <dt>
-            @{<text>Start Time</text>}
+            @{<text>Time</text>}
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.STARTTIME)
-        </dd>
-
-        <dt>
-            @{<text>End Time</text>}
-        </dt>
-
-        <dd>
+            @{<text>-</text>}
             @Html.DisplayFor(model => model.ENDTIME)
         </dd>
 

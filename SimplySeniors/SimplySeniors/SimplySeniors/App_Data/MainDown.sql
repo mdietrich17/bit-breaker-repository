@@ -5,6 +5,7 @@ ALTER TABLE [dbo].[Posts] DROP CONSTRAINT [FK_dbo.Posts_dbo.Profile_ID]
 ALTER TABLE [DBO].[Images] DROP Constraint [FK_dbo.Images_dbo.Profile_ID]
 ALTER TABLE [dbo].[Profile] DROP CONSTRAINT [FK_dbo.Profile_dbo.AspNetUsers_ID]
 
+
 DROP TABLE [dbo].[Hobbies]
 DROP TABLE [dbo].[Events]
 DROP TABLE [dbo].[Posts]

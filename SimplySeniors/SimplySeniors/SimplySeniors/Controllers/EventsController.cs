@@ -8,20 +8,109 @@ using System.Web;
 using System.Web.Mvc;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
+using SimplySeniors.Models.ViewModel;
+using Microsoft.AspNet.Identity;
+using System.Globalization;
 using SimplySeniors.Attributes;
 
 namespace SimplySeniors.Controllers
 {
-    [CustomAuthorize]
+
+    public class SelectListItemHelper
+    {
+        public static IEnumerable<SelectListItem> GetStatesList()
+        {
+            IList<SelectListItem> items = new List<SelectListItem>
+            {
+        new SelectListItem() {Text="Alabama", Value="Alabama"},
+        new SelectListItem() { Text="Alaska", Value="Alaska"},
+        new SelectListItem() { Text="Arizona", Value="Arizona"},
+        new SelectListItem() { Text="Arkansas", Value="Arkansas"},
+        new SelectListItem() { Text="California", Value="California"},
+        new SelectListItem() { Text="Colorado", Value="Colorado"},
+        new SelectListItem() { Text="Connecticut", Value="Connecticut"},
+        new SelectListItem() { Text="District of Columbia", Value="District of Columbia"},
+        new SelectListItem() { Text="Delaware", Value="Delaware"},
+        new SelectListItem() { Text="Florida", Value="Florida"},
+        new SelectListItem() { Text="Georgia", Value="Georgia"},
+        new SelectListItem() { Text="Hawaii", Value="Hawaii"},
+        new SelectListItem() { Text="Idaho", Value="Idaho"},
+        new SelectListItem() { Text="Illinois", Value="Illinois"},
+        new SelectListItem() { Text="Indiana", Value="Indiana"},
+        new SelectListItem() { Text="Iowa", Value="Iowa"},
+        new SelectListItem() { Text="Kansas", Value="Kansas"},
+        new SelectListItem() { Text="Kentucky", Value="Kentucky"},
+        new SelectListItem() { Text="Louisiana", Value="Louisiana"},
+        new SelectListItem() { Text="Maine", Value="Maine"},
+        new SelectListItem() { Text="Maryland", Value="Maryland"},
+        new SelectListItem() { Text="Massachusetts", Value="Massachusetts"},
+        new SelectListItem() { Text="Michigan", Value="Michigan"},
+        new SelectListItem() { Text="Minnesota", Value="Minnesota"},
+        new SelectListItem() { Text="Mississippi", Value="Mississippi"},
+        new SelectListItem() { Text="Missouri", Value="Missouri"},
+        new SelectListItem() { Text="Montana", Value="Montana"},
+        new SelectListItem() { Text="Nebraska", Value="Nebraska"},
+        new SelectListItem() { Text="Nevada", Value="Nevada"},
+        new SelectListItem() { Text="New Hampshire", Value="New Hampshire"},
+        new SelectListItem() { Text="New Jersey", Value="New Jersey"},
+        new SelectListItem() { Text="New Mexico", Value="New Mexico"},
+        new SelectListItem() { Text="New York", Value="New York"},
+        new SelectListItem() { Text="North Carolina", Value="North Carolina"},
+        new SelectListItem() { Text="North Dakota", Value="North Dakota"},
+        new SelectListItem() { Text="Ohio", Value="Ohio"},
+        new SelectListItem() { Text="Oklahoma", Value="Oklahoma"},
+        new SelectListItem() { Text="Oregon", Value="Oregon"},
+        new SelectListItem() { Text="Pennsylvania", Value="Pennsylvania"},
+        new SelectListItem() { Text="Rhode Island", Value="Rhode Island"},
+        new SelectListItem() { Text="South Carolina", Value="South Carolina"},
+        new SelectListItem() { Text="South Dakota", Value="South Dakota"},
+        new SelectListItem() { Text="Tennessee", Value="Tennessee"},
+        new SelectListItem() { Text="Texas", Value="Texas"},
+        new SelectListItem() { Text="Utah", Value="Utah"},
+        new SelectListItem() { Text="Vermont", Value="Vermont"},
+        new SelectListItem() { Text="Virginia", Value="Virginia"},
+        new SelectListItem() { Text="Washington", Value="Washington"},
+        new SelectListItem() { Text="West Virginia", Value="West Virginia"},
+        new SelectListItem() { Text="Wisconsin", Value="Wisconsin"},
+        new SelectListItem() { Text="Wyoming", Value="Wyoming"}
+            };
+            return items;
+        }
+    }
+
+[CustomAuthorize]
     public class EventsController : Controller
     {
         private EventContext db = new EventContext();
 
-        // GET: Events
+        // GET: Events, ordered by date (newest at top, further out at bottom)
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Events.OrderBy(x => x.STARTDATE).ToList());
         }
+
+        // HTTP GET method was created for searching events in the Events/index. 
+        public ActionResult SearchEvents()
+        {
+            return View();
+        }
+
+        // HTTP POST method was created for searching events in the Events/index, ordered by closest/upcoming events at top, farther out ones at bottom. 
+        [HttpPost]
+        public ActionResult SearchEvents(string searchString)
+        {
+            {
+                IQueryable<Event> products = db.Events;
+                ViewBag.Message = "Sorry your product is not found";         // Insert message if item is not found. 
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    products = products.Where( s => s.NAME.Contains(searchString) || s.CITY.Contains(searchString) || s.STATE.Contains(searchString) );   // Searching for matches through name or location. 
+                }
+                return View(products.OrderBy(x=>x.STARTDATE).ToList()); // Sorting by date
+            }
+        }
+
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)
@@ -49,7 +138,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,NAME,DESCRIPTION,LOCATION,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
+        public ActionResult Create([Bind(Include = "ID,NAME,DESCRIPTION,COUNTRY,STATE,CITY,STREETADDRESS,ZIPCODE,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
         {
             if (ModelState.IsValid)
             {
@@ -81,7 +170,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "ID,NAME,DESCRIPTION,LOCATION,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
+        public ActionResult Edit([Bind(Include = "ID,NAME,DESCRIPTION,COUNTRY,STATE,CITY,STREETADDRESS,ZIPCODE,STARTDATE,STARTTIME,ENDDATE,ENDTIME")] Event @event)
         {
             if (ModelState.IsValid)
             {
