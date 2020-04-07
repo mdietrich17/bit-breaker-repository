@@ -73,6 +73,13 @@ namespace SimplySeniors.Controllers
         [AllowAnonymous]
         public ActionResult Create()
         {
+            string value = User.Identity.GetUserId();
+            bool? profile = db.Profiles.Where(x => x.USERID == value).Select(x => x.PROFILECREATED).FirstOrDefault();
+            if(profile == true) //profile has been created don't allow multiple profile creations
+            {
+                return RedirectToAction("HomePage", "UserHomePage");
+            }
+
             return View();
         }
 
@@ -80,11 +87,13 @@ namespace SimplySeniors.Controllers
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         //only logged in users can make a profile
-        [AllowAnonymous]
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
+
+
             ModelState.Remove("USERID"); // user doesn't input a key so we need to get the key of the current user logged in who created the profile.
             profile.USERID = User.Identity.GetUserId(); //get user id of current user
             var errors = ModelState.Values.SelectMany(v => v.Errors); // debugging for errors
