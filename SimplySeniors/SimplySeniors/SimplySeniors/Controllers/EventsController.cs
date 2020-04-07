@@ -8,6 +8,9 @@ using System.Web;
 using System.Web.Mvc;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
+using SimplySeniors.Models.ViewModel;
+using Microsoft.AspNet.Identity;
+using System.Globalization;
 using SimplySeniors.Attributes;
 
 namespace SimplySeniors.Controllers
@@ -80,11 +83,34 @@ namespace SimplySeniors.Controllers
     {
         private EventContext db = new EventContext();
 
-        // GET: Events
+        // GET: Events, ordered by date (newest at top, further out at bottom)
         public ActionResult Index()
         {
-            return View(db.Events.ToList());
+            return View(db.Events.OrderBy(x => x.STARTDATE).ToList());
         }
+
+        // HTTP GET method was created for searching events in the Events/index. 
+        public ActionResult SearchEvents()
+        {
+            return View();
+        }
+
+        // HTTP POST method was created for searching events in the Events/index, ordered by closest/upcoming events at top, farther out ones at bottom. 
+        [HttpPost]
+        public ActionResult SearchEvents(string searchString)
+        {
+            {
+                IQueryable<Event> products = db.Events;
+                ViewBag.Message = "Sorry your product is not found";         // Insert message if item is not found. 
+
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    products = products.Where( s => s.NAME.Contains(searchString) || s.CITY.Contains(searchString) || s.STATE.Contains(searchString) );   // Searching for matches through name or location. 
+                }
+                return View(products.OrderBy(x=>x.STARTDATE).ToList()); // Sorting by date
+            }
+        }
+
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)
