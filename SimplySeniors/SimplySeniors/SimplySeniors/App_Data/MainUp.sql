@@ -19,7 +19,6 @@
 	CONSTRAINT [FK_dbo.Profiles_dbo.Groups_GroupID] FOREIGN KEY ([GroupID]) REFERENCES dbo.Groups ([ID])
 	**/
 );
-Select * from dbo.Profile 
 
 CREATE TABLE [dbo].[Images] /*DB is to store images uploaded to Simply Seniors Website*/
 (

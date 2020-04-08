@@ -24,6 +24,7 @@ namespace SimplySeniors.Models
            : base("DefaultConnection", throwIfV1Schema: false)
         // : base("AzureConnection", throwIfV1Schema: false)
 
+
         {
             // Disable code-first migrations
             Database.SetInitializer<ApplicationDbContext>(null);
