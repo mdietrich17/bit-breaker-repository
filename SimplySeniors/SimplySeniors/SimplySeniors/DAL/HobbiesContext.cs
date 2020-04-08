@@ -11,8 +11,8 @@ namespace SimplySeniors.DAL
     {
         public HobbiesContext()
 
-          //  : base("name=HobbyContext")
-            : base("name=AzureConnection")
+           : base("name=HobbyContext")
+          //  : base("name=AzureConnection")
         {
         }
 

@@ -12,20 +12,27 @@
             @Html.DisplayNameFor(model => model.Hobby.NAME)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.ProfileID)
+            @Html.DisplayNameFor(model => model.Hobby.DESCRIPTION)
         </th>
         <th></th>
     </tr>
 
 @foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Hobby.NAME)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.ProfileID)
-        </td>
-    </tr>
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hobby.NAME)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Hobby.DESCRIPTION)
+    </td>
+    <td id="eventLink">
+        @Html.ActionLink("Edit", "Edit", new { id = item.ID })
+    </td>
+    <td id="eventLink">
+        @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+    </td>
+
+</tr>
 }
 
 </table>
