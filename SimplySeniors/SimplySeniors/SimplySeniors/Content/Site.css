@@ -428,6 +428,14 @@ div#box
     margin-top: 10px;
     height: 100%;
 }
+#map {
+    box-shadow: 0px 5px 5px #888888;
+    height: 200px;
+    width: 250px;
+    color: black;
+    border: solid;
+    border-width: 2px;
+}
 
     #boxPostFriend.col-md-8 {
         background: white;

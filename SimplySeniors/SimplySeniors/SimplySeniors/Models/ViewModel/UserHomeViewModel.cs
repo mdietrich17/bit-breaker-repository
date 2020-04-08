@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using SimplySeniors.Models;
 
+
 namespace SimplySeniors.Models.ViewModel
 {
     public class UserHomeViewModel
@@ -16,6 +17,16 @@ namespace SimplySeniors.Models.ViewModel
             ProfileLastName = Profile.LASTNAME;
             PostList = posts;
         }
+
+        public UserHomeViewModel(Profile Profile, List<Post> posts, Double[] Location)
+        {
+            ProfileID = Profile.ID;
+            ProfileFirstName = Profile.FIRSTNAME;
+            ProfileLastName = Profile.LASTNAME;
+            PostList = posts;
+            latitude = Location.ElementAt(0);
+            longitude = Location.ElementAt(1);
+        }
         public int ProfileID { get; set; }
 
         public string ProfileFirstName { get; set; }
@@ -23,5 +34,9 @@ namespace SimplySeniors.Models.ViewModel
         public string ProfileLastName { get; set; }
 
         public List<Post> PostList { get; set; }
+
+        public Double latitude { get; set; }
+
+        public Double longitude { get; set; }
     }
 }
