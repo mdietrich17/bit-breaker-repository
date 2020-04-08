@@ -58,7 +58,7 @@ namespace SimplySeniors.Controllers
             }
             Profile profile = db.Profiles.Find(id);
 
-            IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME);
+            IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME).Distinct();
             string hobbies = string.Join(", ", bridges.ToList());
             List<Post> postlist = db3.Posts.Where(x => x.ProfileID == id).ToList();
             PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist);
@@ -116,7 +116,7 @@ namespace SimplySeniors.Controllers
                 profile.PROFILECREATED = true; //user created profile
                 db.Profiles.Add(profile);
                 db.SaveChanges();
-                return RedirectToAction("HomePage", "UserHomePage"); //edit this line maddy
+                return RedirectToAction("Create", "HobbyBridges"); //edit this line maddy
             }
 
             return View(profile);

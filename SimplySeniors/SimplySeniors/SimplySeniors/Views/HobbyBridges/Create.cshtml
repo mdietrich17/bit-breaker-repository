@@ -12,11 +12,12 @@
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>HobbyBridge</h4>
+        <h4>User Hobbies</h4>
         <hr />
+        <p>Please add general hobbies to be able to connect to more users</p>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.HobbiesID, "HobbiesID", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.HobbiesID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("HobbiesID", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.HobbiesID, "", new { @class = "text-danger" })

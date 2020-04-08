@@ -1,7 +1,7 @@
 ﻿@model SimplySeniors.Models.ViewModel.PDViewModel
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = Html.DisplayFor(model => model.ProfileFirstName);
 }
 
 <br />
@@ -24,6 +24,8 @@
 <button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
 <button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
+@Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null,  new { id = "eventButton" })
+@Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" }) 
 
 <div>
 
