@@ -13,6 +13,8 @@ using Microsoft.AspNet.Identity;
 using System.Globalization;
 using SimplySeniors.Attributes;
 using System.Web.Script.Serialization;
+using Newtonsoft.Json.Linq;
+using System.IO;
 
 namespace SimplySeniors.Controllers
 {
@@ -29,7 +31,20 @@ namespace SimplySeniors.Controllers
             // Get all profile info for current logged in user where the ASPNET ID = profile ID
             Profile profile = profiledb.Profiles.Where(u => u.USERID == id).FirstOrDefault();
             List<Post> postlist = db.Posts.Where(x => x.ProfileID == profile.ID).ToList();
-            UserHomeViewModel viewModel = new UserHomeViewModel(profile, postlist);
+            var address = "+Monmouth, +OR";
+
+            string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU", address);
+            WebRequest request = WebRequest.Create(requestUri);
+            WebResponse response = request.GetResponse();
+            StreamReader reader = new StreamReader(response.GetResponseStream());
+            string json = reader.ReadToEnd();
+            dynamic information = JObject.Parse(json);
+            Double lat = Convert.ToDouble(information.results[0].geometry.location.lat, CultureInfo.InvariantCulture);
+            Double lng= Convert.ToDouble(information.results[0].geometry.location.lng, CultureInfo.InvariantCulture);
+            Double[] Location = new Double[2];
+            Location[0] = lat;
+            Location[1] = lng;
+            UserHomeViewModel viewModel = new UserHomeViewModel(profile, postlist, Location);
             if (profile == null)
             {
                 return HttpNotFound();
