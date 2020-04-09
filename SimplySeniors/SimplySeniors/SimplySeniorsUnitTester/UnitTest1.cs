@@ -1,14 +1,38 @@
 ﻿using System;
+using System.Web.Mvc;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SimplySeniors.Controllers;
 
 namespace SimplySeniorsUnitTester
 {
     [TestClass]
     public class UnitTest1
     {
-        [TestMethod]
-        public void TestMethod1()
+        [TestClass]
+        public class HomeControllerTest
         {
+
+            [TestMethod]
+            public void Index() // Mike's test for ensuring main welcome page is functioning. 
+            {
+                // Arrange
+                HomeController controller = new HomeController();
+                // Act
+                ViewResult result = controller.Index() as ViewResult;
+                // Assert
+                Assert.IsNotNull(result);
+            }
+
+            [TestMethod] // Mike's test for services page. 
+            public void Services()
+            {
+                // Arrange
+                HomeController controller = new HomeController();
+                // Act
+                // Assert
+                if (controller.Services() is ViewResult result)
+                    Assert.AreEqual("Services that are offered in our community.", result.ViewBag.Message);
+            }
         }
     }
 }
