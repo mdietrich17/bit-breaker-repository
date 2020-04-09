@@ -26,24 +26,17 @@ namespace SimplySeniorsUnitTester
             // Assert
             Assert.IsNotNull(result);
         }
-    }
 
-    [TestClass]
-    public class EventsControllerTest
-    {
-        //Tests if event with ID 3 is the same as what is in the database for EventsController
-        //Test is broken I need to fix!!
+        //Testing if Help Page ViewBag Message is correct.
         [TestMethod]
-        public void EventDetails()
+        public void HelpPageTest()
         {
             // Arrange
-            EventsController controller = new EventsController();
-          
+            HomeController controller = new HomeController();
             // Act
-            ViewResult result = controller.Details(3) as ViewResult;
-
+            ViewResult result = controller.HelpPage() as ViewResult;
             // Assert
-            Assert.AreEqual("Your product was found", result.ViewBag.Message);
+            Assert.AreEqual("Your application help page.", result.ViewBag.Message);
         }
     }
 }
