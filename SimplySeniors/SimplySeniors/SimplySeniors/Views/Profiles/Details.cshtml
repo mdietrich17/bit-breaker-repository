@@ -16,16 +16,24 @@
             @Html.DisplayFor(model => model.ProfileFirstName)
             @Html.DisplayFor(model => model.ProfileLastName)
         </td>
+        <td id =" vetStatusDetailsPage">
+            @if (Model.ProfileVet == true)
+            {
+                @*<h6>@Html.DisplayNameFor(model => model.ProfileVet) @Html.DisplayFor(model => model.ProfileVet)</h6>*@
+                <img src="~/Photos/vet2.png" id="vetImage" style="height: 50%; width: 50%"/>
+            }
+
+        </td>
     </tr>
 </table>
 <br />
-<h6>@Html.DisplayNameFor(model => model.ProfileVet) @Html.DisplayFor(model => model.ProfileVet)</h6>
+
 <br />
 <button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
 <button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
-@Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null,  new { id = "eventButton" })
-@Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" }) 
+@Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null, new { id = "eventButton" })
+@Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" })
 
 <div>
 
