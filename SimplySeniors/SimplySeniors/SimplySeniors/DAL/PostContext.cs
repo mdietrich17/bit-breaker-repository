@@ -10,9 +10,9 @@ namespace SimplySeniors.DAL
     public partial class PostContext : DbContext
     {
         public PostContext()
-
-           //  : base("name=PostContext")
-           : base("name=AzureConnection")
+            
+           : base("name=PostContext")
+           //: base("name=AzureConnection")
 
         {
         }
