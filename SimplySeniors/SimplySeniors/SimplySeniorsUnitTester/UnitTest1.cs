@@ -15,7 +15,7 @@ namespace SimplySeniorsUnitTester
     [TestClass]
     public class HomeControllerTest
     {
-        //Testing if HomeController Index (main page) returns null or some value
+        //Maddy's Test - Testing if HomeController Index (main page) returns null or some value
         [TestMethod]
         public void TestIndex()
         {
@@ -27,7 +27,7 @@ namespace SimplySeniorsUnitTester
             Assert.IsNotNull(result);
         }
 
-        //Testing if Help Page ViewBag Message is correct.
+        //Maddy's Test - Testing if Help Page ViewBag Message is correct.
         [TestMethod]
         public void HelpPageTest()
         {
@@ -38,5 +38,27 @@ namespace SimplySeniorsUnitTester
             // Assert
             Assert.AreEqual("Your application help page.", result.ViewBag.Message);
         }
+
+            [TestMethod]
+            public void Index() // Mike's test for ensuring main welcome page is functioning. 
+            {
+                // Arrange
+                HomeController controller = new HomeController();
+                // Act
+                ViewResult result = controller.Index() as ViewResult;
+                // Assert
+                Assert.IsNotNull(result);
+            }
+
+            [TestMethod] // Mike's test for services page. 
+            public void Services()
+            {
+                // Arrange
+                HomeController controller = new HomeController();
+                // Act
+                // Assert
+                if (controller.Services() is ViewResult result)
+                    Assert.AreEqual("Services that are offered in our community.", result.ViewBag.Message);
+            }
     }
 }
