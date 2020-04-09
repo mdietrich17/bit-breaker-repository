@@ -11,6 +11,7 @@ namespace SimplySeniors.Models
     {
         public int ID { get; set; }
 
+        [Display(Name = "Hobby Name")]
         public int? HobbiesID { get; set; }
 
         public int? ProfileID { get; set; }

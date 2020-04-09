@@ -18,9 +18,25 @@ namespace SimplySeniors.Models
         [StringLength(2048)]
         public string DESCRIPTION { get; set; }
 
-        [Required(ErrorMessage = "Enter Location"), Display(Name = "Location")]
+        [Required(ErrorMessage = "Enter Country"), Display(Name = "Country")]
         [StringLength(128)]
-        public string LOCATION { get; set; }
+        public string COUNTRY { get; set; }
+
+        [Required(ErrorMessage = "Enter State"), Display(Name = "State")]
+        [StringLength(128)]
+        public string STATE { get; set; }
+
+        [Required(ErrorMessage = "Enter City"), Display(Name = "City")]
+        [StringLength(128)]
+        public string CITY { get; set; }
+
+        [Required(ErrorMessage = "Enter Street Address"), Display(Name = "Street Address")]
+        [StringLength(128)]
+        public string STREETADDRESS { get; set; }
+
+        [Required(ErrorMessage = "Enter Zip Code"), Display(Name = "Zip Code")]
+        [StringLength(10)]
+        public string ZIPCODE { get; set; }
 
         [Required(ErrorMessage = "Enter Start Date"), Display(Name = "Start Date")]
         [DataType(DataType.DateTime)]
