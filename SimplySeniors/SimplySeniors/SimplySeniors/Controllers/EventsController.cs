@@ -29,7 +29,6 @@ namespace SimplySeniors.Controllers
         new SelectListItem() { Text="California", Value="California"},
         new SelectListItem() { Text="Colorado", Value="Colorado"},
         new SelectListItem() { Text="Connecticut", Value="Connecticut"},
-        new SelectListItem() { Text="District of Columbia", Value="District of Columbia"},
         new SelectListItem() { Text="Delaware", Value="Delaware"},
         new SelectListItem() { Text="Florida", Value="Florida"},
         new SelectListItem() { Text="Georgia", Value="Georgia"},
@@ -101,13 +100,17 @@ namespace SimplySeniors.Controllers
         {
             {
                 IQueryable<Event> products = db.Events;
-                ViewBag.Message = "Sorry your product is not found";         // Insert message if item is not found. 
-
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    products = products.Where( s => s.NAME.Contains(searchString) || s.CITY.Contains(searchString) || s.STATE.Contains(searchString) );   // Searching for matches through name or location. 
+                    products = products.Where(s => s.NAME.Contains(searchString) || s.CITY.Contains(searchString) || s.STATE.Contains(searchString));   // Searching for matches through name or location. 
+                    ViewBag.Message = "Your product was found";         // Insert message if item is not found. 
+                    return View(products.OrderBy(x => x.STARTDATE).ToList()); // Sorting by date
                 }
-                return View(products.OrderBy(x=>x.STARTDATE).ToList()); // Sorting by date
+                else
+                {
+                    ViewBag.Message = "Sorry your product was not found"; // Insert message if item is not found. 
+                    return View(); 
+                }
             }
         }
 
