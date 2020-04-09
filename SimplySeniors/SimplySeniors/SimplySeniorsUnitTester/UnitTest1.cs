@@ -13,11 +13,9 @@ namespace SimplySeniorsUnitTester
         {
 
             [TestMethod]
-            public void Index()
+            public void Index() // Mike's test for ensuring main welcome page is functioning. 
             {
                 // Arrange
-
-
                 HomeController controller = new HomeController();
                 // Act
                 ViewResult result = controller.Index() as ViewResult;
@@ -25,7 +23,7 @@ namespace SimplySeniorsUnitTester
                 Assert.IsNotNull(result);
             }
 
-            [TestMethod]
+            [TestMethod] // Mike's test for services page. 
             public void Services()
             {
                 // Arrange
