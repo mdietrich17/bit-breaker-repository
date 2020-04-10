@@ -40,7 +40,7 @@ namespace SimplySeniors.Controllers
 
                 if (!String.IsNullOrEmpty(searchString))
                 {
-                    products = products.Where(s => s.LASTNAME.Contains(searchString) || s.FIRSTNAME.Contains(searchString));   // Searching for matches through last name. 
+                    products = products.Where(s => s.LASTNAME.Contains(searchString) || s.FIRSTNAME.Contains(searchString) || (s.FIRSTNAME + " " + s.LASTNAME).Contains(searchString) || (s.LASTNAME + " " + s.FIRSTNAME).Contains(searchString) || (s.LASTNAME + ", " + s.FIRSTNAME).Contains(searchString));   // Searching for matches through last name. 
                 }
                 return View(products.ToList());
             }
