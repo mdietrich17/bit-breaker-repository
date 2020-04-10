@@ -284,6 +284,8 @@
     <Content Include="Photos\technologyFolkFade.jpg" />
     <Content Include="Photos\technologyFolkFade.png" />
     <Content Include="Photos\technologyFolkFade2.png" />
+    <Content Include="Photos\vet1.png" />
+    <Content Include="Photos\vet2.png" />
     <Content Include="PhotoUploadForm.aspx" />
     <Content Include="Photos\SimplySeniorIcon.png" />
     <Content Include="Photos\SimplySeniorIcon2.png" />
