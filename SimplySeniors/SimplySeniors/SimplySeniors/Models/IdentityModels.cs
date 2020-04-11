@@ -21,8 +21,8 @@ namespace SimplySeniors.Models
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
         public ApplicationDbContext()
-        //   : base("DefaultConnection", throwIfV1Schema: false)
-         : base("AzureConnection", throwIfV1Schema: false)
+           : base("DefaultConnection", throwIfV1Schema: false)
+        // : base("AzureConnection", throwIfV1Schema: false)
         {
             // Disable code-first migrations
             Database.SetInitializer<ApplicationDbContext>(null);

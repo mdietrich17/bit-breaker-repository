@@ -83,6 +83,17 @@ CREATE TABLE [dbo].[Posts]
 	
 );
 
+CREATE TABLE [dbo].[FollowList]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[UserID] INT NOT NULL,
+	[FollowedUserID] INT NOT NULL,
+	[TimeFollowed] DATETIME NOT NULL,
+	Constraint [PK_dbo.FollowList] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.FollowList_User_dbo.Profile_ID] FOREIGN KEY ([UserID]) REFERENCES [dbo].[Profile] ([ID]),
+	CONSTRAINT [FK_dbo.FollowList_Follow_dbo.Profile_ID] FOREIGN KEY ([FollowedUserID]) REFERENCES [dbo].[Profile] ([ID])
+);
+
 /*
 CREATE TABLE [dbo].[PostBridge]
 (
@@ -94,6 +105,8 @@ CREATE TABLE [dbo].[PostBridge]
 	CONSTRAINT [FK_dbo.PostBridge_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID])
 );
 */
+
+
 
 /****** SEED DATA ******/
 DELETE FROM [DBO].[AspNetUsers] Where AspNetUsers.Id = 'AAA-123' /* remove one seed data while maintaining other user information */
@@ -150,6 +163,13 @@ INSERT INTO [dbo].[Posts] (Title, Body, ProfileID) VALUES
 ('Got smallpox again lmao', 'Please donate to my gofundme', 4),
 ('Feeling seasick','please someone give me an orange my teeth are falling out', 5),
 ('FORTNITE GAMEPLAY (EPISODE 2006)','MAKE SURE TO LIKE, COMMENT, AND SUBSCRIBE FOR MORE 1337 wins', 6);
+
+INSERT INTO [dbo].FollowList (UserID, FollowedUserID, TimeFollowed) VALUES
+(1, 2, '1788-05-01'),
+(1, 3, '1788-05-01'),
+(1, 4, '1788-05-01'),
+(1, 5, '1788-05-01'),
+(1, 6, '1788-05-01');
 
 
 /*

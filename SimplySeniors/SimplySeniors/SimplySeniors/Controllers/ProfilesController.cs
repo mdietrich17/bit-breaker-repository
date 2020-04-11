@@ -21,6 +21,7 @@ namespace SimplySeniors.Controllers
         private ProfileContext db = new ProfileContext();
         private HobbiesContext db2 = new HobbiesContext();
         private PostContext db3 = new PostContext();
+        private FollowContext db4 = new FollowContext();
 
         // GET: Profiles
         [CustomAuthorize]
@@ -60,8 +61,10 @@ namespace SimplySeniors.Controllers
 
             IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME).Distinct();
             string hobbies = string.Join(", ", bridges.ToList());
-            List<Post> postlist = db3.Posts.Where(x => x.ProfileID == id).ToList();
-            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist);
+            List<Profile> followed = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowProfile).ToList();
+            //List<int> IdList = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowedUserID).ToList();
+            List<Post> postlist = db3.Posts.Where(x => x.ProfileID == profile.ID).ToList();
+            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed);
             if (profile == null)
             {
                 return HttpNotFound();

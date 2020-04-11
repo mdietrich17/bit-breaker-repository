@@ -20,6 +20,8 @@ namespace SimplySeniors.Controllers
 {
     public class UserHomePageController : Controller
     {
+        private PostContext db = new PostContext();
+        private FollowContext db2 = new FollowContext();
         // GET: UserHomePage
         [CustomAuthorize]
         public ActionResult HomePage()
@@ -27,10 +29,16 @@ namespace SimplySeniors.Controllers
             // Get the ASP.NET Identity Id of the currently authorized user
             string id = User.Identity.GetUserId();
             ProfileContext profiledb = new ProfileContext();
-            PostContext db = new PostContext();
+            
+            
             // Get all profile info for current logged in user where the ASPNET ID = profile ID
             Profile profile = profiledb.Profiles.Where(u => u.USERID == id).FirstOrDefault();
-            List<Post> postlist = db.Posts.Where(x => x.ProfileID == profile.ID).ToList();
+            List<Profile> followed = db2.FollowLists.Where(x => x.UserID == profile.ID).Select(y => y.FollowProfile).ToList();
+            List<int> IdList = db2.FollowLists.Where(x => x.UserID == profile.ID).Select(y => y.FollowedUserID).ToList();
+            IdList.Add(profile.ID);
+            List<Post> postlist = db.Posts.Where(x => IdList.Contains(x.ProfileID)).ToList();
+
+
             var address = "+Monmouth, +OR";
 
             string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU", address);
@@ -44,7 +52,7 @@ namespace SimplySeniors.Controllers
             Double[] Location = new Double[2];
             Location[0] = lat;
             Location[1] = lng;
-            UserHomeViewModel viewModel = new UserHomeViewModel(profile, postlist, Location);
+            UserHomeViewModel viewModel = new UserHomeViewModel(profile, postlist, Location, followed);
             if (profile == null)
             {
                 return HttpNotFound();
