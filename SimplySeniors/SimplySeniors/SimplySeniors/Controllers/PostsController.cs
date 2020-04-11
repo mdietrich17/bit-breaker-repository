@@ -10,6 +10,7 @@ using Microsoft.AspNet.Identity;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
 using SimplySeniors.Attributes;
+using System.Security;
 
 namespace SimplySeniors.Controllers
 {
@@ -60,9 +61,8 @@ namespace SimplySeniors.Controllers
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HomePage", "UserHomePage");
             }
-
             return View(post);
         }
 
@@ -78,6 +78,11 @@ namespace SimplySeniors.Controllers
             {
                 return HttpNotFound();
             }
+            string userid = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == userid).FirstOrDefault();
+            if (post.ProfileID != profile.ID) { 
+            throw new SecurityException("Unauthorized access! You can only edit your own posts!");
+            }
             return View(post);
         }
 
@@ -92,7 +97,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("HomePage", "UserHomePage");
             }
             return View(post);
         }
@@ -109,6 +114,12 @@ namespace SimplySeniors.Controllers
             {
                 return HttpNotFound();
             }
+            string userid = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == userid).FirstOrDefault();
+            if (post.ProfileID != profile.ID)
+            {
+                throw new SecurityException("Unauthorized access! You can only delete your own posts!");
+            }
             return View(post);
         }
 
@@ -120,7 +131,7 @@ namespace SimplySeniors.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("HomePage", "UserHomePage");
         }
 
         protected override void Dispose(bool disposing)

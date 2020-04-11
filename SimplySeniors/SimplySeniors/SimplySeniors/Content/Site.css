@@ -504,6 +504,20 @@ div#box
         margin-bottom: 20px;
     }
 
+#postSettings {
+    margin-left: 350px;
+    font-size: 20px;
+}
+
+    #postSettings a {
+        color: black;
+    }
+
+        #postSettings a:hover {
+            color: blue;
+            text-decoration: none;
+        }
+
     /* REGISTRATION AND LOGIN FORMS */
 
 #registerBox {
