@@ -18,5 +18,8 @@ namespace SimplySeniors.Models
         public string Body { get; set; }
 
         public int ProfileID { get; set; }
+
+        [ForeignKey("ProfileID")]
+        public virtual Profile PostProfile { get; set; }
     }
 }

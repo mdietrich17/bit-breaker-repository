@@ -377,6 +377,11 @@ div#box
     margin-bottom: 7px;
 }
 
+#boxPostFriend.col-md-6 {
+    background: white;
+    border-radius: 20px;
+}
+
 
 /*USER HOME PAGE STYLING BELOW*/
 
