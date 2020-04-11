@@ -28,6 +28,7 @@
 </button>
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("View Profile", "Details", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
+@Html.ActionLink("Find User to Follow", "Create", "FollowLists", null, new { id = "eventButton" })
 
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
@@ -37,8 +38,8 @@
             <div id="individualPost">
                 <div id="statusName">
                     <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                    @Html.DisplayFor(model => model.ProfileFirstName)
-                    @Html.DisplayFor(model => model.ProfileLastName)
+                    @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
+                    @Html.DisplayFor(model => item.PostProfile.LASTNAME)
                 </div>
                 <div id="statusTitle">
                     @Html.DisplayFor(model => item.Title)
@@ -72,21 +73,20 @@
             </div> <br />
         *@
     </div><br />
-          <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
-              <br/>
-              <div id="map"></div>
-              <div id="homeHeader">Friends List</div> <hr />
-              <div id="friendName">
-                  <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                  Amy Lastname <br />
-              </div>
-              <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
-              <div id="friendName">
-                  <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                  James Person <br />
-              </div>
-              <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div><br />
-          </div>
+    <div class="col-md-3" id="boxPostFriend">
+        <div id="homeHeader">Friends List</div> <hr />
+        @foreach (var item in Model.Followed)
+        {
+            <div id="friendName">
+                @Html.DisplayFor(model => item.FIRSTNAME)
+                @Html.DisplayFor(model => item.LASTNAME)
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                <br />
+                <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+            </div>
+        }
+
+    </div>
 </div>
 
 

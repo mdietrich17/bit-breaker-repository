@@ -9,7 +9,7 @@ namespace SimplySeniors.Models.ViewModel
 {
     public class PDViewModel
     {
-        public PDViewModel(Profile Profile, string bridges, List<Post> posts)
+        public PDViewModel(Profile Profile, string bridges, List<Post> posts, List<Profile> followed)
         {
             ProfileID = Profile.ID;
             ProfileFirstName = Profile.FIRSTNAME;
@@ -22,6 +22,8 @@ namespace SimplySeniors.Models.ViewModel
             ProfileBIO = Profile.BIO;
             ListHobbies = bridges;
             PostList = posts;
+            Followed = followed;
+
         }
         [Display(Name = "Birthday")]
         public int ProfileID { get; set; }
@@ -51,6 +53,8 @@ namespace SimplySeniors.Models.ViewModel
         public string ListHobbies { get; set; }
 
         public List<Post> PostList { get; set; }
+
+        public List<Profile> Followed { get; set; }
        
 
     }

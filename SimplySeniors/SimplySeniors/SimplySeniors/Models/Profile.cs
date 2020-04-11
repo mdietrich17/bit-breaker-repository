@@ -49,5 +49,6 @@ namespace SimplySeniors.Models
         [StringLength(2048)]
         [Display(Name = "Biography")]
         public string BIO { get; set; }
+
     }
 }
