@@ -167,6 +167,11 @@ li {
 
 /*SERVICES PAGE STYLING BELOW*/
 
+
+#snapServices {
+    height: 100%; 
+}
+
 #firstSlide, #secondSlide, #thirdSlide {
     border-radius: 40em;
     opacity: .3;
