@@ -60,5 +60,14 @@ namespace SimplySeniorsUnitTester
                 if (controller.Services() is ViewResult result)
                     Assert.AreEqual("Services that are offered in our community.", result.ViewBag.Message);
             }
+        [TestMethod]
+        public void Login() //Dennis' Test for the login page. 
+        {
+            AccountController controller = new AccountController();
+            if (controller.Login(null) is ViewResult result)
+            {
+                Assert.AreEqual(null, result.ViewBag.Message);
+            }
+        }
     }
 }
