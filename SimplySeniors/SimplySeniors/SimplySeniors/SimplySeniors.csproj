@@ -266,6 +266,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Photos\aarp.jpg" />
+    <Content Include="Photos\carPhoto1.jpg" />
     <Content Include="Photos\carPhotoThree.jpg" />
     <Content Include="Photos\carPhotoTwo.jpg" />
     <Content Include="Photos\development.png" />
