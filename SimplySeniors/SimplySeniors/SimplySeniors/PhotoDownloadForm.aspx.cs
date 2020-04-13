@@ -33,7 +33,7 @@ namespace SimplySeniors
                 con.Open();
                 byte[] bytes =(byte[]) cmd.ExecuteScalar();
 
-                string strBase64 = Convert.ToBase64String(bytes); 
+               string strBase64 = Convert.ToBase64String(bytes); 
                 
                 Image1.ImageUrl = "data:Image/png;base64," + strBase64; 
             }
