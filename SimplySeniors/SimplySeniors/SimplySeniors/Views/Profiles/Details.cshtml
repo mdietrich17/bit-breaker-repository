@@ -9,19 +9,21 @@
 
 <table id="homePageTable">
     <tr>
-        <td>
-            <img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />
-        </td>
+        <td >
+            @*<img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@
+            <div style="margin-left: 2em; margin-top: .5em;">
+
+            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="100px" width="90px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
+            </div>
+            </td>
         <td>
             @Html.DisplayFor(model => model.ProfileFirstName)
             @Html.DisplayFor(model => model.ProfileLastName)
             @if (Model.ProfileVet == true)
             {
-               <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 150px; width: 125px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px"/>}
+               <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px"/>}
         </td>
-     
-      
-    </tr>
+     </tr>
 </table>
 <br />
 
