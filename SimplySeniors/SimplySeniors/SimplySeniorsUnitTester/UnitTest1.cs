@@ -60,6 +60,31 @@ namespace SimplySeniorsUnitTester
                 if (controller.Services() is ViewResult result)
                     Assert.AreEqual("Services that are offered in our community.", result.ViewBag.Message);
             }
+
+        [TestMethod] // Jon's tests for user Home page view message
+        public void HomePageTest()
+        {
+
+            //Arrange
+            AccountController controller = new AccountController();
+            //Act
+            ViewResult result = controller.ForgotPasswordConfirmation() as ViewResult;
+            //Assert
+            Assert.AreEqual(null, result.ViewBag.Message);
+        }
+
+        [TestMethod] // Jon's test for Account registration view message
+        public void RegistrationMessageTest()
+        {
+            //Arrange
+            AccountController controller = new AccountController();
+            //Act
+            ViewResult result = controller.Register() as ViewResult;
+            //Assert
+            Assert.AreEqual(null, result.ViewBag.Message);
+
+        }
+
         [TestMethod]
         public void Login() //Dennis' Test for the login page. 
         {
