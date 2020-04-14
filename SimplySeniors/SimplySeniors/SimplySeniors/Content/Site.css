@@ -52,7 +52,7 @@ textarea {
     border: solid;
     border-color: black;
     border-radius: 40em;
-    opacity: .4;
+    opacity: .7;
 }
 
 /*NAVBAR CUSTOMIZATION IS BELOW*/
@@ -211,7 +211,7 @@ li {
 }
 
 #firstSlide, #secondSlide, #thirdSlide {
-    opacity: .15;
+    opacity: .18;
     border: black;
     border: solid;
     border-radius: 1em;
