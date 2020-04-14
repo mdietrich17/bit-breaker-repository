@@ -22,7 +22,7 @@
         
         <br/>
         <br/>
-        <div style=" margin-left: 40px;justify-content: center;border: black" >
+        <div style=" margin-left: 40px; justify-content: center;border: black" >
             <asp:Button Class="btn btn-primary" ID="btnUpload" runat="server" Text="Upload Now" OnClick="btnUpload_Click" Label="Upload" Height="37px" Width="100px" style="text-align: center; margin-left: 5em; color: black; "/>
 
         </div>
