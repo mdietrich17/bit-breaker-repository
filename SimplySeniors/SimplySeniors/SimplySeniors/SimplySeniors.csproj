@@ -194,6 +194,7 @@
     <Compile Include="Attributes\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
+    <Compile Include="Controllers\FollowListsController.cs" />
     <Compile Include="Controllers\HobbiesController.cs" />
     <Compile Include="Controllers\HobbyBridgesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -208,6 +209,8 @@
     <Compile Include="Models\CaptchaResponse.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="DAL\EventContext.cs" />
+    <Compile Include="DAL\FollowContext.cs" />
+    <Compile Include="Models\FollowList.cs" />
     <Compile Include="Models\Hobbies.cs" />
     <Compile Include="Models\HobbyBridge.cs" />
     <Compile Include="DAL\HobbiesContext.cs" />
@@ -263,6 +266,7 @@
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
     <Content Include="Photos\aarp.jpg" />
+    <Content Include="Photos\carPhoto1.jpg" />
     <Content Include="Photos\carPhotoThree.jpg" />
     <Content Include="Photos\carPhotoTwo.jpg" />
     <Content Include="Photos\development.png" />
@@ -468,6 +472,11 @@
     <Content Include="Views\HobbyBridges\Edit.cshtml" />
     <Content Include="Views\HobbyBridges\Create.cshtml" />
     <Content Include="Views\HobbyBridges\Delete.cshtml" />
+    <Content Include="Views\FollowLists\Create.cshtml" />
+    <Content Include="Views\FollowLists\Delete.cshtml" />
+    <Content Include="Views\FollowLists\Details.cshtml" />
+    <Content Include="Views\FollowLists\Edit.cshtml" />
+    <Content Include="Views\FollowLists\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

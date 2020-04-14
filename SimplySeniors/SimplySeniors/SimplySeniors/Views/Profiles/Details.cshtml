@@ -9,19 +9,21 @@
 
 <table id="homePageTable">
     <tr>
-        <td>
-            <img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />
-        </td>
+        <td >
+            @*<img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@
+            <div style="margin-left: 2em; margin-top: .05em; margin-bottom: -.3em; margin-right: -1.5em; ">
+
+            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
+            </div>
+            </td>
         <td>
             @Html.DisplayFor(model => model.ProfileFirstName)
             @Html.DisplayFor(model => model.ProfileLastName)
             @if (Model.ProfileVet == true)
             {
-               <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 150px; width: 125px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px"/>}
+               <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px"/>}
         </td>
-     
-      
-    </tr>
+     </tr>
 </table>
 <br />
 
@@ -38,7 +40,7 @@
     <!--Beware all who enter this land of divs-->
     <div class="container">
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="row">
 
                     <div class="col-md">
@@ -119,7 +121,7 @@
 
             </div>
 
-            <div class="col-md-8" id="boxPostFriend">
+            <div class="col-md-6" id="boxPostFriend">
                 <div id="homeHeader">User Posts</div> <hr />
 
                 @foreach (var item in Model.PostList)
@@ -127,8 +129,8 @@
                     <div id="individualPost">
                         <div id="statusName">
                             <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                            @Html.DisplayFor(model => model.ProfileFirstName)
-                            @Html.DisplayFor(model => model.ProfileLastName)
+                            @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
+                            @Html.DisplayFor(model => item.PostProfile.LASTNAME)
                         </div>
                         <div id="statusTitle">
                             @Html.DisplayFor(model => item.Title)
@@ -140,6 +142,18 @@
                     </div>
                 }
             </div>
+            <div class="col-md-3" id="boxPostFriend">
+                <div id="homeHeader">Friends List</div> <hr />
+                @foreach(var item in Model.Followed)
+                {
+            <div id="friendName">
+                @Html.DisplayFor(model => item.FIRSTNAME)
+                @Html.DisplayFor(model => item.LASTNAME)
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+              <br />
+                <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+            </div>
+                }
 
         </div>
     </div>
@@ -150,3 +164,4 @@
         @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
     </p>
 </div>
+    </div>
