@@ -52,7 +52,7 @@ textarea {
     border: solid;
     border-color: black;
     border-radius: 40em;
-    opacity: .4;
+    opacity: .7;
 }
 
 /*NAVBAR CUSTOMIZATION IS BELOW*/
@@ -167,17 +167,23 @@ li {
 
 /*SERVICES PAGE STYLING BELOW*/
 
+#federalProgramHeader {
+    font-weight: 700;
+    font-size: 34px;
+    margin-bottom: 2em;
+    margin-right: 1.5em; 
+    height: 12px;
+}
 
-#snapBenefitsHeader {
+#snapBenefitsHeader, #eventHeader {
     font-weight: 700;
     font-size: 38px;
-    margin-bottom: 2em; 
+    margin-bottom: 2em;
     height: 12px;
- }
+}
 
-#snapContainer {
+#snapContainer{
     margin-top: 2em; 
-
 }
 
 #snapParagraph {
@@ -189,26 +195,29 @@ li {
     margin-bottom: 2em; 
 }
 
-#snapButtonBox {
-    padding-top: -2.5em; 
+#snapButtonBox, #federalButtonBox {
+    padding-top: -2.5em;
+    padding-right: 4em; 
     margin-bottom: -7em; 
 }
 
+#fedParagraph, #eventsParagraph {
+    margin-top: -2em;
+    margin-right: 8.25em;
+    margin-left: 4em;
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 2em;
+}
 
-#firstSlide {
-    opacity: .15;
+#firstSlide, #secondSlide, #thirdSlide {
+    opacity: .18;
     border: black;
     border: solid;
-    border-radius: 1em; 
+    border-radius: 1em;
     margin-left: 220px;
 }
 
-#secondSlide, #thirdSlide {
-    border-radius: 40em;
-    opacity: .3;
-    height: 100%;
-    margin-left: 250px;
-}
 
 #servicesCarouselText {
     color: black;
@@ -613,7 +622,7 @@ div#box
     border-width: 2px;
     margin-top: 10px;
     height: 100%;
-
+    padding-bottom: 25px; 
     background: lightcyan;
     border-radius: 20px;
 }
