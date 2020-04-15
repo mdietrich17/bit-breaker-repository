@@ -418,6 +418,30 @@ div#box
     border-radius: 20px;
 }
 
+#profileInfo {
+    border-style: solid;
+    border-radius: 20px;
+    border-width: 2px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0px 5px 5px #888888;
+    margin-top: 10px;
+    height: 100%;
+    margin-left: -50px;
+}
+
+#profileBio {
+    font-size: 20px;
+    text-shadow: none;
+}
+
+    #profileLink a {
+        margin-left: -50px;
+        color: black;
+        font-size: 20px;
+        text-shadow: 1px 1px blue;
+    }
+
 
 /*USER HOME PAGE STYLING BELOW*/
 
@@ -436,7 +460,7 @@ div#box
     border-radius: 90px;
     width: 93%;
     color: black;
-    font-size: 50px;
+    font-size: 45px;
     text-shadow: 2px 2px white;
 }
 
@@ -469,6 +493,7 @@ div#box
     border-width: 2px;
     margin-top: 10px;
     height: 100%;
+    margin-left: 10px;
 }
 #map {
     box-shadow: 0px 5px 5px #888888;
@@ -487,6 +512,7 @@ div#box
     #boxPostFriend.col-md-3 {
         background: lightcyan;
         border-radius: 70px;
+        padding: 15px;
     }
 
     #boxPostFriend.col-md-offset-3 {
@@ -542,11 +568,12 @@ div#box
 
 #postSettings {
     margin-left: 350px;
-    font-size: 20px;
 }
 
     #postSettings a {
         color: black;
+        font-size: 20px;
+        text-shadow: 1px 1px blue;
     }
 
         #postSettings a:hover {

@@ -30,8 +30,12 @@ namespace SimplySeniors.Models
         public DateTime BIRTHDAY { get; set; }
 
         [StringLength(128)]
-        [Display(Name = "Location")]
-        public string LOCATION { get; set; }
+        [Display(Name = "City")]
+        public string CITY { get; set; }
+
+        [StringLength(128)]
+        [Display(Name = "State")]
+        public string STATE { get; set; }
 
         [Display(Name = "Veteran Status")]
         public bool? VETSTATUS { get; set; }

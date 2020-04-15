@@ -93,7 +93,7 @@ namespace SimplySeniors.Controllers
         [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
+        public ActionResult Create([Bind(Exclude = "USERID", Include = "FIRSTNAME,LASTNAME,BIRTHDAY,CITY,STATE,VETSTATUS,OCCUPATION,FAMILY,BIO")] Profile profile)
         {
 
 
@@ -155,7 +155,7 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-       public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,LOCATION,VETSTATUS,OCCUPATION,FAMILY,BIO,USERID,PROFILECREATED")] Profile profile)
+       public ActionResult Edit([Bind(Include = "ID,FIRSTNAME,LASTNAME,BIRTHDAY,CITY,STATE,VETSTATUS,OCCUPATION,FAMILY,BIO,USERID,PROFILECREATED")] Profile profile)
         {
 
             

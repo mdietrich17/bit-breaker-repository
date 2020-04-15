@@ -61,7 +61,8 @@ namespace SimplySeniors.Controllers
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                return RedirectToAction("HomePage", "UserHomePage");
+                Response.Redirect("~/Profiles/Details/" + profile.ID);
+
             }
             return View(post);
         }
@@ -93,11 +94,13 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "ID,Title,Body,ProfileID")] Post post)
         {
+            string id = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == id).FirstOrDefault();
             if (ModelState.IsValid)
             {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("HomePage", "UserHomePage");
+                Response.Redirect("~/Profiles/Details/" + profile.ID);
             }
             return View(post);
         }

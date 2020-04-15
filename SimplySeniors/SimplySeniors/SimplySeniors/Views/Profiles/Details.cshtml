@@ -21,7 +21,8 @@
             @Html.DisplayFor(model => model.ProfileLastName)
             @if (Model.ProfileVet == true)
             {
-               <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px"/>}
+                <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px" />}
+            <br /> <div id="profileBio">@Html.DisplayFor(model => model.ProfileBIO) </div>
         </td>
      </tr>
 </table>
@@ -40,89 +41,47 @@
     <!--Beware all who enter this land of divs-->
     <div class="container">
         <div class="row">
-            <div class="col-md-3">
+            <div class="col-md-3" id="profileInfo">
+                <div id="homeHeader">About Me</div> <hr />
                 <div class="row">
-
                     <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ListHobbies)</p>
+                        <p class="font-weight-bold"> @{<text>Hobbies</text>} </p>
                         @Html.DisplayFor(model => model.ListHobbies)
                     </div>
-                    <div class="col-md"></div>
-                    <div class="col-md"></div>
-                </div>
-
-                <div class="row">
                     <div class="col-md">
                         <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
+                            @Html.DisplayFor(model => model.ProfileBirthday)
                     </div>
-                    <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileLocation) </p>
-                    </div>
-                    <div class="col-md"></div>
                     <div class="col-md"></div>
                 </div>
-
+                <br />
                 <div class="row">
                     <div class="col-md">
-                        @Html.DisplayFor(model => model.ProfileBirthday)
+                        <p class="font-weight-bold"> @{<text>Location</text>} </p>
+                        @Html.DisplayFor(model => model.ProfileCity), @Html.DisplayFor(model => model.ProfileState)
                     </div>
-                    <div class="col-md">
-                        @Html.DisplayFor(model => model.ProfileLocation)
-                    </div>
-                    <div class="col-md"></div>
-                    <div class="col-md"></div>
-                </div>
-                <div class="row justify-content-lg-center">
-                    <div class="col-md-8">
-                        <hr />
-                    </div>
-                </div>
-                <div class="row">
                     <div class="col-md">
                         <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileOccupation) </p>
-                    </div>
-                    <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
-                    </div>
-                    <div class="col-md"></div>
-                    <div class="col-md"></div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md">
                         @Html.DisplayFor(model => model.ProfileOccupation)
                     </div>
+                    <div class="col-md"></div>
+                </div>
+
+                <br />
+
+                <div class="row">
                     <div class="col-md">
+                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
                         @Html.DisplayFor(model => model.ProfileFamily)
                     </div>
                     <div class="col-md"></div>
-                    <div class="col-md"></div>
-                </div>
-                <div class="row justify-content-lg-center">
-                    <div class="col-md-8">
-                        <hr />
-                    </div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
-                    </div>
-
-                    <div class="col-md"></div>
-                </div>
-                <div class="row">
-
-                    <div class="col-md">
-                        @Html.DisplayFor(model => model.ProfileBIO)
-                    </div>
                     <div class="col-md"></div>
                 </div>
 
             </div>
 
             <div class="col-md-6" id="boxPostFriend">
-                <div id="homeHeader">User Posts</div> <hr />
+                <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
 
                 @foreach (var item in Model.PostList)
                 {
@@ -139,7 +98,7 @@
                     @Html.DisplayFor(model => item.Body)
                 </div>
                 <div id="postSettings">
-                    @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null) |
+                    @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null) 
                     @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
                 </div>
 
@@ -147,7 +106,7 @@
                 }
             </div>
             <div class="col-md-3" id="boxPostFriend">
-                <div id="homeHeader">Friends List</div> <hr />
+                <div id="homeHeader">Following</div> <hr />
                 @foreach(var item in Model.Followed)
                 {
             <div id="friendName">
@@ -162,8 +121,8 @@
         </div>
     </div>
 
-
-    <p id="eventLink">
+        <br />
+    <p id="profileLink">
         @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
         @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
     </p>

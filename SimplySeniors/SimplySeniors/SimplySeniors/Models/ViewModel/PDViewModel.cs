@@ -15,7 +15,8 @@ namespace SimplySeniors.Models.ViewModel
             ProfileFirstName = Profile.FIRSTNAME;
             ProfileLastName = Profile.LASTNAME;
             ProfileBirthday = Profile.BIRTHDAY;
-            ProfileLocation = Profile.LOCATION;
+            ProfileCity = Profile.CITY;
+            ProfileState = Profile.STATE;
             ProfileVet = Profile.VETSTATUS;
             ProfileOccupation = Profile.OCCUPATION;
             ProfileFamily = Profile.FAMILY;
@@ -33,10 +34,15 @@ namespace SimplySeniors.Models.ViewModel
         public string ProfileLastName { get; set; }
 
         [Display(Name = "Birthday")]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MM/dd/yyyy}")]
         public DateTime ProfileBirthday { get; set; }
 
-        [Display(Name = "Location")]
-        public string ProfileLocation { get; set; }
+        [Display(Name = "City")]
+        public string ProfileCity { get; set; }
+
+        [Display(Name = "State")]
+        public string ProfileState { get; set; }
+
         [Display(Name = "Veteran?")]
         public bool? ProfileVet { get; set; }
 
