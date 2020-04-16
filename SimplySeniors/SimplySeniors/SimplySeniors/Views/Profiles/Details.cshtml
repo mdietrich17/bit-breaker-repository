@@ -22,7 +22,6 @@
             @if (Model.ProfileVet == true)
             {
                 <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px" />}
-            <br /> <div id="profileBio">@Html.DisplayFor(model => model.ProfileBIO) </div>
         </td>
      </tr>
 </table>
@@ -71,10 +70,13 @@
 
                 <div class="row">
                     <div class="col-md">
+                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
+                        @Html.DisplayFor(model => model.ProfileBIO)
+                    </div>
+                    <div class="col-md">
                         <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
                         @Html.DisplayFor(model => model.ProfileFamily)
                     </div>
-                    <div class="col-md"></div>
                     <div class="col-md"></div>
                 </div>
 
