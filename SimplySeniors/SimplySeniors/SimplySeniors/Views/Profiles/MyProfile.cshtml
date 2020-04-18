@@ -1,0 +1,131 @@
+﻿@model SimplySeniors.Models.ViewModel.PDViewModel
+
+@{
+    ViewBag.Title = Html.DisplayFor(model => model.ProfileFirstName);
+}
+
+<br />
+<br />
+
+<table id="homePageTable">
+    <tr>
+        <td>
+            @*<img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@
+            <div style="margin-left: 2em; margin-top: .05em; margin-bottom: -.3em; margin-right: -1.5em; ">
+                <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
+            </div>
+        </td>
+        <td>
+            @Html.DisplayFor(model => model.ProfileFirstName)
+            @Html.DisplayFor(model => model.ProfileLastName)
+            @if (Model.ProfileVet == true)
+            {
+                <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px" />}
+        </td>
+    </tr>
+</table>
+<br />
+
+<br />
+<button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
+<button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
+@Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
+@Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null, new { id = "eventButton" })
+@Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" })
+
+<div>
+
+    <hr />
+    <!--Beware all who enter this land of divs-->
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" id="profileInfo">
+                <div id="homeHeader">About Me</div> <hr />
+                <div class="row">
+                    <div class="col-md">
+                        <p class="font-weight-bold"> @{<text>Hobbies</text>} </p>
+                        @Html.DisplayFor(model => model.ListHobbies)
+                    </div>
+                    <div class="col-md">
+                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
+                        @Html.DisplayFor(model => model.ProfileBirthday)
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+                <br />
+                <div class="row">
+                    <div class="col-md">
+                        <p class="font-weight-bold"> @{<text>Location</text>} </p>
+                        @Html.DisplayFor(model => model.ProfileCity), @Html.DisplayFor(model => model.ProfileState)
+                    </div>
+                    <div class="col-md">
+                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileOccupation) </p>
+                        @Html.DisplayFor(model => model.ProfileOccupation)
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+
+                <br />
+
+                <div class="row">
+                    <div class="col-md">
+                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
+                        @Html.DisplayFor(model => model.ProfileBIO)
+                    </div>
+                    <div class="col-md">
+                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
+                        @Html.DisplayFor(model => model.ProfileFamily)
+                    </div>
+                    <div class="col-md"></div>
+                </div>
+
+            </div>
+
+            <div class="col-md-6" id="boxPostFriend">
+                <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
+
+                @foreach (var item in Model.PostList)
+                {
+                    <div id="individualPost">
+                        <div id="statusName">
+                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                            @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
+                            @Html.DisplayFor(model => item.PostProfile.LASTNAME)
+                        </div>
+                        <div id="statusTitle">
+                            @Html.DisplayFor(model => item.Title)
+                        </div>
+                        <div id="postDescription">
+                            @Html.DisplayFor(model => item.Body)
+                        </div>
+                        <div id="postSettings">
+                            @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
+                            @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
+                        </div>
+
+                    </div>
+                }
+            </div>
+            <div class="col-md-3" id="boxPostFriend">
+                <div id="homeHeader">Following</div> <hr />
+                @foreach (var item in Model.Followed)
+                {
+                    <div id="friendName">
+                        @Html.DisplayFor(model => item.FIRSTNAME)
+                        @Html.DisplayFor(model => item.LASTNAME)
+                        <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                        <br />
+                        <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+                    </div>
+                }
+
+            </div>
+        </div>
+
+        <br />
+        <p id="profileLink">
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
+            @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
+        </p>
+    </div>
+</div>
