@@ -47,7 +47,27 @@ namespace SimplySeniors.Controllers
             }
         }
 
+        [CustomAuthorize]
+        [HttpGet]
+        public ActionResult MyProfile()
+        {
+            var userid = User.Identity.GetUserId();
+            int id = db.Profiles.Where(x => x.USERID == userid).Select(x => x.ID).FirstOrDefault();
+            Profile profile = db.Profiles.Find(id);
+            IQueryable<string> bridges = db2.HobbyBridges.Where(x => x.ProfileID.Value == id).Select(y => y.Hobby.NAME).Distinct();
+            string hobbies = string.Join(", ", bridges.ToList());
+            List<Profile> followed = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowProfile).ToList();
+            //List<int> IdList = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowedUserID).ToList();
+            List<Post> postlist = db3.Posts.Where(x => x.ProfileID == profile.ID).ToList();
+            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed);
+            if (profile == null)
+            {
+                return HttpNotFound();
+            }
+            return View(viewModel);
 
+
+        }
 
         // GET: Profiles/Details/5
         [CustomAuthorize]
