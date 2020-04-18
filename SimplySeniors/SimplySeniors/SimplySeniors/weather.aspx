@@ -35,11 +35,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <asp:TextBox ID="txtCity" runat="server" Text="Monmouth, Oregon" /> <%-- Here is where you go to input the location for the mapping function. We can import their location into this cell once set up. --%>
-    <asp:Button Text="Get Weather Information" runat="server" OnClick="GetWeatherInfo" />
+    <asp:TextBox Visible="False" ID="txtCity" runat="server" Text="Monmouth, Oregon" /> <%-- Here is where you go to input the location for the mapping function. We can import their location into this cell once set up. --%>
+    <asp:Button Visible="False" Text="Get Weather Information" runat="server" OnLoad="GetWeatherInfo" />
     <br/>
     <table id="tblWeather" runat="server" border="0" cellpadding="0" cellspacing="0"
-        visible="false">
+        visible="True">
         <tr>
             <th colspan="2">
                 Weather Information
