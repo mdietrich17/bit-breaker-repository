@@ -12,6 +12,10 @@ using SimplySeniors.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
 using SimplySeniors.Attributes;
+using System.IO;
+using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
+using System.Diagnostics;
 
 namespace SimplySeniors.Controllers
 {
@@ -77,10 +81,24 @@ namespace SimplySeniors.Controllers
         }
     }
 
-[CustomAuthorize]
+    public class EventApiFields
+    {
+        public string Title { get; set; }
+        public string Description { get; set; }
+        public string StartTime { get; set; }
+        public string StopTime { get; set; }
+        public string Country { get; set; }
+        public string City { get; set; }
+        public string Price { get; set; }
+        public int Length { get; set; }
+
+    }
+
+    [CustomAuthorize]
     public class EventsController : Controller
     {
         private EventContext db = new EventContext();
+        private ProfileContext db2 = new ProfileContext();
 
         // GET: Events, ordered by date (newest at top, further out at bottom)
         public ActionResult Index()
@@ -112,6 +130,79 @@ namespace SimplySeniors.Controllers
                     return View(); 
                 }
             }
+        }
+
+        //Pass other functions into here to request info for events API
+        private string SendRequest(string uri)
+        {
+            HttpWebRequest request = (HttpWebRequest)WebRequest.Create(uri);
+            request.Accept = "application/json";
+            System.Diagnostics.Debug.WriteLine("request: " + request);
+            string jsonString = null;
+            // TODO: You should handle exceptions here
+            using (WebResponse response = request.GetResponse())
+            {
+                Stream stream = response.GetResponseStream();
+                StreamReader reader = new StreamReader(stream);
+                jsonString = reader.ReadToEnd();
+                reader.Close();
+                stream.Close();
+            }
+            return jsonString;
+        }
+
+        //Getting all necessary data for an external event
+        public ActionResult ExternalEvents()
+        {
+            string value = User.Identity.GetUserId();
+            System.Diagnostics.Debug.WriteLine("user id: " + value);
+            string profileCity = db2.Profiles.Where(x => x.USERID == value).Select(x => x.CITY).FirstOrDefault();
+            System.Diagnostics.Debug.WriteLine("profile city: " + profileCity);
+            string keywords = Request.QueryString["keywords"];
+            System.Diagnostics.Debug.WriteLine("keywords: " + keywords);
+            string location = profileCity;
+            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&app_key=QhMNW3GgHB8WJZht", keywords, location);
+            System.Diagnostics.Debug.WriteLine("new url name: " + newUrlName);
+
+            string json = SendRequest(newUrlName);
+            JObject eventArray = JObject.Parse(json);
+            System.Diagnostics.Debug.WriteLine("array: " + eventArray.ToString());
+
+            int length = (int)eventArray["total_items"]; //total number in array of events for location
+            int lengthArray = length;
+            if (length > 10) //if length of entire array is more than 10, only output 10 bc events api only shows first 10 events for free
+            {
+                lengthArray = 10;
+            }
+
+            System.Diagnostics.Debug.WriteLine("array length: " + lengthArray);
+            // Do what is needed to obtain a C# object containing data you wish to convert to JSON
+            List<EventApiFields> eventList = new List<EventApiFields>();
+            //Going through data, assigning data into string variables, and adding those to new list to pass back
+            for (int i = 0; i < lengthArray; i++)
+            {
+                string title = (string)eventArray["events"]["event"][i]["title"];
+                string description = (string)eventArray["events"]["event"][i]["description"];
+                string startTime = (string)eventArray["events"]["event"][i]["start_time"];
+                string stopTime = (string)eventArray["events"]["event"][i]["stop_time"];
+                string country = (string)eventArray["events"]["event"][i]["tz_country"];
+                string city = (string)eventArray["events"]["event"][i]["tz_city"];
+                string price = (string)eventArray["events"]["event"][i]["price"];
+
+                eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, Price = price, Length = length });
+            }
+/*            for (int i = 0; i < length; i++)
+            {
+                System.Diagnostics.Debug.WriteLine("array titles: " + eventList[i].Title);
+            }*/
+
+            return new ContentResult
+            {
+                // serialize C# object "commits" to JSON using Newtonsoft.Json.JsonConvert
+                Content = JsonConvert.SerializeObject(eventList),
+                ContentType = "application/json",
+                ContentEncoding = System.Text.Encoding.UTF8
+            };
         }
 
 

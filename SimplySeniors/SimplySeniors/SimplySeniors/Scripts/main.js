@@ -7,6 +7,31 @@
     }
 });
 
+$.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "/Events/ExternalEvents",
+    success: displayEvents,
+    error: errorOnAjax
+});
+
+function errorOnAjax() {
+    console.log("ERROR in ajax request.");
+}
+
+//Putting user data on home page
+function displayEvents(data) {
+    //Remove what's already showing and re-add the div
+    document.getElementById("eventStuff").remove();
+    $('#eventStuffOutside').append($('<ul id="eventStuff"></ul>'));
+    //Show the event data
+    for (var i = 0; i < data.length; ++i) {
+        $('#eventStuff').append($('<li>' + data[i].Title + '</li>'));
+        console.log("the title is: " + data[i].Title);
+    }
+}
+
+
 function accInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
