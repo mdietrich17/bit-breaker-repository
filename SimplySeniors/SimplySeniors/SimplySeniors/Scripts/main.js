@@ -48,7 +48,7 @@ function displayEvents(data) {
         cell1.innerHTML = data[i].Title;
         cell2.innerHTML = data[i].StartTime;
         cell3.innerHTML = data[i].EndTime;
-        cell4.innerHTML = data[i].Description;
+        cell4.innerHTML = data[i].Description + "<a href=\"" + data[i].LinkURL + "\" > Click here </a> for more information about this event. ";
         cell5.innerHTML = "<img src=\"" +  data[i].ImageURL + "\" width=\"100px\" height=\"100px\">";
         rowCount++; //Increment rowCount so we can add new row
 

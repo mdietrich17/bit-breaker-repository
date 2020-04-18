@@ -201,6 +201,10 @@ namespace SimplySeniors.Controllers
                     image = "/Photos/noimageavailble.jpg";
                 }
                 string link = (string)eventArray["events"]["event"][i]["url"];
+                if (description == null)
+                {
+                    description = "There is currently no description available for this event. ";
+                }
 
                 eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, Price = price, Length = length, ImageURL = image, LinkURL = link });
             }
