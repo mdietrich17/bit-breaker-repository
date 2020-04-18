@@ -44,7 +44,7 @@ namespace SimplySeniors.Controllers
             string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU", address);
             WebRequest request = WebRequest.Create(requestUri);
             WebResponse response = request.GetResponse();
-            StreamReader reader = new StreamReader(response.GetResponseStream());
+            StreamReader reader = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException());
             string json = reader.ReadToEnd();
             dynamic information = JObject.Parse(json);
             Double lat = Convert.ToDouble(information.results[0].geometry.location.lat, CultureInfo.InvariantCulture);
