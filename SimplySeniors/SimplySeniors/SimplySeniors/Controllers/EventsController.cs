@@ -91,6 +91,9 @@ namespace SimplySeniors.Controllers
         public string City { get; set; }
         public string Price { get; set; }
         public int Length { get; set; }
+        public string ImageURL { get; set; }
+        public string LinkURL { get; set; }
+
 
     }
 
@@ -187,8 +190,19 @@ namespace SimplySeniors.Controllers
                 string country = (string)eventArray["events"]["event"][i]["tz_country"];
                 string city = (string)eventArray["events"]["event"][i]["tz_city"];
                 string price = (string)eventArray["events"]["event"][i]["price"];
+                JToken imageObj = eventArray["events"]["event"][i]["image"];
+                string image;
+                if (imageObj.HasValues)
+                {
+                    image = (string)eventArray["events"]["event"][i]["image"]["url"];
+                }
+                else
+                {
+                    image = "/Photos/noimageavailble.jpg";
+                }
+                string link = (string)eventArray["events"]["event"][i]["url"];
 
-                eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, Price = price, Length = length });
+                eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, Price = price, Length = length, ImageURL = image, LinkURL = link });
             }
 /*            for (int i = 0; i < length; i++)
             {

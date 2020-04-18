@@ -21,15 +21,39 @@ function errorOnAjax() {
 
 //Putting user data on home page
 function displayEvents(data) {
-    //Remove what's already showing and re-add the div
-    document.getElementById("eventStuff").remove();
-    $('#eventStuffOutside').append($('<ul id="eventStuff"></ul>'));
-    //Show the event data
+
+    document.getElementById("tablePlacement").remove();
+    $('#bigTable').append($('<table id=\"tablePlacement\">'));
+    $('#tablePlacement').append($('<tr id=\"tableTr\">'));
+    $('#tableTr').append($('<td id=\"tdName\"> <strong> Name </td>'));
+    $('#tableTr').append($('<td id=\"tdStart\"> <strong> Start Date </td>'));
+    $('#tableTr').append($('<td id=\"tdEnd\"> <strong> End Date </td>'));
+    $('#tableTr').append($('<td id=\"tdDesc\"> <strong> Description </td>'));
+    $('#tableTr').append($('<td id=\"tdImage\"> <strong> Image </td>'));
+    $('#tablePlacement').append($('</tr>'));
+    $('#bigTable').append($('</table>'));
+
+    //Putting items in table starting from the last element to output in descending order (latest commits show at top)
     for (var i = 0; i < data.length; ++i) {
-        $('#eventStuff').append($('<li>' + data[i].Title + '</li>'));
-        console.log("the title is: " + data[i].Title);
+        var rowCount = 1;
+        var table = document.getElementById("tablePlacement");
+        var row = table.insertRow(rowCount); //Insert at new row
+        //Add all 4 cells at a time
+        var cell1 = row.insertCell(0);
+        var cell2 = row.insertCell(1);
+        var cell3 = row.insertCell(2);
+        var cell4 = row.insertCell(3);
+        var cell5 = row.insertCell(4);
+        //Update all 4 cells data
+        cell1.innerHTML = data[i].Title;
+        cell2.innerHTML = data[i].StartTime;
+        cell3.innerHTML = data[i].EndTime;
+        cell4.innerHTML = data[i].Description;
+        cell5.innerHTML = "<img src=\"" +  data[i].ImageURL + "\" width=\"100px\" height=\"100px\">";
+        rowCount++; //Increment rowCount so we can add new row
+
     }
-}
+};
 
 
 function accInfo() {

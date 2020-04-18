@@ -17,7 +17,7 @@
 </div>
 
 <table class="table" id="eventTable">
-    <tr>
+    <tr id="tableTrTwo">
         <th>
             @{<text>Name</text>}
         </th>
@@ -38,7 +38,7 @@
 
     @foreach (var item in Model)
     {
-        <tr>
+        <tr id="tableTrTwo">
             <td>
                 @Html.DisplayFor(modelItem => item.NAME)
             </td>
@@ -66,8 +66,8 @@
 
 <h2 id="eventTitle">Events Near You</h2>
 <div id="eventTable" style="text-align:center">
-    <div id="eventStuffOutside">
-        <ul id="eventStuff"></ul>
+    <div id="bigTable">
+        <table id="tablePlacement"></table>
     </div>
 </div>
 
