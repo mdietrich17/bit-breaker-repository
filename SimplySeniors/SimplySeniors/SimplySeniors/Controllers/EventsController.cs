@@ -161,7 +161,7 @@ namespace SimplySeniors.Controllers
             string keywords = Request.QueryString["keywords"];
             System.Diagnostics.Debug.WriteLine("keywords: " + keywords);
             string location = profileCity;
-            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&app_key=QhMNW3GgHB8WJZht", keywords, location);
+            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&page_size=50&app_key=QhMNW3GgHB8WJZht", keywords, location);
             System.Diagnostics.Debug.WriteLine("new url name: " + newUrlName);
 
             string json = SendRequest(newUrlName);
@@ -169,17 +169,16 @@ namespace SimplySeniors.Controllers
             System.Diagnostics.Debug.WriteLine("array: " + eventArray.ToString());
 
             int length = (int)eventArray["total_items"]; //total number in array of events for location
-            int lengthArray = length;
-            if (length > 10) //if length of entire array is more than 10, only output 10 bc events api only shows first 10 events for free
+            if (length > 10) //if length of entire array is more than 10, only output 10
             {
-                lengthArray = 10;
+                length = 10; 
             }
 
-            System.Diagnostics.Debug.WriteLine("array length: " + lengthArray);
+            System.Diagnostics.Debug.WriteLine("array length: " + length);
             // Do what is needed to obtain a C# object containing data you wish to convert to JSON
             List<EventApiFields> eventList = new List<EventApiFields>();
             //Going through data, assigning data into string variables, and adding those to new list to pass back
-            for (int i = 0; i < lengthArray; i++)
+            for (int i = 0; i < length; i++)
             {
                 string title = (string)eventArray["events"]["event"][i]["title"];
                 string description = (string)eventArray["events"]["event"][i]["description"];
