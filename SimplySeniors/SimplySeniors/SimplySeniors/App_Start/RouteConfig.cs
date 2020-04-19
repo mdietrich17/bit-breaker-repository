@@ -30,6 +30,13 @@ namespace SimplySeniors
                url: "api/{action}/{id}",
                defaults: new { controller = "Events", action = "ExternalEvents", id = UrlParameter.Optional }
            );
+
+               routes.MapRoute(
+               name: "SearchforEvents",
+               url: "api/{action}/{id}",
+               defaults: new { controller = "Events", action = "SearchExternalEvents", id = UrlParameter.Optional }
+           );
+
         }
     }
 }

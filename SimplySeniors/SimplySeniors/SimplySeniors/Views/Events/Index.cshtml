@@ -4,7 +4,7 @@
     ViewBag.Title = "Index";
 }
 
-<h2 id="eventTitle">All Events</h2>
+<h2 id="eventTitle">Simply Senior Events</h2>
 
 <button id="eventButton" onclick="window.location.href = '/Events/Create'">
     Create New Event
@@ -64,16 +64,22 @@
 
 </table>
 
-<h2 id="eventTitle">Events Near You</h2>
-<div id="eventTable" style="text-align:center">
-    <div id="bigTable">
-        <table id="tablePlacement"></table>
-    </div>
+<h2 id="eventTitle">Events Near You (@ViewBag.City)</h2>
+<div id="searchExternalEvents">
+    <p>If you'd like to see events in other cities, enter the city and/or the type of event you'd like to search for below:</p>
+    <input type="text" id="location" placeholder="City and/or State" />
+    <input type="text" id="keyword" placeholder="Keyword" />
+    <input id="form-to-be-submitted" value="Search" type="button" onclick="searchNow()" />
 </div>
+    <div id="eventTable" style="text-align:center">
+        <div id="bigTable">
+            <table id="tablePlacement"></table>
+        </div>
+    </div>
 
-<br />
-<br /><p> For more information on how our events work, how to navigate the events page, or what events are displayed, click the <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#EventHelp'> click here</a>.</p>
+    <br />
+    <br /><p> For more information on how our events work, how to navigate the events page, or what events are displayed, click the <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#EventHelp'> click here</a>.</p>
 
-@section scripts {
-    <script type="text/javascript" src="~/Scripts/main.js"></script>
-}
+    @section scripts {
+        <script type="text/javascript" src="~/Scripts/main.js"></script>
+    }

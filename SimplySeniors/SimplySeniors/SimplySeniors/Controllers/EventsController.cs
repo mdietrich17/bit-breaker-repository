@@ -89,6 +89,7 @@ namespace SimplySeniors.Controllers
         public string StopTime { get; set; }
         public string Country { get; set; }
         public string City { get; set; }
+        public string State { get; set; }
         public string Price { get; set; }
         public int Length { get; set; }
         public string ImageURL { get; set; }
@@ -106,6 +107,10 @@ namespace SimplySeniors.Controllers
         // GET: Events, ordered by date (newest at top, further out at bottom)
         public ActionResult Index()
         {
+            string value = User.Identity.GetUserId();
+            string profileCity = db2.Profiles.Where(x => x.USERID == value).Select(x => x.CITY).FirstOrDefault();
+            string location = profileCity;
+            ViewBag.City = location;
             return View(db.Events.OrderBy(x => x.STARTDATE).ToList());
         }
 
@@ -154,22 +159,18 @@ namespace SimplySeniors.Controllers
             return jsonString;
         }
 
-        //Getting all necessary data for an external event
+        //Getting all necessary data for external events
         public ActionResult ExternalEvents()
         {
             string value = User.Identity.GetUserId();
-            System.Diagnostics.Debug.WriteLine("user id: " + value);
             string profileCity = db2.Profiles.Where(x => x.USERID == value).Select(x => x.CITY).FirstOrDefault();
-            System.Diagnostics.Debug.WriteLine("profile city: " + profileCity);
+            string profileState = db2.Profiles.Where(x => x.USERID == value).Select(x => x.STATE).FirstOrDefault();
             string keywords = Request.QueryString["keywords"];
-            System.Diagnostics.Debug.WriteLine("keywords: " + keywords);
             string location = profileCity;
-            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&page_size=50&app_key=QhMNW3GgHB8WJZht", keywords, location);
-            System.Diagnostics.Debug.WriteLine("new url name: " + newUrlName);
-
+            string locationState = profileState;
+            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}%20{2}&page_size=50&include=price&include=tz_city&app_key=QhMNW3GgHB8WJZht", keywords, location, locationState);
             string json = SendRequest(newUrlName);
             JObject eventArray = JObject.Parse(json);
-            System.Diagnostics.Debug.WriteLine("array: " + eventArray.ToString());
 
             int length = (int)eventArray["total_items"]; //total number in array of events for location
             if (length > 10) //if length of entire array is more than 10, only output 10
@@ -177,7 +178,6 @@ namespace SimplySeniors.Controllers
                 length = 10; 
             }
 
-            System.Diagnostics.Debug.WriteLine("array length: " + length);
             // Do what is needed to obtain a C# object containing data you wish to convert to JSON
             List<EventApiFields> eventList = new List<EventApiFields>();
             //Going through data, assigning data into string variables, and adding those to new list to pass back
@@ -188,8 +188,17 @@ namespace SimplySeniors.Controllers
                 string startTime = (string)eventArray["events"]["event"][i]["start_time"];
                 string stopTime = (string)eventArray["events"]["event"][i]["stop_time"];
                 string country = (string)eventArray["events"]["event"][i]["tz_country"];
+                string state = (string)eventArray["events"]["event"][i]["region_name"];
                 string city = (string)eventArray["events"]["event"][i]["tz_city"];
+                if (city == null)
+                {
+                    city = location;
+                }
                 string price = (string)eventArray["events"]["event"][i]["price"];
+                if (price == null)
+                {
+                    price = "Free";
+                }
                 JToken imageObj = eventArray["events"]["event"][i]["image"];
                 string image;
                 if (imageObj.HasValues)
@@ -206,12 +215,8 @@ namespace SimplySeniors.Controllers
                     description = "There is currently no description available for this event. ";
                 }
 
-                eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, Price = price, Length = length, ImageURL = image, LinkURL = link });
+                eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, State = state, Price = price, Length = length, ImageURL = image, LinkURL = link });
             }
-/*            for (int i = 0; i < length; i++)
-            {
-                System.Diagnostics.Debug.WriteLine("array titles: " + eventList[i].Title);
-            }*/
 
             return new ContentResult
             {
@@ -222,6 +227,68 @@ namespace SimplySeniors.Controllers
             };
         }
 
+        public ActionResult SearchExternalEvents()
+        {
+            string keywords = Request["keyword"].ToString();
+            string location = Request["location"].ToString();
+            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&page_size=50&include=price&include=tz_city&app_key=QhMNW3GgHB8WJZht", keywords, location);
+            System.Diagnostics.Debug.WriteLine("new url name: " + newUrlName);
+            string json = SendRequest(newUrlName);
+            JObject eventArray = JObject.Parse(json);
+            int length = (int)eventArray["total_items"]; //total number in array of events for location
+            if (length > 10) //if length of entire array is more than 10, only output 10
+            {
+                length = 10;
+            }
+
+            // Do what is needed to obtain a C# object containing data you wish to convert to JSON
+            List<EventApiFields> eventList = new List<EventApiFields>();
+            //Going through data, assigning data into string variables, and adding those to new list to pass back
+            for (int i = 0; i < length; i++)
+            {
+                string title = (string)eventArray["events"]["event"][i]["title"];
+                string description = (string)eventArray["events"]["event"][i]["description"];
+                string startTime = (string)eventArray["events"]["event"][i]["start_time"];
+                string stopTime = (string)eventArray["events"]["event"][i]["stop_time"];
+                string country = (string)eventArray["events"]["event"][i]["tz_country"];
+                string state = (string)eventArray["events"]["event"][i]["region_name"];
+                string city = (string)eventArray["events"]["event"][i]["tz_city"];
+                if (city == null)
+                {
+                    city = location;
+                }
+                string price = (string)eventArray["events"]["event"][i]["price"];
+                if (price == null)
+                {
+                    price = "Free";
+                }
+                JToken imageObj = eventArray["events"]["event"][i]["image"];
+                string image;
+                if (imageObj.HasValues)
+                {
+                    image = (string)eventArray["events"]["event"][i]["image"]["url"];
+                }
+                else
+                {
+                    image = "/Photos/noimageavailble.jpg";
+                }
+                string link = (string)eventArray["events"]["event"][i]["url"];
+                if (description == null)
+                {
+                    description = "There is currently no description available for this event. ";
+                }
+
+                eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, State = state, Price = price, Length = length, ImageURL = image, LinkURL = link });
+            }
+
+            return new ContentResult
+            {
+                // serialize C# object "commits" to JSON using Newtonsoft.Json.JsonConvert
+                Content = JsonConvert.SerializeObject(eventList),
+                ContentType = "application/json",
+                ContentEncoding = System.Text.Encoding.UTF8
+            };
+        }
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)
