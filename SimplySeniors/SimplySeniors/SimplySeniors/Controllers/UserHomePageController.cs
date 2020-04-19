@@ -37,9 +37,10 @@ namespace SimplySeniors.Controllers
             List<int> IdList = db2.FollowLists.Where(x => x.UserID == profile.ID).Select(y => y.FollowedUserID).ToList();
             IdList.Add(profile.ID);
             List<Post> postlist = db.Posts.Where(x => IdList.Contains(x.ProfileID)).ToList();
+            string state = profile.STATE;
+            string city = profile.CITY;
 
-
-            var address = "+Monmouth, +OR";
+            var address = "+" + city + "," + "+" + state;
 
             string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU", address);
             WebRequest request = WebRequest.Create(requestUri);
