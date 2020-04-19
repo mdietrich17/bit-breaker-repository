@@ -19,8 +19,8 @@ namespace SimplySeniors.Models
             string appId = "4368f653168e32c12db5f1d5b9842a63";
             string id = User.Identity.GetUserId();                              // Getting user Id of currently logged in user. 
             ProfileContext profiledb = new ProfileContext();                    // Opening profile connection so that I can get the city and state from user. 
-            Profile profile = profiledb.Profiles.FirstOrDefault(usr => usr.USERID == id);    // Get all profile info for current logged in user where the ASPNET ID = profile ID
-            string location = profile.CITY + "," + profile.STATE;                                       // Building the location string based on what the user input to dynamically populate the weather widget. 
+            Profile profile = profiledb.Profiles.Where(u => u.USERID == id).FirstOrDefault();    // Get all profile info for current logged in user where the ASPNET ID = profile ID
+            string location = profile.CITY + ", " + profile.STATE + ", USA";                                       // Building the location string based on what the user input to dynamically populate the weather widget. 
             string url = string.Format("http://api.openweathermap.org/data/2.5/forecast?q={0}&units=imperial&cnt=1&APPID={1}",  location, appId); // location is city + state and appID is the key. 
             using (WebClient client = new WebClient())
             {
