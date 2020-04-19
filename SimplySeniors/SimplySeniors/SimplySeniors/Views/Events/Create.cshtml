@@ -13,7 +13,7 @@
 <div class="form-horizontal">
     <hr />
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Name", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.NAME, new { htmlAttributes = new { @class = "form-control" } })
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Description", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.DESCRIPTION, new { htmlAttributes = new { @class = "form-control" } })
@@ -29,7 +29,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Country", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.COUNTRY, new { htmlAttributes = new { @class = "form-control" } })
@@ -37,7 +37,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("State", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.DropDownListFor(x => x.STATE, SimplySeniors.Controllers.SelectListItemHelper.GetStatesList())
@@ -45,7 +45,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("City", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.CITY, new { htmlAttributes = new { @class = "form-control" } })
@@ -53,7 +53,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Street Address", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.STREETADDRESS, new { htmlAttributes = new { @class = "form-control" } })
@@ -61,7 +61,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Zip Code", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ZIPCODE, new { htmlAttributes = new { @class = "form-control" } })
@@ -69,7 +69,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Start Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.STARTDATE, new { @type = "date", htmlAttributes = new { @class = "form-control", type = "date" } })
@@ -77,7 +77,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("End Date", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ENDDATE, new { @type = "date", htmlAttributes = new { @class = "form-control", type = "date" } })
@@ -85,7 +85,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("Start Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.STARTTIME, new { @type = "time", htmlAttributes = new { @class = "form-control" } })
@@ -93,7 +93,7 @@
         </div>
     </div>
 
-    <div class="form-group">
+    <div class="form-group" id="editBox">
         @Html.Label("End Time", htmlAttributes: new { @class = "control-label col-md-2" })
         <div class="col-md-10">
             @Html.EditorFor(model => model.ENDTIME, new { @type = "time", htmlAttributes = new { @class = "form-control" } })
@@ -103,7 +103,7 @@
     <p style="font-size: 15px;text-shadow: 1px 1px yellow;">*Start Time and End Time must be in form HOUR:MINUTES AM/PM, ie: 05:30 PM*</p>
 
     <div class="form-group">
-        <div id="eventButton">
+        <div>
             <input type="submit" value="Create" class="btn btn-outline-primary" />
         </div>
     </div>

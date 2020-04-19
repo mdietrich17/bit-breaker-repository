@@ -250,6 +250,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205.mdf" />
+    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205_log.ldf">
+      <DependentUpon>aspnet-SimplySeniors-20200210062205.mdf</DependentUpon>
+    </Content>
     <Content Include="App_Data\down.sql" />
     <Content Include="App_Data\getImageProcess.sql" />
     <Content Include="App_Data\MainDown.sql" />
@@ -446,7 +450,6 @@
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Profiles\Create.cshtml" />
-    <Content Include="Views\Profiles\Delete.cshtml" />
     <Content Include="Views\Profiles\Details.cshtml" />
     <Content Include="Views\Profiles\Edit.cshtml" />
     <Content Include="Views\Profiles\Index.cshtml" />
@@ -464,9 +467,7 @@
     <Content Include="Views\Events\Index.cshtml" />
     <Content Include="Views\Posts\Create.cshtml" />
     <Content Include="Views\Posts\Delete.cshtml" />
-    <Content Include="Views\Posts\Details.cshtml" />
     <Content Include="Views\Posts\Edit.cshtml" />
-    <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\UserHomePage\HomePage.cshtml" />
     <Content Include="Views\Events\SearchEvents.cshtml" />
     <Content Include="Views\HobbyBridges\Edit.cshtml" />
