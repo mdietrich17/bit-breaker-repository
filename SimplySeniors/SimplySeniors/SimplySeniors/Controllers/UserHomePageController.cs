@@ -40,7 +40,7 @@ namespace SimplySeniors.Controllers
             string state = profile.STATE;
             string city = profile.CITY;
 
-            var address = "+" + city + "," + "+" + state;
+            var address = "+" + city + "," + "+" + state + "," + "+USA";
 
             string requestUri = string.Format("https://maps.googleapis.com/maps/api/geocode/json?address={0}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU", address);
             WebRequest request = WebRequest.Create(requestUri);
