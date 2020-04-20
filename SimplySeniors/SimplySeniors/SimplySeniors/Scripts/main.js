@@ -31,13 +31,13 @@ function homeInfo() {
 function profInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-        $('#description').append($('<h3 id="descTitle">About Your Profile Page</h3><br /><p>To go to your Profile page, click on the "Home" button, and then select the "View Profile" button. Your Profile displays the information you inputted when you registered, such as your name, birthday, biography, occupation, location, etc, as well as all of your posts that you created. Your Profile page also consists of a list of those that you follow, and a Veteran indicator if you have served. This page is available for anyone to see once they search for you in the "Search" page. To create a post, simply click "Create Post" and share your message with the world. To edit or delete a post, you can simply find the post you wish to edit or delete, and select "Edit" or "Delete". </p> <br/> <h3 id="descTitle">Searching For Other Profile Pages</h3><br /><p>To search for a Profile page, <a href="/Profiles">Click here</a>. You can search by first name, last name, or parts of a name. Once you find someone you know, or someone you would like to know, select "See Profile" and you will be redirected to their Profile page. </p>'));
+    $('#description').append($('<h3 id="descTitle">About Your Profile Page</h3><br /><p>To go to your Profile page, select "Profile" on the navigation bar at the top of this webpage or <a href="/Profiles/MyProfile">Click here</a>. Your Profile displays the information you inputted when you registered, such as your name, birthday, biography, occupation, location, etc, as well as all of your posts that you created. Your Profile page also consists of a list of those that you follow, and a Veteran indicator if you have served. This page is available for anyone to see once they search for you in the "Search" page. To create a post, simply click "Create Post" and share your message with the world. To edit or delete a post, you can simply find the post you wish to edit or delete, and select "Edit" or "Delete". </p> <br/> <h3 id="descTitle">Searching For Other Profile Pages</h3><br /><p>To search for a Profile page, <a href="/Profiles">Click here</a>. You can search by first name, last name, or parts of a name. Once you find someone you know, or someone you would like to know, select "See Profile" and you will be redirected to their Profile page. </p>'));
 };
 
 function friendInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-        $('#description').append($('<h3 id="descTitle">How to Add Friends</h3><br /><p>*Update when Friends feature gets added*</p>'));
+        $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>*Update when Friends feature gets added*</p>'));
 };
 
 function messageInfo() {
