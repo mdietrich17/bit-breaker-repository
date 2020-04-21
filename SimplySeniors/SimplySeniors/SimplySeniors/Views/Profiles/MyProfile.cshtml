@@ -9,12 +9,12 @@
 
 <table id="homePageTable">
     <tr>
-        <td >
+        <td>
             @*<img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@
             <div style="margin-left: 2em; margin-top: .05em; margin-bottom: -.3em; margin-right: -1.5em; ">
-            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
-             </div>
-            </td>
+                <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
+            </div>
+        </td>
         <td>
             @Html.DisplayFor(model => model.ProfileFirstName)
             @Html.DisplayFor(model => model.ProfileLastName)
@@ -22,7 +22,7 @@
             {
                 <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px" />}
         </td>
-     </tr>
+    </tr>
 </table>
 <br />
 
@@ -48,7 +48,7 @@
                     </div>
                     <div class="col-md">
                         <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
-                            @Html.DisplayFor(model => model.ProfileBirthday)
+                        @Html.DisplayFor(model => model.ProfileBirthday)
                     </div>
                     <div class="col-md"></div>
                 </div>
@@ -86,46 +86,46 @@
 
                 @foreach (var item in Model.PostList)
                 {
-            <div id="individualPost">
-                <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                    @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
-                    @Html.DisplayFor(model => item.PostProfile.LASTNAME)
-                </div>
-                <div id="statusTitle">
-                    @Html.DisplayFor(model => item.Title)
-                </div>
-                <div id="postDescription">
-                    @Html.DisplayFor(model => item.Body)
-                </div>
-                <div id="postSettings">
-                    @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null) 
-                    @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
-                </div>
+                    <div id="individualPost">
+                        <div id="statusName">
+                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                            @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
+                            @Html.DisplayFor(model => item.PostProfile.LASTNAME)
+                        </div>
+                        <div id="statusTitle">
+                            @Html.DisplayFor(model => item.Title)
+                        </div>
+                        <div id="postDescription">
+                            @Html.DisplayFor(model => item.Body)
+                        </div>
+                        <div id="postSettings">
+                            @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
+                            @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
+                        </div>
 
-            </div>
+                    </div>
                 }
             </div>
             <div class="col-md-3" id="boxPostFriend">
                 <div id="homeHeader">Following</div> <hr />
-                @foreach(var item in Model.Followed)
+                @foreach (var item in Model.Followed)
                 {
-            <div id="friendName">
-                @Html.DisplayFor(model => item.FIRSTNAME)
-                @Html.DisplayFor(model => item.LASTNAME)
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-              <br />
-                <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
-            </div>
+                    <div id="friendName">
+                        @Html.DisplayFor(model => item.FIRSTNAME)
+                        @Html.DisplayFor(model => item.LASTNAME)
+                        <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                        <br />
+                        <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+                    </div>
                 }
 
+            </div>
         </div>
-    </div>
 
         <br />
-    <p id="profileLink">
-        @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
-        @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
-    </p>
-</div>
+        <p id="profileLink">
+            @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
+            @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
+        </p>
     </div>
+</div>
