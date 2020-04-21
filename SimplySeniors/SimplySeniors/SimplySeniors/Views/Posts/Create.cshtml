@@ -15,7 +15,7 @@
         <h4>Below you will input your new post</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group" id="editBox">
             @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "form-control" } })
@@ -23,10 +23,10 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group" id="editBox">
             @Html.LabelFor(model => model.Body, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.TextBoxFor(model => model.Body, new { htmlAttributes = new { @class = "form-control" }})
                 @Html.ValidationMessageFor(model => model.Body, "", new { @class = "text-danger" })
             </div>
         </div>
