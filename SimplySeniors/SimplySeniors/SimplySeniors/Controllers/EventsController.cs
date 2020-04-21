@@ -186,7 +186,19 @@ namespace SimplySeniors.Controllers
                 string title = (string)eventArray["events"]["event"][i]["title"];
                 string description = (string)eventArray["events"]["event"][i]["description"];
                 string startTime = (string)eventArray["events"]["event"][i]["start_time"];
+                if (startTime != null)
+                {
+                    var date = DateTime.ParseExact(startTime, "yyyy-MM-dd HH:mm:ss",
+                                   CultureInfo.InvariantCulture);
+                    startTime = date.ToString("MM/dd/yyyy hh:mm tt");
+                }
                 string stopTime = (string)eventArray["events"]["event"][i]["stop_time"];
+                if (stopTime != null)
+                {
+                    var date2 = DateTime.ParseExact(stopTime, "yyyy-MM-dd HH:mm:ss",
+                                   CultureInfo.InvariantCulture);
+                    stopTime = date2.ToString("MM/dd/yyyy hh:mm tt");
+                }
                 string country = (string)eventArray["events"]["event"][i]["tz_country"];
                 string state = (string)eventArray["events"]["event"][i]["region_name"];
                 string city = (string)eventArray["events"]["event"][i]["tz_city"];

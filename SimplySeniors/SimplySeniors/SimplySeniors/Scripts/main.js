@@ -45,8 +45,9 @@ function displayEvents(data) {
     $('#tablePlacement').append($('<tr id=\"tableTr\">'));
     $('#tableTr').append($('<td id=\"tdName\"> <strong> Name </td>'));
     $('#tableTr').append($('<td id=\"tdCity\"> <strong> Location </td>'));
-    $('#tableTr').append($('<td id=\"tdStart\"> <strong> Date </td>'));
-    $('#tableTr').append($('<td id=\"tdEnd\"> <strong> Price </td>'));
+    $('#tableTr').append($('<td id=\"tdStart\"> <strong> Start Date </td>'));
+    $('#tableTr').append($('<td id=\"tdEnd\"> <strong> End Date </td>'));
+    $('#tableTr').append($('<td id=\"tdPrice\"> <strong> Price </td>'));
     $('#tableTr').append($('<td id=\"tdDesc\"> <strong> Description </td>'));
     $('#tableTr').append($('<td id=\"tdImage\"> <strong> Image </td>'));
     $('#tablePlacement').append($('</tr>'));
@@ -57,20 +58,22 @@ function displayEvents(data) {
         var rowCount = 1;
         var table = document.getElementById("tablePlacement");
         var row = table.insertRow(rowCount); //Insert at new row
-        //Add all 6 cells at a time
+        //Add all 7 cells at a time
         var cell1 = row.insertCell(0);
         var cell2 = row.insertCell(1);
         var cell3 = row.insertCell(2);
         var cell4 = row.insertCell(3);
         var cell5 = row.insertCell(4);
         var cell6 = row.insertCell(5);
-        //Update all 6 cells data
+        var cell7 = row.insertCell(6);
+        //Update all 7 cells data
         cell1.innerHTML = data[i].Title;
         cell2.innerHTML = data[i].City + ", " + data[i].State;
-        cell3.innerHTML = data[i].StartTime + " to " + data[i].EndTime;
-        cell4.innerHTML = data[i].Price;
-        cell5.innerHTML = data[i].Description + "<a href=\"" + data[i].LinkURL + "\" > Click here </a> for more information about this event. ";
-        cell6.innerHTML = "<img src=\"" +  data[i].ImageURL + "\" width=\"100px\" height=\"100px\">";
+        cell3.innerHTML = data[i].StartTime;
+        cell4.innerHTML = data[i].StopTime;
+        cell5.innerHTML = data[i].Price;
+        cell6.innerHTML = data[i].Description + "<a href=\"" + data[i].LinkURL + "\" > <br /> Click here </a> for more information about this event. ";
+        cell7.innerHTML = "<img src=\"" +  data[i].ImageURL + "\" width=\"100px\" height=\"100px\">";
         rowCount++; //Increment rowCount so we can add new row
 
     }
