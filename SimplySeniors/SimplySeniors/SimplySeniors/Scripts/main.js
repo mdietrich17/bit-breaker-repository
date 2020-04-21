@@ -59,7 +59,7 @@ function FAQInfo() {
 function contactInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-    $('#description').append($('<h3 id="descTitle">Contact Us</h3><br /><p> Send us a message </p> <textarea id="MyText" rows="4" cols="50"> </textarea>  <p> <span id="wordcount"> 255 </span> Characters Left </p> <button id="saveRedirect" onclick="myFunction()">Send</button>'));
+    $('#description').append($('<h3 id="descTitle">Contact Us</h3><br /><p> Send us a message </p> <textarea id="MyText" rows="4" cols="50"> </textarea>  <p> <span id="wordcount"> 255 </span> Characters Left </p> <button id="saveRedirect" onclick="sendemail()">Send</button>'));
     var MyText = document.getElementById("MyText");
     var wordcount = document.getElementById("wordcount");
 
@@ -75,3 +75,33 @@ function vidInfo() {
         $('#description').append($('<h3 id="descTitle">Help Videos</h3><br /><a href="https://www.youtube.com/watch?v=QBBzE6PITks">Self Defense for Seniors and How to Keep Yourself Safe</a><br/> <a href="https://www.youtube.com/watch?v=MWoS9oFJIzY">How to Create a Life of Purpose for Seniors</a><br/>  <a href="https://www.youtube.com/watch?v=JejTelL05Qw">Strength Training for Seniors</a><br/> '));
 };
 
+function sendemail() {
+    var string = $("#MyText").val();
+    console.log(string);
+    console.log(string.length);
+    if (string.replace(/\s/g, "") === "") {
+        console.log(string);
+        alert("Please put in a message!");
+    }
+    else {
+        $.ajax({
+            type: "GET",
+            dataType: "json",
+            url: "/Home/emailservice?message=" + string,
+            data: { 'messages': string },
+            success: itworked,
+            error: failure
+        });
+    }
+    
+
+};
+
+function itworked(message) {
+    $("MyText").empty();
+    alert("Email sent! Thank you for your feedback!");
+};
+
+function failure() {
+    alert("Sorry! it looks as though something went wrong");
+}

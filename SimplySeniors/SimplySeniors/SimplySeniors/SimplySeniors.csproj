@@ -402,6 +402,7 @@
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
     <Content Include="Template\EmailTemplate.html" />
+    <Content Include="Template\Suggestionbox.html" />
     <Content Include="weather.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
