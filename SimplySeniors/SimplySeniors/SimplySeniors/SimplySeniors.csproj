@@ -477,7 +477,6 @@
     <Content Include="Views\FollowLists\Delete.cshtml" />
     <Content Include="Views\FollowLists\Details.cshtml" />
     <Content Include="Views\FollowLists\Edit.cshtml" />
-    <Content Include="Views\FollowLists\Index.cshtml" />
     <Content Include="Views\Profiles\MyProfile.cshtml" />
   </ItemGroup>
   <ItemGroup>
