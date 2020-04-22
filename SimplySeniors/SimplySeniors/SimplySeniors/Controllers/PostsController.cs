@@ -61,7 +61,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                Response.Redirect("~/Profiles/Details/" + profile.ID);
+                return RedirectToAction("MyProfile", "Profiles");
 
             }
             return View(post);
@@ -100,7 +100,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                Response.Redirect("~/Profiles/Details/" + profile.ID);
+                return RedirectToAction("Details", "Profiles", new { id = profile.ID } );
             }
             return View(post);
         }
