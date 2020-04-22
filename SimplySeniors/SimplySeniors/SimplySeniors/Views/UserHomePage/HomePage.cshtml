@@ -27,7 +27,7 @@
     Create Post
 </button>
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
-@Html.ActionLink("View Profile", "Details", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
+@Html.ActionLink("View Profile", "MyProfile", "Profiles", null, new { id = "eventButton" })
 @Html.ActionLink("Find User to Follow", "Create", "FollowLists", null, new { id = "eventButton" })
 
 <div class="row">
@@ -92,6 +92,9 @@
 
     </div>
 </div>
+
+<br /><br /><p> Need help learning about all of the features on your Home page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#HomeHelp'> Click here</a>.</p>
+
 
 
 <script>

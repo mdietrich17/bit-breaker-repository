@@ -184,7 +184,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Entry(profile).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Details", new { id = profile.ID });
+                return RedirectToAction("MyProfile");
             }
             return View(profile);
         }

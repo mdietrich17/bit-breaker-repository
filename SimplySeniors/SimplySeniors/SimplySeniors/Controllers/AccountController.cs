@@ -92,7 +92,7 @@ namespace SimplySeniors.Controllers
                     return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
                 case SignInStatus.Failure:
                 default:
-                    ModelState.AddModelError("", "Invalid login attempt. For login and registration help, <a href = '/Home/HelpPage#AccountHelp' > click here </a>");
+                    ModelState.AddModelError("", "Invalid login attempt. For login and registration help, <a href = '/Home/HelpPage#AccountHelp' > Click here </a>");
                     return View(model);
             }
         }
