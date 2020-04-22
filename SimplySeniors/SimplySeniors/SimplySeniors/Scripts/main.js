@@ -59,7 +59,7 @@ function FAQInfo() {
 function contactInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-    $('#description').append($('<h3 id="descTitle">Contact Us</h3><br /><p> Send us a message </p> <textarea id="MyText" rows="4" cols="50"> </textarea>  <p> <span id="wordcount"> 255 </span> Characters Left </p> <button id="saveRedirect" onclick="sendemail()">Send</button>'));
+    $('#description').append($('<h3 id="descTitle">Contact Us</h3><br /><p> Send us a message </p> <textarea maxlength="255" type="text" id="MyText" rows="4" cols="50"> </textarea>  <p> <span id="wordcount"> 255 </span> Characters Left </p> <button class="btn btn-outline-primary" id="saveRedirect" onclick="sendemail()">Send</button>'));
     var MyText = document.getElementById("MyText");
     var wordcount = document.getElementById("wordcount");
 
@@ -98,7 +98,7 @@ function sendemail() {
 };
 
 function itworked(message) {
-    $("MyText").empty();
+    $("#MyText").empty();
     alert("Email sent! Thank you for your feedback!");
 };
 
