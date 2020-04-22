@@ -62,7 +62,6 @@ namespace SimplySeniors.Controllers
                 db.Posts.Add(post);
                 db.SaveChanges();
                 Response.Redirect("~/Profiles/MyProfile");
-
             }
             return View(post);
         }
