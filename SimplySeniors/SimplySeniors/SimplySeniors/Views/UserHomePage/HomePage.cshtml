@@ -37,7 +37,7 @@
         {
             <div id="individualPost">
                 <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" /> @*later connect to profile pic from db*@
                     @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
                     @Html.DisplayFor(model => item.PostProfile.LASTNAME)
                 </div>
@@ -93,6 +93,82 @@
     </div>
 </div>
 
+<!-- minified snippet to load TalkJS without delaying your page -->
+<script>
+    (function (t, a, l, k, j, s) {
+        s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
+            ; k = t.Promise; t.Talk = {
+            v: 3, ready: {
+                then: function (f) {
+                    if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
+                        .push([f])
+                }, catch: function () { return k && new k() }, c: l
+            }
+        };
+    })(window, document, []);
+</script>
+
+<!-- container element in which TalkJS will display a chat UI -->
+<div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+
+<!-- TalkJS initialization code, which we'll customize in the next steps -->
+<script>
+    Talk.ready.then(function () {
+        var me = new Talk.User({
+            id: "13",
+            name: "sender",
+            email: "origkid22@hotmail.com",
+            photoUrl: "https://demo.talkjs.com/img/alice.jpg",
+            welcomeMessage: "Hey there! How are you? :-)"
+        });
+        window.talkSession = new Talk.Session({
+            appId: "tnDbD1Bo",
+            me: me
+        });
+        var other = new Talk.User({
+            id: "1",
+            name: " reciever",
+            email: " ",
+            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
+            welcomeMessage: "Thanks, i'll be with you in a sec."
+        });
+
+        var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
+        conversation.setParticipant(me);
+        conversation.setParticipant(other);
+        var inbox = talkSession.createInbox({ selected: conversation });
+        inbox.mount(document.getElementById("talkjs-container"));
+    });
+</script>
+
+
+
+@*<head>
+        <title>Pusher Test</title>
+        <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
+        <script>
+
+            // Enable pusher logging - don't include this in production
+            Pusher.logToConsole = true;
+
+            var pusher = new Pusher('fa4d7066737eec81ca0a', {
+                cluster: 'us3',
+                forceTLS: true
+            });
+
+            var channel = pusher.subscribe('my-channel');
+            channel.bind('my-event', function (data) {
+                alert(JSON.stringify(data));
+            });
+        </script>
+    </head>
+    <body>
+    <h1>Pusher Test</h1>
+    <p>
+        Try publishing an event to channel <code>my-channel</code>
+        with event name <code>my-event</code>.
+    </p>
+    </body>*@
 
 <script>
     var map;
