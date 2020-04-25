@@ -1,0 +1,45 @@
+﻿@model IEnumerable<SimplySeniors.Models.Profile>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Conversations</h2>
+
+
+<div id="talkjs-container" style="width: 80%; margin: 30px; height: 500px"><i>Now Loading your chat...</i></div>
+
+
+<h3>Available members for chat</h3>
+<table class="table small">
+    <tr>
+
+        <th>
+            @Html.DisplayNameFor(model => model.FIRSTNAME)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LASTNAME)
+        </th>
+
+        <th></th>
+    </tr>
+    
+    @foreach (var item in Model)
+    {
+        <tr>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.FIRSTNAME)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LASTNAME)
+            </td>
+
+        </tr>
+    }
+
+    
+</table>
+<script type="text/javascript" src="~/Scripts/chat.js"></script> @*Running custom chat.js in Scripts folder for interactive chat features.*@
+<script type="text/javascript" src="~/Scripts/Main.js"></script>

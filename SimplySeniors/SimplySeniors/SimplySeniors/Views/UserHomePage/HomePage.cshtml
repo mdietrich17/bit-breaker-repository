@@ -29,7 +29,7 @@
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("View Profile", "Details", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("Find User to Follow", "Create", "FollowLists", null, new { id = "eventButton" })
-
+@Html.ActionLink("Chat Now", "Index", "Chat", new { id = Model.ProfileID }, new {id = "eventButton"  })
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
         <div id="homeHeader">Posts</div> <hr />
@@ -50,125 +50,58 @@
 
             </div>
         }
-        @*
-            <div id="individualPost">
-                <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
-                    @Html.DisplayFor(model => model.ProfileFirstName)
-                    @Html.DisplayFor(model => model.ProfileLastName)
-                </div> <div id="statusTitle">
-                    Painted My Nails
-                </div><br />
-                <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
-            </div> <br />
-            <div id="individualPost">
-                <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
-                    @Html.DisplayFor(model => model.ProfileFirstName)
-                    @Html.DisplayFor(model => model.ProfileLastName)
-                </div><div id="statusTitle">
-                    Sunny Day
-                </div><br />
-                <div id="postDescription">It's so nice outside! Feels like summer already.</div>
-            </div> <br />
-        *@
-    </div><br />
-
-    <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
-
-        <br />
-        <div id="map"></div>
-        <div id="homeHeader">Following</div> <hr />
-        @foreach (var item in Model.Followed)
-        {
-            <div id="friendName">
-                @Html.DisplayFor(model => item.FIRSTNAME)
-                @Html.DisplayFor(model => item.LASTNAME)
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                <br />
-                <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
-            </div>
-        }
-
     </div>
-</div>
 
-<!-- minified snippet to load TalkJS without delaying your page -->
-<script>
-    (function (t, a, l, k, j, s) {
-        s = a.createElement('script'); s.async = 1; s.src = "https://cdn.talkjs.com/talk.js"; a.head.appendChild(s)
-            ; k = t.Promise; t.Talk = {
-            v: 3, ready: {
-                then: function (f) {
-                    if (k) return new k(function (r, e) { l.push([f, r, e]) }); l
-                        .push([f])
-                }, catch: function () { return k && new k() }, c: l
-            }
-        };
-    })(window, document, []);
-</script>
+
+
+
+    @*
+        <div id="individualPost">
+            <div id="statusName">
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
+                @Html.DisplayFor(model => model.ProfileFirstName)
+                @Html.DisplayFor(model => model.ProfileLastName)
+            </div> <div id="statusTitle">
+                Painted My Nails
+            </div><br />
+            <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
+        </div> <br />
+        <div id="individualPost">
+            <div id="statusName">
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
+                @Html.DisplayFor(model => model.ProfileFirstName)
+                @Html.DisplayFor(model => model.ProfileLastName)
+            </div><div id="statusTitle">
+                Sunny Day
+            </div><br />
+            <div id="postDescription">It's so nice outside! Feels like summer already.</div>
+        </div> <br />
+    *@
+
+<br />
 
 <!-- container element in which TalkJS will display a chat UI -->
-<div id="talkjs-container" style="width: 90%; margin: 30px; height: 500px"><i>Loading chat...</i></div>
+@*<div id="talkjs-container" style="width: 70%; margin: 30px; height: 300px"><i>Loading chat...</i></div>*@
 
-<!-- TalkJS initialization code, which we'll customize in the next steps -->
-<script>
-    Talk.ready.then(function () {
-        var me = new Talk.User({
-            id: "13",
-            name: "sender",
-            email: "origkid22@hotmail.com",
-            photoUrl: "https://demo.talkjs.com/img/alice.jpg",
-            welcomeMessage: "Hey there! How are you? :-)"
-        });
-        window.talkSession = new Talk.Session({
-            appId: "tnDbD1Bo",
-            me: me
-        });
-        var other = new Talk.User({
-            id: "1",
-            name: " reciever",
-            email: " ",
-            photoUrl: "https://demo.talkjs.com/img/sebastian.jpg",
-            welcomeMessage: "Thanks, i'll be with you in a sec."
-        });
+<div class="col-md-3 col-md-offset-3" id="boxPostFriend">
 
-        var conversation = talkSession.getOrCreateConversation(Talk.oneOnOneId(me, other))
-        conversation.setParticipant(me);
-        conversation.setParticipant(other);
-        var inbox = talkSession.createInbox({ selected: conversation });
-        inbox.mount(document.getElementById("talkjs-container"));
-    });
-</script>
+    <br />
+    <div id="map"></div>
+    <div id="homeHeader">Following</div> <hr />
+    @foreach (var item in Model.Followed)
+    {
+        <div id="friendName">
+            @Html.DisplayFor(model => item.FIRSTNAME)
+            @Html.DisplayFor(model => item.LASTNAME)
+            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+            <br />
+            <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+        </div>
+    }
 
+</div>
+</div>
 
-
-@*<head>
-        <title>Pusher Test</title>
-        <script src="https://js.pusher.com/5.1/pusher.min.js"></script>
-        <script>
-
-            // Enable pusher logging - don't include this in production
-            Pusher.logToConsole = true;
-
-            var pusher = new Pusher('fa4d7066737eec81ca0a', {
-                cluster: 'us3',
-                forceTLS: true
-            });
-
-            var channel = pusher.subscribe('my-channel');
-            channel.bind('my-event', function (data) {
-                alert(JSON.stringify(data));
-            });
-        </script>
-    </head>
-    <body>
-    <h1>Pusher Test</h1>
-    <p>
-        Try publishing an event to channel <code>my-channel</code>
-        with event name <code>my-event</code>.
-    </p>
-    </body>*@
 
 <script>
     var map;
