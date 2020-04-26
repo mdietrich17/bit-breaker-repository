@@ -61,8 +61,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Posts.Add(post);
                 db.SaveChanges();
-                Response.Redirect("~/Profiles/Details/" + profile.ID);
-
+                Response.Redirect("~/Profiles/MyProfile");
             }
             return View(post);
         }
@@ -100,7 +99,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                Response.Redirect("~/Profiles/Details/" + profile.ID);
+                Response.Redirect("~/Profiles/MyProfile");
             }
             return View(post);
         }
@@ -134,7 +133,7 @@ namespace SimplySeniors.Controllers
             Post post = db.Posts.Find(id);
             db.Posts.Remove(post);
             db.SaveChanges();
-            return RedirectToAction("HomePage", "UserHomePage");
+            return RedirectToAction("MyProfile", "Profiles");
         }
 
         protected override void Dispose(bool disposing)
