@@ -216,6 +216,7 @@
     <Compile Include="DAL\HobbiesContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsAPI.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="DAL\PostContext.cs" />
     <Compile Include="Models\Profile.cs" />
@@ -479,6 +480,8 @@
     <Content Include="Views\FollowLists\Details.cshtml" />
     <Content Include="Views\FollowLists\Edit.cshtml" />
     <Content Include="Views\Profiles\MyProfile.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\UserHomePage\NewsFeed.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
