@@ -17,7 +17,7 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
-        
+
         public ActionResult HelpPage()
         {
             ViewBag.Message = "Your application help page.";
