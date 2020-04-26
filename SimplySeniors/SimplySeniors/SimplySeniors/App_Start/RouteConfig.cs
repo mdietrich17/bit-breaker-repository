@@ -19,7 +19,7 @@ namespace SimplySeniors
             defaults: new { controller = "UserHomePage", action = "HomePage", id = UrlParameter.Optional }
             );
 
-            routes.MapRoute(    // Used for logging in with user name for chat function. 
+            routes.MapRoute(    // Used for logging in with custom user name for chat function. 
                 name: "Login",
                 url: "login",
                 defaults: new { controller = "Auth", action = "Login" }

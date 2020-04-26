@@ -19,13 +19,13 @@ namespace SimplySeniors.Controllers
         // GET: Chat
         public ActionResult Index()
         {
-            var id = User.Identity.GetUserId();
-            IQueryable<Profile> profileList = db.Profiles.Where(u => u.USERID != id);
+            var id = User.Identity.GetUserId();  // Getting currently logged in user. 
+            IQueryable<Profile> profileList = db.Profiles.Where(u => u.USERID != id); // Getting all profiles that can be chatted with, excluding the current signed in user. 
             //var currentUser = db.Profiles.Where(u => u.ID.ToString() == id);
             //var usersProfile = db.Profiles.FirstOrDefault(u => u.USERID == id);
      
      
-            return View(profileList.ToList());
+            return View(profileList.ToList()); // Display all profiles( minus currently logged in user) for chat, phase 2, make click able. 
         }
     }
 }
