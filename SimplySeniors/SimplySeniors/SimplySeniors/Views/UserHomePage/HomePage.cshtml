@@ -29,7 +29,11 @@
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("View Profile", "MyProfile", "Profiles", null, new { id = "eventButton" })
 @Html.ActionLink("Find User to Follow", "Create", "FollowLists", null, new { id = "eventButton" })
+
 @Html.ActionLink("View News", "News Feed", null, new {id = "eventButton"})
+
+
+@Html.ActionLink("Chat Now", "Index", "Chat", new { id = Model.ProfileID }, new {id = "eventButton"  })
 
 <div class="row">
     <div class="col-md-8" id="boxPostFriend">
@@ -38,7 +42,7 @@
         {
             <div id="individualPost">
                 <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" /> @*later connect to profile pic from db*@
                     @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
                     @Html.DisplayFor(model => item.PostProfile.LASTNAME)
                 </div>
@@ -51,47 +55,56 @@
 
             </div>
         }
-        @*
-            <div id="individualPost">
-                <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
-                    @Html.DisplayFor(model => model.ProfileFirstName)
-                    @Html.DisplayFor(model => model.ProfileLastName)
-                </div> <div id="statusTitle">
-                    Painted My Nails
-                </div><br />
-                <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
-            </div> <br />
-            <div id="individualPost">
-                <div id="statusName">
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
-                    @Html.DisplayFor(model => model.ProfileFirstName)
-                    @Html.DisplayFor(model => model.ProfileLastName)
-                </div><div id="statusTitle">
-                    Sunny Day
-                </div><br />
-                <div id="postDescription">It's so nice outside! Feels like summer already.</div>
-            </div> <br />
-        *@
-    </div><br />
-
-    <div class="col-md-3 col-md-offset-3" id="boxPostFriend">
-
-        <br />
-        <div id="map"></div>
-        <div id="homeHeader">Following</div> <hr />
-        @foreach (var item in Model.Followed)
-        {
-            <div id="friendName">
-                @Html.DisplayFor(model => item.FIRSTNAME)
-                @Html.DisplayFor(model => item.LASTNAME)
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                <br />
-                <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
-            </div>
-        }
-
     </div>
+
+
+
+
+    @*
+        <div id="individualPost">
+            <div id="statusName">
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
+                @Html.DisplayFor(model => model.ProfileFirstName)
+                @Html.DisplayFor(model => model.ProfileLastName)
+            </div> <div id="statusTitle">
+                Painted My Nails
+            </div><br />
+            <div id="postDescription">So I did my nails yesterday, and the paint is already chipping. Okay so I need to take up more space like as much as I can possibly take up or as much as I can think of to see if my CSS looks right idk. Typing 123 testing 123.</div>
+        </div> <br />
+        <div id="individualPost">
+            <div id="statusName">
+                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db
+                @Html.DisplayFor(model => model.ProfileFirstName)
+                @Html.DisplayFor(model => model.ProfileLastName)
+            </div><div id="statusTitle">
+                Sunny Day
+            </div><br />
+            <div id="postDescription">It's so nice outside! Feels like summer already.</div>
+        </div> <br />
+    *@
+
+<br />
+
+<!-- container element in which TalkJS will display a chat UI -->
+@*<div id="talkjs-container" style="width: 70%; margin: 30px; height: 300px"><i>Loading chat...</i></div>*@
+
+<div class="col-md-3 col-md-offset-3" id="boxPostFriend">
+
+    <br />
+    <div id="map"></div>
+    <div id="homeHeader">Following</div> <hr />
+    @foreach (var item in Model.Followed)
+    {
+        <div id="friendName">
+            @Html.DisplayFor(model => item.FIRSTNAME)
+            @Html.DisplayFor(model => item.LASTNAME)
+            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+            <br />
+            <div id="messageFriend"><a href="Home/HelpPage">Message Friend</a></div> <br />
+        </div>
+    }
+
+</div>
 </div>
 
 <br /><br /><p> Need help learning about all of the features on your Home page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#HomeHelp'> Click here</a>.</p>
