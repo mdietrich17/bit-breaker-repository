@@ -31,8 +31,8 @@ namespace SimplySeniors
              HttpPostedFile postedFile = FileUpload1.PostedFile;
              string fileName = Path.GetFileName(postedFile.FileName);
              string fileExtension = Path.GetExtension(fileName);
-             string profileIdentifier = User.Identity.GetUserId();
-
+             //var profileIdentifier = User.Identity.GetUserId().Cast<int>();
+             var profileIdentifier = 1; 
              int fileSize = postedFile.ContentLength; 
              if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
              {
