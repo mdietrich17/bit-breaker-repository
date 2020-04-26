@@ -20,5 +20,7 @@ namespace SimplySeniors.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
+
+        public System.Data.Entity.DbSet<SimplySeniors.Models.Profile> Profiles { get; set; }
     }
 }

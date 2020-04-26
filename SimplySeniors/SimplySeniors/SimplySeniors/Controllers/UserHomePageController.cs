@@ -103,5 +103,31 @@ namespace SimplySeniors.Controllers
             return new HttpStatusCodeResult((int)HttpStatusCode.OK);
         }
 
+        public ActionResult NewsFeed()
+        {
+            string requestURL = string.Format("http://newsapi.org/v2/top-headlines?country=us&apiKey=d50d92800dcd4495957ff70fc0da42b2");
+            string json = new WebClient().DownloadString(requestURL);
+            var jsonObj = JObject.Parse(json);
+            JArray jsonarray = (JArray)jsonObj.SelectToken("articles");
+            List<NewsAPI> newsLists = new List<NewsAPI>();
+            for( int i = 0; i < jsonarray.Count; i++)
+            {
+                JObject NewsObj = JObject.Parse(jsonarray[i].ToString());
+                NewsAPI NewsItem = new NewsAPI
+                {
+                    SourceID = (string)NewsObj.SelectToken("source.id"),
+                    SourceName = (string)NewsObj.SelectToken("source.name"),
+                    Author = (string)NewsObj.SelectToken("author"),
+                    Title = (string)NewsObj.SelectToken("title"),
+                    Description = (string)NewsObj.SelectToken("description"),
+                    URL = (string)NewsObj.SelectToken("url"),
+                    URLImage = (string)NewsObj.SelectToken("urlToImage"),
+                    PublishTime = (DateTime)NewsObj.SelectToken("publishedAt"),
+                };
+                newsLists.Add(NewsItem);
+
+            }
+            return View(newsLists);
+        }
     }
 }

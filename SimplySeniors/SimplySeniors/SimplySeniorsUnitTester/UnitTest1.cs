@@ -39,27 +39,27 @@ namespace SimplySeniorsUnitTester
             Assert.AreEqual("Your application help page.", result.ViewBag.Message);
         }
 
-            [TestMethod]
-            public void Index() // Mike's test for ensuring main welcome page is functioning. 
-            {
-                // Arrange
-                HomeController controller = new HomeController();
-                // Act
-                ViewResult result = controller.Index() as ViewResult;
-                // Assert
-                Assert.IsNotNull(result);
-            }
+        [TestMethod]
+        public void Index() // Mike's test for ensuring main welcome page is functioning. 
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+            // Act
+            ViewResult result = controller.Index() as ViewResult;
+            // Assert
+            Assert.IsNotNull(result);
+        }
 
-            [TestMethod] // Mike's test for services page. 
-            public void Services()
-            {
-                // Arrange
-                HomeController controller = new HomeController();
-                // Act
-                // Assert
-                if (controller.Services() is ViewResult result)
-                    Assert.AreEqual("Services that are offered in our community.", result.ViewBag.Message);
-            }
+        [TestMethod] // Mike's test for services page. 
+        public void Services()
+        {
+            // Arrange
+            HomeController controller = new HomeController();
+            // Act
+            // Assert
+            if (controller.Services() is ViewResult result)
+                Assert.AreEqual("Services that are offered in our community.", result.ViewBag.Message);
+        }
 
         [TestMethod] // Jon's tests for user Home page view message
         public void HomePageTest()
