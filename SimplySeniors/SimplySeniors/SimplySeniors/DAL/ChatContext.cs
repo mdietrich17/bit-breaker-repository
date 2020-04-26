@@ -11,7 +11,7 @@ namespace SimplySeniors.DAL
     public class ChatContext : DbContext
     {
         public ChatContext() 
-            : base("name=ChatContext")
+            //: base("name=ChatContext")
         {
         }
 
