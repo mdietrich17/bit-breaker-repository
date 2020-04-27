@@ -29,8 +29,8 @@
                     <th></th>
                     <th>@Html.Label("Person's Name")</th>
                     <th>@Html.Label("Location")</th>
+                  
                     <th></th>
-                   
                     <th>@Html.Label(" Profile")</th>
                 </tr>
 
@@ -38,20 +38,26 @@
                 {
             <tr>
                 <td>
-                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                    @*<img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@ @*later connect to profile pic from db*@
+                    <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(modelItem => item.ID)"></iframe>
                 </td>
-                <td>
-                @if (item.VETSTATUS == true)
-                {
-                    <img src="~/Photos/vet2.png" id="vetImage" style="height: 60px; width: 55px; border-radius: 0em; border: aqua; margin-left: -110px; margin-top: 11px; " />
-                }
+                <td >
+             
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.FIRSTNAME)
                     @Html.DisplayFor(modelItem => item.LASTNAME)
                 </td>
-                <td>@Html.DisplayFor(modelItem => item.CITY), @Html.DisplayFor(modelItem => item.STATE)</td>
                 <td>
+                    @Html.DisplayFor(modelItem => item.CITY), @Html.DisplayFor(modelItem => item.STATE)
+                   
+                </td>
+                <td>
+                    @if (item.VETSTATUS == true)
+                    {
+                        <img src="~/Photos/vet2.png" id="vetImage" style="height: 60px; width: 55px; border-radius: 0em; border: aqua; margin-top: 4em; margin-left: -24em;  " />
+                    }
+                </td>
                 <td>
                     @Html.ActionLink("See Profile", "Details", new { id = item.ID })
                 </td>
