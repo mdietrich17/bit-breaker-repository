@@ -23,7 +23,11 @@ namespace SimplySeniors.Controllers
         // GET: Posts
         public ActionResult Index()
         {
-            return View(db.Posts.ToList());
+
+            string id = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == id).FirstOrDefault();
+            int strid = profile.ID;
+            return View(db.Posts.ToList().Where(x => x.ProfileID == strid));
         }
 
         // GET: Posts/Details/5

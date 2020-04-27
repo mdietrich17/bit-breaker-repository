@@ -16,7 +16,7 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Threading.Tasks;
-using PusherServer;
+//using PusherServer;
 
 namespace SimplySeniors.Controllers
 {
@@ -45,7 +45,7 @@ namespace SimplySeniors.Controllers
             var requestUri = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU";
             var request = WebRequest.Create(requestUri);
             var response = request.GetResponse();
-            var reader = new StreamReader(response.GetResponseStream() ?? throw new InvalidOperationException());
+            StreamReader reader = new StreamReader(response.GetResponseStream());
             var json = reader.ReadToEnd();
             dynamic information = JObject.Parse(json);
             double lat = Convert.ToDouble(information.results[0].geometry.location.lat, CultureInfo.InvariantCulture);
@@ -79,7 +79,8 @@ namespace SimplySeniors.Controllers
             var person = profile.Profiles.FirstOrDefault(u => u.ID == id);
             return Json(person, JsonRequestBehavior.AllowGet);
         }
-        
+
+        /*
         [HttpPost]
         public async Task<ActionResult> PushNotification()
         {
@@ -102,6 +103,33 @@ namespace SimplySeniors.Controllers
 
             return new HttpStatusCodeResult((int)HttpStatusCode.OK);
         }
+        */
 
+        public ActionResult NewsFeed()
+        {
+            string requestURL = string.Format("http://newsapi.org/v2/top-headlines?country=us&apiKey=d50d92800dcd4495957ff70fc0da42b2");
+            string json = new WebClient().DownloadString(requestURL);
+            var jsonObj = JObject.Parse(json);
+            JArray jsonarray = (JArray)jsonObj.SelectToken("articles");
+            List<NewsAPI> newsLists = new List<NewsAPI>();
+            for( int i = 0; i < jsonarray.Count; i++)
+            {
+                JObject NewsObj = JObject.Parse(jsonarray[i].ToString());
+                NewsAPI NewsItem = new NewsAPI
+                {
+                    SourceID = (string)NewsObj.SelectToken("source.id"),
+                    SourceName = (string)NewsObj.SelectToken("source.name"),
+                    Author = (string)NewsObj.SelectToken("author"),
+                    Title = (string)NewsObj.SelectToken("title"),
+                    Description = (string)NewsObj.SelectToken("description"),
+                    URL = (string)NewsObj.SelectToken("url"),
+                    URLImage = (string)NewsObj.SelectToken("urlToImage"),
+                    PublishTime = (DateTime)NewsObj.SelectToken("publishedAt"),
+                };
+                newsLists.Add(NewsItem);
+
+            }
+            return View(newsLists);
+        }
     }
 }

@@ -10,8 +10,8 @@ namespace SimplySeniors.DAL
     public partial class PostContext : DbContext
     {
         public PostContext()
-            : base("name=PostContext")
-         //  : base("name=AzureConnection")
+         //   : base("name=PostContext")
+           : base("name=AzureConnection")
         {
         }
 
@@ -20,5 +20,7 @@ namespace SimplySeniors.DAL
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
+
+        public System.Data.Entity.DbSet<SimplySeniors.Models.Profile> Profiles { get; set; }
     }
 }
