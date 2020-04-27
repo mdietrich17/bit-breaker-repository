@@ -16,7 +16,7 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Threading.Tasks;
-using PusherServer;
+//using PusherServer;
 
 namespace SimplySeniors.Controllers
 {
@@ -79,7 +79,8 @@ namespace SimplySeniors.Controllers
             var person = profile.Profiles.FirstOrDefault(u => u.ID == id);
             return Json(person, JsonRequestBehavior.AllowGet);
         }
-        
+
+        /*
         [HttpPost]
         public async Task<ActionResult> PushNotification()
         {
@@ -102,6 +103,7 @@ namespace SimplySeniors.Controllers
 
             return new HttpStatusCodeResult((int)HttpStatusCode.OK);
         }
+        */
 
         public ActionResult NewsFeed()
         {
