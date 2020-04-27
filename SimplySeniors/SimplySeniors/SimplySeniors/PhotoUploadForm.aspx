@@ -14,7 +14,7 @@
 </head>
 <body>
     <div class="container" id="uploadPhotoBox" style="border: solid; border-radius: 1em; margin: 50px; background:lightblue">
-    <h1 style="margin-left: 25px;  text-shadow: 1px 1px white;">Upload photos here</h1>
+    <h1 style="margin-left: 25px;  text-shadow: 1px 1px white;">Upload a photo here</h1>
 
     <div class="card-header">
     <form id="form1" runat="server">

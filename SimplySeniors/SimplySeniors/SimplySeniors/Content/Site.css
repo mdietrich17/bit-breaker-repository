@@ -26,9 +26,8 @@ textarea {
     padding-left: 50px;
 }
 
-
 /* CHAT STYLING STUFF BELOW*/
-#chatList{
+#chatList {
     width: 25%;
     margin-left: 6em;
     margin-top: -465px;
@@ -693,4 +692,31 @@ div#box
     padding-bottom: 25px; 
     background: lightcyan;
     border-radius: 20px;
+}
+
+/* PROFILE CREATE PAGE*/
+
+
+#photoUploadInjectedBox {
+    border: none;
+    width: 50%;
+    height: 500px;
+    margin-left: 30em;
+    margin-top: -1500px; 
+}
+
+#addHobbyButton {
+    width: 100%; 
+    margin-left: 5em; 
+}
+
+#creationForm {
+    width: 40%;
+  
+}
+
+#creationHeader {
+    margin-left: 200px;
+    text-shadow: 2px 2px white;
+    font-size: 40px; 
 }
