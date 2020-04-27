@@ -59,3 +59,6 @@ Software Construction Process
 
 Tools, Configurations, and Packages
 1. Tools is a list of all the software, libraries, tools, packages, and versions used on this project. Make sure you are using the same ones to avoid any compatibility errors. Tools page is at the root of our repository, named “Tools.md”
+
+Proof of Continuous Deployment:
+[Continuous Deployment](ContinuousDeployment.png)
