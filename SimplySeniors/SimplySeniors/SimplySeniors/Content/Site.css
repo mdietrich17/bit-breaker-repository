@@ -5,6 +5,8 @@ body {
     background-color: paleturquoise;
 }
 
+
+
 .dl-horizontal dt { /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
     white-space: normal;
 }
@@ -24,8 +26,37 @@ textarea {
     padding-left: 50px;
 }
 
-/*HOME PAGE STYLING BELOW*/
 
+/* CHAT STYLING STUFF BELOW*/
+#chatList{
+    width: 25%;
+    margin-left: 6em;
+    margin-top: -465px;
+}
+
+#memberListHeader {
+    margin-left: 4em; 
+    margin-bottom: -80px; 
+}
+
+#talkjs-container {
+    margin-top: .5em; 
+    padding-left: 400px;
+}
+
+#chatHeader {
+    text-align: center;
+    font-size: 5em;
+    padding-bottom: .5em;
+    margin-left: -1.95em; 
+    padding-top: .2em;
+    font-weight: 800;
+    text-shadow: 3px 3px white;
+}
+
+
+
+/*HOME PAGE STYLING BELOW*/
 #welcomeBanner {
     text-align: center;
     font-size: 5em;

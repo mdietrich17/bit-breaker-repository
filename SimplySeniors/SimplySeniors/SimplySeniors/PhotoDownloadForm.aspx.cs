@@ -15,8 +15,8 @@ namespace SimplySeniors
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-           //string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+           // string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+           string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
 
             using (SqlConnection con = new SqlConnection(cs))
@@ -33,6 +33,8 @@ namespace SimplySeniors
                 con.Open();
                 byte[] bytes =(byte[]) cmd.ExecuteScalar();
                 string strBase64 = Convert.ToBase64String(bytes);
+                
+                
                Image1.ImageUrl = "data:Image/png;base64," + strBase64; 
             }
         }

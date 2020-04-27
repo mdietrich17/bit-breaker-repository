@@ -1,0 +1,83 @@
+﻿@model IEnumerable<SimplySeniors.Models.NewsAPI>
+
+@{
+    ViewBag.Title = "NewsFeed";
+}
+
+<h2>NewsFeed</h2>
+<a href="https://newsapi.org/">Powered by News API</a>
+<p>
+    @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
+</p>
+
+
+@foreach (var item in Model) { 
+<div id="individualPost">
+    <img href=@Html.DisplayFor(modelItem => item.URLImage)>
+    <div id="statusName">@Html.DisplayFor(modelItem => item.SourceName)</div>
+    <div id="statusName">@Html.DisplayFor(modelItem => item.Author)</div>
+    <hr />
+    <a href="@Html.DisplayFor(modelItem => item.Author)" id="statusTitle">@Html.DisplayFor(modelItem => item.Title)</a>
+    <div id="postDescription">
+        @Html.DisplayFor(modelItem => item.Description)
+    </div>
+    <div>@Html.DisplayFor(modelItem => item.PublishTime)</div>
+</div>
+
+
+}
+@*<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.SourceName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Author)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URL)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.URLImage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PublishTime)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SourceName)
+        </td>
+        <th>
+            @Html.DisplayFor(modelItem => item.Author)
+        </th>
+        <td>
+            <a href=@Html.DisplayFor(modelItem => item.URL)> @Html.DisplayFor(modelItem => item.Title)</a>
+
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            <a href=@Html.DisplayFor(modelItem => item.URL)></a>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.URLImage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PublishTime)
+        </td>
+    </tr>
+    }
+</table>
+*@

@@ -193,6 +193,8 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Attributes\CustomAuthorizeAttribute.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
+    <Compile Include="Controllers\ChatController.cs" />
     <Compile Include="Controllers\EventsController.cs" />
     <Compile Include="Controllers\FollowListsController.cs" />
     <Compile Include="Controllers\HobbiesController.cs" />
@@ -202,6 +204,7 @@
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\UserHomePageController.cs" />
+    <Compile Include="DAL\ChatContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -216,10 +219,12 @@
     <Compile Include="DAL\HobbiesContext.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\NewsAPI.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="DAL\PostContext.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
     <Compile Include="Models\WeatherAPI.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -250,10 +255,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205.mdf" />
-    <Content Include="App_Data\aspnet-SimplySeniors-20200210062205_log.ldf">
-      <DependentUpon>aspnet-SimplySeniors-20200210062205.mdf</DependentUpon>
-    </Content>
     <Content Include="App_Data\down.sql" />
     <Content Include="App_Data\getImageProcess.sql" />
     <Content Include="App_Data\MainDown.sql" />
@@ -301,6 +302,7 @@
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\chat.js" />
     <Content Include="Scripts\esm\popper-utils.js" />
     <Content Include="Scripts\esm\popper-utils.min.js" />
     <Content Include="Scripts\esm\popper.js" />
@@ -479,6 +481,13 @@
     <Content Include="Views\FollowLists\Details.cshtml" />
     <Content Include="Views\FollowLists\Edit.cshtml" />
     <Content Include="Views\Profiles\MyProfile.cshtml" />
+    <Content Include="Views\Posts\Index.cshtml" />
+    <Content Include="Views\UserHomePage\NewsFeed.cshtml" />
+    <Content Include="Views\Chat\Create.cshtml" />
+    <Content Include="Views\Chat\Delete.cshtml" />
+    <Content Include="Views\Chat\Details.cshtml" />
+    <Content Include="Views\Chat\Edit.cshtml" />
+    <Content Include="Views\Chat\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -491,7 +500,9 @@
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Views\Auth\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
