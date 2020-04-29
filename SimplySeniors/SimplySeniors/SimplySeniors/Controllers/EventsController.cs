@@ -186,14 +186,14 @@ namespace SimplySeniors.Controllers
                 string title = (string)eventArray["events"]["event"][i]["title"];
                 string description = (string)eventArray["events"]["event"][i]["description"];
                 string startTime = (string)eventArray["events"]["event"][i]["start_time"];
-                if (startTime != null)
+                if (startTime != null) //If startTime is not null, convert to readable DateTime format
                 {
                     var date = DateTime.ParseExact(startTime, "yyyy-MM-dd HH:mm:ss",
                                    CultureInfo.InvariantCulture);
                     startTime = date.ToString("MM/dd/yyyy hh:mm tt");
                 }
                 string stopTime = (string)eventArray["events"]["event"][i]["stop_time"];
-                if (stopTime != null)
+                if (stopTime != null) //If stopTime is not null, convert to readable DateTime format
                 {
                     var date2 = DateTime.ParseExact(stopTime, "yyyy-MM-dd HH:mm:ss",
                                    CultureInfo.InvariantCulture);
@@ -202,22 +202,22 @@ namespace SimplySeniors.Controllers
                 string country = (string)eventArray["events"]["event"][i]["tz_country"];
                 string state = (string)eventArray["events"]["event"][i]["region_name"];
                 string city = (string)eventArray["events"]["event"][i]["tz_city"];
-                if (city == null)
+                if (city == null) //If there is no data for "city" in API, set city to default profile city
                 {
                     city = location;
                 }
                 string price = (string)eventArray["events"]["event"][i]["price"];
-                if (price == null)
+                if (price == null) //If no data for "price" in api, set string to "Free"
                 {
                     price = "Free";
                 }
                 JToken imageObj = eventArray["events"]["event"][i]["image"];
                 string image;
-                if (imageObj.HasValues)
+                if (imageObj.HasValues) //If image array/obj is not null, set image to "url" in api data
                 {
                     image = (string)eventArray["events"]["event"][i]["image"]["url"];
                 }
-                else
+                else //default image if none in API
                 {
                     image = "/Photos/noimageavailble.jpg";
                 }
@@ -239,6 +239,8 @@ namespace SimplySeniors.Controllers
             };
         }
 
+        //Continue working on below function to search through event API --Maddy
+        /*
         public ActionResult SearchExternalEvents()
         {
             string keywords = Request["keyword"].ToString();
@@ -301,6 +303,7 @@ namespace SimplySeniors.Controllers
                 ContentEncoding = System.Text.Encoding.UTF8
             };
         }
+        */
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)
