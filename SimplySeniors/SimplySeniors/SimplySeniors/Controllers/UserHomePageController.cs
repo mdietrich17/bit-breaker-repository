@@ -25,6 +25,7 @@ namespace SimplySeniors.Controllers
         private ProfileContext profile = new ProfileContext();
         private PostContext db = new PostContext();
         private FollowContext db2 = new FollowContext();
+        
         // GET: UserHomePage
         [CustomAuthorize]
         public ActionResult HomePage()
