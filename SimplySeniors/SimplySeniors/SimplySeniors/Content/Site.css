@@ -54,8 +54,6 @@ textarea {
     text-shadow: 3px 3px white;
 }
 
-
-
 /*HOME PAGE STYLING BELOW*/
 #welcomeBanner {
     text-align: center;
@@ -171,7 +169,11 @@ li {
 #noProfilePhotoFoundImage {
     width: 40%;
     height: 50%;
-    padding: inherit;
+  
+}
+
+#vetImageRow {
+   
 }
 
 #searchAgain {
@@ -193,7 +195,7 @@ li {
 }
 
 #photoHeader {
-    padding-left: 2em;
+    padding-left: 3em;
 }
 
 #textBox:hover {
