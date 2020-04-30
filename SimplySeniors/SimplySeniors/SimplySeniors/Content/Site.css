@@ -451,6 +451,41 @@ li {
     margin-top: 20px;
 }
 
+    #tableTr td {
+        padding: 10px;
+    }
+
+#tablePlacement tr td {
+    padding: 5px;
+    border-bottom: 1px solid #D3D3D3;
+}
+
+    #tablePlacement tr td img {
+        border: solid;
+        border-color: #D3D3D3;
+        border-width: 1px;
+        border-radius: 15px;
+    }
+
+#tableTrTwo td {
+    border-bottom: 1px solid #D3D3D3;
+}
+
+#tableTrTwo th {
+    border-bottom: 1px solid #D3D3D3;
+}
+
+#searchExternalEvents {
+    box-shadow: 0px 5px 5px #888888;
+    border-radius: 20px;
+    background-color: lightblue;
+    padding: 10px;
+}
+
+    #searchExternalEvents #form-to-be-submitted {
+        border-radius: 20px;
+    }
+
 /*PROFILE DETAILS PAGE STYLEING BELOW*/
 
 div#box 
