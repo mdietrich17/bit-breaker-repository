@@ -31,7 +31,7 @@ namespace SimplySeniors
              HttpPostedFile postedFile = FileUpload1.PostedFile;
              string fileName = Path.GetFileName(postedFile.FileName);
              string fileExtension = Path.GetExtension(fileName);
-             //string profileIdentifier = User.Identity.GetUserId();
+            //string profileIdentifier = User.Identity.GetUserId();
              var profileIdentifier = 1; 
              var fileSize = postedFile.ContentLength; 
              if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
@@ -40,8 +40,8 @@ namespace SimplySeniors
                  BinaryReader binaryReader = new BinaryReader(stream);
                  byte[] bytes = binaryReader.ReadBytes((int) stream.Length);
                 
-                // string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                 string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+                 string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                // string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
                 using (SqlConnection con = new SqlConnection(cs) )
                  {
