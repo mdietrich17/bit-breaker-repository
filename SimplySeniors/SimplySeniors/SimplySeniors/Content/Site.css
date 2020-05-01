@@ -4,7 +4,7 @@
 
 body {
     /*background-color: paleturquoise;*/
-    background: linear-gradient(0deg, rgba(0,115,145,1) 3%, rgba(0,200,255,1) 30%, rgba(0,212,255,0) 100%);
+    background: linear-gradient(0deg, rgba(0,160,255,1) 3%, rgba(0,200,255,1) 30%, rgba(0,212,255,0) 100%);
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -146,22 +146,22 @@ li {
 /* PROFILE SEARCH PAGE STYLING BELOW*/
 
 #searchBox {
-    background: paleturquoise;
+    background: lightblue;
     border: solid;
     width: 80%;
     padding: 2em;
-    border-radius: 3em;
+    border-radius: 1em;
     text-align: center;
     color: black;
 }
 
 #searchBoxID:hover {
-    background: lightgreen;
+    background: blue;
     border: black;
 }
 
 #resultsTable {
-    background: paleturquoise;
+    background: lightblue;
     border: solid;
     border-color: black;
     width: 70%;

@@ -18,6 +18,7 @@
         <td>
             @Html.DisplayFor(model => model.ProfileFirstName)
             @Html.DisplayFor(model => model.ProfileLastName)
+    
             @if (Model.ProfileVet == true)
             {
                 <img src="~/Photos/vet2.png" id="vetImage" style="float: right; height: 125px; width: 100px; border-radius: 0em; border: aqua; margin-right: 60px; margin-top:-10px" />}
@@ -43,11 +44,11 @@
                 <div id="homeHeader">About Me</div> <hr />
                 <div class="row">
                     <div class="col-md">
-                        <p class="font-weight-bold"> @{<text>Hobbies</text>} </p>
+                        <p class="font-weight-bold"style="margin-bottom: 0px;"> @{<text>Hobbies</text>} </p>
                         @Html.DisplayFor(model => model.ListHobbies)
                     </div>
-                    <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
+                    <div class="col-md" style="margin-left: 30px">
+                        <p class="font-weight-bold" style="margin-bottom: 0px;"> @Html.DisplayNameFor(model => model.ProfileBirthday) </p>
                         @Html.DisplayFor(model => model.ProfileBirthday)
                     </div>
                     <div class="col-md"></div>
@@ -55,26 +56,24 @@
                 <br />
                 <div class="row">
                     <div class="col-md">
-                        <p class="font-weight-bold"> @{<text>Location</text>} </p>
+                        <p class="font-weight-bold"style="margin-bottom: 0px;"> @{<text>Location</text>} </p>
                         @Html.DisplayFor(model => model.ProfileCity), @Html.DisplayFor(model => model.ProfileState)
                     </div>
                     <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileOccupation) </p>
+                        <p class="font-weight-bold"style="margin-bottom: 0px;"> @Html.DisplayNameFor(model => model.ProfileOccupation) </p>
                         @Html.DisplayFor(model => model.ProfileOccupation)
                     </div>
                     <div class="col-md"></div>
                 </div>
-
                 <br />
-
                 <div class="row">
                     <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
-                        @Html.DisplayFor(model => model.ProfileBIO)
-                    </div>
-                    <div class="col-md">
-                        <p class="font-weight-bold"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
+                        <p class="font-weight-bold" style="margin-bottom: 0px;"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
                         @Html.DisplayFor(model => model.ProfileFamily)
+                    </div>
+                    <div class="col-md-12">
+                        <p class="font-weight-bold text-center" style="margin-top: 20px; margin-bottom: 1px;"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
+                        <p class="text" style="font-size: 14px;"> @Html.DisplayFor(model => model.ProfileBIO)</p>
                     </div>
                     <div class="col-md"></div>
                 </div>
