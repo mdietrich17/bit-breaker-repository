@@ -689,35 +689,81 @@ div#box
     border-width: 2px;
     margin-top: 10px;
     height: 100%;
+    padding: 1em; 
     padding-bottom: 25px; 
     background: lightcyan;
     border-radius: 20px;
+
 }
 
-/* PROFILE CREATE PAGE*/
-
-
-#photoUploadInjectedBox {
-    border: none;
-    width: 50%;
-    height: 500px;
-    margin-left: 30em;
-    margin-top: -1500px; 
-}
+    /* PROFILE CREATE PAGE*/
+    #photoUploadInjectedBox {
+        border: none;
+        width: 50%;
+        height: 500px;
+        margin-left: 31em;
+        margin-top: -500px; 
+    }
 
 #addHobbyButton {
     width: 100%; 
-    margin-left: 5em; 
+    margin-left: 350px; 
 }
 
-#creationForm {
+#cityBox {
+    margin-left: 65px;
+    border-radius: 7px;
+    padding-left: 15px;
+}
 
-  
+#birthdayBox {
+    margin-left: 40px;
+    border-radius: 7px; 
+}
+
+#occupationBox {
+    border-radius: 7px;
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    padding-left: 15px; 
+}
+
+#familyBox {
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+#familyBox {
+    border-radius: 7px;
+    margin-left: 68px; 
+}
+
+#bioBox {
+    margin-left: 100px;
+   
+}
+
+#vetLabel {
+    padding-right: 35px;
+    
+    
+
+}
+
+#profileCreationInfo {
+    margin-left: 100px; 
+}
+
+#firstNameBox, #lastNameBox {
+    border-radius: 7px;
+    margin-bottom: 20px;
+    padding-left: 15px;
 }
 
 #creationHeader {
-    margin-left: 200px;
+    margin-left: 300px;
     text-shadow: 2px 2px white;
-    font-size: 40px; 
+    font-size: 50px; 
+    
 
 }
