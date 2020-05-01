@@ -33,11 +33,10 @@
                     <th>@Html.Label(" Profile")</th>
                 </tr>
 
-                @foreach (var item in Model) // Iterate through all items in the model to produce search results.
+                @foreach (var item in Model)
                 {
             <tr>
                 <td>
-                    @*<img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@ @*later connect to profile pic from db*@
                     <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(modelItem => item.ID)"></iframe>
                 </td>
                 <td >
