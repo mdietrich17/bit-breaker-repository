@@ -17,7 +17,7 @@
 });
 
 //Searching for external events via AJAX call based on location and/or keyword
-/*
+
 function searchNow() {
     $a = document.getElementById("location").value;
     $b = document.getElementById("keyword").value;
@@ -32,7 +32,7 @@ function searchNow() {
     });
 
 }
-*/
+
 
 //Displaying events near you based on your current location entered in profile
 $.ajax({
