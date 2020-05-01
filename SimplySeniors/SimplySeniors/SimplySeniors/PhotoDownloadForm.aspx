@@ -9,7 +9,7 @@
 <body>
     <form id="form1" runat="server">
         <div class="card">
-            <asp:Image ID="Image1" Height="360px" Width="350px" runat="server"/> <%--CHANGE SIZE OF IMAGE HERE --%>
+            <asp:Image ID="Image1" Height="160px" Width="165px" runat="server"/> <%--CHANGE SIZE OF IMAGE HERE --%>
         </div></form>
 </body>
 </html>
