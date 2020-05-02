@@ -19,6 +19,10 @@ namespace SimplySeniors.Models
 
         public int ProfileID { get; set; }
 
+        public int Likes { get; set; }
+
+        public DateTime PostDate { get; set; }
+
         [ForeignKey("ProfileID")]
         public virtual Profile PostProfile { get; set; }
     }

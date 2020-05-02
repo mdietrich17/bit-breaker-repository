@@ -49,6 +49,7 @@
                     <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" /> @*later connect to profile pic from db*@
                     @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
                     @Html.DisplayFor(model => item.PostProfile.LASTNAME)
+                    -  @Html.DisplayFor(model => item.PostDate)
                 </div>
                 <div id="statusTitle">
                     @Html.DisplayFor(model => item.Title)
@@ -56,6 +57,12 @@
                 <div id="postDescription">
                     @Html.DisplayFor(model => item.Body)
                 </div>
+                <hr/>
+                <div class="col-md-6">
+                    @Html.DisplayFor(model => item.Likes) Other(s) Like This
+                </div>
+                <div class="col-md-3"></div>
+                <div class="col-md-3">@Html.ActionLink("Like", "Like", "Posts", new { id = item.ID }, new { id = "eventButton" })</div>
 
             </div>
         }
