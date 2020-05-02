@@ -85,24 +85,33 @@
 
                 @foreach (var item in Model.PostList)
                 {
-                    <div id="individualPost">
-                        <div id="statusName">
-                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                            @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
-                            @Html.DisplayFor(model => item.PostProfile.LASTNAME)
-                        </div>
-                        <div id="statusTitle">
-                            @Html.DisplayFor(model => item.Title)
-                        </div>
-                        <div id="postDescription">
-                            @Html.DisplayFor(model => item.Body)
-                        </div>
-                        <div id="postSettings">
-                            @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
-                            @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
-                        </div>
+            <div id="individualPost">
+                <div id="statusName">
+                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                    @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
+                    @Html.DisplayFor(model => item.PostProfile.LASTNAME)
+                    <br />-  @Html.DisplayFor(model => item.PostDate)
+                </div>
+                <hr />
+                <div id="statusTitle">
+                    @Html.DisplayFor(model => item.Title)
+                </div>
+                <div id="postDescription">
+                    @Html.DisplayFor(model => item.Body)
+                </div>
+                <hr />
+                <div class="col-md-8">
+                    @Html.DisplayFor(model => item.Likes) Other(s) Like This
+                </div>
+                <div class="col-md-3">@Html.ActionLink("Like", "Like", "Posts", new { id = item.ID }, new { id = "eventButton" })</div>
 
-                    </div>
+
+                <div id="postSettings">
+                    @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
+                    @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
+                </div>
+
+            </div>
                 }
             </div>
             <div class="col-md-3" id="boxPostFriend">
