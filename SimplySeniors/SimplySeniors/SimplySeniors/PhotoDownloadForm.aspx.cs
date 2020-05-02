@@ -26,15 +26,24 @@ namespace SimplySeniors
                 {
                     ParameterName = "@Id",
                     Value = Request.QueryString["Id"]
-
+                    
                 };
-                cmd.Parameters.Add(paramId); 
-                con.Open();
-                byte[] bytes =(byte[]) cmd.ExecuteScalar();
-                string strBase64 = Convert.ToBase64String(bytes);
-                
-                
-               Image1.ImageUrl = "data:Image/png;base64," + strBase64; 
+                    cmd.Parameters.Add(paramId);
+                    con.Open();
+                    byte[] bytes = (byte[]) cmd.ExecuteScalar();
+                    
+                    if (bytes == null)
+                    {
+                       
+                        Image1.ImageUrl = "~/Photos/noimageavailble.jpg";
+                    }
+                    else
+                    {
+                        string strBase64 = Convert.ToBase64String(bytes);
+                        Image1.ImageUrl = "data:Image/png;base64," + strBase64;
+                    }
+
+
             }
         }
     }
