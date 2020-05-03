@@ -91,6 +91,7 @@
                             <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
                             @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
                             @Html.DisplayFor(model => item.PostProfile.LASTNAME)
+                            <div id="postDateProfile">@Html.DisplayFor(model => item.PostDate)</div>
                         </div>
                         <div id="statusTitle">
                             @Html.DisplayFor(model => item.Title)

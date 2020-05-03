@@ -46,9 +46,21 @@
             <div id="individualPost">
                 <div id="statusName">
                     <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" /> @*later connect to profile pic from db*@
-                    @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
-                    @Html.DisplayFor(model => item.PostProfile.LASTNAME)
-                    -  @Html.DisplayFor(model => item.PostDate)
+                    @*Getting first and last name and making it into a link that redirects to profile page*@
+                    @{var fullName = Html.DisplayFor(model => item.PostProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.PostProfile.LASTNAME).ToString();}
+                    @*If statement to redirect to whoever's post it is*@
+                    @{if (Model.ProfileID != item.ProfileID)
+                        {
+                            @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
+
+                        }
+                        else
+                        {
+                            @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
+                        }
+                    }
+
+                    <div id="postDate">@Html.DisplayFor(model => item.PostDate)</div>
                 </div>
                 <div id="statusTitle">
                     @Html.DisplayFor(model => item.Title)

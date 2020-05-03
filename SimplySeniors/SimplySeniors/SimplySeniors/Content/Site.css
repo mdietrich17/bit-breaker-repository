@@ -672,6 +672,22 @@ div#box
             text-decoration: none;
         }
 
+    #postDate {
+    margin-left: 80px;
+    font-size: 20px;
+    margin-top: -20px;
+    margin-bottom: 10px;
+    text-shadow: none;
+    }
+
+    #postDateProfile {
+    margin-left: 60px;
+    font-size: 20px;
+    margin-top: -10px;
+    margin-bottom: 10px;
+    text-shadow: none;
+    }
+
     /* REGISTRATION AND LOGIN FORMS */
 
 #registerBox {
