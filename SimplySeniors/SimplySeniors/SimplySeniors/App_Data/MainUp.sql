@@ -97,6 +97,18 @@ CREATE TABLE [dbo].[PostLike]
 	CONSTRAINT [FK_dbo.PostLike_dbo.Post_ID] FOREIGN KEY ([PostID]) REFERENCES [dbo].[Posts] ([ID])
 );
 
+CREATE TABLE [dbo].[PostComment]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[Text] NVARCHAR (256),
+	[CommentDate] DATETIME NOT NULL,
+	[ProfileID] INT NOT NULL,
+	[PostID] INT NOT NULL,
+	CONSTRAINT [PK_dbo.PostComment] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.PostComment_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID]),
+	CONSTRAINT [FK_dbo.PostComment_dbo.Post_ID] FOREIGN KEY ([PostID]) REFERENCES [dbo].[Profile] ([ID])
+);
+
 CREATE TABLE [dbo].[FollowList]
 (
 	[ID] INT IDENTITY (1,1) NOT NULL,

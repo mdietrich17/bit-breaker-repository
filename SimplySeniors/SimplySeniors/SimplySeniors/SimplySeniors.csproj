@@ -210,6 +210,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CaptchaResponse.cs" />
+    <Compile Include="DAL\CommentContext.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="DAL\EventContext.cs" />
     <Compile Include="DAL\FollowContext.cs" />
@@ -223,6 +224,7 @@
     <Compile Include="Models\NewsAPI.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="DAL\PostContext.cs" />
+    <Compile Include="Models\PostComment.cs" />
     <Compile Include="Models\PostLike.cs" />
     <Compile Include="DAL\PostLikeContext.cs" />
     <Compile Include="Models\Profile.cs" />
