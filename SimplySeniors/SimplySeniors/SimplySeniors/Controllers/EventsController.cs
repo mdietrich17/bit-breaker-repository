@@ -226,6 +226,10 @@ namespace SimplySeniors.Controllers
                 {
                     description = "There is currently no description available for this event. ";
                 }
+                if (description.Length > 600)
+                {
+                    description = description.Substring(0, Math.Min(description.Length, 600)) + "...";
+                }
 
                 eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, State = state, Price = price, Length = length, ImageURL = image, LinkURL = link });
             }
@@ -239,8 +243,7 @@ namespace SimplySeniors.Controllers
             };
         }
 
-        //Continue working on below function to search through event API --Maddy
-        /*
+        //Searches through event API for keyword string and/or location string inputted by user
         public ActionResult SearchExternalEvents()
         {
             string keywords = Request["keyword"].ToString();
@@ -291,6 +294,10 @@ namespace SimplySeniors.Controllers
                 {
                     description = "There is currently no description available for this event. ";
                 }
+                if (description.Length > 600)
+                {
+                    description = description.Substring(0, Math.Min(description.Length, 600)) + "...";
+                }
 
                 eventList.Add(new EventApiFields() { Title = title, Description = description, StartTime = startTime, StopTime = stopTime, Country = country, City = city, State = state, Price = price, Length = length, ImageURL = image, LinkURL = link });
             }
@@ -303,7 +310,7 @@ namespace SimplySeniors.Controllers
                 ContentEncoding = System.Text.Encoding.UTF8
             };
         }
-        */
+        
 
         // GET: Events/Details/5
         public ActionResult Details(int? id)

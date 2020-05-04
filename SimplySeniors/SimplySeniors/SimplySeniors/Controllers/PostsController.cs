@@ -19,6 +19,7 @@ namespace SimplySeniors.Controllers
     {
         private PostContext db = new PostContext();
         private ProfileContext db1 = new ProfileContext();
+        private PostLikeContext db2 = new PostLikeContext();
 
         // GET: Posts
         public ActionResult Index()
@@ -56,18 +57,46 @@ namespace SimplySeniors.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "ID,Title,Body")] Post post)
+        public ActionResult Create([Bind(Include = "ID,Title,Body,Likes,PostDate")] Post post)
         {
             string id = User.Identity.GetUserId();
             Profile profile = db1.Profiles.Where(x => x.USERID == id).FirstOrDefault();
             post.ProfileID = profile.ID;
             if (ModelState.IsValid)
             {
+                post.Likes = 0;
+                post.PostDate = DateTime.Now;
                 db.Posts.Add(post);
                 db.SaveChanges();
-                Response.Redirect("~/Profiles/MyProfile");
+                return RedirectToAction("MyProfile", "Profiles");
             }
             return View(post);
+        }
+        public ActionResult Like(int id)
+        {
+            string uid = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
+            PostLike like = db2.PostLikes.Where(x => x.PostID == id && x.ProfileID == profile.ID).FirstOrDefault();
+            if (like == null) {
+                PostLike newlike = new PostLike();
+                Post update = db.Posts.ToList().Find(x => x.ID == id);
+                update.Likes += 1;
+                newlike.PostID = id;
+                newlike.Liked = true;
+                newlike.ProfileID = profile.ID;
+                db.SaveChanges();
+                db2.PostLikes.Add(newlike);
+                db2.SaveChanges();
+                return RedirectToAction("HomePage", "UserHomePage");
+            }
+            else if(like.Liked == true) {
+                return RedirectToAction("HomePage", "UserHomePage");
+            }
+            else
+            {
+                return RedirectToAction("HomePage", "UserHomePage");
+            }
+            
         }
 
         // GET: Posts/Edit/5
@@ -103,7 +132,7 @@ namespace SimplySeniors.Controllers
             {
                 db.Entry(post).State = EntityState.Modified;
                 db.SaveChanges();
-                Response.Redirect("~/Profiles/MyProfile");
+                return RedirectToAction("MyProfile", "Profiles");
             }
             return View(post);
         }

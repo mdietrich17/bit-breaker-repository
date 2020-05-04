@@ -1,8 +1,12 @@
 ﻿/*CONTENT FOR ALL PAGES*/
 /*SECTIONS ON LEFT, MSGS ON RIGHT*/
 
+
 body {
-    background-color: paleturquoise;
+    /*background-color: paleturquoise;*/
+    background: linear-gradient(0deg, rgba(0,160,255,1) 3%, rgba(0,200,255,1) 30%, rgba(0,212,255,0) 100%);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
 
@@ -26,9 +30,8 @@ textarea {
     padding-left: 50px;
 }
 
-
 /* CHAT STYLING STUFF BELOW*/
-#chatList{
+#chatList {
     width: 25%;
     margin-left: 6em;
     margin-top: -465px;
@@ -53,8 +56,6 @@ textarea {
     font-weight: 800;
     text-shadow: 3px 3px white;
 }
-
-
 
 /*HOME PAGE STYLING BELOW*/
 #welcomeBanner {
@@ -149,13 +150,13 @@ li {
     border: solid;
     width: 80%;
     padding: 2em;
-    border-radius: 3em;
+    border-radius: 1em;
     text-align: center;
     color: black;
 }
 
 #searchBoxID:hover {
-    background: lightgreen;
+    background: blue;
     border: black;
 }
 
@@ -171,8 +172,9 @@ li {
 #noProfilePhotoFoundImage {
     width: 40%;
     height: 50%;
-    padding: inherit;
+  
 }
+
 
 #searchAgain {
     text-align: center;
@@ -193,7 +195,7 @@ li {
 }
 
 #photoHeader {
-    padding-left: 2em;
+    padding-left: 3em;
 }
 
 #textBox:hover {
@@ -484,6 +486,10 @@ li {
         border-radius: 20px;
     }
 
+    #searchExternalEvents #form-to-be-submitted:hover {
+        background: white;
+    }
+
 /*PROFILE DETAILS PAGE STYLEING BELOW*/
 
 div#box 
@@ -725,7 +731,82 @@ div#box
     border-width: 2px;
     margin-top: 10px;
     height: 100%;
+    padding: 1em; 
     padding-bottom: 25px; 
     background: lightcyan;
     border-radius: 20px;
+
+}
+
+    /* PROFILE CREATE PAGE*/
+    #photoUploadInjectedBox {
+        border: none;
+        width: 50%;
+        height: 500px;
+        margin-left: 31em;
+        margin-top: -500px; 
+    }
+
+#addHobbyButton {
+    width: 100%; 
+    margin-left: 350px; 
+}
+
+#cityBox {
+    margin-left: 100px;
+    border-radius: 7px;
+    padding-left: 15px;
+}
+
+#birthdayBox {
+    margin-left: 40px;
+    border-radius: 7px; 
+}
+
+#occupationBox {
+    border-radius: 7px;
+    margin-top: 20px; 
+    margin-bottom: 20px;
+    padding-left: 15px; 
+}
+
+#familyBox {
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+#familyBox {
+    border-radius: 7px;
+    margin-left: 68px; 
+}
+
+#bioBox {
+    margin-left: 100px;
+ 
+}
+
+#vetLabel {
+    padding-right: 35px;
+ }
+
+#profileCreationInfo {
+    margin-left: 100px; 
+}
+
+#firstNameBox, #lastNameBox {
+    border-radius: 7px;
+    margin-bottom: 20px;
+    padding-left: 15px;
+}
+
+#helpInstructionsCreationPage {
+    margin-left: 60px; 
+}
+
+#creationHeader {
+    margin-left: 300px;
+    text-shadow: 2px 2px white;
+    font-size: 50px; 
+    
+
 }
