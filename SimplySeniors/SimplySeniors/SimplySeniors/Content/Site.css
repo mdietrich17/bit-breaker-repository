@@ -534,6 +534,27 @@ div#box
     }
 
 
+#likeButton2 {
+    border: none;
+    border-radius: 20px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: -110px;
+    cursor: pointer;
+}
+
+    #likeButton2:hover {
+        background-color: lightblue;
+    }
+
+#likeNum2 {
+    margin-right: -580px;
+    margin-top: -40px;
+}
+
 /*USER HOME PAGE STYLING BELOW*/
 
 
@@ -657,8 +678,19 @@ div#box
         margin-bottom: 20px;
     }
 
+#individualComment {
+    border: solid;
+    background-color: white;
+    padding: 15px;
+    border-radius: 10px;
+    border-width: 1px;
+    margin-top: -15px;
+    margin-bottom: 20px;
+}
+
 #postSettings {
     margin-left: 350px;
+    margin-top: -5px;
 }
 
     #postSettings a {
@@ -686,6 +718,43 @@ div#box
     margin-top: -10px;
     margin-bottom: 10px;
     text-shadow: none;
+    }
+
+#likeButton {
+    border: none;
+    border-radius: 20px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-left: -190px;
+    cursor: pointer;
+}
+
+    #likeButton:hover {
+        background-color: lightblue;
+    }
+
+#commentButton {
+    border: none;
+    border-radius: 20px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    margin-right: -40px;
+    cursor: pointer;
+}
+
+    #commentButton:hover {
+        background-color: lightblue;
+    }
+
+    #likeNum {
+        margin-right: -850px;
+        margin-top: -40px;
     }
 
     /* REGISTRATION AND LOGIN FORMS */
