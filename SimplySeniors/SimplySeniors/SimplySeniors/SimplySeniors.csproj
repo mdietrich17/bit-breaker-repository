@@ -201,6 +201,7 @@
     <Compile Include="Controllers\HobbyBridgesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\PostCommentsController.cs" />
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\UserHomePageController.cs" />
@@ -210,6 +211,7 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CaptchaResponse.cs" />
+    <Compile Include="DAL\CommentContext.cs" />
     <Compile Include="Models\Event.cs" />
     <Compile Include="DAL\EventContext.cs" />
     <Compile Include="DAL\FollowContext.cs" />
@@ -223,11 +225,13 @@
     <Compile Include="Models\NewsAPI.cs" />
     <Compile Include="Models\Post.cs" />
     <Compile Include="DAL\PostContext.cs" />
+    <Compile Include="Models\PostComment.cs" />
     <Compile Include="Models\PostLike.cs" />
     <Compile Include="DAL\PostLikeContext.cs" />
     <Compile Include="Models\Profile.cs" />
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Models\User.cs" />
+    <Compile Include="Models\ViewModel\CCViewModel.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
     <Compile Include="Models\WeatherAPI.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -491,6 +495,11 @@
     <Content Include="Views\Chat\Details.cshtml" />
     <Content Include="Views\Chat\Edit.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
+    <Content Include="Views\PostComments\Create.cshtml" />
+    <Content Include="Views\PostComments\Delete.cshtml" />
+    <Content Include="Views\PostComments\Details.cshtml" />
+    <Content Include="Views\PostComments\Edit.cshtml" />
+    <Content Include="Views\PostComments\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

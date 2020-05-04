@@ -7,15 +7,15 @@ namespace SimplySeniors.DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class ProfileContext : DbContext
+    public partial class CommentContext : DbContext
     {
-        public ProfileContext()
-         //   : base("name=AzureConnection")
-            : base("name=ProfileContext")
+        public CommentContext()
+            : base("name=CommentContext")
+        //  : base("name=AzureConnection")
         {
         }
 
-        public virtual DbSet<Profile> Profiles { get; set; }
+        public virtual DbSet<PostComment> PostComments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

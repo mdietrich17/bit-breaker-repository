@@ -248,15 +248,21 @@ namespace SimplySeniors.Controllers
         [AllowAnonymous]
         public async Task<ActionResult> ConfirmEmail(string userId, string code)
         {
-            string hi = userId;
-            string hello = code;
+
             if (userId == null || code == null)
             {
-                return View("Error");
+                return new HttpNotFoundResult();
             }
             var newcode = Server.UrlDecode(code);
             var result = await UserManager.ConfirmEmailAsync(userId, newcode);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            if (result.Succeeded)
+            {
+                return RedirectToAction("HomePage", "UserHomePage");
+            }
+            else
+            {
+                return new HttpNotFoundResult();
+            }
         }
 
         //

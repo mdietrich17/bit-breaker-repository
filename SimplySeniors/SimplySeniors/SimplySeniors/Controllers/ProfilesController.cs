@@ -22,6 +22,7 @@ namespace SimplySeniors.Controllers
         private HobbiesContext db2 = new HobbiesContext();
         private PostContext db3 = new PostContext();
         private FollowContext db4 = new FollowContext();
+        private CommentContext db5 = new CommentContext();
 
         // GET: Profiles
         [CustomAuthorize]
@@ -58,8 +59,13 @@ namespace SimplySeniors.Controllers
             string hobbies = string.Join(", ", bridges.ToList());
             List<Profile> followed = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowProfile).ToList();
             //List<int> IdList = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowedUserID).ToList();
-            List<Post> postlist = db3.Posts.Where(x => x.ProfileID == profile.ID).ToList();
-            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed);
+            List<Post> postlist = db3.Posts.Where(x => x.ProfileID == profile.ID).OrderByDescending(x => x.PostDate).ToList();
+            List<PostComment> comments = new List<PostComment>();
+            foreach(Post post in postlist)
+            {
+                comments.AddRange(db5.PostComments.Where(x => x.PostID == post.ID).OrderByDescending(x => x.CommentDate).ToList());
+            }
+            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed, comments);
             if (profile == null)
             {
                 return HttpNotFound();
@@ -84,7 +90,8 @@ namespace SimplySeniors.Controllers
             List<Profile> followed = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowProfile).ToList();
             //List<int> IdList = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowedUserID).ToList();
             List<Post> postlist = db3.Posts.Where(x => x.ProfileID == profile.ID).ToList();
-            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed);
+            List<PostComment> comments = new List<PostComment>();
+            PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed, comments);
             if (profile == null)
             {
                 return HttpNotFound();
@@ -210,6 +217,7 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Profile profile = db.Profiles.Find(id);
             db.Profiles.Remove(profile);
             db.SaveChanges();
