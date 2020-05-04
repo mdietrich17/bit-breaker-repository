@@ -105,7 +105,24 @@
                 </div>
                 <div class="col-md-3">@Html.ActionLink("Like", "Like", "Posts", new { id = item.ID }, new { id = "eventButton" })</div>
 
+                <div>
+                    @Html.ActionLink("Make A Comment", "Create", "PostComments", new { id = item.ID }, new { @class = "btn-outline-primary" })
+                </div>
+                @foreach (var item2 in Model.Comments.Where(x => x.PostID == item.ID))
+                {
+                    <div id="individualPost">
+                        <div id="statusName">
+                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
+                            @Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME)
+                            @Html.DisplayFor(model => item2.CommentProfile.LASTNAME)
+                            - @Html.DisplayFor(Model => item2.CommentDate)
+                        </div>
+                        <div id="postDescription">
+                            @Html.DisplayFor(model => item2.Text)
+                        </div>
+                    </div>
 
+                }
                 <div id="postSettings">
                     @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
                     @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)

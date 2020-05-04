@@ -25,7 +25,8 @@ namespace SimplySeniors.Controllers
         private ProfileContext profile = new ProfileContext();
         private PostContext db = new PostContext();
         private FollowContext db2 = new FollowContext();
-        
+        private CommentContext db3 = new CommentContext();
+
         // GET: UserHomePage
         [CustomAuthorize]
         public ActionResult HomePage()
@@ -54,7 +55,12 @@ namespace SimplySeniors.Controllers
             var location = new Double[2];
             location[0] = lat;
             location[1] = lng;
-            var viewModel = new UserHomeViewModel(profile, postlist, location, followed);
+            List<PostComment> comments = new List<PostComment>();
+            foreach (Post post in postlist)
+            {
+                comments.AddRange(db3.PostComments.Where(x => x.PostID == post.ID).OrderByDescending(x=> x.CommentDate).ToList());
+            }
+            var viewModel = new UserHomeViewModel(profile, postlist, location, followed, comments);
             return View(viewModel);
         }
         

@@ -18,12 +18,13 @@ namespace SimplySeniors.Models.ViewModel
             PostList = posts;
         }
 
-        public UserHomeViewModel(Profile Profile, List<Post> posts, Double[] Location, List<Profile> followed)
+        public UserHomeViewModel(Profile Profile, List<Post> posts, Double[] Location, List<Profile> followed, List<PostComment> comments)
         {
             ProfileID = Profile.ID;
             ProfileFirstName = Profile.FIRSTNAME;
             ProfileLastName = Profile.LASTNAME;
             PostList = posts;
+            Comments = comments;
             Followed = followed;
             latitude = Location.ElementAt(0);
             longitude = Location.ElementAt(1);
@@ -41,5 +42,7 @@ namespace SimplySeniors.Models.ViewModel
         public Double latitude { get; set; }
 
         public Double longitude { get; set; }
+
+        public List<PostComment> Comments { get; set; }
     }
 }
