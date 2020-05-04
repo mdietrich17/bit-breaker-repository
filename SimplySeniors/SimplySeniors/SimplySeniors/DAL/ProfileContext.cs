@@ -10,7 +10,7 @@ namespace SimplySeniors.DAL
     public partial class ProfileContext : DbContext
     {
         public ProfileContext()
-          //  : base("name=AzureConnection")
+         //   : base("name=AzureConnection")
             : base("name=ProfileContext")
         {
         }
