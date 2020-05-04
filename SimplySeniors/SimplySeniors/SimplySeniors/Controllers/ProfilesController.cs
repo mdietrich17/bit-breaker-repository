@@ -217,6 +217,7 @@ namespace SimplySeniors.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
+
             Profile profile = db.Profiles.Find(id);
             db.Profiles.Remove(profile);
             db.SaveChanges();
