@@ -757,6 +757,20 @@ div#box
         margin-top: -40px;
     }
 
+#helpLink {
+    border: solid;
+    margin-top: 40px;
+    height: 65px;
+    border-width: 1px;
+    border-radius: 20px;
+    padding: 20px;
+    background: paleturquoise;
+}
+
+    #helpLink a {
+        color: darkblue;
+    }
+
     /* REGISTRATION AND LOGIN FORMS */
 
 #registerBox {
