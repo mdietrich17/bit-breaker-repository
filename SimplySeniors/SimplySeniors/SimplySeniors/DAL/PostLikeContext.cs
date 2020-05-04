@@ -7,21 +7,18 @@ namespace SimplySeniors.DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class PostContext : DbContext
+    public partial class PostLikeContext : DbContext
     {
-        public PostContext()
-            : base("name=PostContext")
-         // : base("name=AzureConnection")
-
+        public PostLikeContext()
+            : base("name=PostLikeContext")
+        //   : base("name=AzureConnection")
         {
         }
 
-        public virtual DbSet<Post> Posts { get; set; }
+        public virtual DbSet<PostLike> PostLikes { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
         }
-
-        public System.Data.Entity.DbSet<SimplySeniors.Models.Profile> Profiles { get; set; }
     }
 }
