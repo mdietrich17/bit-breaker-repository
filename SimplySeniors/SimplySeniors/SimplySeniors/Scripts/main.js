@@ -181,6 +181,21 @@ function sendemail() {
 
 };
 
+function follow(id) {
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/Profiles/Ajaxcreate?message=" + id,
+        data: { 'followid': id },
+        success: function (data) {
+            alert("Successful!");
+        },
+        error: function () {
+            alert("error");
+        }
+    })
+}
+
 function itworked(message) {
     $("#MyText").empty();
     alert("Email sent! Thank you for your feedback!");

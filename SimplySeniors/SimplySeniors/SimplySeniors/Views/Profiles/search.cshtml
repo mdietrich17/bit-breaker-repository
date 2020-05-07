@@ -25,21 +25,9 @@
 
 
 
-<script>
-
-    function follow(id) {
-        $.ajax({
-            type: "GET",
-            dataType: "json",
-            url: "/Profiles/Ajaxcreate?message=" + id,
-            data: { 'followid': id },
-          success: function (data) {
-            alert(data.success); },
-          error: function () {
-           alert("error");}
-        })
-    }
-</script>
+@section scripts {
+    <script type="text/javascript" src="~/Scripts/main.js"></script>
+}
 
 
 
