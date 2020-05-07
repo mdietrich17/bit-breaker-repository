@@ -9,7 +9,6 @@ namespace SimplySeniors.Models.ViewModel
 {
     public class FollowerInheritanceModel
     {
-        int x = 5;
         private HobbiesContext db = new HobbiesContext();
         public FollowerInheritanceModel(List<Profile> profile)
         {

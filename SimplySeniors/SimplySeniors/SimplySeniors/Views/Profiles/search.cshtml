@@ -14,7 +14,8 @@
             @Html.DisplayFor(model => item.Hobby)
         </div>
         <br />
-        <form action="/FollowLists/Create" id="@Html.DisplayFor(model => item.id)" method="post" > @Html.AntiForgeryToken()
+        <form>
+            @Html.AntiForgeryToken()
             <button id="eventButton" type="submit" name="your_name" onclick="follow(@Html.DisplayFor(model => item.id))" class="btn-link">Follow</button>
         </form>
 
@@ -27,18 +28,11 @@
 <script>
 
     function follow(id) {
-        var headers = { __RequestVerificationToken: $('input[name="__RequestVerificationToken"]').val() };
-
         $.ajax({
-            type: "POST",
-            url: "FollowLists/Create",
-            data: {
-                'ID': id,
-                'UserID': 0,
-                'FollowedUserID': 0,
-                'TimeFollowed': Date.now(),
-                'FollowProfile': {}
-            },
+            type: "GET",
+            dataType: "json",
+            url: "/Profiles/Ajaxcreate?message=" + id,
+            data: { 'followid': id },
           success: function (data) {
             alert(data.success); },
           error: function () {

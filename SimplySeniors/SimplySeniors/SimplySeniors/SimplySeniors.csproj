@@ -503,6 +503,7 @@
     <Content Include="Views\PostComments\Edit.cshtml" />
     <Content Include="Views\PostComments\Index.cshtml" />
     <Content Include="Views\Profiles\search.cshtml" />
+    <Content Include="Views\FollowLists\AjaxCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />

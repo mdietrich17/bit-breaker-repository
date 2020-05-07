@@ -12,6 +12,7 @@ using SimplySeniors.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
 using SimplySeniors.Attributes;
+using Newtonsoft.Json;
 
 
 namespace SimplySeniors.Controllers
@@ -223,6 +224,29 @@ namespace SimplySeniors.Controllers
 
            
             return View(results);
+
+        }
+
+        [HttpGet]
+        public ActionResult Ajaxcreate()
+        {
+            string query = Request.QueryString["message"];
+            int followid = Int32.Parse(query);
+            FollowList followList = new FollowList();
+            string id = User.Identity.GetUserId();
+            Profile profile = db.Profiles.Where(x => x.USERID == id).FirstOrDefault();
+            followList.UserID = profile.ID;
+            followList.TimeFollowed = DateTime.Now;
+            followList.FollowedUserID = followid;
+            db4.FollowLists.Add(followList);
+            db4.SaveChanges();
+                return new ContentResult
+                {
+                    ContentType = "application/json",
+                    ContentEncoding = System.Text.Encoding.UTF8,
+                    Content = JsonConvert.SerializeObject(id)
+
+                };
 
         }
 
