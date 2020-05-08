@@ -182,11 +182,15 @@ function sendemail() {
 };
 
 function follow(id) {
+    var token = $('[name=__RequestVerificationToken]').val();
+    var headers = {};
+    headers["__RequestVerificationToken"] = token;
     $.ajax({
-        type: "GET",
+        headers: headers,
+        type: "POST",
         dataType: "json",
-        url: "/Profiles/Ajaxcreate?message=" + id,
-        data: { 'followid': id },
+        url: "/FollowLists/AjaxCreate",
+        data: { 'userid': id },
         success: function (data) {
             alert("Successful!");
         },

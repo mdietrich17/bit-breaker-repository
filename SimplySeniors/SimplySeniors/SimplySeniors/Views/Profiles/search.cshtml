@@ -10,12 +10,13 @@
             <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
             @Html.DisplayFor(model => item.FirstName)
             @Html.DisplayFor(model => item.LastName)
-            -  @Html.DisplayFor(model => item.State)
-            @Html.DisplayFor(model => item.Hobby)
+            -@Html.DisplayFor(model => item.State)
+                    @Html.DisplayFor(model => item.Hobby)
         </div>
         <br />
         <form>
             @Html.AntiForgeryToken()
+            @Html.ActionLink("Profile", "Details", "Profiles", new { id = Html.DisplayFor(model => item.id) } , htmlAttributes: new { @class = "btn-link", @id = "eventButton", @role = "button" })
             <button id="eventButton" type="submit" name="your_name" onclick="follow(@Html.DisplayFor(model => item.id))" class="btn-link">Follow</button>
         </form>
 

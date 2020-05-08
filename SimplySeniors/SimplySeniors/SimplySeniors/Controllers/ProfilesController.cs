@@ -202,53 +202,35 @@ namespace SimplySeniors.Controllers
         {
             var loggedInUser = User.Identity.GetUserId();
             var profile = db.Profiles.Where(x => x.USERID == loggedInUser).FirstOrDefault(); //profile of user logged in user, less trips to the DB
+            string state = profile.STATE; //state of the logged in user
             var hobby = db2.HobbyBridges.Where(x => x.ProfileID == profile.ID).Select(x => x.HobbiesID).FirstOrDefault(); //hobby id of logged in user
             List<int?> ProfileID = db2.HobbyBridges.Where(x => x.HobbiesID == hobby).Select(x => x.ProfileID).ToList<int?>(); // all users who have a similiar hobby to logged in user
             List<Profile> profiles = new List<Profile>();
-            List<Profile> allusersinoregon = new List<Profile>();
+            List<Profile> AllUsersInSameState = new List<Profile>();
             List<Profile> Allusers = new List<Profile>();
             Allusers = db.Profiles.ToList(); //prevent multiple trips to the db
+            AllUsersInSameState = Allusers.Where(x => x.STATE == profile.STATE).ToList<Profile>(); // get all users in Oregon
 
             foreach (int ProfID in ProfileID) { //for each id in the list search the db and grab that user
-                profiles = Allusers.Where(x => x.STATE == profile.STATE && x.ID == ProfID).ToList<Profile>(); // get all people who are in the same state and who share the same hobby
-                allusersinoregon = Allusers.Where(x => x.STATE == profile.STATE && x.ID != ProfID).ToList<Profile>(); // get all users in the same state, but not the same hobbies
+                profiles.AddRange(Allusers.Where(x => x.STATE == state && x.ID == ProfID).ToList<Profile>()); // get all people who are in the same state and who share the same hobby
+                AllUsersInSameState.RemoveAll(x => x.ID == ProfID); //remove users that met the first requirement
                 
             }
-            List<Profile> distinct = profiles.Distinct().ToList(); //remove duplicates
-            distinct = distinct.OrderBy(x => x.LASTNAME).ToList(); //sort by last name
-            var removeoriginal = distinct.Single(x => x.ID == profile.ID); //remove the user from the list
-            distinct.Remove(removeoriginal); //remove the user from the list
-            distinct.AddRange(allusersinoregon); // add the rest of the users
-            distinct.AddRange(Allusers.Where(x => x.STATE != profile.STATE).ToList()); //all users outside of the state
-            FollowerInheritanceModel results = new FollowerInheritanceModel(distinct); //viewmodel
+ 
+            profiles = profiles.OrderBy(x => x.LASTNAME).ToList(); //sort by last name
+            var removeoriginal = profiles.Single(x => x.ID == profile.ID); //remove the original user from the list
+            profiles.Remove(removeoriginal); //remove the user from the list
+            AllUsersInSameState = AllUsersInSameState.OrderBy(x => x.LASTNAME).ToList(); ///order by last name
+            profiles.AddRange(AllUsersInSameState); // add the rest of the users
+            profiles.AddRange(Allusers.Where(x => x.STATE != profile.STATE).ToList()); //all users outside of the state
+            FollowerInheritanceModel results = new FollowerInheritanceModel(profiles); //viewmodel
 
            
             return View(results);
 
         }
 
-        [HttpGet]
-        public ActionResult Ajaxcreate()
-        {
-            string query = Request.QueryString["message"];
-            int followid = Int32.Parse(query);
-            FollowList followList = new FollowList();
-            string id = User.Identity.GetUserId();
-            Profile profile = db.Profiles.Where(x => x.USERID == id).FirstOrDefault();
-            followList.UserID = profile.ID;
-            followList.TimeFollowed = DateTime.Now;
-            followList.FollowedUserID = followid;
-            db4.FollowLists.Add(followList);
-            db4.SaveChanges();
-                return new ContentResult
-                {
-                    ContentType = "application/json",
-                    ContentEncoding = System.Text.Encoding.UTF8,
-                    Content = JsonConvert.SerializeObject(id)
 
-                };
-
-        }
 
         // GET: Profiles/Delete/5
         [CustomAuthorize]
