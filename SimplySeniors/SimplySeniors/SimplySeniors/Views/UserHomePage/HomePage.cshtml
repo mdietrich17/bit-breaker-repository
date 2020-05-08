@@ -31,8 +31,7 @@
 <button id="eventButton" onclick="window.location.href = '/Posts/Create'">
     Create Post
 </button>
-@Html.ActionLink("View Profile", "MyProfile", "Profiles", null, new { id = "eventButton" })
-@Html.ActionLink("Follower Recommendation", "search", "Profiles", null, new { id = "eventButton" })
+@Html.ActionLink("Follower Suggestions", "search", "Profiles", null, new { id = "eventButton" })
 @Html.ActionLink("Find User to Follow", "Create", "FollowLists", null, new { id = "eventButton" })
 
 @Html.ActionLink("View News", "NewsFeed", null, new { id = "eventButton" })
