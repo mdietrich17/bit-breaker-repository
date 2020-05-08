@@ -91,6 +91,7 @@ namespace SimplySeniors.Controllers
 
                 };
             }
+            return View(followList);
         }
 
 
