@@ -12,6 +12,8 @@ using SimplySeniors.Models.ViewModel;
 using Microsoft.AspNet.Identity;
 using System.Globalization;
 using SimplySeniors.Attributes;
+using Newtonsoft.Json;
+
 
 namespace SimplySeniors.Controllers
 {
@@ -195,6 +197,40 @@ namespace SimplySeniors.Controllers
             }
             return View(profile);
         }
+        [CustomAuthorize]
+        public ActionResult search()
+        {
+            var loggedInUser = User.Identity.GetUserId();
+            var profile = db.Profiles.Where(x => x.USERID == loggedInUser).FirstOrDefault(); //profile of user logged in user, less trips to the DB
+            string state = profile.STATE; //state of the logged in user
+            var hobby = db2.HobbyBridges.Where(x => x.ProfileID == profile.ID).Select(x => x.HobbiesID).FirstOrDefault(); //hobby id of logged in user
+            List<int?> ProfileID = db2.HobbyBridges.Where(x => x.HobbiesID == hobby).Select(x => x.ProfileID).ToList<int?>(); // all users who have a similiar hobby to logged in user
+            List<Profile> profiles = new List<Profile>();
+            List<Profile> AllUsersInSameState = new List<Profile>();
+            List<Profile> Allusers = new List<Profile>();
+            Allusers = db.Profiles.ToList(); //prevent multiple trips to the db
+            AllUsersInSameState = Allusers.Where(x => x.STATE == profile.STATE).ToList<Profile>(); // get all users in Oregon
+
+            foreach (int ProfID in ProfileID) { //for each id in the list search the db and grab that user
+                profiles.AddRange(Allusers.Where(x => x.STATE == state && x.ID == ProfID).ToList<Profile>()); // get all people who are in the same state and who share the same hobby
+                AllUsersInSameState.RemoveAll(x => x.ID == ProfID); //remove users that met the first requirement
+                
+            }
+ 
+            profiles = profiles.OrderBy(x => x.LASTNAME).ToList(); //sort by last name
+            var removeoriginal = profiles.Single(x => x.ID == profile.ID); //remove the original user from the list
+            profiles.Remove(removeoriginal); //remove the user from the list
+            AllUsersInSameState = AllUsersInSameState.OrderBy(x => x.LASTNAME).ToList(); ///order by last name
+            profiles.AddRange(AllUsersInSameState); // add the rest of the users
+            profiles.AddRange(Allusers.Where(x => x.STATE != profile.STATE).ToList()); //all users outside of the state
+            FollowerInheritanceModel results = new FollowerInheritanceModel(profiles); //viewmodel
+
+           
+            return View(results);
+
+        }
+
+
 
         // GET: Profiles/Delete/5
         [CustomAuthorize]
