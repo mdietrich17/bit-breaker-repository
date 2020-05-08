@@ -69,6 +69,7 @@ namespace SimplySeniors.Controllers
             return View(followList);
         }
 
+
         [HttpPost]
         public ActionResult AjaxCreate(int userid)
         {
@@ -90,24 +91,49 @@ namespace SimplySeniors.Controllers
 
                 };
             }
-
-            return View(followList);
         }
 
-        // GET: FollowLists/Edit/5
-        public ActionResult Edit(int? id)
-        {
-            if (id == null)
+
+            public ActionResult Follow(int id)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                string uid = User.Identity.GetUserId();
+                Profile currentUser = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
+                Profile followie = db1.Profiles.Where(x => x.ID == id).FirstOrDefault();
+                List<FollowList> followLists = new List<FollowList>();
+                followLists = db.FollowLists.Where(x => x.FollowedUserID == followie.ID).ToList();
+                if (currentUser.ID == followie.ID || followLists.Any(x => x.FollowedUserID == followie.ID))
+                {
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
+
+                FollowList followList = new FollowList();
+                followList.UserID = currentUser.ID;
+                followList.TimeFollowed = DateTime.Now;
+                followList.FollowedUserID = followie.ID;
+
+                if (ModelState.IsValid)
+                {
+                    db.FollowLists.Add(followList);
+                    db.SaveChanges();
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
+                return Redirect(Request.UrlReferrer.ToString());
             }
-            FollowList followList = db.FollowLists.Find(id);
-            if (followList == null)
+
+            // GET: FollowLists/Edit/5
+            public ActionResult Edit(int? id)
             {
-                return HttpNotFound();
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FollowList followList = db.FollowLists.Find(id);
+                if (followList == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(followList);
             }
-            return View(followList);
-        }
 
         // POST: FollowLists/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
