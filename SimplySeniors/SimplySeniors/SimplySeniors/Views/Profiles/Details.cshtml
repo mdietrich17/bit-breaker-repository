@@ -32,7 +32,7 @@
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null, new { id = "eventButton" })
 @Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" })
-
+@Html.ActionLink("Follow this user", "Follow", "FollowLists", new { id = Model.ProfileID}, new { id = "eventButton"})
 <div>
 
     <hr />

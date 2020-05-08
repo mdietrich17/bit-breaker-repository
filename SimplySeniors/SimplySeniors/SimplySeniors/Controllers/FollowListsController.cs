@@ -67,8 +67,34 @@ namespace SimplySeniors.Controllers
             return View(followList);
         }
 
-        // GET: FollowLists/Edit/5
-        public ActionResult Edit(int? id)
+        public ActionResult Follow(int id)
+        {
+            string uid = User.Identity.GetUserId();
+            Profile currentUser = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
+            Profile followie = db1.Profiles.Where(x => x.ID == id).FirstOrDefault();
+            List<FollowList> followLists = new List<FollowList>();
+            followLists = db.FollowLists.Where(x => x.FollowedUserID == followie.ID).ToList();
+            if (currentUser.ID == followie.ID || followLists.Any(x => x.FollowedUserID == followie.ID))
+            {
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+
+            FollowList followList = new FollowList();
+            followList.UserID = currentUser.ID;
+            followList.TimeFollowed = DateTime.Now;
+            followList.FollowedUserID = followie.ID;
+            
+            if (ModelState.IsValid)
+            {
+                db.FollowLists.Add(followList);
+                db.SaveChanges();
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            return Redirect(Request.UrlReferrer.ToString());
+        }
+
+            // GET: FollowLists/Edit/5
+            public ActionResult Edit(int? id)
         {
             if (id == null)
             {
