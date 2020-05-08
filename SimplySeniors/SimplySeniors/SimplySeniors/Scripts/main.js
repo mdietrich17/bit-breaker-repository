@@ -181,6 +181,25 @@ function sendemail() {
 
 };
 
+function follow(id) {
+    var token = $('[name=__RequestVerificationToken]').val();
+    var headers = {};
+    headers["__RequestVerificationToken"] = token;
+    $.ajax({
+        headers: headers,
+        type: "POST",
+        dataType: "json",
+        url: "/FollowLists/AjaxCreate",
+        data: { 'userid': id },
+        success: function (data) {
+            alert("Successful!");
+        },
+        error: function () {
+            alert("error");
+        }
+    })
+}
+
 function itworked(message) {
     $("#MyText").empty();
     alert("Email sent! Thank you for your feedback!");

@@ -9,6 +9,7 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
+using Newtonsoft.Json;
 
 namespace SimplySeniors.Controllers
 {
@@ -45,6 +46,7 @@ namespace SimplySeniors.Controllers
             return View();
         }
 
+
         // POST: FollowLists/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
@@ -67,46 +69,71 @@ namespace SimplySeniors.Controllers
             return View(followList);
         }
 
-        public ActionResult Follow(int id)
-        {
-            string uid = User.Identity.GetUserId();
-            Profile currentUser = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
-            Profile followie = db1.Profiles.Where(x => x.ID == id).FirstOrDefault();
-            List<FollowList> followLists = new List<FollowList>();
-            followLists = db.FollowLists.Where(x => x.FollowedUserID == followie.ID).ToList();
-            if (currentUser.ID == followie.ID || followLists.Any(x => x.FollowedUserID == followie.ID))
-            {
-                return Redirect(Request.UrlReferrer.ToString());
-            }
 
+        [HttpPost]
+        public ActionResult AjaxCreate(int userid)
+        {
             FollowList followList = new FollowList();
-            followList.UserID = currentUser.ID;
+            followList.FollowedUserID = userid;
+            string id = User.Identity.GetUserId();
+            Profile profile = db1.Profiles.Where(x => x.USERID == id).FirstOrDefault();
+            followList.UserID = profile.ID;
             followList.TimeFollowed = DateTime.Now;
-            followList.FollowedUserID = followie.ID;
-            
             if (ModelState.IsValid)
             {
                 db.FollowLists.Add(followList);
                 db.SaveChanges();
+                return new ContentResult
+                {
+                    ContentType = "application/json",
+                    ContentEncoding = System.Text.Encoding.UTF8,
+                    Content = JsonConvert.SerializeObject(id)
+
+                };
+            }
+        }
+
+
+            public ActionResult Follow(int id)
+            {
+                string uid = User.Identity.GetUserId();
+                Profile currentUser = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
+                Profile followie = db1.Profiles.Where(x => x.ID == id).FirstOrDefault();
+                List<FollowList> followLists = new List<FollowList>();
+                followLists = db.FollowLists.Where(x => x.FollowedUserID == followie.ID).ToList();
+                if (currentUser.ID == followie.ID || followLists.Any(x => x.FollowedUserID == followie.ID))
+                {
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
+
+                FollowList followList = new FollowList();
+                followList.UserID = currentUser.ID;
+                followList.TimeFollowed = DateTime.Now;
+                followList.FollowedUserID = followie.ID;
+
+                if (ModelState.IsValid)
+                {
+                    db.FollowLists.Add(followList);
+                    db.SaveChanges();
+                    return Redirect(Request.UrlReferrer.ToString());
+                }
                 return Redirect(Request.UrlReferrer.ToString());
             }
-            return Redirect(Request.UrlReferrer.ToString());
-        }
 
             // GET: FollowLists/Edit/5
             public ActionResult Edit(int? id)
-        {
-            if (id == null)
             {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                if (id == null)
+                {
+                    return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+                }
+                FollowList followList = db.FollowLists.Find(id);
+                if (followList == null)
+                {
+                    return HttpNotFound();
+                }
+                return View(followList);
             }
-            FollowList followList = db.FollowLists.Find(id);
-            if (followList == null)
-            {
-                return HttpNotFound();
-            }
-            return View(followList);
-        }
 
         // POST: FollowLists/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 

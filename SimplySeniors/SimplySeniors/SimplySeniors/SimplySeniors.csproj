@@ -232,7 +232,9 @@
     <Compile Include="DAL\ProfileContext.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Models\ViewModel\CCViewModel.cs" />
+    <Compile Include="Models\ViewModel\FollowerInheritanceModel.cs" />
     <Compile Include="Models\ViewModel\PDViewModel.cs" />
+    <Compile Include="Models\ViewModel\FollowerSearch.cs" />
     <Compile Include="Models\WeatherAPI.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -500,6 +502,8 @@
     <Content Include="Views\PostComments\Details.cshtml" />
     <Content Include="Views\PostComments\Edit.cshtml" />
     <Content Include="Views\PostComments\Index.cshtml" />
+    <Content Include="Views\Profiles\search.cshtml" />
+    <Content Include="Views\FollowLists\AjaxCreate.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
