@@ -12,13 +12,9 @@
     {
         @Html.AntiForgeryToken()
         <h4 id="profileCreationInfo">Please fill in the information below, upload a single image for your photo.</h4>
-
         <div class="form-horizontal" id="creationForm">
-
             <hr />
-
             <div class="form-group " id="editBox">
-
                 @Html.LabelFor(model => model.FIRSTNAME, htmlAttributes: new { @class = "control-label " })
                 @Html.EditorFor(model => model.FIRSTNAME, new { htmlAttributes = new { @class = "", id = "firstNameBox", style = "margin-left:8px; " } })
                 @Html.ValidationMessageFor(model => model.FIRSTNAME, "", new { @class = "text-danger" })
@@ -59,8 +55,7 @@
                     @Html.ValidationMessageFor(model => model.BIO, "", new { @class = "text-danger" })
                 </div>
                 <input type="submit" value="Continue to hobbies" class="btn btn-outline-primary" id="addHobbyButton" />
-
-            </div>
+                </div>
             <div class="container-lg">
                 <Iframe runat="server" id="photoUploadInjectedBox" src="~/PhotoUploadForm.aspx"></Iframe>
             </div>
@@ -68,10 +63,7 @@
 
     }
 </body>
-
-
 <p id="helpInstructionsCreationPage"> Why do we need to fill out this form? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</p>
-
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

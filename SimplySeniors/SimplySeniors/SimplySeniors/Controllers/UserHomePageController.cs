@@ -16,7 +16,7 @@ using System.Web.Script.Serialization;
 using Newtonsoft.Json.Linq;
 using System.IO;
 using System.Threading.Tasks;
-//using PusherServer;
+
 
 namespace SimplySeniors.Controllers
 {
@@ -68,9 +68,10 @@ namespace SimplySeniors.Controllers
         [HttpPost]
         public JsonResult GetAllProfiles()
         {
-            var listOfAllProfiles = profile.Profiles.Select(u => u.FIRSTNAME).Distinct().ToList();
-            return Json(listOfAllProfiles, JsonRequestBehavior.AllowGet);
-
+            //var listOfAllProfiles = profile.Profiles.Select(u => u.FIRSTNAME).ToList();
+            //return Json(listOfAllProfiles, JsonRequestBehavior.AllowGet);
+            var Members = profile.Profiles.Select(r => r.FIRSTNAME).Distinct();
+            return Json(Members, JsonRequestBehavior.AllowGet);
         }
 
         [HttpPost]

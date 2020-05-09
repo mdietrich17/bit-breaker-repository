@@ -27,7 +27,41 @@ namespace SimplySeniors.Controllers
      
             return View(profileList.ToList()); // Display all profiles( minus currently logged in user) for chat, phase 2, make click able. 
         }
+
+
+        [HttpPost]   // FUNCTION TO OBTAIN the current user for message feature. 
+        public JsonResult GetCurrentUser()
+        {
+            var id = User.Identity.GetUserId();
+            var usersProfile = db.Profiles.FirstOrDefault(u => u.USERID == id);
+            return Json(usersProfile, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetAllProfiles()
+        {
+            //var listOfAllProfiles = profile.Profiles.Select(u => u.FIRSTNAME).ToList();
+            //return Json(listOfAllProfiles, JsonRequestBehavior.AllowGet);
+            var Members = db.Profiles.Select(r => r.FIRSTNAME).Distinct();
+            return Json(Members, JsonRequestBehavior.AllowGet);
+        }
+
+        [HttpPost]
+        public JsonResult GetSpecificMember(int id)
+        {
+            var person = db.Profiles.FirstOrDefault(u => u.ID == id);
+            return Json(person, JsonRequestBehavior.AllowGet);
+        }
+
+
+
+
     }
+
+
+
+
+
 }
 
 //// GET: Chat/Details/5
