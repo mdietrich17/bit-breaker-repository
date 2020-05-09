@@ -17,7 +17,7 @@
 });
 
 //Searching for external events via AJAX call based on location and/or keyword
-/*
+
 function searchNow() {
     $a = document.getElementById("location").value;
     $b = document.getElementById("keyword").value;
@@ -32,7 +32,7 @@ function searchNow() {
     });
 
 }
-*/
+
 
 //Displaying events near you based on your current location entered in profile
 $.ajax({
@@ -180,6 +180,25 @@ function sendemail() {
     
 
 };
+
+function follow(id) {
+    var token = $('[name=__RequestVerificationToken]').val();
+    var headers = {};
+    headers["__RequestVerificationToken"] = token;
+    $.ajax({
+        headers: headers,
+        type: "POST",
+        dataType: "json",
+        url: "/FollowLists/AjaxCreate",
+        data: { 'userid': id },
+        success: function (data) {
+            alert("Successful!");
+        },
+        error: function () {
+            alert("error");
+        }
+    })
+}
 
 function itworked(message) {
     $("#MyText").empty();

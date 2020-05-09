@@ -7,15 +7,15 @@ namespace SimplySeniors.DAL
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class EventContext : DbContext
+    public partial class CommentContext : DbContext
     {
-        public EventContext()
-            : base("name=EventContext")
-          //  : base("name=AzureConnection")
+        public CommentContext()
+            : base("name=CommentContext")
+        //  : base("name=AzureConnection")
         {
         }
 
-        public virtual DbSet<Event> Events { get; set; }
+        public virtual DbSet<PostComment> PostComments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

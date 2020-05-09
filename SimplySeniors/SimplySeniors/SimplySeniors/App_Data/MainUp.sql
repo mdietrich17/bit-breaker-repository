@@ -79,9 +79,34 @@ CREATE TABLE [dbo].[Posts]
 	[Title] NVARCHAR(64) NOT NULL,
 	[Body] NVARCHAR(256),
 	[ProfileID] INT NOT NULL,
+	[Likes] INT NOT NULL,
+	[PostDate] DateTime NOT NULL,
 	CONSTRAINT [PK_dbo.Posts] PRIMARY KEY CLUSTERED ([ID] ASC),
 	CONSTRAINT [FK_dbo.Posts_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID])
 	
+);
+
+CREATE TABLE [dbo].[PostLike]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[ProfileID] INT NOT NULL,
+	[Liked] BIT NOT NULL,
+	[PostID] INT NOT NULL
+	CONSTRAINT [PK_dbo.PostLike] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.PostLike_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID]),
+	CONSTRAINT [FK_dbo.PostLike_dbo.Post_ID] FOREIGN KEY ([PostID]) REFERENCES [dbo].[Posts] ([ID])
+);
+
+CREATE TABLE [dbo].[PostComment]
+(
+	[ID] INT IDENTITY (1,1) NOT NULL,
+	[Text] NVARCHAR (256),
+	[CommentDate] DATETIME NOT NULL,
+	[ProfileID] INT NOT NULL,
+	[PostID] INT NOT NULL,
+	CONSTRAINT [PK_dbo.PostComment] PRIMARY KEY CLUSTERED ([ID] ASC),
+	CONSTRAINT [FK_dbo.PostComment_dbo.Profile_ID] FOREIGN KEY ([ProfileID]) REFERENCES [dbo].[Profile] ([ID]),
+	CONSTRAINT [FK_dbo.PostComment_dbo.Post_ID] FOREIGN KEY ([PostID]) REFERENCES [dbo].[Profile] ([ID])
 );
 
 CREATE TABLE [dbo].[FollowList]
@@ -171,13 +196,13 @@ INSERT INTO [dbo].[Events] (NAME, DESCRIPTION, STARTDATE, STARTTIME, ENDDATE, EN
 ('Knitting Camp', 'Come join us in the Beginners Knitting Class 2020 and make something to be proud of!', '04/15/2020', '06:00 PM', '04/22/2020', '06:00 PM', 'United States', 'Colorado', 'Denver', '4600 Humboldt St', '80216'),
 ('Bachelorette Party', 'Party with the gals, byob', '06/05/2020', '10:00 PM', '06/06/2020', '05:00 AM', 'United States', 'Oregon', 'Portland', '1825 SW Broadway', '97201');
 
-INSERT INTO [dbo].[Posts] (Title, Body, ProfileID) VALUES 
-('Felt cute might delete later idk', 'Nothing', 1),
-('Something something politics', 'politics politics politics...controversial statement', 2),
-('Coronavirus scary', 'But not as scary as how refreshing sprite actually is(NOT SPONSORED)', 3),
-('Got smallpox again lmao', 'Please donate to my gofundme', 4),
-('Feeling seasick','please someone give me an orange my teeth are falling out', 5),
-('FORTNITE GAMEPLAY (EPISODE 2006)','MAKE SURE TO LIKE, COMMENT, AND SUBSCRIBE FOR MORE 1337 wins', 6);
+INSERT INTO [dbo].[Posts] (Title, Body, ProfileID, Likes, PostDate) VALUES 
+('Felt cute might delete later idk', 'Nothing', 1, 0, '1800-05-01'),
+('Something something politics', 'politics politics politics...controversial statement', 2, 0,  '1801-05-01'),
+('Coronavirus scary', 'But not as scary as how refreshing sprite actually is(NOT SPONSORED)', 3, 0, '1802-05-01'),
+('Got smallpox again lmao', 'Please donate to my gofundme', 4, 0, '1803-05-01'),
+('Feeling seasick','please someone give me an orange my teeth are falling out', 5, 0, '1804-05-01'),
+('FORTNITE GAMEPLAY (EPISODE 2006)','MAKE SURE TO LIKE, COMMENT, AND SUBSCRIBE FOR MORE 1337 wins', 6, 0, '1805-05-01');
 
 INSERT INTO [dbo].FollowList (UserID, FollowedUserID, TimeFollowed) VALUES
 (1, 2, '1788-05-01'),

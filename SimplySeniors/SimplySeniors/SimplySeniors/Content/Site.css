@@ -486,6 +486,10 @@ li {
         border-radius: 20px;
     }
 
+    #searchExternalEvents #form-to-be-submitted:hover {
+        background: white;
+    }
+
 /*PROFILE DETAILS PAGE STYLEING BELOW*/
 
 div#box 

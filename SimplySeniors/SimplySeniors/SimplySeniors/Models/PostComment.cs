@@ -6,24 +6,24 @@ namespace SimplySeniors.Models
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Data.Entity.Spatial;
 
-    public partial class Post
+    [Table("PostComment")]
+    public partial class PostComment
     {
         public int ID { get; set; }
 
-        [Required]
-        [StringLength(64)]
-        public string Title { get; set; }
-
         [StringLength(256)]
-        public string Body { get; set; }
+        public string Text { get; set; }
+
+        public DateTime CommentDate { get; set; }
 
         public int ProfileID { get; set; }
 
-        public int Likes { get; set; }
+        public int PostID { get; set; }
 
-        public DateTime PostDate { get; set; }
+        [ForeignKey("PostID")]
+        public virtual Post CommentPost { get; set; }
 
         [ForeignKey("ProfileID")]
-        public virtual Profile PostProfile { get; set; }
+        public virtual Profile CommentProfile { get; set; }
     }
 }
