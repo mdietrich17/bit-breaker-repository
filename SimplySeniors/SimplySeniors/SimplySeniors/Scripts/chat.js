@@ -1,54 +1,81 @@
-﻿//Ajax call to get JSON information for page to be responsive.
-function AjaxCall(url, data, type) {
-    return $.ajax({
-        url: url,
-        type: type ? type : 'GET',
-        data: data,
-        contentType: 'application/json'
-    });
-}
-//Throwing error if there was something wrong with the ajax call.
-function ajaxError() {
-    console.log('Error on AJAX return, check your scripts');
-}
+﻿////Ajax call to get JSON information for page to be responsive.
+//function AjaxCall(url, data, type) {
+//    return $.ajax({
+//        url: url,
+//        type: type ? type : 'GET',
+//        data: data,
+//        contentType: 'application/json'
+//    });
+//}
+////Throwing error if there was something wrong with the ajax call.
+//function ajaxError() {
+//    console.log('Error on AJAX return, check your scripts');
+//}
+
 
 
 $(function () {
-    var url = '@Url.Action("GetAllProfiles", "Chat")';
 
-    AjaxCall(url, null).done(function(response) {
-        if (response.length > 0) {
-            $('#memberDDL').html('h');
-            var selectOptions = '';
-            selectOptions += '<option value="Select">Select</option>';
-            for (var i = 0; i < response.length; i++) {
-                selectOptions += '<option value="' + response[i] + '">' + response[i] + '</option>';
-            }
-            $('#memberDDL').append(selectOptions);
-        }
-    }).fail(function(error) {
-        alert("Get All Profiles() had an error check userHomePage controller");
+    var a = document.getElementById("firstNameBox").value;
+
+    $.ajax({
+        type: "GET",
+        dataType: "json",
+        url: "/Chat/GetCurrentUser",
+        data: {},
+        success: displayMember,
+        error: errorOnAjax
     });
+
+    function displayMember() {
+
+        $("#memberDDL").html("h");
+        var selectOptions = "";
+        selectOptions += '<option value="Select">Select</option>';
+        for (var i = 0; i < response.length; i++) {
+            selectOptions += '<option value="' + response[i] + '">' + response[i] + "</option>";
+        }
+        $("#memberDDL").append(selectOptions);
+
+    }
 });
 
+//$(function () {
+//    var url = "/Chat/GetAllProfiles";
 
-$('#memberDDL').on("change", function () {
-    var teamName = $('#memberDDL').val();
-    var object = { team: teamName };
-    AjaxCall('/Chat/GetAllProfiles', JSON.stringify(object), 'POST').done(function (response) {
-        if (response.length > 0) {
-            $('#memberDDL').html('');
-            var selectOptions = '';
-            selectOptions += '<option value="Select">Select</option>';
-            for (var responseStart = 0; responseStart < response.length; responseStart++) {
-                selectOptions += '<option value="' + response[responseStart] + '">' + response[responseStart] + '</option>';
-            }
-            $('#memberDDL').append(selectOptions);
-        }
-    }).fail(function (error) {
-        alert("Error2, Contact your nearest Help Desk"); //error2 output
-    });
-});
+//    AjaxCall(url, null).done(function(response) {
+//        if (response.length > 0) {
+//            $('#memberDDL').html('h');
+//            var selectOptions = '';
+//            selectOptions += '<option value="Select">Select</option>';
+//            for (var i = 0; i < response.length; i++) {
+//                selectOptions += '<option value="' + response[i] + '">' + response[i] + '</option>';
+//            }
+//            $('#memberDDL').append(selectOptions);
+//        }
+//    }).fail(function(error) {
+//        alert("Get All Profiles() had an error check userHomePage controller");
+//    });
+//});
+
+
+//$('#memberDDL').on("change", function () {
+//    var teamName = $('#memberDDL').val();
+//    var object = { team: teamName };
+//    AjaxCall('/Chat/GetAllProfiles', JSON.stringify(object), 'POST').done(function (response) {
+//        if (response.length > 0) {
+//            $('#memberDDL').html('');
+//            var selectOptions = '';
+//            selectOptions += '<option value="Select">Select</option>';
+//            for (var responseStart = 0; responseStart < response.length; responseStart++) {
+//                selectOptions += '<option value="' + response[responseStart] + '">' + response[responseStart] + '</option>';
+//            }
+//            $('#memberDDL').append(selectOptions);
+//        }
+//    }).fail(function (error) {
+//        alert("Error2, Contact your nearest Help Desk"); //error2 output
+//    });
+//});
 
 
 

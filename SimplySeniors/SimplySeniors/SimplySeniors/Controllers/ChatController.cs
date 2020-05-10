@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
+using Newtonsoft.Json;
 using SimplySeniors.DAL;
 using SimplySeniors.Models;
 
@@ -38,12 +39,22 @@ namespace SimplySeniors.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetAllProfiles()
+        public ActionResult GetAllProfiles()
         {
             //var listOfAllProfiles = profile.Profiles.Select(u => u.FIRSTNAME).ToList();
             //return Json(listOfAllProfiles, JsonRequestBehavior.AllowGet);
-            var Members = db.Profiles.Select(r => r.FIRSTNAME).Distinct();
-            return Json(Members, JsonRequestBehavior.AllowGet);
+            var members = db.Profiles.Select(r => r.FIRSTNAME).Distinct();
+            //return Json(members, JsonRequestBehavior.AllowGet);
+            return new ContentResult
+            {
+                // serialize C# object "commits" to JSON using Newtonsoft.Json.JsonConvert
+                Content = JsonConvert.SerializeObject(members),
+                ContentType = "application/json",
+                ContentEncoding = System.Text.Encoding.UTF8
+            };
+
+
+
         }
 
         [HttpPost]
