@@ -10,7 +10,7 @@ namespace SimplySeniors.DAL
     public partial class HobbiesContext : DbContext
     {
         public HobbiesContext()
-          // : base("name=HobbyContext")
+           // : base("name=HobbyContext")
             : base("name=AzureConnection")
         {
         }
