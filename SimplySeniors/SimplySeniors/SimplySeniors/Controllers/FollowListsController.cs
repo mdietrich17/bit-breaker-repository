@@ -101,7 +101,7 @@ namespace SimplySeniors.Controllers
                 Profile currentUser = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
                 Profile followie = db1.Profiles.Where(x => x.ID == id).FirstOrDefault();
                 List<FollowList> followLists = new List<FollowList>();
-                followLists = db.FollowLists.Where(x => x.FollowedUserID == followie.ID).ToList();
+                followLists = db.FollowLists.Where(x => x.UserID == currentUser.ID).ToList();
                 if (currentUser.ID == followie.ID || followLists.Any(x => x.FollowedUserID == followie.ID))
                 {
                     return Redirect(Request.UrlReferrer.ToString());
