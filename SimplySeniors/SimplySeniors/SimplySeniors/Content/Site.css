@@ -155,17 +155,22 @@ li {
     color: black;
 }
 
-#searchBoxID:hover {
-    background: blue;
-    border: black;
+#searchBoxID {
+    background: white;
+    color: black;
+    box-shadow: 0px 5px 5px #888888;
 }
+
+    #searchBoxID:hover {
+        background: turquoise;
+    }
 
 #resultsTable {
     background: lightblue;
     border: solid;
     border-color: black;
-    width: 70%;
-    margin-left: 11em;
+    width: 890px;
+    margin-left: 110px;
     color: black;
 }
 
@@ -238,10 +243,10 @@ li {
     margin-bottom: 2em; 
 }
 
-#snapButtonBox, #federalButtonBox {
+#snapButtonBox, #federalButtonBox, #eventsButtonBox {
     padding-top: -2.5em;
-    padding-right: 4em; 
-    margin-bottom: -7em; 
+    padding-right: 4em;
+    margin-bottom: -7em;
 }
 
 #fedParagraph, #eventsParagraph {
@@ -254,7 +259,7 @@ li {
 }
 
 #firstSlide, #secondSlide, #thirdSlide {
-    opacity: .18;
+    opacity: .48;
     border: black;
     border: solid;
     border-radius: 1em;
@@ -533,6 +538,30 @@ div#box
         text-shadow: 1px 1px blue;
     }
 
+#followButton {
+    background-color: lightcyan;
+    border: none;
+    box-shadow: 0px 5px 5px #888888;
+    border-radius: 30px;
+    color: black;
+    padding: 5px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+    margin: 4px 2px;
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+}
+
+    #followButton .btn-default {
+        color: black;
+    }
+
+    #followButton:hover {
+        background-color: lightblue;
+    }
 
 #likeButton2 {
     border: none;
@@ -556,14 +585,19 @@ div#box
 }
 
 /*USER HOME PAGE STYLING BELOW*/
+iframe {
+    border-radius: 20px;
+}
 
+#homePageTable iframe {
+    margin-left: -35px;
+}
 
 #weatherReport {
     border: hidden;
-    margin-right: 1.5em;
     margin-bottom: -2.75em;
-    width: 100%;
-    height: 260px; 
+    width: 90%;
+    height: 260px;
 }
 
 #homePageTable {
@@ -584,6 +618,9 @@ div#box
         border-radius: 80px;
     }
 
+    #homePageTable #profPic div {
+        width: 90px;
+    }
 
 #postDescription {
     font-size: 20px;

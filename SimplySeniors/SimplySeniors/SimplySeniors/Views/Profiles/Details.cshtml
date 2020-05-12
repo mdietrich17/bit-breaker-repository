@@ -11,7 +11,7 @@
 
 <table id="homePageTable">
     <tr>
-        <td>
+        <td id="profPic">
             @*<img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@
             <div style="margin-left: 2em; margin-top: .05em; margin-bottom: -.3em; margin-right: 0em; ">
                 <iframe border="round" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
@@ -27,15 +27,11 @@
         </td>
     </tr>
 </table>
-<br />
 
-<br />
-<button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
-<button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
-@Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
-@Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null, new { id = "eventButton" })
-@Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" })
-@Html.ActionLink("Follow this user", "Follow", "FollowLists", new { id = Model.ProfileID}, new { id = "eventButton"})
+<button id="followButton" type="submit" name="your_name" onclick="follow(@Html.DisplayFor(model => model.ProfileID))" class="btn-link">
+    <div id="smallText" style="font-size:20px; display: inline;">➕</div> Follow @Html.DisplayFor(model => model.ProfileFirstName)
+</button>
+
 <div>
 
     <hr />
@@ -73,7 +69,8 @@
                         <p class="font-weight-bold" style="margin-bottom: 0px;"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
                         @Html.DisplayFor(model => model.ProfileFamily)
                     </div>
-                    <div class="col-md-12"> <hr />
+                    <div class="col-md-12">
+                        <hr />
                         <p class="font-weight-bold text-center" style="margin-top: 20px; margin-bottom: 1px;"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
                         <p class="text" style="font-size: 14px;"> @Html.DisplayFor(model => model.ProfileBIO)</p>
                     </div>
@@ -140,24 +137,24 @@
                 <div id="homeHeader">Following</div> <hr />
                 @foreach (var item in Model.Followed)
                 {
-            <div id="friendName">
-                @*Getting first and last name and making it into a link that redirects to profile page*@
-                @{var fullName = Html.DisplayFor(model => item.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.LASTNAME).ToString();}
-                @*If statement to redirect to whoever's post it is*@
-                @{if (Model.ProfileID != item.ID)
-                    {
-                        @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
+                    <div id="friendName">
+                        @*Getting first and last name and making it into a link that redirects to profile page*@
+                        @{var fullName = Html.DisplayFor(model => item.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.LASTNAME).ToString();}
+                        @*If statement to redirect to whoever's post it is*@
+                        @{if (Model.ProfileID != item.ID)
+                            {
+                                @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
 
-                    }
-                    else
-                    {
-                        @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
-                    }
-                }
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                <br />
-                <div id="messageFriend">Message Friend</div> <br />
-            </div>
+                            }
+                            else
+                            {
+                                @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
+                            }
+                        }
+                        <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                        <br />
+                        <div id="messageFriend">Message Friend</div> <br />
+                    </div>
                 }
 
             </div>
