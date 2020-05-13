@@ -156,9 +156,8 @@ li {
 }
 
 #searchBoxID {
-    background: white;
+    background: lightcyan;
     color: black;
-    box-shadow: 0px 5px 5px #888888;
 }
 
     #searchBoxID:hover {
@@ -548,11 +547,12 @@ div#box
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 30px;
+    font-size: 20px;
     margin: 4px 2px;
-    position: relative;
-    top: 10px;
     cursor: pointer;
+    position: relative;
+    top: 5px;
+    left: 55px;
 }
 
     #followButton .btn-default {
