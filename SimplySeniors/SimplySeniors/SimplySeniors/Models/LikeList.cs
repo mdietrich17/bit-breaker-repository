@@ -8,7 +8,8 @@ namespace SimplySeniors.Models
     public partial class LikeList : DbContext
     {
         public LikeList()
-            : base("name=LikeList")
+           // : base("name=LikeList")
+            : base("name=AzureConnection")
         {
         }
 

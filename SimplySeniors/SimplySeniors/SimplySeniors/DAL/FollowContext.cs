@@ -12,8 +12,8 @@ namespace SimplySeniors.DAL
     {
         public FollowContext()
 
-            : base("name=FollowContext")
-        //  : base("name=AzureConnection")
+         //   : base("name=FollowContext")
+          : base("name=AzureConnection")
 
         {
         }
