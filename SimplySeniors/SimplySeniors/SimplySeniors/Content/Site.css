@@ -417,6 +417,9 @@ li {
     color: black;
     font-size: 20px;
     text-shadow: 1px 1px blue;
+    position: relative;
+    left: -10px;
+    margin-left: 20px;
 }
 
 #eventLink input {
@@ -784,6 +787,24 @@ iframe {
 }
 
     #commentButton:hover {
+        background-color: lightblue;
+    }
+
+#commentButton2 {
+    border: none;
+    border-radius: 20px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    bottom: 60px;
+    left: 300px;
+}
+
+    #commentButton2:hover {
         background-color: lightblue;
     }
 
