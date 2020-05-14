@@ -10,10 +10,11 @@
 @using (Html.BeginForm("Index", "Profiles", FormMethod.Post))
 {
     <div class="container" style="font-size:large;" id="searchBox">
-        <h3>Search by a person's name:
-        @Html.TextBox("searchString", null, new {id="textBox", style = "border-radius:6px; padding-left: 10px; font-size:20px; width: 5000px; height: 40px;", placeholder = "Partial matches will be found"})
-        <input class="form-control-lg btn-outline-primary" type="submit" id="searchBoxID" value="Search Now"  style="border-radius: 10px" />
-    </h3>
+        <h3>
+            Search by a person's name:
+            @Html.TextBox("searchString", null, new { id = "textBox", style = "border-radius:6px; padding-left: 10px; font-size:20px; width: 5000px; height: 40px;", placeholder = "Partial matches will be found" })
+            <input class="form-control-lg btn-outline-primary" type="submit" id="searchBoxID" value="Search Now" style="border-radius: 10px" />
+        </h3>
     </div>
 
     <br />
@@ -35,31 +36,30 @@
 
                 @foreach (var item in Model)
                 {
-            <tr>
-                <td>
-                    <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(modelItem => item.ID)"></iframe>
-                </td>
-                <td >
-             
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.FIRSTNAME)
-                    @Html.DisplayFor(modelItem => item.LASTNAME)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.CITY), @Html.DisplayFor(modelItem => item.STATE)
-                   
-                </td>
-                <td>
-                    @if (item.VETSTATUS == true)
-                    {
-                        <img src="~/Photos/vet2.png" id="vetImage" style="height: 60px; width: 55px; border-radius: 0em; border: aqua; margin-top: 4em; margin-left: -470px;  " />
-                    }
-                </td>
-                <td>
-                    @Html.ActionLink("See Profile", "Details", new { id = item.ID })
-                </td>
-            </tr>
+                    <tr>
+                        <td>
+                            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(modelItem => item.ID)"></iframe>
+                        </td>
+                        <td>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.FIRSTNAME)
+                            @Html.DisplayFor(modelItem => item.LASTNAME)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.CITY), @Html.DisplayFor(modelItem => item.STATE)
+
+                        </td>
+                        <td>
+                            @if (item.VETSTATUS == true)
+                            {
+                                <img src="~/Photos/vet2.png" id="vetImage" style="height: 60px; width: 55px; border-radius: 0em; border: aqua; margin-top: 4em; margin-left: -470px;  " />
+                            }
+                        </td>
+                        <td>
+                            @Html.ActionLink("See Profile", "Details", new { id = item.ID })
+                        </td>
+                    </tr>
                 }
             </table>
         }
@@ -82,3 +82,5 @@
     }
 
 }
+
+<div id="helpLink"><p> Need help learning about how to Search? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</p></div>

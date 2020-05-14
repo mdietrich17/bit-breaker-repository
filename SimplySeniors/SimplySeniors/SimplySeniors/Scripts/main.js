@@ -14,6 +14,12 @@
     if (window.location.hash == "#MessageHelp") {
         messageInfo();
     }
+    if (window.location.hash == "#FriendHelp") {
+        friendInfo();
+    }
+    if (window.location.hash == "#ServiceHelp") {
+        serviceInfo();
+    }
 });
 
 //Searching for external events via AJAX call based on location and/or keyword
@@ -112,7 +118,7 @@ function profInfo() {
 function friendInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-        $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>*Update when Friends feature gets added*</p>'));
+    $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>*Update when Friends feature gets added*</p> <br /> <h3 id="descTitle">Suggested Friends</h3><br /><p>*Update when Suggested Friends feature gets added*</p>'));
 };
 
 function messageInfo() {
