@@ -4,11 +4,8 @@
     ViewBag.Title = "NewsFeed";
 }
 
-<h2>NewsFeed</h2>
-<a href="https://newsapi.org/">Powered by News API</a>
-<p>
-    @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
-</p>
+<h2 id="eventTitle">News Feed</h2> 
+<a href="https://newsapi.org/">Powered by News API</a> <br />
 
 
 @foreach (var item in Model) { 
@@ -81,3 +78,7 @@
     }
 </table>
 *@
+
+<p>
+    @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
+</p>
