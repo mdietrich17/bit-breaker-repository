@@ -162,13 +162,14 @@ namespace SimplySeniors.Controllers
         //Getting all necessary data for external events
         public ActionResult ExternalEvents()
         {
+            var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["eventApiKey"];
             string value = User.Identity.GetUserId();
             string profileCity = db2.Profiles.Where(x => x.USERID == value).Select(x => x.CITY).FirstOrDefault();
             string profileState = db2.Profiles.Where(x => x.USERID == value).Select(x => x.STATE).FirstOrDefault();
             string keywords = Request.QueryString["keywords"];
             string location = profileCity;
             string locationState = profileState;
-            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}%20{2}&page_size=50&include=price&include=tz_city&app_key=QhMNW3GgHB8WJZht", keywords, location, locationState);
+            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}%20{2}&page_size=50&include=price&include=tz_city&app_key={3}", keywords, location, locationState, appID);
             string json = SendRequest(newUrlName);
             JObject eventArray = JObject.Parse(json);
 
@@ -246,9 +247,10 @@ namespace SimplySeniors.Controllers
         //Searches through event API for keyword string and/or location string inputted by user
         public ActionResult SearchExternalEvents()
         {
+            var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["eventApiKey"];
             string keywords = Request["keyword"].ToString();
             string location = Request["location"].ToString();
-            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&page_size=50&include=price&include=tz_city&app_key=QhMNW3GgHB8WJZht", keywords, location);
+            string newUrlName = string.Format("http://api.eventful.com/json/events/search?keywords={0}&location={1}&page_size=50&include=price&include=tz_city&app_key={2}", keywords, location, appID);
             System.Diagnostics.Debug.WriteLine("new url name: " + newUrlName);
             string json = SendRequest(newUrlName);
             JObject eventArray = JObject.Parse(json);

@@ -44,7 +44,8 @@ namespace SimplySeniors.Controllers
             var state = profile.STATE;
             var city = profile.CITY;
             var address = "+" + city + "," + "+" + state + "," + "+USA";
-            var requestUri = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU";
+            var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["mapApiKey"];
+            var requestUri = $"https://maps.googleapis.com/maps/api/geocode/json?address={address}&key={appID}";
             var request = WebRequest.Create(requestUri);
             var response = request.GetResponse();
             StreamReader reader = new StreamReader(response.GetResponseStream());
@@ -114,7 +115,8 @@ namespace SimplySeniors.Controllers
 
         public ActionResult NewsFeed()
         {
-            string requestURL = string.Format("http://newsapi.org/v2/top-headlines?country=us&apiKey=d50d92800dcd4495957ff70fc0da42b2");
+            var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["newsApiKey"];
+            string requestURL = string.Format("http://newsapi.org/v2/top-headlines?country=us&apiKey={0}", appID);
             string json = new WebClient().DownloadString(requestURL);
             var jsonObj = JObject.Parse(json);
             JArray jsonarray = (JArray)jsonObj.SelectToken("articles");

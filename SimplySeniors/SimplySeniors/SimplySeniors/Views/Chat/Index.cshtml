@@ -36,7 +36,7 @@
         </tr>
     }
 </table>
-
+@{ var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["chatApiKey"]; }
 <script type="text/javascript" src="~/Scripts/chat.js"></script> @*Running custom chat.js in Scripts folder for interactive chat features.*@
 <script type="text/javascript" src="~/Scripts/Main.js"></script>
 

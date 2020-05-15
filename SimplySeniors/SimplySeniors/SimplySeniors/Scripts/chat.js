@@ -20,8 +20,10 @@ Talk.ready.then(function () {
         photoUrl: "https://demo.talkjs.com/img/alice.jpg",
         welcomeMessage: "Hey there! How are you? :-)"
     });
+    var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["chatApiKey"];
+
     window.talkSession = new Talk.Session({
-        appId: "tnDbD1Bo",
+        appId: appID,
         me: me
     });
 
