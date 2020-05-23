@@ -81,8 +81,13 @@
 
             <div class="col-md-6" id="boxPostFriend">
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
-
-                @foreach (var item in Model.PostList)
+                @if (Model.PostList.Count() == 0)
+                {
+                    <p>It looks like they haven't posted anything</p>
+                }
+                else
+                {
+                foreach (var item in Model.PostList)
                 {
                     <div id="individualPost">
                         <div id="statusName">
@@ -105,38 +110,45 @@
                         <hr />
                         @foreach (var item2 in Model.Comments.Where(x => x.PostID == item.ID))
                         {
-                            <div id="individualComment">
-                                <div id="statusName">
-                                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
-                                    @*Getting first and last name and making it into a link that redirects to profile page*@
-                                    @{var fullName2 = Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item2.CommentProfile.LASTNAME).ToString();}
-                                    @*If statement to redirect to whoever's post it is*@
-                                    @{if (Model.ProfileID != item2.CommentProfile.ID)
-                                        {
-                                            @Html.ActionLink(fullName2, "Details", "Profiles", new { id = item2.CommentProfile.ID }, null)
+                    <div id="individualComment">
+                        <div id="statusName">
+                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
+                            @*Getting first and last name and making it into a link that redirects to profile page*@
+                            @{var fullName2 = Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item2.CommentProfile.LASTNAME).ToString();}
+                            @*If statement to redirect to whoever's post it is*@
+                            @{if (Model.ProfileID != item2.CommentProfile.ID)
+                                {
+                                    @Html.ActionLink(fullName2, "Details", "Profiles", new { id = item2.CommentProfile.ID }, null)
+
+                                }
+                                else
+                                {
+                                    @Html.ActionLink(fullName2, "MyProfile", "Profiles", null, null)
+                                }
+                            }
+                            <div id="postDateProfile">@Html.DisplayFor(model => item2.CommentDate)</div>
+                        </div>
+                        <div id="postDescription">
+                            @Html.DisplayFor(model => item2.Text)
+                        </div>
+                    </div>
 
                                         }
-                                        else
-                                        {
-                                            @Html.ActionLink(fullName2, "MyProfile", "Profiles", null, null)
-                                        }
-                                    }
-                                    <div id="postDateProfile">@Html.DisplayFor(model => item2.CommentDate)</div>
-                                </div>
-                                <div id="postDescription">
-                                    @Html.DisplayFor(model => item2.Text)
-                                </div>
-                            </div>
-
-                        }
 
                     </div>
-                }
+                                        }
+                                        }
             </div>
             <div class="col-md-3" id="boxPostFriend">
                 <div id="homeHeader">Following</div> <hr />
-                @foreach (var item in Model.Followed)
+                @if (Model.Followed.Count() == 0)
                 {
+                    <p>They are not following anyone right now</p>
+                }
+                else
+                {
+                    foreach (var item in Model.Followed)
+                    {
                     <div id="friendName">
                         @*Getting first and last name and making it into a link that redirects to profile page*@
                         @{var fullName = Html.DisplayFor(model => item.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.LASTNAME).ToString();}
@@ -155,7 +167,8 @@
                         <br />
                         <div id="messageFriend">Message Friend</div> <hr />
                     </div>
-                }
+                                }
+                            }
 
             </div>
         </div>
