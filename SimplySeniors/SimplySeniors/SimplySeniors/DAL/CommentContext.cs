@@ -12,6 +12,7 @@ namespace SimplySeniors.DAL
         public CommentContext()
             : base("name=CommentContext")
          // : base("name=AzureConnection")
+
         {
         }
 
