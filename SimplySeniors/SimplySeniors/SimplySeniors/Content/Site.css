@@ -67,16 +67,18 @@ textarea {
 }
 
 #followersBox {
-    border-radius: 15px; 
-    margin-left: 730px;
+   
+
     width: 110%;
-    margin-top: -920px;
+    float: top;
+    
 }
+
 
 #homeHeader {
     font-weight: 600;
     padding-top: 1em;
-   
+  
   text-align: center;
 }
 
@@ -410,7 +412,7 @@ li {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer;
+   cursor: pointer;
 }
 
     #eventButton .btn-default {
@@ -560,7 +562,10 @@ div#box
     cursor: pointer;
     position: relative;
     top: 5px;
+
 }
+
+
 
     #followButton .btn-default {
         color: black;
@@ -597,14 +602,14 @@ iframe {
 }
 
 #map {
-    border-radius: 20px;
-
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 10px; 
 }
 
 #mapDiv {
-
-    margin-left: 20px;
-    margin-top: 7px; 
+    margin-left: 780px;
+    width: 68em;  
 }
 
 #homePageTable iframe {
@@ -789,6 +794,11 @@ iframe {
     #likeButton:hover {
         background-color: lightblue;
     }
+
+#homePageButtons {
+
+    margin-left: 14em;
+}
 
 #commentButton {
     border: none;
