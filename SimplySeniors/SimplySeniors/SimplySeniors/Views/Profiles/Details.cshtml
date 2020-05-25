@@ -83,7 +83,7 @@
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
                 @if (Model.PostList.Count() == 0)
                 {
-                    <p>It looks like they haven't posted anything</p>
+                    <p id="noPostsNoFriends">It looks like @Html.DisplayFor(model => model.ProfileFirstName) hasn't posted anything yet.<br /><br /></p>
                 }
                 else
                 {
@@ -143,7 +143,7 @@
                 <div id="homeHeader">Following</div> <hr />
                 @if (Model.Followed.Count() == 0)
                 {
-                    <p>They are not following anyone right now</p>
+            <p id="noPostsNoFriends"> It looks like @Html.DisplayFor(model => model.ProfileFirstName) is not currently following anyone.<br /><br /></p>
                 }
                 else
                 {

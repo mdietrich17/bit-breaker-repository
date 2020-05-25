@@ -16,7 +16,7 @@ namespace SimplySeniors.Models
         private ProfileContext db = new ProfileContext();
         protected void GetWeatherInfo(object sender, EventArgs e)
         {
-            var appId = "4368f653168e32c12db5f1d5b9842a63";
+            var appId = System.Web.Configuration.WebConfigurationManager.AppSettings["weatherApiKey"];
             var id = User.Identity.GetUserId();                              // Getting user Id of currently logged in user. 
             ProfileContext profiledb = new ProfileContext();                    // Opening profile connection so that I can get the city and state from user. 
             Profile profile = profiledb.Profiles.FirstOrDefault(u => u.USERID == id);    // Get all profile info for current logged in user where the ASPNET ID = profile ID

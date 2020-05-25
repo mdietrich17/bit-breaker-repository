@@ -28,6 +28,7 @@
 </table>
 <br />
 <br />
+
 <div id="homePageButtons">
     <button id="eventButton" onclick="window.location.href = '/Posts/Create'">
         Create Post
@@ -37,8 +38,6 @@
     @Html.ActionLink("Chat Now", "Index", "Chat", new { id = Model.ProfileID }, new { id = "eventButton" })
     @Html.ActionLink("Follower Suggestions", "search", "Profiles", null, new { id = "eventButton" })
 </div>
-
-
 
 <div class="container">
     <div id="map" class="container" style="width: 93%"></div>
@@ -126,7 +125,6 @@
                         @{if (Model.ProfileID != item.ID)
                             {
                                 @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
-
                             }
                             else
                             {
@@ -137,6 +135,7 @@
                         <br />
                         <div id="messageFriend">Message Friend</div> <hr />
                     </div>
+
                 }
             }
 
@@ -163,4 +162,13 @@
     }
 </script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvdkMhKjOodZKxdR-ZBj1ImZd6NE_1bCU&callback=initMap" async defer></script>
+@{ var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["mapApiKey"];
+}
+<input type="hidden" id="PassingToJavaScript1" value=@appID>
+
+<script> var p1=document.getElementById('PassingToJavaScript1').value;
+        var script = document.createElement('script');
+        script.src = "https://maps.googleapis.com/maps/api/js?key="+p1+"&callback=initMap";
+        document.getElementsByTagName('script')[0].parentNode.appendChild(script);
+    </script>
+
