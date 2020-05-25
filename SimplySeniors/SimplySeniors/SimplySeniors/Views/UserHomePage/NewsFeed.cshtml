@@ -10,6 +10,7 @@
     @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
 </p>
 
+<input type="text" id="myInput" onkeyup="searchfunction()" placeholder="Search for names.." title="Type in a name">
 
 @foreach (var item in Model) { 
 <div id="individualPost">
@@ -26,6 +27,28 @@
 
 
 }
+<script>
+    function searchfunction() {
+        var input, filter, ul, li, a, i, txtValue;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        posts = document.getElementById("individualPost");
+        console.log(posts);
+        li = posts.getElementsByTagName("div");
+        console.log(5);
+        console.log(li);
+        for (i = 0; i < li.length; i++) {
+            a = li[i].getElementsByTagName("a")[0];
+            txtValue = a.textContent || a.innerText;
+            if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                li[i].style.display = "";
+            } else {
+                li[i].style.display = "none";
+            }
+        }
+    }
+</script>
+
 @*<table class="table">
     <tr>
         <th>
