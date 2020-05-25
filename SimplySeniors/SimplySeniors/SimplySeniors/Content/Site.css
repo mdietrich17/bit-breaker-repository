@@ -831,6 +831,10 @@ iframe {
         color: darkblue;
     }
 
+    #noPostsNoFriends {
+        font-size: 20px;
+    }
+
     /* REGISTRATION AND LOGIN FORMS */
 
 #registerBox {

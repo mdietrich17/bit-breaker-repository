@@ -43,7 +43,7 @@
         <div id="homeHeader">Posts</div> <hr />
         @if (Model.PostList.Count() == 0)
         {
-            <p>It looks like you don't have any posts yet</p>
+            <p id="noPostsNoFriends">It looks like you don't have any posts yet.<br /><br /></p>
         }
         else
         {
@@ -124,7 +124,7 @@
         <div id="homeHeader">Following</div> <hr />
         @if (Model.Followed.Count() == 0)
         {
-            <p>You haven't followed anyone yet</p> 
+            <p id="noPostsNoFriends">It looks like you aren't following anyone yet. <br /><br /></p> 
         }
         else
         {

@@ -20,6 +20,9 @@
     if (window.location.hash == "#ServiceHelp") {
         serviceInfo();
     }
+    if (window.location.hash == "#NewsHelp") {
+        newsInfo();
+    }
     if (window.location.hash == "#FAQHelp") {
         FAQInfo();
     }
@@ -121,7 +124,7 @@ function profInfo() {
 function friendInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-    $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>Following is as easy as clicking <a href="/Profiles">Search</a> on the navigation menu at the top, searching for anyone you might know, clicking "See Profile" next to their name, and clicking "Follow". You can also follow from other profile pages by clicking on somebody from a Followers list, and clicking "Follow" once you get to their Profile page. Once you follow someone, their posts will show up on your <a href="/Home">Home</a> page. </p> <br /> <h3 id="descTitle">Suggested Friends</h3><br /><p>The <a href="/Profiles/search">Suggested Followers</a> page works by suggesting you followers/friends based on both your location that you inputted during profile creation, and your hobbies. If you put that you live in Seattle, Washington and you like golf as a hobby, your top suggested friends will be those who live in Seattle and like golf. The suggested friends that pop up first suggest friends based on whoever is closest to you and like the same hobbies. However, if someone lives near you, but does not necessarily like your hobbies, we will still display whoever is closest to you first, and then whoever shares your hobbies second.</p>'));
+    $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>Following is as easy as clicking <a href="/Profiles">Search</a> on the navigation menu at the top, searching for anyone you might know, clicking "See Profile" next to their name, and clicking "Follow". You can also follow from other profile pages by clicking on somebody from a Followers list, and clicking "Follow" once you get to their Profile page. Once you follow someone, their posts will show up on your <a href="/Home">Home</a> page. </p> <br /> <h3 id="descTitle">Suggested Followers</h3><br /><p>The <a href="/Profiles/search">Suggested Followers</a> page works by suggesting you followers/friends based on both your location that you inputted during profile creation, and your hobbies. If you put that you live in Seattle, Washington and you like golf as a hobby, your top suggested friends will be those who live in Seattle and like golf. The suggested friends that pop up first suggest friends based on whoever is closest to you and like the same hobbies. However, if someone lives near you, but does not necessarily like your hobbies, we will still display whoever is closest to you first, and then whoever shares your hobbies second.</p>'));
 };
 
 function messageInfo() {
@@ -140,6 +143,12 @@ function eventInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
     $('#description').append($('<h3 id="descTitle">About Events Page</h3><br /><p> Our Events page is designed to bring you all of the details on the latest events near you! To view the Events page, <a href="/Events">Click here</a>. This page consists of both internal and external events that you may choose to participate in. </p> <br /> <h3 id="descTitle">Simply Seniors Events (Internal Events)</h3><br /><p> "Simply Seniors Events", also known as "Internal Events" are events that are created by the developers/hosts of Simply Seniors. To view information about an event, select "Details" on the event you wish to know more about. To search for events based on the name of the event or the location, click on "Search for Events", type in whatever you would like, and click "Search Now". To see more details about a certain event (such as the location, description, and time of the event), select "See Details". To search for another event, simply type in your new search and click "Search Now". To create an event, go back to the <a href="/Events">Events</a> page and click "Create New Event". You will then be redirected to a new page to fill out information about your event. Once everything looks good, double check it and hit "Create"! Your event will now appear in searches and on the main Events page. </p> <br /> <h3 id="descTitle">Events Near You (External Events)</h3><br /><p> "Events Near You", also known as "External Events" are events that are external to the Simply Seniors website. These events are gathered from many resources, and are defaulted to display events near whatever location you put upon profile creation. If you put that you lived in Seattle, Washington upon profile creation, you will get events that appear in Seattle, Washington. If you change your location, your events automatically update for you. If you do not want to just see events near your current location, you can always search by keyword or location in the above search box, and click "Search". </p>'));
+};
+
+function newsInfo() {
+    document.getElementById("description").remove();
+    $('#descriptionOutside').append($('<div id="description"></div> '));
+    $('#description').append($('<h3 id="descTitle">About News Page</h3><br /><p> Our News page is designed to bring you the latest news from a wide variety of different sources. To view the News page, simply click on the "News" tab on the Navigation bar at the top, or <a href="/UserHomePage/NewsFeed">Click here</a> to keep up to date with the latest news stories. </p>'));
 };
 
 function FAQInfo() {
