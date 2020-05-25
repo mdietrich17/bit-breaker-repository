@@ -492,10 +492,6 @@
     <Content Include="Views\Profiles\MyProfile.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\UserHomePage\NewsFeed.cshtml" />
-    <Content Include="Views\Chat\Create.cshtml" />
-    <Content Include="Views\Chat\Delete.cshtml" />
-    <Content Include="Views\Chat\Details.cshtml" />
-    <Content Include="Views\Chat\Edit.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\PostComments\Create.cshtml" />
     <Content Include="Views\PostComments\Delete.cshtml" />
