@@ -913,6 +913,8 @@ iframe {
 #addHobbyButton {
     width: 100%; 
     margin-left: 350px; 
+    background-color: lightgrey;
+    color: black;
 }
 
 #cityBox {
