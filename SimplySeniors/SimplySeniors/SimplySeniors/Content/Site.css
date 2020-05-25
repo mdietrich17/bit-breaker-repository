@@ -66,10 +66,20 @@ textarea {
     text-shadow: 3px 3px white;
 }
 
+#followersBox {
+   
+
+    width: 110%;
+    float: top;
+    
+}
+
+
 #homeHeader {
     font-weight: 600;
     padding-top: 1em;
-    text-align: center;
+  
+  text-align: center;
 }
 
 #welcomeMessage {
@@ -407,7 +417,7 @@ li {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer;
+   cursor: pointer;
 }
 
     #eventButton .btn-default {
@@ -518,7 +528,7 @@ div#box
 
 #boxPostFriend.col-md-6 {
     background: white;
-    border-radius: 20px;
+   border-radius: 20px;
 }
 
 #profileInfo {
@@ -560,7 +570,10 @@ div#box
     cursor: pointer;
     position: relative;
     top: 5px;
+
 }
+
+
 
     #followButton .btn-default {
         color: black;
@@ -594,6 +607,17 @@ div#box
 /*USER HOME PAGE STYLING BELOW*/
 iframe {
     border-radius: 20px;
+}
+
+#map {
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 10px; 
+}
+
+#mapDiv {
+    margin-left: 780px;
+    width: 68em;  
 }
 
 #homePageTable iframe {
@@ -679,7 +703,7 @@ iframe {
         float: left;
     }
     #friendName {
-    font-size: 20px;
+     font-size: 20px;
 }
 
     #friendName img {
@@ -777,6 +801,11 @@ iframe {
     #likeButton:hover {
         background-color: lightblue;
     }
+
+#homePageButtons {
+
+    margin-left: 14em;
+}
 
 #commentButton {
     border: none;

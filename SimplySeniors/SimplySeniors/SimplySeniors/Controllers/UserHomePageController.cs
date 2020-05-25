@@ -88,31 +88,6 @@ namespace SimplySeniors.Controllers
             return Json(person, JsonRequestBehavior.AllowGet);
         }
 
-        /*
-        [HttpPost]
-        public async Task<ActionResult> PushNotification()
-        {
-            var options = new PusherOptions
-            {
-                Cluster = "us3",
-                Encrypted = true
-            };
-
-            var pusher = new Pusher(
-                "988305",
-                "fa4d7066737eec81ca0a",
-                "f87324a6080b01730d2a",
-                options);
-
-            var result = await pusher.TriggerAsync(
-                "my-channel",
-                "my-event",
-                new { message = "hello world" });
-
-            return new HttpStatusCodeResult((int)HttpStatusCode.OK);
-        }
-        */
-
         public ActionResult NewsFeed()
         {
             var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["newsApiKey"];
