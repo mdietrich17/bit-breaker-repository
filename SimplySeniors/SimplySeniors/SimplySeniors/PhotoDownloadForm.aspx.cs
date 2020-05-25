@@ -16,8 +16,9 @@ namespace SimplySeniors
         {
 
 
-           // string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-            string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+            string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+
+          //  string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
 
 

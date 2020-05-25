@@ -84,9 +84,14 @@
 
             <div class="col-md-6" id="boxPostFriend">
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
-
-                @foreach (var item in Model.PostList)
+                @if (Model.PostList.Count() == 0)
                 {
+                    <p>It looks like you don't have any posts</p>
+                }
+                else
+                {
+                    foreach (var item in Model.PostList)
+                    {
                     <div id="individualPost">
                         <div id="statusName">
                             <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
@@ -135,14 +140,21 @@
                                 </div>
                             </div>
 
-                        }
+                                        }
 
                     </div>
-                }
+                                            }
+                                        }
             </div>
             <div class="col-md-3" id="boxPostFriend">
                 <div id="homeHeader">Following</div> <hr />
-                @foreach (var item in Model.Followed)
+                @if (Model.Followed.Count() == 0)
+                {
+                    <p>It looks like you aren't following anyone</p>
+                }
+                else
+                {
+                foreach (var item in Model.Followed)
                 {
             <div id="friendName">
                 @*Getting first and last name and making it into a link that redirects to profile page*@
@@ -162,8 +174,8 @@
                 <br />
                 <div id="messageFriend">Message Friend</div> <hr />
             </div>
-                }
-
+                    }
+                    }
             </div>
         </div>
 

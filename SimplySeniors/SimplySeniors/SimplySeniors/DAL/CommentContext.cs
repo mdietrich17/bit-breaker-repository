@@ -10,8 +10,9 @@ namespace SimplySeniors.DAL
     public partial class CommentContext : DbContext
     {
         public CommentContext()
-        //    : base("name=CommentContext")
-          : base("name=AzureConnection")
+            : base("name=CommentContext")
+         // : base("name=AzureConnection")
+
         {
         }
 
