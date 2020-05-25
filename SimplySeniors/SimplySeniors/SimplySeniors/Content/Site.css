@@ -66,10 +66,18 @@ textarea {
     text-shadow: 3px 3px white;
 }
 
+#followersBox {
+    border-radius: 15px; 
+    margin-left: 730px;
+    width: 110%;
+    margin-top: -920px;
+}
+
 #homeHeader {
     font-weight: 600;
     padding-top: 1em;
-    text-align: center;
+   
+  text-align: center;
 }
 
 #welcomeMessage {
@@ -510,7 +518,7 @@ div#box
 
 #boxPostFriend.col-md-6 {
     background: white;
-    border-radius: 20px;
+   border-radius: 20px;
 }
 
 #profileInfo {
@@ -586,6 +594,17 @@ div#box
 /*USER HOME PAGE STYLING BELOW*/
 iframe {
     border-radius: 20px;
+}
+
+#map {
+    border-radius: 20px;
+
+}
+
+#mapDiv {
+
+    margin-left: 20px;
+    margin-top: 7px; 
 }
 
 #homePageTable iframe {
@@ -671,7 +690,7 @@ iframe {
         float: left;
     }
     #friendName {
-    font-size: 20px;
+     font-size: 20px;
 }
 
     #friendName img {
