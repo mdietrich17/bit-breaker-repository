@@ -127,7 +127,7 @@ function friendInfo() {
 function messageInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-    $('#description').append($('<h3 id="descTitle">How to Send Messages</h3><br /><p>You can send messages by going to your Home page and selecting "Chat Now", or by clicking <a href="/chat">Here</a>. The "Available Members" list on the left-hand side is a list of members of the Simply Seniors website that you can chat with. As of right now, you are able to chat with 🤖 bots, but not real users quite yet. Check back in later to see how to message users! </p>'));
+    $('#description').append($('<h3 id="descTitle">How to Send Messages</h3><br /><p>You can send messages by going to your Home page and selecting "Chat Now", or by clicking <a href="/chat">Here</a>. The "Available Members" list on the left-hand side is a list of members of the Simply Seniors website that you can chat with. As of right now, you are able to chat with bots, but not real users quite yet. Check back in later to see how to message users! </p>'));
 };
 
 function serviceInfo() {
