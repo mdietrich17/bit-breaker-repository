@@ -9,7 +9,6 @@ body {
     background-attachment: fixed;
 }
 
-
 .carousel-item {
     height: 65vh;
     min-height: 300px;
@@ -17,8 +16,8 @@ body {
     background-size: cover;
 }
 
-.portfolio-item {
-    margin-bottom: 30px;
+.portfolio-item { margin-bottom: 30px; 
+
 }
 
 .dl-horizontal dt { /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/

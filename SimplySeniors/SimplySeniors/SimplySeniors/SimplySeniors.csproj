@@ -279,6 +279,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Photos\404.png" />
     <Content Include="Photos\aarp.jpg" />
     <Content Include="Photos\carPhoto1.jpg" />
     <Content Include="Photos\carPhotoThree.jpg" />
@@ -500,6 +501,7 @@
     <Content Include="Views\PostComments\Index.cshtml" />
     <Content Include="Views\Profiles\search.cshtml" />
     <Content Include="Views\FollowLists\AjaxCreate.cshtml" />
+    <Content Include="Views\Home\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
