@@ -726,18 +726,38 @@ iframe {
     font-size: 15px;
     }
 
-    #statusName {
-        text-align: left;
-    }
+#commentName {
+    
+    text-align: left;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+#postPicFrameMyProfile {
+    margin-left: 330px;
+    margin-top: -16px;
+}
+
+#picComments {
+    float: right;
+}
+
+#statusName {
+    margin-top: -140px;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 700;
+}
 
         #statusName img {
             border: solid;
             border-color: lightblue;
-            width: 10%;
+            width: 100%;
             border-width: 1px;
             border-radius: 90px;
         }
     #statusTitle {
+      
         text-align: left;
         padding-bottom: 20px;
     }
@@ -760,6 +780,10 @@ iframe {
     border-width: 1px;
     margin-top: -15px;
     margin-bottom: 20px;
+}
+
+#postPicFrame { /*image that shows in the post box.*/
+    margin-left: 16.6em; 
 }
 
 #postSettings {
@@ -787,7 +811,7 @@ iframe {
     }
 
     #postDateProfile {
-    margin-left: 60px;
+    margin-left: 0px;
     font-size: 20px;
     margin-top: -10px;
     margin-bottom: 10px;
