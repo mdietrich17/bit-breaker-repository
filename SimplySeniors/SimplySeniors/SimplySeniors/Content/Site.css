@@ -9,7 +9,10 @@ body {
     background-attachment: fixed;
 }
 
-
+#customError {
+    height:  70%;
+    width: 100%; 
+}
 
 .dl-horizontal dt { /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
     white-space: normal;
