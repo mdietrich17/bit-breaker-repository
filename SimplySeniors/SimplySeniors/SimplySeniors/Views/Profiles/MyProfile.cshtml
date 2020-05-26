@@ -83,6 +83,7 @@
 
             </div>
 
+
             <div class="col-md-6" id="boxPostFriend" style="float: left;">
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
                 @if (Model.PostList.Count() == 0)
@@ -186,7 +187,7 @@
 
             <br />
             <p id="profileLink">
-                @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })
                 @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
             </p>
         </div>
