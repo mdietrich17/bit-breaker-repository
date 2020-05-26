@@ -84,7 +84,7 @@
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
                 @if (Model.PostList.Count() == 0)
                 {
-                    <p>It looks like you don't have any posts</p>
+                    <p id="noPostsNoFriends">It looks like @Html.DisplayFor(model => model.ProfileFirstName) doesn't have any posts</p>
                 }
                 else
                 {
@@ -106,10 +106,6 @@
                             </div>
                             <div id="postDescription">
                                 @Html.DisplayFor(model => item.Body)
-                            </div>
-                            <div id="postSettings">
-                                @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
-                                @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
                             </div>
                             <div class="col-md-6">
                                 @Html.ActionLink("👍 Like", "Like", "Posts", new { id = item.ID }, new { id = "likeButton2" })
@@ -152,7 +148,7 @@
                 <div id="homeHeader">Following</div> <hr />
                 @if (Model.Followed.Count() == 0)
                 {
-                    <p>It looks like you aren't following anyone</p>
+                    <p id="noPostsNoFriends">It looks like @Html.DisplayFor(model => model.ProfileFirstName) isn't following anyone</p>
                 }
                 else
                 {
@@ -183,7 +179,6 @@
 
             <br />
             <p id="profileLink">
-                @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })
                 @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
             </p>
         </div>

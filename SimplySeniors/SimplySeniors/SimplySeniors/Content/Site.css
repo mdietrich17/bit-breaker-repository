@@ -563,6 +563,10 @@ div#box
         text-shadow: 1px 1px blue;
     }
 
+#profileLink {
+    padding-top: 20px;
+}
+
 #followButton {
     background-color: lightcyan;
     border: none;
@@ -730,7 +734,7 @@ iframe {
     
     text-align: left;
     font-size: 34px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
 #postPicFrameMyProfile {
@@ -746,7 +750,7 @@ iframe {
     margin-top: -140px;
     text-align: left;
     font-size: 34px;
-    font-weight: 700;
+    font-weight: 600;
 }
 
         #statusName img {
@@ -760,6 +764,8 @@ iframe {
       
         text-align: left;
         padding-bottom: 20px;
+        position: relative;
+        top: 10px;
     }
 
     #individualPost {
@@ -771,6 +777,16 @@ iframe {
         margin-top: 20px;
         margin-bottom: 20px;
     }
+
+        #individualPost a {
+            position: relative;
+            top: -10px;
+        }
+
+        #individualPost #statusName #postDateProfile {
+            position: relative;
+            top: 10px;
+        }
 
 #individualComment {
     border: solid;
@@ -826,7 +842,7 @@ iframe {
     text-align: center;
     text-decoration: none;
     font-size: 16px;
-    margin-left: -190px;
+    margin-left: -195px;
     cursor: pointer;
 }
 
