@@ -728,6 +728,7 @@ iframe {
 
     #statusName {
         text-align: left;
+        
     }
 
         #statusName img {
@@ -738,6 +739,7 @@ iframe {
             border-radius: 90px;
         }
     #statusTitle {
+       
         text-align: left;
         padding-bottom: 20px;
     }
