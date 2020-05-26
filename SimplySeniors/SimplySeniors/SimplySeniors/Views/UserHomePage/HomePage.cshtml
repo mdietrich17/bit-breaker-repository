@@ -40,7 +40,7 @@
 </div>
 
 <div class="container">
-    <div id="map" class="container" style="width: 93%"></div>
+    <div id="map" class="container" style="width: 92%"></div>
     <div class="row">
 
 
@@ -54,11 +54,13 @@
             {
                 foreach (var item in Model.PostList)
                 {
-        <div id="individualPost">
-            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => item.PostProfile.ID)" alt=""></iframe>
-            <div id="statusName">
+                    <div id="individualPost">
+                        <div id="postPicFrame">
+                            @*POST IMAGE BELOW*@
+                            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => item.PostProfile.ID)" alt=""></iframe>
+                        </div>
+                            <div id="statusName">
 
-                @* <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@@*later connect to profile pic from db*@
                 @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
                 @Html.DisplayFor(model => item.PostProfile.LASTNAME)
                 <div id="postDateProfile">@Html.DisplayFor(model => item.PostDate)</div>
@@ -82,8 +84,8 @@
             @foreach (var item2 in Model.Comments.Where(x => x.PostID == item.ID))
             {
                 <div id="individualComment">
-                    <div id="statusName">
-                        <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
+                    <div id="commentName">
+                      
                         @*Getting first and last name and making it into a link that redirects to profile page*@
                         @{var fullName2 = Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item2.CommentProfile.LASTNAME).ToString();}
                         @*If statement to redirect to whoever's post it is*@
