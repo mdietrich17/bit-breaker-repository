@@ -10,6 +10,16 @@ body {
 }
 
 
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
+
+.portfolio-item {
+    margin-bottom: 30px;
+}
 
 .dl-horizontal dt { /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
     white-space: normal;
@@ -61,7 +71,6 @@ textarea {
 #welcomeBanner {
     text-align: center;
     font-size: 5em;
-    padding-top: .5em;
     font-weight: 800;
     text-shadow: 3px 3px white;
 }
