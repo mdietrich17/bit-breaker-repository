@@ -733,6 +733,15 @@ iframe {
     font-weight: 700;
 }
 
+#postPicFrameMyProfile {
+    margin-left: 330px;
+    margin-top: -16px;
+}
+
+#picComments {
+    float: right;
+}
+
 #statusName {
     margin-top: -140px;
     text-align: left;
