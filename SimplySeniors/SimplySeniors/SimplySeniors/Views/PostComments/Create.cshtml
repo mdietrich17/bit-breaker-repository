@@ -43,7 +43,7 @@
                 <div class="col-md-offset-2 col-md-10">
                     <input type="hidden" name="postID" value="@Html.DisplayFor(model => model.PostID)"/>
                     <input type="hidden" name="text" value="@Html.DisplayFor(model => model.Text)"/>
-                    <input type="submit" value="✍️ Comment" class="btn btn-default" id="commentButton2"/>
+                    <input type="submit" value="✍️ Comment" class="btn btn-default" id="commentButton2"/> @*using history.back() to go back a page once the user submits the comment.*@
                 </div>
             </div>
         </div>
