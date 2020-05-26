@@ -11,13 +11,13 @@
 
 @foreach (var item in Model)
 {
-    <div id="individualPost">
+    <div id="individualPost2" style="margin-top: 2em; background: lightcyan; padding: 2em;  border: solid; border-radius: 20px;" >
         <img href=@Html.DisplayFor(modelItem => item.URLImage)>
-        <div id="statusName">@Html.DisplayFor(modelItem => item.SourceName)</div>
-        <div id="statusName">@Html.DisplayFor(modelItem => item.Author)</div>
+        <div id="statusName2" style="margin-top: -1em; font-weight: 600; font-size: 35px;">@Html.DisplayFor(modelItem => item.SourceName)</div>
+        <div id="statusName2">@Html.DisplayFor(modelItem => item.Author)</div>
         <hr />
         <a href="@Html.DisplayFor(modelItem => item.URL)" id="statusTitle">@Html.DisplayFor(modelItem => item.Title)</a>
-        <div id="postDescription">
+        <div id="postDescription2">
             @Html.DisplayFor(modelItem => item.Description)
         </div>
         <div>@Html.DisplayFor(modelItem => item.PublishTime)</div>
