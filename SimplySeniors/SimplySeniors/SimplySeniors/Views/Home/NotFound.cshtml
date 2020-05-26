@@ -1,0 +1,12 @@
+﻿
+@{
+    ViewBag.Title = "NotFound";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<img  id="customError"  src="/Photos/404.png" />
+
+<h2 id="custom message "> You see this page because we are unable to locate the specific page you are looking for. Please check your URL in the top bar of your browser or simply click the link below to go back to your homepage. </h2>
+
+@Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
