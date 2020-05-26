@@ -279,6 +279,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Photos\404.png" />
     <Content Include="Photos\aarp.jpg" />
     <Content Include="Photos\carPhoto1.jpg" />
     <Content Include="Photos\carPhotoThree.jpg" />
@@ -492,10 +493,6 @@
     <Content Include="Views\Profiles\MyProfile.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\UserHomePage\NewsFeed.cshtml" />
-    <Content Include="Views\Chat\Create.cshtml" />
-    <Content Include="Views\Chat\Delete.cshtml" />
-    <Content Include="Views\Chat\Details.cshtml" />
-    <Content Include="Views\Chat\Edit.cshtml" />
     <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\PostComments\Create.cshtml" />
     <Content Include="Views\PostComments\Delete.cshtml" />
@@ -504,6 +501,7 @@
     <Content Include="Views\PostComments\Index.cshtml" />
     <Content Include="Views\Profiles\search.cshtml" />
     <Content Include="Views\FollowLists\AjaxCreate.cshtml" />
+    <Content Include="Views\Home\NotFound.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptCompile Include="Scripts\index.d.ts" />
@@ -546,6 +544,7 @@
           <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
         </WebProjectProperties>
       </FlavorProperties>
+      <UserProperties content_4bootstrap-grid_1css_1map__JsonSchema="" />
     </VisualStudio>
   </ProjectExtensions>
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

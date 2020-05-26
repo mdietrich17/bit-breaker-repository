@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Add New Hobby</h2>
+<h2 id="eventTitle">Add New Hobby</h2>
 
 
 @using (Html.BeginForm()) 
@@ -13,7 +13,7 @@
     
     <div class="form-horizontal">
         <hr />
-        <p>Please add general hobbies to be able to connect to more users</p>
+        <p>Please add general hobbies from the dropdown list below to be able to connect to more users: </p>
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group" id="editBox">
             @Html.LabelFor(model => model.HobbiesID, htmlAttributes: new { @class = "control-label col-md-3" })
@@ -25,7 +25,7 @@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-outline-primary" />
+                <input type="submit" value="Add Hobby" class="btn btn-outline-primary" id="eventButton" />
             </div>
         </div>
     </div>

@@ -73,7 +73,8 @@
                         <p class="font-weight-bold" style="margin-bottom: 0px;"> @Html.DisplayNameFor(model => model.ProfileFamily) </p>
                         @Html.DisplayFor(model => model.ProfileFamily)
                     </div>
-                    <div class="col-md-12"> <hr />
+                    <div class="col-md-12">
+                        <hr />
                         <p class="font-weight-bold text-center" style="margin-top: 20px; margin-bottom: 1px;"> @Html.DisplayNameFor(model => model.ProfileBIO) </p>
                         <p class="text" style="font-size: 14px;"> @Html.DisplayFor(model => model.ProfileBIO)</p>
                     </div>
@@ -82,7 +83,8 @@
 
             </div>
 
-            <div class="col-md-6" id="boxPostFriend">
+
+            <div class="col-md-6" id="boxPostFriend" style="float: left;">
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
                 @if (Model.PostList.Count() == 0)
                 {
@@ -92,59 +94,63 @@
                 {
                     foreach (var item in Model.PostList)
                     {
-                    <div id="individualPost">
-                        <div id="statusName">
-                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                            @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
-                            @Html.DisplayFor(model => item.PostProfile.LASTNAME)
-                            <div id="postDateProfile">@Html.DisplayFor(model => item.PostDate)</div>
-                        </div>
-                        <div id="statusTitle">
-                            @Html.DisplayFor(model => item.Title)
-                        </div>
-                        <div id="postDescription">
-                            @Html.DisplayFor(model => item.Body)
-                        </div>
-                        <div id="postSettings">
-                            @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
-                            @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
-                        </div>
-                        <div class="col-md-6">
-                            @Html.ActionLink("👍 Like", "Like", "Posts", new { id = item.ID }, new { id = "likeButton2" })
-                            @Html.ActionLink("✍️ Comment", "Create", "PostComments", new { id = item.ID }, new { id = "commentButton" })
-                            <div id="likeNum2">@Html.DisplayFor(model => item.Likes) Like(s) </div>
-                        </div>
-                        <hr />
-                        @foreach (var item2 in Model.Comments.Where(x => x.PostID == item.ID))
-                        {
-                            <div id="individualComment">
-                                <div id="statusName">
-                                    <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
-                                    @*Getting first and last name and making it into a link that redirects to profile page*@
-                                    @{var fullName2 = Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item2.CommentProfile.LASTNAME).ToString();}
-                                    @*If statement to redirect to whoever's post it is*@
-                                    @{if (Model.ProfileID != item2.CommentProfile.ID)
-                                        {
-                                            @Html.ActionLink(fullName2, "Details", "Profiles", new { id = item2.CommentProfile.ID }, null)
-
-                                        }
-                                        else
-                                        {
-                                            @Html.ActionLink(fullName2, "MyProfile", "Profiles", null, null)
-                                        }
-                                    }
-                                    <div id="postDateProfile">@Html.DisplayFor(model => item2.CommentDate)</div>
-                                </div>
-                                <div id="postDescription">
-                                    @Html.DisplayFor(model => item2.Text)
-                                </div>
+                        <div id="individualPost">
+                            <div id="postPicFrameMyProfile">
+                                @*POST IMAGE BELOW*@
+                                <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => item.PostProfile.ID)" alt=""></iframe>
                             </div>
+                            <div id="statusName">
 
-                                        }
+                                @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
+                                @Html.DisplayFor(model => item.PostProfile.LASTNAME)
+                                <div id="postDateProfile">@Html.DisplayFor(model => item.PostDate)</div>
+                            </div>
+                            <div id="statusTitle">
+                                @Html.DisplayFor(model => item.Title)
+                            </div>
+                            <div id="postDescription">
+                                @Html.DisplayFor(model => item.Body)
+                            </div>
+                            <div id="postSettings">
+                                @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
+                                @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
+                            </div>
+                            <div class="col-md-6">
+                                @Html.ActionLink("👍 Like", "Like", "Posts", new { id = item.ID }, new { id = "likeButton2" })
+                                @Html.ActionLink("✍️ Comment", "Create", "PostComments", new { id = item.ID }, new { id = "commentButton" })
+                                <div id="likeNum2">@Html.DisplayFor(model => item.Likes) Like(s) </div>
+                            </div>
+                            <hr />
+                            @foreach (var item2 in Model.Comments.Where(x => x.PostID == item.ID))
+                            {
+                                <div id="individualComment">
+                                    <div id="commentName">
 
-                    </div>
+                                        @*Getting first and last name and making it into a link that redirects to profile page*@
+                                        @{var fullName2 = Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item2.CommentProfile.LASTNAME).ToString();}
+                                        @*If statement to redirect to whoever's post it is*@
+                                        @{if (Model.ProfileID != item2.CommentProfile.ID)
+                                            {
+                                                @Html.ActionLink(fullName2, "Details", "Profiles", new { id = item2.CommentProfile.ID }, null)
+
+                                            }
+                                            else
+                                            {
+                                                @Html.ActionLink(fullName2, "MyProfile", "Profiles", null, null)
                                             }
                                         }
+                                        <div id="postDateProfile">@Html.DisplayFor(model => item2.CommentDate)</div>
+                                    </div>
+                                    <div id="postDescription">
+                                        @Html.DisplayFor(model => item2.Text)
+                                    </div>
+                                </div>
+
+                            }
+
+                        </div>
+                    }
+                }
             </div>
             <div class="col-md-3" id="boxPostFriend">
                 <div id="homeHeader">Following</div> <hr />
@@ -154,37 +160,37 @@
                 }
                 else
                 {
-                foreach (var item in Model.Followed)
-                {
-            <div id="friendName">
-                @*Getting first and last name and making it into a link that redirects to profile page*@
-                @{var fullName = Html.DisplayFor(model => item.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.LASTNAME).ToString();}
-                @*If statement to redirect to whoever's post it is*@
-                @{if (Model.ProfileID != item.ID)
+                    foreach (var item in Model.Followed)
                     {
-                        @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
+                        <div id="friendName">
+                            @*Getting first and last name and making it into a link that redirects to profile page*@
+                            @{var fullName = Html.DisplayFor(model => item.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.LASTNAME).ToString();}
+                            @*If statement to redirect to whoever's post it is*@
+                            @{if (Model.ProfileID != item.ID)
+                              {
+                                  @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
+                              }
+                              else
+                              {
+                                  @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
+                              }
+                            }
+                            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
+                            <br />
+                            <div id="messageFriend">Message Friend</div> <hr />
+                        </div>
 
-                    }
-                    else
-                    {
-                        @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
                     }
                 }
-                <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
-                <br />
-                <div id="messageFriend">Message Friend</div> <hr />
-            </div>
-                    }
-                    }
-            </div>
-        </div>
 
-        <br />
-        <p id="profileLink">
-            @*@Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })*@
-            @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
-        </p>
-    </div>
+            </div>
+
+            <br />
+            <p id="profileLink">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID })
+                @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
+            </p>
+        </div>
 </div>
 
 <div id="helpLink" style="margin-left:-35px"><p> Need help learning about all of the features on your Profile page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</p></div>

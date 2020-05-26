@@ -9,7 +9,16 @@ body {
     background-attachment: fixed;
 }
 
+.carousel-item {
+    height: 65vh;
+    min-height: 300px;
+    background: no-repeat center center scroll;
+    background-size: cover;
+}
 
+.portfolio-item { margin-bottom: 30px; 
+
+}
 
 .dl-horizontal dt { /* Override the default bootstrap behavior where horizontal description lists will truncate terms that are too long to fit in the left column*/
     white-space: normal;
@@ -61,15 +70,24 @@ textarea {
 #welcomeBanner {
     text-align: center;
     font-size: 5em;
-    padding-top: .5em;
     font-weight: 800;
     text-shadow: 3px 3px white;
 }
 
+#followersBox {
+   
+
+    width: 110%;
+    float: top;
+    
+}
+
+
 #homeHeader {
     font-weight: 600;
     padding-top: 1em;
-    text-align: center;
+  
+  text-align: center;
 }
 
 #welcomeMessage {
@@ -100,7 +118,7 @@ textarea[type=text], select {
 /*NAVBAR CUSTOMIZATION IS BELOW*/
 
 #navBar{
-    font-size: 25px;
+    font-size: 23px;
 }
 
     #navBar a {
@@ -111,6 +129,11 @@ textarea[type=text], select {
     #navBar a:hover {
          color: white; 
     }
+
+#navBarItem a {
+    position: relative;
+    right: 35px;
+}
 
 #hamburgerMenu {
     
@@ -402,7 +425,7 @@ li {
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
-    cursor: pointer;
+   cursor: pointer;
 }
 
     #eventButton .btn-default {
@@ -417,6 +440,9 @@ li {
     color: black;
     font-size: 20px;
     text-shadow: 1px 1px blue;
+    position: relative;
+    left: -10px;
+    margin-left: 20px;
 }
 
 #eventLink input {
@@ -510,7 +536,7 @@ div#box
 
 #boxPostFriend.col-md-6 {
     background: white;
-    border-radius: 20px;
+   border-radius: 20px;
 }
 
 #profileInfo {
@@ -552,7 +578,10 @@ div#box
     cursor: pointer;
     position: relative;
     top: 5px;
+
 }
+
+
 
     #followButton .btn-default {
         color: black;
@@ -586,6 +615,17 @@ div#box
 /*USER HOME PAGE STYLING BELOW*/
 iframe {
     border-radius: 20px;
+}
+
+#map {
+    border-radius: 5px;
+    margin-left: 5px;
+    margin-top: 10px; 
+}
+
+#mapDiv {
+    margin-left: 780px;
+    width: 68em;  
 }
 
 #homePageTable iframe {
@@ -671,7 +711,7 @@ iframe {
         float: left;
     }
     #friendName {
-    font-size: 20px;
+     font-size: 20px;
 }
 
     #friendName img {
@@ -686,19 +726,38 @@ iframe {
     font-size: 15px;
     }
 
-    #statusName {
-        text-align: left;
-        text-shadow: 2px 2px lightblue;
-    }
+#commentName {
+    
+    text-align: left;
+    font-size: 34px;
+    font-weight: 700;
+}
+
+#postPicFrameMyProfile {
+    margin-left: 330px;
+    margin-top: -16px;
+}
+
+#picComments {
+    float: right;
+}
+
+#statusName {
+    margin-top: -140px;
+    text-align: left;
+    font-size: 34px;
+    font-weight: 700;
+}
 
         #statusName img {
             border: solid;
             border-color: lightblue;
-            width: 10%;
+            width: 100%;
             border-width: 1px;
             border-radius: 90px;
         }
     #statusTitle {
+      
         text-align: left;
         padding-bottom: 20px;
     }
@@ -721,6 +780,10 @@ iframe {
     border-width: 1px;
     margin-top: -15px;
     margin-bottom: 20px;
+}
+
+#postPicFrame { /*image that shows in the post box.*/
+    margin-left: 16.6em; 
 }
 
 #postSettings {
@@ -748,7 +811,7 @@ iframe {
     }
 
     #postDateProfile {
-    margin-left: 60px;
+    margin-left: 0px;
     font-size: 20px;
     margin-top: -10px;
     margin-bottom: 10px;
@@ -771,6 +834,11 @@ iframe {
         background-color: lightblue;
     }
 
+#homePageButtons {
+
+    margin-left: 14em;
+}
+
 #commentButton {
     border: none;
     border-radius: 20px;
@@ -784,6 +852,24 @@ iframe {
 }
 
     #commentButton:hover {
+        background-color: lightblue;
+    }
+
+#commentButton2 {
+    border: none;
+    border-radius: 20px;
+    color: black;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    position: relative;
+    bottom: 60px;
+    left: 300px;
+}
+
+    #commentButton2:hover {
         background-color: lightblue;
     }
 
@@ -804,6 +890,10 @@ iframe {
 
     #helpLink a {
         color: darkblue;
+    }
+
+    #noPostsNoFriends {
+        font-size: 20px;
     }
 
     /* REGISTRATION AND LOGIN FORMS */
@@ -884,6 +974,8 @@ iframe {
 #addHobbyButton {
     width: 100%; 
     margin-left: 350px; 
+    background-color: lightgrey;
+    color: black;
 }
 
 #cityBox {

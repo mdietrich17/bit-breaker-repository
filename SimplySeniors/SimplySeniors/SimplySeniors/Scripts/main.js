@@ -14,6 +14,18 @@
     if (window.location.hash == "#MessageHelp") {
         messageInfo();
     }
+    if (window.location.hash == "#FriendHelp") {
+        friendInfo();
+    }
+    if (window.location.hash == "#ServiceHelp") {
+        serviceInfo();
+    }
+    if (window.location.hash == "#NewsHelp") {
+        newsInfo();
+    }
+    if (window.location.hash == "#FAQHelp") {
+        FAQInfo();
+    }
 });
 
 //Searching for external events via AJAX call based on location and/or keyword
@@ -100,7 +112,7 @@ function accInfo() {
 function homeInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-    $('#description').append($('<h3 id="descTitle">About Your Home Page</h3><br /><p>Select "Home" on the navigation bar at the top of this webpage or <a href="/Home">Click here</a> to check out your personalized Home page! Your Home page consists of your name, profile picture, the weather near you, a map of your general location, posts of those who you choose to follow, and your list of people that you choose to follow. Posts will not show up on your Home page until you choose to follow people. To do so, select the button on your home page titled "Find User to Follow" and select the user you would like to follow. Once you follow people, their posts will appear on your Home page! To go to your personal profile page, click on the "View Profile" button on your Home page. To create a post, click "Create Post" and type in your message. </p>'));
+    $('#description').append($('<h3 id="descTitle">About Your Home Page</h3><br /><p>Select "Home" on the navigation bar at the top of this webpage or <a href="/Home">Click here</a> to check out your personalized Home page! Your Home page consists of your name, profile picture, the weather near you, a map of your general location, news, posts of those who you choose to follow, comments on posts, likes on posts, and your list of people that you choose to follow. Posts will not show up on your Home page until you choose to follow people. To do so, simply click on anyone on your profile page (you will be redirected to their Profile page) and click "Follow" or click on the <a href="/Profiles">Search</a> tab, search for someone, click on them, and select "Follow". Once you follow people, their posts will appear on your Home page! To create a post, click "Create Post" and type in your message. To create a comment on a post, simply click "Comment". To Like a post, simply click "Like" on a post. </p>'));
 };
 
 function profInfo() {
@@ -112,13 +124,13 @@ function profInfo() {
 function friendInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-        $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>*Update when Friends feature gets added*</p>'));
+    $('#description').append($('<h3 id="descTitle">How to Follow</h3><br /><p>Following is as easy as clicking <a href="/Profiles">Search</a> on the navigation menu at the top, searching for anyone you might know, clicking "See Profile" next to their name, and clicking "Follow". You can also follow from other profile pages by clicking on somebody from a Followers list, and clicking "Follow" once you get to their Profile page. Once you follow someone, their posts will show up on your <a href="/Home">Home</a> page. </p> <br /> <h3 id="descTitle">Suggested Followers</h3><br /><p>The <a href="/Profiles/search">Suggested Followers</a> page works by suggesting you followers/friends based on both your location that you inputted during profile creation, and your hobbies. If you put that you live in Seattle, Washington and you like golf as a hobby, your top suggested friends will be those who live in Seattle and like golf. The suggested friends that pop up first suggest friends based on whoever is closest to you and like the same hobbies. However, if someone lives near you, but does not necessarily like your hobbies, we will still display whoever is closest to you first, and then whoever shares your hobbies second.</p>'));
 };
 
 function messageInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-        $('#description').append($('<h3 id="descTitle">How to Send Messages</h3><br /><p>*Update when Message feature gets added*</p>'));
+    $('#description').append($('<h3 id="descTitle">How to Send Messages</h3><br /><p>You can send messages by going to your Home page and selecting "Chat Now", or by clicking <a href="/chat">Here</a>. The "Available Members" list on the left-hand side is a list of members of the Simply Seniors website that you can chat with. As of right now, you are able to chat with bots, but not real users quite yet. Check back in later to see how to message users! </p>'));
 };
 
 function serviceInfo() {
@@ -130,13 +142,19 @@ function serviceInfo() {
 function eventInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-    $('#description').append($('<h3 id="descTitle">About Events Page</h3><br /><p> Our Events page is designed to bring you all of the details on the latest events near you! To view the Events page, <a href="/Events">Click here</a>. This page consists of internal events that you may choose to participate in. To view more information about an event, select "Details" on the event you wish to know more about. To search for events based on the name of the event or the location, click on "Search for Events", type in whatever you would like, and click "Search Now". To see more details about a certain event (such as the location, description, and time of the event), select "See Details". To search for another event, simply type in your new search and click "Search Now". To create an event, go back to the <a href="/Events">Events</a> page and click "Create New Event". You will then be redirected to a new page to fill out information about your event. Once everything looks good, double check it and hit "Create"! Your event will now appear in searches and on the main Events page. </p>'));
+    $('#description').append($('<h3 id="descTitle">About Events Page</h3><br /><p> Our Events page is designed to bring you all of the details on the latest events near you! To view the Events page, <a href="/Events">Click here</a>. This page consists of both internal and external events that you may choose to participate in. </p> <br /> <h3 id="descTitle">Simply Seniors Events (Internal Events)</h3><br /><p> "Simply Seniors Events", also known as "Internal Events" are events that are created by the developers/hosts of Simply Seniors. To view information about an event, select "Details" on the event you wish to know more about. To search for events based on the name of the event or the location, click on "Search for Events", type in whatever you would like, and click "Search Now". To see more details about a certain event (such as the location, description, and time of the event), select "See Details". To search for another event, simply type in your new search and click "Search Now". To create an event, go back to the <a href="/Events">Events</a> page and click "Create New Event". You will then be redirected to a new page to fill out information about your event. Once everything looks good, double check it and hit "Create"! Your event will now appear in searches and on the main Events page. </p> <br /> <h3 id="descTitle">Events Near You (External Events)</h3><br /><p> "Events Near You", also known as "External Events" are events that are external to the Simply Seniors website. These events are gathered from many resources, and are defaulted to display events near whatever location you put upon profile creation. If you put that you lived in Seattle, Washington upon profile creation, you will get events that appear in Seattle, Washington. If you change your location, your events automatically update for you. If you do not want to just see events near your current location, you can always search by keyword or location in the above search box, and click "Search". </p>'));
+};
+
+function newsInfo() {
+    document.getElementById("description").remove();
+    $('#descriptionOutside').append($('<div id="description"></div> '));
+    $('#description').append($('<h3 id="descTitle">About News Page</h3><br /><p> Our News page is designed to bring you the latest news from a wide variety of different sources. To view the News page, simply click on the "News" tab on the Navigation bar at the top, or <a href="/UserHomePage/NewsFeed">Click here</a> to keep up to date with the latest news stories. </p>'));
 };
 
 function FAQInfo() {
         document.getElementById("description").remove();
         $('#descriptionOutside').append($('<div id="description"></div> '));
-        $('#description').append($('<h3 id="descTitle">Frequently Asked Questions</h3> <br /> <ol id="FAQList"> <li> How much does this service cost? </li > <p>This service is, and always will be, completely free for the benefit of our users. We may eventually have advertisements displayed, but those will also be beneficial to you and your experience with our website, as they will be advertisements about helpful things that pertain to you or your location. </p> <li>How does "Find Friends" work and how does it suggest friends to me?</li> <p>As of right now, the "Find Friends" feature is not currently implemented, check back later to find additional details on this feature. </p> <li>How do I change my privacy settings, and who can see my posts and profile information?</li> <p>As of right now, anyone can see your profile information just by searching for you on the website. In the future, we will add security features so that you can choose who can see your profile and your posts.</p> <li>How can I change my notification settings?</li><p>As of right now, we do not have notifications up, this will be added later.</p> <li>How long are my messages available when I am messaging friends?</li><p>As of right now, we do not have messaging implemented. Please check back later.</p> <li>I still have unanswered questions, how do I find the answers?</li><p>You can send us (the developers of the website) an email by clicking on the "Contact Us" tab on the left-hand side. We will get back to you with an answer as soon as we can. </p> </ol >  '));
+    $('#description').append($('<h3 id="descTitle">Frequently Asked Questions</h3> <br /> <ol id="FAQList"> <li> How much does this service cost? </li > <p>This service is, and always will be, completely free for the benefit of our users. We may eventually have advertisements displayed, but those will also be beneficial to you and your experience with our website, as they will be advertisements about helpful things that pertain to you or your location. </p> <li>How does "Follower Suggestions" work and how does it suggest friends to me?</li> <p> The <a href="/Profiles/search">Suggested Followers</a> page works by suggesting you followers/friends based on both your location that you inputted during profile creation, and your hobbies. If you put that you live in Seattle, Washington and you like golf as a hobby, your top suggested friends will be those who live in Seattle and like golf. The suggested friends that pop up first suggest friends based on whoever is closest to you and like the same hobbies. However, if someone lives near you, but does not necessarily like your hobbies, we will still display whoever is closest to you first, and then whoever shares your hobbies second. </p> <li>How do I change my privacy settings, and who can see my posts and profile information?</li> <p>As of right now, anyone can see your profile information just by searching for you on the website. In the future, we will add security features so that you can choose who can see your profile and your posts.</p> <li>How can I change my notification settings?</li><p>As of right now, we do not have notifications up, please check in later.</p> <li>How long are my messages available when I am messaging friends?</li><p>As of right now, all messages sent are permanently placed in the Conversation Street (your messaging hub) <a href="/chat">Here</a>. Messages are never deleted, and are there indefinitely. </p> <li>I still have unanswered questions, how do I find the answers?</li><p>You can send us (the developers of the website) an email by clicking on the "Contact Us" tab on the left-hand side. We will get back to you with an answer as soon as we can. </p> </ol >  '));
 };
 
 

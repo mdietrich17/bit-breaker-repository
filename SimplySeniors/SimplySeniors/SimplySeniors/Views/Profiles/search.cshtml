@@ -3,6 +3,10 @@
     ViewBag.Title = "search";
 }
 
+<h2 id="eventTitle">Suggested Followers</h2>
+<p>Below, you will find a list of suggested friends/followers based on hobby and location: </p>
+<hr />
+
 @foreach (var item in Model.results)
 {
     <div id="individualPost">
@@ -11,12 +15,12 @@
             @Html.DisplayFor(model => item.FirstName)
             @Html.DisplayFor(model => item.LastName)
             -@Html.DisplayFor(model => item.State)
-                    @Html.DisplayFor(model => item.Hobby)
+            @Html.DisplayFor(model => item.Hobby)
         </div>
         <br />
         <form>
             @Html.AntiForgeryToken()
-            @Html.ActionLink("Profile", "Details", "Profiles", new { id = Html.DisplayFor(model => item.id) } , htmlAttributes: new { @class = "btn-link", @id = "eventButton", @role = "button" })
+            @Html.ActionLink("Profile", "Details", "Profiles", new { id = Html.DisplayFor(model => item.id) }, htmlAttributes: new { @class = "btn-link", @id = "eventButton", @role = "button" })
             <button id="eventButton" type="submit" name="your_name" onclick="follow(@Html.DisplayFor(model => item.id))" class="btn-link">Follow</button>
         </form>
 
@@ -24,6 +28,7 @@
 
 }
 
+<div id="helpLink"><p> Need help learning about your friend suggestions? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#FriendHelp'> Click here</a>.</p></div>
 
 
 @section scripts {

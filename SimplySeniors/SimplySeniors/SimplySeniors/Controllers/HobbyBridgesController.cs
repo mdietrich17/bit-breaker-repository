@@ -63,7 +63,7 @@ namespace SimplySeniors.Controllers
      
                 db.HobbyBridges.Add(hobbyBridge);
                 db.SaveChanges();
-                return RedirectToAction("Details", "Profiles", new { id = profile.ID });
+                return RedirectToAction("MyProfile", "Profiles", null);
             }
 
             ViewBag.HobbiesID = new SelectList(db.Hobbies, "ID", "NAME", hobbyBridge.HobbiesID);

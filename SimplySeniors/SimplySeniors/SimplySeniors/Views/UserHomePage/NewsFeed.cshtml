@@ -4,11 +4,9 @@
     ViewBag.Title = "NewsFeed";
 }
 
-<h2>NewsFeed</h2>
+<h2 id="eventTitle">News Feed</h2>
 <a href="https://newsapi.org/">Powered by News API</a>
-<p>
-    @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
-</p>
+<br />
 
 <input class="form-control valid" type="text" id="myInput" onkeyup="searchfunction()" placeholder="Search for news articles.." title="Type in a name">
 <select class="form-control valid" id="dropdown">
@@ -16,6 +14,7 @@
     <option value="author">Author</option>
     <option value="date">Date/Time</option>
 </select>
+
 
 <div id="container">
     @foreach (var item in Model)
@@ -66,7 +65,6 @@
                 }
             }
         }
-
     }
 </script>
 
@@ -125,3 +123,9 @@
         }
     </table>
 *@
+
+<p>
+    @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
+</p>
+
+<div id="helpLink"><p> Need help learning about all of the features on the News page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#NewsHelp'> Click here</a>.</p></div>
