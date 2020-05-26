@@ -13,60 +13,28 @@
     <option value="article">Name of Article</option>
     <option value="author">Author</option>
     <option value="date">Date/Time</option>
+    <option value="publisher">Publisher</option>
 </select>
 
 
 <div id="container">
     @foreach (var item in Model)
     {
-        <div class="Post" id="individualPost">
+
+        <div class="Post" id="individualPost2" style="margin-top: 2em; background: lightcyan; padding: 2em;  border: solid; border-radius: 20px;">
             <img href=@Html.DisplayFor(modelItem => item.URLImage)>
-            <div id="statusName">@Html.DisplayFor(modelItem => item.SourceName)</div>
-            <div class="author" id="statusName">@Html.DisplayFor(modelItem => item.Author)</div>
+            <div class="publisher" id="statusName2" style="margin-top: -1em; font-weight: 600; font-size: 35px;">@Html.DisplayFor(modelItem => item.SourceName)</div>
+            <div class="author" id="statusName2">@Html.DisplayFor(modelItem => item.Author)</div>
             <hr />
             <a class="article" href="@Html.DisplayFor(modelItem => item.URL)" id="statusTitle">@Html.DisplayFor(modelItem => item.Title)</a>
-            <div id="postDescription">
+            <div id="postDescription2">
                 @Html.DisplayFor(modelItem => item.Description)
             </div>
             <div class="date">@Html.DisplayFor(modelItem => item.PublishTime)</div>
         </div>
     }
 </div>
-<script>
-    function searchfunction() {
-        var input, filter, li, a, i, txtValue, post, postslist, dropdown, DropDownValue;
-        dropdown = document.getElementById("dropdown");
-        DropDownValue = dropdown.options[dropdown.selectedIndex].value;
-        input = document.getElementById("myInput");
-        filter = input.value.toUpperCase();
-        postslist = document.getElementById("container");
-        console.log(DropDownValue);
-        post = postslist.getElementsByClassName("Post");
-        if (DropDownValue == "article") {
-            for (i = 0; i < post.length; i++) {
-                a = post[i].getElementsByTagName("a")[0];
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    post[i].style.display = "";
-                } else {
-                    post[i].style.display = "none";
-                }
-            }
-        }
-        else {
-            for (i = 0; i < post.length; i++) {
-                a = post[i].getElementsByClassName(DropDownValue)[0];
-                console.log(a);
-                txtValue = a.textContent || a.innerText;
-                if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                    post[i].style.display = "";
-                } else {
-                    post[i].style.display = "none";
-                }
-            }
-        }
-    }
-</script>
+
 
 @*<table class="table">
         <tr>
