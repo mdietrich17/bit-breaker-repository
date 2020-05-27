@@ -93,6 +93,10 @@ namespace SimplySeniors.Controllers
             //List<int> IdList = db4.FollowLists.Where(x => x.UserID == id).Select(y => y.FollowedUserID).ToList();
             List<Post> postlist = db3.Posts.Where(x => x.ProfileID == profile.ID).ToList();
             List<PostComment> comments = new List<PostComment>();
+            foreach (Post post in postlist)
+            {
+                comments.AddRange(db5.PostComments.Where(x => x.PostID == post.ID).OrderByDescending(x => x.CommentDate).ToList());
+            }
             PDViewModel viewModel = new PDViewModel(profile, hobbies, postlist, followed, comments);
             if (profile == null)
             {
