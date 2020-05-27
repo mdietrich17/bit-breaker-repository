@@ -1,6 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PhotoUploadForm.aspx.cs" Inherits="SimplySeniors.PhotoUploadWebForm2" %>
 
-
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -31,6 +30,7 @@
         <asp:Label ID="lblMessage" BorderStyle="Groove" BorderWidth="1px" style="text-align: center; padding: 1.5em; " runat="server"></asp:Label>
         <br/>
         <br/>
+        <%-- The hyperlink allows user to review their image before proceeding.--%>
         <asp:HyperLink ID="hyperlink" style="text-align: center; margin-left: 2.5em; margin-bottom: 20px; padding: 1em;" runat="server">See your Photo by clicking here</asp:HyperLink>
   </form> 
     </div>

@@ -25,24 +25,27 @@ namespace SimplySeniors
                 hyperlink.Visible = false; 
             }
         }
-
+        // function for actually uploading a photo into the SIMPLY SENIORS DB
         protected void btnUpload_Click(object sender, EventArgs e)
         {
              HttpPostedFile postedFile = FileUpload1.PostedFile;
              string fileName = Path.GetFileName(postedFile.FileName);
              string fileExtension = Path.GetExtension(fileName);
-            //string profileIdentifier = User.Identity.GetUserId();
+             // all identifiers will be set to 1, this was intentional for future sprints. 
              var profileIdentifier = 1; 
              var fileSize = postedFile.ContentLength; 
+             // Allow .jpg, .bmp., .png, .gif as accepted formats. 
              if (fileExtension.ToLower() == ".jpg" || fileExtension.ToLower() == ".bmp" || fileExtension.ToLower() == ".gif" || fileExtension.ToLower() == ".png")
              {
+                 // Below reads the image using an InputStream and then converts it to a byte array to be stored in the DB. 
                  Stream stream = postedFile.InputStream; 
                  BinaryReader binaryReader = new BinaryReader(stream);
                  byte[] bytes = binaryReader.ReadBytes((int) stream.Length);
-                
+                 // SETTINGS FOR AZURE CONTINUOUS DEPLOYMENT BELOW. 
                  string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
                 // string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
+                // Code below creates a new sql connections and add the fields below to the table "Images" in the backend. 
                 using (SqlConnection con = new SqlConnection(cs) )
                  {
                      SqlCommand cmd = new SqlCommand("spUploadImage", con);
@@ -61,7 +64,7 @@ namespace SimplySeniors
                          Value = fileSize
                      };
                      cmd.Parameters.Add(paramSize);
-
+                    // Using profile Id to link FK to PK for updated photo algorithm in future refinements. 
                     SqlParameter paramProfileIdentifier = new SqlParameter()
                     {
                         
@@ -90,6 +93,7 @@ namespace SimplySeniors
                      cmd.ExecuteNonQuery(); 
                      con.Close();
                      lblMessage.Visible = true;
+                     // If uploaded properly a message in green will be displayed in the UI else error is displayed and they can try again.
                      lblMessage.Text = "Your upload was successfully saved to the Simply Senior's database";
                      lblMessage.ForeColor = System.Drawing.Color.Green;
                      hyperlink.Visible = true;
