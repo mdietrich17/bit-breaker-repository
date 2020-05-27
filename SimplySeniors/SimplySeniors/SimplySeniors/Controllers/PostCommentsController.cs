@@ -70,7 +70,7 @@ namespace SimplySeniors.Controllers
                 comment.Text = text;
                 db.PostComments.Add(comment);
                 db.SaveChanges();
-                return RedirectToAction("HomePage", "UserHomePage");
+                return RedirectToAction("Details", "Profiles", postID);
             }
 
             return View();
