@@ -226,3 +226,38 @@ function itworked(message) {
 function failure() {
     alert("Sorry! it looks as though something went wrong");
 }
+
+
+    function searchfunction() {
+        var input, filter, a, i, txtValue, post, postslist, dropdown, DropDownValue;
+        dropdown = document.getElementById("dropdown");
+        DropDownValue = dropdown.options[dropdown.selectedIndex].value;
+        input = document.getElementById("myInput");
+        filter = input.value.toUpperCase();
+        postslist = document.getElementById("container");
+        console.log(DropDownValue);
+        post = postslist.getElementsByClassName("Post");
+        if (DropDownValue == "article") {
+            for (i = 0; i < post.length; i++) {
+                a = post[i].getElementsByTagName("a")[0];
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    post[i].style.display = "";
+                } else {
+                    post[i].style.display = "none";
+                }
+            }
+        }
+        else {
+            for (i = 0; i < post.length; i++) {
+                a = post[i].getElementsByClassName(DropDownValue)[0];
+                console.log(a);
+                txtValue = a.textContent || a.innerText;
+                if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                    post[i].style.display = "";
+                } else {
+                    post[i].style.display = "none";
+                }
+            }
+        }
+    }
