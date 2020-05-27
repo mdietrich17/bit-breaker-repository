@@ -115,8 +115,8 @@
                                 @Html.ActionLink("Edit", "Edit", "Posts", new { id = item.ID }, null)
                                 @Html.ActionLink("Delete", "Delete", "Posts", new { id = item.ID }, null)
                             </div>
-                            <div class="col-md-6">
-                                @Html.ActionLink("👍 Like/ Unlike", "Like", "Posts", new { id = item.ID }, new { id = "likeButton2" })
+                            <div class="col-md-7">
+                                @Html.ActionLink("👍 Like/Unlike", "Like", "Posts", new { id = item.ID }, new { id = "likeButton2" })
                                 @Html.ActionLink("✍️ Comment", "Create", "PostComments", new { id = item.ID }, new { id = "commentButton" })
                                 <div id="likeNum2">@Html.DisplayFor(model => item.Likes) Like(s) </div>
                             </div>
