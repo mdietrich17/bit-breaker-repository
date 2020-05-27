@@ -4,15 +4,11 @@
     ViewBag.Title = Html.DisplayFor(model => model.ProfileFirstName);
 }
 <meta charset="UTF-8">
-
-
 <br />
 <br />
-
 <table id="homePageTable">
     <tr>
         <td>
-            @*<img src="~/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@
             <div style="margin-left: 2em; margin-top: .05em; margin-bottom: -.3em; margin-right: 0em; ">
                 <iframe border="round" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
             </div>
@@ -27,17 +23,14 @@
         </td>
     </tr>
 </table>
-<br />
-
-<br />
+<br /><br />
 <button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
 <button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null, new { id = "eventButton" })
 @Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" })
-
+@Html.ActionLink("Switch back your home page", "HomePage", "UserHomePage", null, new { id = "eventButton" , style="margin-left: 120px"})
 <div>
-
     <hr />
     <!--Beware all who enter this land of divs-->
     <div class="container">
@@ -80,9 +73,7 @@
                     </div>
                     <div class="col-md"></div>
                 </div>
-
             </div>
-
 
             <div class="col-md-6" id="boxPostFriend" style="float: left;">
                 <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
@@ -100,7 +91,6 @@
                                 <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => item.PostProfile.ID)" alt=""></iframe>
                             </div>
                             <div id="statusName">
-
                                 @Html.DisplayFor(model => item.PostProfile.FIRSTNAME)
                                 @Html.DisplayFor(model => item.PostProfile.LASTNAME)
                                 <div id="postDateProfile">@Html.DisplayFor(model => item.PostDate)</div>
@@ -167,13 +157,13 @@
                             @{var fullName = Html.DisplayFor(model => item.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.LASTNAME).ToString();}
                             @*If statement to redirect to whoever's post it is*@
                             @{if (Model.ProfileID != item.ID)
-                              {
-                                  @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
-                              }
-                              else
-                              {
-                                  @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
-                              }
+                                {
+                                    @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.ID }, null)
+                                }
+                                else
+                                {
+                                    @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
+                                }
                             }
                             <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" /> @*later connect to profile pic from db*@
                             <br />
@@ -182,16 +172,15 @@
 
                     }
                 }
-
+             
             </div>
-
             <br />
             <p id="profileLink">
                 @Html.ActionLink("Edit", "Edit", new { id = Model.ProfileID }) <br />
                 @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
             </p>
         </div>
-</div>
-
+    </div>
+    </div>
 <div id="helpLink" style="margin-left:-35px"><p> Need help learning about all of the features on your Profile page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</p></div>
 

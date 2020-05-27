@@ -11,47 +11,48 @@
 
 </head>
 <body>
-    <div class="navbar navbar-expand-lg navbar-dark bg-dark" id="navBar">
-        <div class="container">
-            <div class="navbar-brand">
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span id="hamburgerMenu" class="btn-outline-primary">Click here to see Menu</span>
-                </button>
-                
-            </div>
-            <div class="collapse navbar-collapse" id="navBar">
-                <a href="@Url.Action("Index","Home")">
-                    <img id="logo" src="~/Photos/SimplySeniorIcon.png" alt="Site Logo" style="height:80px; width: auto; padding: 0px;" /></a>
-                <ul class="navbar-nav mr-auto" id="iconList">
-                    <li id="navBarItem">@Html.ActionLink("Home", "HomePage", "UserHomePage")</li>
-                    <li id="navBarItem">@Html.ActionLink("Profile", "MyProfile", "Profiles")</li>
-                    <li id="navBarItem">@Html.ActionLink("Search", "Index", "Profiles")</li>
-                    <li id="navBarItem">@Html.ActionLink("Services", "Services", "Home")</li>
-                    <li id="navBarItem">@Html.ActionLink("Events", "Index", "Events")</li>
-                    <li id="navBarItem">@Html.ActionLink("News","NewsFeed", "UserHomePage")</li>
-                    <li id="navBarItem">@Html.ActionLink("Help", "HelpPage", "Home")</li>
-                </ul>
-                <div id="registrationStuff">
+@* Custom navbar below, also see custom routes for more information.*@
+<div class="navbar navbar-expand-lg navbar-dark bg-dark" id="navBar">
+    <div class="container">
+        <div class="navbar-brand">
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target=".navbar-collapse">
+                <span id="hamburgerMenu" class="btn-outline-primary">Click here to see Menu</span>
+            </button>
+
+        </div>
+        <div class="collapse navbar-collapse" id="navBar">
+            <a href="@Url.Action("Index", "Home")">
+                <img id="logo" src="~/Photos/SimplySeniorIcon.png" alt="Site Logo" style="height: 80px; width: auto; padding: 0px;"/></a>
+            <ul class="navbar-nav mr-auto" id="iconList">
+                <li id="navBarItem">@Html.ActionLink("Profile", "HomePage", "UserHomePage")</li>
+                <li id="navBarItem">@Html.ActionLink("Search", "Index", "Profiles")</li>
+                <li id="navBarItem">@Html.ActionLink("Services", "Services", "Home")</li>
+                <li id="navBarItem">@Html.ActionLink("Events", "Index", "Events")</li>
+                <li id="navBarItem">@Html.ActionLink("News", "NewsFeed", "UserHomePage")</li>
+                <li id="navBarItem">@Html.ActionLink("Help", "HelpPage", "Home")</li>
+            </ul>
+            @* Registration and login below *@
+            <div id="registrationStuff">
                 @Html.Partial("_LoginPartial")
-                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <div class="footer">
-            <footer>
-                <p>&copy; @DateTime.Now.Year - BitBreakers Industries</p>
-            </footer>
-            </div>
-        </div>
+</div>
+<div class="container body-content">
+    @RenderBody()
+    <hr/>
+    <div class="footer">
+        <footer>
+            <p>&copy; @DateTime.Now.Year - BitBreakers Industries</p>
+        </footer>
+    </div>
+</div>
 
-        @Scripts.Render("~/bundles/jquery")
-        @Scripts.Render("~/bundles/bootstrap")
-        @Scripts.Render("~/Scripts/main.js")
+@Scripts.Render("~/bundles/jquery")
+@Scripts.Render("~/bundles/bootstrap")
+@Scripts.Render("~/Scripts/main.js")
 
-        <script src='https://www.google.com/recaptcha/api.js'></script>
-        @RenderSection("scripts", required: false)
+<script src='https://www.google.com/recaptcha/api.js'></script>
+@RenderSection("scripts", required: false)
 </body>
 </html>
