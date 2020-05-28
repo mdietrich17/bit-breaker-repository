@@ -77,9 +77,9 @@ namespace SimplySeniors.Controllers
             string uid = User.Identity.GetUserId();
             Profile profile = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
             PostLike like = db2.PostLikes.Where(x => x.PostID == id && x.ProfileID == profile.ID).FirstOrDefault();
+            Post update = db.Posts.ToList().Find(x => x.ID == id);
             if (like == null) {
                 PostLike newlike = new PostLike();
-                Post update = db.Posts.ToList().Find(x => x.ID == id);
                 update.Likes += 1;
                 newlike.PostID = id;
                 newlike.Liked = true;
@@ -87,14 +87,28 @@ namespace SimplySeniors.Controllers
                 db.SaveChanges();
                 db2.PostLikes.Add(newlike);
                 db2.SaveChanges();
-                return RedirectToAction("HomePage", "UserHomePage");
+                return Redirect(Request.UrlReferrer.ToString());
+            }
+            else if(like.Liked == false)
+            {
+                update.Likes += 1;
+                like.Liked = true;
+                db.SaveChanges();
+                db2.Entry(like).State = EntityState.Modified;
+                db2.SaveChanges();
+                return Redirect(Request.UrlReferrer.ToString());
             }
             else if(like.Liked == true) {
-                return RedirectToAction("HomePage", "UserHomePage");
+                update.Likes -= 1;
+                like.Liked = false;
+                db.SaveChanges();
+                db2.Entry(like).State = EntityState.Modified;
+                db2.SaveChanges();
+                return Redirect(Request.UrlReferrer.ToString());
             }
             else
             {
-                return RedirectToAction("HomePage", "UserHomePage");
+                return Redirect(Request.UrlReferrer.ToString());
             }
             
         }

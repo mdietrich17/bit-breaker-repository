@@ -9,6 +9,7 @@ namespace SimplySeniors.Models
     {
         public LikeList()
             : base("name=LikeList")
+           // : base("name=AzureConnection")
         {
         }
 

@@ -4,7 +4,7 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2 id="eventTitle">Edit Your Profile</h2>
 
 
 @using (Html.BeginForm())
@@ -12,9 +12,7 @@
     @Html.AntiForgeryToken()
 
 <div class="form-horizontal">
-    <h4>Profile</h4>
     <hr />
-    @Html.ActionLink("View Profile", "Details", "Profiles", new { id = Model.ID }, new { id = "eventButton" })
     @Html.ValidationSummary(true, "", new { @class = "text-danger" })
     @Html.HiddenFor(model => model.USERID)
     @Html.HiddenFor(model => model.PROFILECREATED)
@@ -104,9 +102,10 @@
     </div>
     }
 
-    <div id="eventLink">
-        @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
-    </div>
+<div id="eventLink">
+    @Html.ActionLink("Back to Home", "HomePage", "UserHomePage")
+    @Html.ActionLink("Back to Profile", "Details", "Profiles", new { id = Model.ID }, null)
+</div>
 
     @section Scripts {
         @Scripts.Render("~/bundles/jqueryval")

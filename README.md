@@ -58,7 +58,7 @@ Software Construction Process
 1. For this project, we are following Agile methodologies, specifically Disciplined Agile Delivery process framework. We follow a two-week sprint cycle that involves daily SCRUM meetings, weekly sprint planning sessions, an end of sprint review and retrospective. To contribute to this project, one will need to be involved in this process with the StarTech team.
 
 Tools, Configurations, and Packages
-1. Tools is a list of all the software, libraries, tools, packages, and versions used on this project. Make sure you are using the same ones to avoid any compatibility errors. Tools page is at the root of our repository, named “Tools.md”
+1. Tools is a list of all the software, libraries, tools, packages, and versions used on this project. Make sure you are using the same ones to avoid any compatibility errors. Tools page is at the root of our repository, named “Tools.md” or click [here](https://github.com/bitbreakers/bit-breaker-repository/blob/master/Tools.md).
 
 Proof of Continuous Deployment:
 [Continuous Deployment](ContinuousDeployment.png)

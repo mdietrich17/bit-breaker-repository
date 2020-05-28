@@ -16,7 +16,8 @@ namespace SimplySeniors.Models
         private ProfileContext db = new ProfileContext();
         protected void GetWeatherInfo(object sender, EventArgs e)
         {
-            var appId = "4368f653168e32c12db5f1d5b9842a63";
+            // API key's are all abstracted from application, must see secrets folder for info. 
+            var appId = System.Web.Configuration.WebConfigurationManager.AppSettings["weatherApiKey"];
             var id = User.Identity.GetUserId();                              // Getting user Id of currently logged in user. 
             ProfileContext profiledb = new ProfileContext();                    // Opening profile connection so that I can get the city and state from user. 
             Profile profile = profiledb.Profiles.FirstOrDefault(u => u.USERID == id);    // Get all profile info for current logged in user where the ASPNET ID = profile ID
@@ -24,12 +25,14 @@ namespace SimplySeniors.Models
             var url = $"http://api.openweathermap.org/data/2.5/forecast?q={location}&units=imperial&cnt=1&APPID={appId}"; // location is city + state and appID is the key. 
             using (var client = new WebClient())
             {
+                //Below obtains the JSON string from the OpenWeather API and parses it into the Weather model listed below. 
                 string json = client.DownloadString(url);
                 WeatherInfo weatherInfo = (new JavaScriptSerializer()).Deserialize<WeatherInfo>(json);
                 lblCity_Country.Text = weatherInfo.city.name + "," + weatherInfo.city.country;
                 imgCountryFlag.ImageUrl = $"http://openweathermap.org/images/flags/{weatherInfo.city.country.ToLower()}.png";
                 lblDescription.Text = weatherInfo.list[0].weather[0].description;
                 imgWeatherIcon.ImageUrl = $"http://openweathermap.org/img/w/{weatherInfo.list[0].weather[0].icon}.png";
+                // Converting temperatures to F due to being in US. 
                 lblTempMin.Text = $"{Math.Round(weatherInfo.list[0].main.temp_min, 1)}°F";
                 lblTempMax.Text = $"{Math.Round(weatherInfo.list[0].main.temp_max, 1)}°F";
                 lblTempCurrent.Text = $"{Math.Round(weatherInfo.list[0].main.temp, 1)}°F";
@@ -37,7 +40,7 @@ namespace SimplySeniors.Models
                 tblWeather.Visible = true;
             }
         }
-
+        // All elements obtained from the API weather call is stored in the model below. 
         public class WeatherInfo
         {
             public City city { get; set; }

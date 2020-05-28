@@ -4,80 +4,96 @@
     ViewBag.Title = "NewsFeed";
 }
 
-<h2>NewsFeed</h2>
+<h2 id="eventTitle">News Feed</h2>
 <a href="https://newsapi.org/">Powered by News API</a>
+<br />
+
+<input class="form-control valid" type="text" id="myInput" onkeyup="searchfunction()" placeholder="Search for news articles.." title="Type in a name">
+<select class="form-control valid" id="dropdown">
+    <option value="article">Name of Article</option>
+    <option value="author">Author</option>
+    <option value="date">Date/Time</option>
+    <option value="publisher">Publisher</option>
+</select>
+
+
+<div id="container">
+    @foreach (var item in Model)
+    {
+
+        <div class="Post" id="individualPost2" style="margin-top: 2em; background: lightcyan; padding: 2em;  border: solid; border-radius: 20px;">
+            <img href=@Html.DisplayFor(modelItem => item.URLImage)>
+            <div class="publisher" id="statusName2" style="margin-top: -1em; font-weight: 600; font-size: 35px;">@Html.DisplayFor(modelItem => item.SourceName)</div>
+            <div class="author" id="statusName2">@Html.DisplayFor(modelItem => item.Author)</div>
+            <hr />
+            <a class="article" href="@Html.DisplayFor(modelItem => item.URL)" id="statusTitle">@Html.DisplayFor(modelItem => item.Title)</a>
+            <div id="postDescription2">
+                @Html.DisplayFor(modelItem => item.Description)
+            </div>
+            <div class="date">@Html.DisplayFor(modelItem => item.PublishTime)</div>
+        </div>
+    }
+</div>
+
+
+@*<table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SourceName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Author)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.URL)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.URLImage)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PublishTime)
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SourceName)
+            </td>
+            <th>
+                @Html.DisplayFor(modelItem => item.Author)
+            </th>
+            <td>
+                <a href=@Html.DisplayFor(modelItem => item.URL)> @Html.DisplayFor(modelItem => item.Title)</a>
+
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                <a href=@Html.DisplayFor(modelItem => item.URL)></a>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.URLImage)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PublishTime)
+            </td>
+        </tr>
+        }
+    </table>
+*@
+
 <p>
     @Html.ActionLink("Return to Home", "HomePage", null, new { id = "eventButton" })
 </p>
 
-
-@foreach (var item in Model) { 
-<div id="individualPost">
-    <img href=@Html.DisplayFor(modelItem => item.URLImage)>
-    <div id="statusName">@Html.DisplayFor(modelItem => item.SourceName)</div>
-    <div id="statusName">@Html.DisplayFor(modelItem => item.Author)</div>
-    <hr />
-    <a href="@Html.DisplayFor(modelItem => item.URL)" id="statusTitle">@Html.DisplayFor(modelItem => item.Title)</a>
-    <div id="postDescription">
-        @Html.DisplayFor(modelItem => item.Description)
-    </div>
-    <div>@Html.DisplayFor(modelItem => item.PublishTime)</div>
-</div>
-
-
-}
-@*<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.SourceName)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Author)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Title)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Description)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.URL)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.URLImage)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.PublishTime)
-        </th>
-    </tr>
-
-    @foreach (var item in Model)
-    {
-
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.SourceName)
-        </td>
-        <th>
-            @Html.DisplayFor(modelItem => item.Author)
-        </th>
-        <td>
-            <a href=@Html.DisplayFor(modelItem => item.URL)> @Html.DisplayFor(modelItem => item.Title)</a>
-
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Description)
-        </td>
-        <td>
-            <a href=@Html.DisplayFor(modelItem => item.URL)></a>
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.URLImage)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.PublishTime)
-        </td>
-    </tr>
-    }
-</table>
-*@
+<div id="helpLink"><p> Need help learning about all of the features on the News page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#NewsHelp'> Click here</a>.</p></div>

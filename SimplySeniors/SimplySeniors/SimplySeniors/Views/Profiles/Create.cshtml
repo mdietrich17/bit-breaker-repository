@@ -19,7 +19,7 @@
                 @Html.EditorFor(model => model.FIRSTNAME, new { htmlAttributes = new { @class = "", id = "firstNameBox", style = "margin-left:8px; " } })
                 @Html.ValidationMessageFor(model => model.FIRSTNAME, "", new { @class = "text-danger" })
                 @Html.LabelFor(model => model.LASTNAME, htmlAttributes: new { @class = "control-label ", style = "margin-left:25px" })
-                @Html.EditorFor(model => model.LASTNAME, new { htmlAttributes = new { @class = "", id = "lastNameBox", style = "margin-left:8px;"}})
+                @Html.EditorFor(model => model.LASTNAME, new { htmlAttributes = new { @class = "", id = "lastNameBox", style = "margin-left:8px;" } })
                 @Html.ValidationMessageFor(model => model.LASTNAME, "", new { @class = "text-danger" })
                 <br />
                 @Html.LabelFor(model => model.BIRTHDAY, htmlAttributes: new { @class = "control-label " })
@@ -54,8 +54,9 @@
                     @Html.TextAreaFor(model => model.BIO, new { htmlAttributes = new { @class = "col-lg-10", id = "bioBox" } })
                     @Html.ValidationMessageFor(model => model.BIO, "", new { @class = "text-danger" })
                 </div>
-                <input type="submit" value="Continue to hobbies" class="btn btn-outline-primary" id="addHobbyButton" />
-                </div>
+                <input type="submit" value="Continue to Hobbies" class="btn btn-outline-primary" id="addHobbyButton" />
+
+            </div>
             <div class="container-lg">
                 <Iframe runat="server" id="photoUploadInjectedBox" src="~/PhotoUploadForm.aspx"></Iframe>
             </div>
@@ -63,7 +64,8 @@
 
     }
 </body>
-<p id="helpInstructionsCreationPage"> Why do we need to fill out this form? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</p>
+
+<div id="helpLink" style="margin-right:120px;"><p>Why do you need to fill out this form? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</div>
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

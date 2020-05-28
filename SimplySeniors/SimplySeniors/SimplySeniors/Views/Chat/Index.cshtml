@@ -32,23 +32,10 @@
                 @Html.DisplayNameFor(model => model.LASTNAME)
             </th>
         </tr>
-        </thead>
-        @foreach (var item in Model)
-        {
-            <tr>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.FIRSTNAME)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LASTNAME)
-                </td>
-
-            </tr>
-        }
-    </table>*@
-
-<script src="~/Scripts/jquery-3.3.1.js"></script>
-<script type="text/javascript" src="~/Scripts/memberList.js"></script>
+    }
+</table>
+@{ var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["chatApiKey"]; }
 <script type="text/javascript" src="~/Scripts/chat.js"></script> @*Running custom chat.js in Scripts folder for interactive chat features.*@
 <script type="text/javascript" src="~/Scripts/Main.js"></script>
+
+<div id="helpLink"><p> Need help learning about messaging? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#MessageHelp'> Click here</a>.</p></div>
