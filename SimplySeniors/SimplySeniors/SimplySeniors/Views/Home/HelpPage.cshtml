@@ -7,6 +7,8 @@
 
 
 <!-- Side navigation -->
+@*sidenav is the navigation bar on the lefthand side. Creating lots of diff tabs, when clicked, they will go to specific function in main.js file*@
+
 <div class="sidenav">
     <br /><br /><br />
     <a id="CreateAcc" href="#AccountHelp" onclick="accInfo()">Account</a>
@@ -23,6 +25,8 @@
 </div>
 
 <!-- Page content -->
+@*This is where all the HELP info will pop up using AJAX by removing any old info from id "description" and replacing it with whatever function is clicked on by navbar click. All the text is in main.js in the function name.*@
+
 <div class="main">
 
     <h2 id="eventTitle" style="margin-right:100px;">Help Center</h2>

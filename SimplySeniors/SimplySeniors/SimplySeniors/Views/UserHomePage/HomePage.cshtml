@@ -8,6 +8,7 @@
 
 <br />
 <br />
+@*Home Page Div/Bubble that shows your full name, your profile image, and the weather near you*@
 <table id="homePageTable">
     <tr>
         <td>
@@ -76,11 +77,13 @@
                                 <input type="hidden" id="userLastName2" value=@Html.DisplayFor(model => item.PostProfile.LASTNAME) />
                                 <input type="hidden" id="userID2" value=@Html.DisplayFor(model => item.PostProfile.ID) />*@
 
+                            @*If the profile you click on is not yours, then get the ID of the person whos post it is*@
                             @{if (Model.ProfileID != item.PostProfile.ID)
                                 {
                                     @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.PostProfile.ID }, null)
 
                                 }
+                                @*Else it's your profile, so go to your profile page onclick*@
                                 else
                                 {
                                     @Html.ActionLink(fullName, "MyProfile", "Profiles", null, null)
@@ -179,6 +182,8 @@
                 });
         }
 </script>
+
+@*Passing the secret app keys for both the MAP API and the CHAT API to JS so we can use these keys in our JS files*@
 
 @{ var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["mapApiKey"];
 }

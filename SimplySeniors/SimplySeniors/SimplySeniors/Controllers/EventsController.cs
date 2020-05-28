@@ -162,7 +162,9 @@ namespace SimplySeniors.Controllers
         //Getting all necessary data for external events
         public ActionResult ExternalEvents()
         {
+            //Hiding API key for events
             var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["eventApiKey"];
+            //Getting user ID, setting that as value
             string value = User.Identity.GetUserId();
             string profileCity = db2.Profiles.Where(x => x.USERID == value).Select(x => x.CITY).FirstOrDefault();
             string profileState = db2.Profiles.Where(x => x.USERID == value).Select(x => x.STATE).FirstOrDefault();
@@ -227,7 +229,7 @@ namespace SimplySeniors.Controllers
                 {
                     description = "There is currently no description available for this event. ";
                 }
-                if (description.Length > 600)
+                if (description.Length > 600) //If description is too long, cut it off and end with "..."
                 {
                     description = description.Substring(0, Math.Min(description.Length, 600)) + "...";
                 }
@@ -247,6 +249,7 @@ namespace SimplySeniors.Controllers
         //Searches through event API for keyword string and/or location string inputted by user
         public ActionResult SearchExternalEvents()
         {
+            //Hiding API key for events
             var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["eventApiKey"];
             string keywords = Request["keyword"].ToString();
             string location = Request["location"].ToString();
@@ -272,7 +275,7 @@ namespace SimplySeniors.Controllers
                 string country = (string)eventArray["events"]["event"][i]["tz_country"];
                 string state = (string)eventArray["events"]["event"][i]["region_name"];
                 string city = (string)eventArray["events"]["event"][i]["tz_city"];
-                if (city == null)
+                if (city == null) //If no city is inputted during search, set city to default profile location
                 {
                     city = location;
                 }
@@ -283,11 +286,11 @@ namespace SimplySeniors.Controllers
                 }
                 JToken imageObj = eventArray["events"]["event"][i]["image"];
                 string image;
-                if (imageObj.HasValues)
+                if (imageObj.HasValues) //If there is an image, set the image
                 {
                     image = (string)eventArray["events"]["event"][i]["image"]["url"];
                 }
-                else
+                else //If no image, set default "No Image" picture
                 {
                     image = "/Photos/noimageavailble.jpg";
                 }
@@ -296,7 +299,7 @@ namespace SimplySeniors.Controllers
                 {
                     description = "There is currently no description available for this event. ";
                 }
-                if (description.Length > 600)
+                if (description.Length > 600) //If description is too long, cut it off and end with "..."
                 {
                     description = description.Substring(0, Math.Min(description.Length, 600)) + "...";
                 }
