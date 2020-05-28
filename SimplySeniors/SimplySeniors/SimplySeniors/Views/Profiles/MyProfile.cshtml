@@ -23,13 +23,13 @@
         </td>
     </tr>
 </table>
-<br /><br />
-<button id="eventButton" onclick="window.location.href = '/Posts/Create' ">Create Post</button>
-<button id="eventButton" onclick="window.location.href = '/Posts/Index' ">See My Posts</button>
+<br />
+<br />
+@Html.ActionLink("Create Post", "Create", "Posts", null, new { id = "eventButton" })
 @Html.ActionLink("Edit Profile", "Edit", "Profiles", new { id = Model.ProfileID }, new { id = "eventButton" })
 @Html.ActionLink("Add Hobbies", "Create", "HobbyBridges", null, new { id = "eventButton" })
 @Html.ActionLink("Edit Hobbies", "Index", "HobbyBridges", null, new { id = "eventButton" })
-@Html.ActionLink("Switch back your home page", "HomePage", "UserHomePage", null, new { id = "eventButton" , style="margin-left: 120px"})
+@Html.ActionLink("Switch Back to Your Home Page", "HomePage", "UserHomePage", null, new { id = "eventButton", style = "margin-left: 260px" })
 <div>
     <hr />
     <!--Beware all who enter this land of divs-->
@@ -172,7 +172,7 @@
 
                     }
                 }
-             
+
             </div>
             <br />
             <p id="profileLink">
@@ -181,6 +181,6 @@
             </p>
         </div>
     </div>
-    </div>
+</div>
 <div id="helpLink" style="margin-left:-35px"><p> Need help learning about all of the features on your Profile page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#ProfileHelp'> Click here</a>.</p></div>
 

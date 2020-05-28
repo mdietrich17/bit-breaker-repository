@@ -30,18 +30,15 @@
 <br />
 
 <div id="homePageButtons">
-    <button id="eventButton" onclick="window.location.href = '/Posts/Create'">
-        Create Post
-    </button>
-
+    @Html.ActionLink("Create Post", "Create", "Posts", null, new { id = "eventButton", style = "margin-left: 15px"  })
     @Html.ActionLink("View News", "NewsFeed", null, new { id = "eventButton" })
     @Html.ActionLink("Follower Suggestions", "search", "Profiles", null, new { id = "eventButton" })
-    @Html.ActionLink("What's my page look like to others?", "MyProfile", "Profiles", null, new { id = "eventButton", style = "margin-left: 305px" })
+    @Html.ActionLink("What Does My Page Look Like to Others?", "MyProfile", "Profiles", null, new { id = "eventButton", style = "margin-left: 245px" })
 
 </div>
 
 <div class="container">
-    <div id="map" class="container" style="width: 92%"></div>
+    <div id="map" class="container" style="width: 94%"></div>
     <div class="row">
         <!-- container element in which TalkJS will display a chat UI -->
         <div class="col-12">
