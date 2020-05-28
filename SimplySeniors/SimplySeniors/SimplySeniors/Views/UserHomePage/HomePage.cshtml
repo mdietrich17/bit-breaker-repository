@@ -11,13 +11,12 @@
 <table id="homePageTable">
     <tr>
         <td>
-            @*<img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" />*@ @*later connect to profile pic from db*@
             <div style="margin-left: 2em; margin-top: .05em; margin-bottom: -.3em; margin-right: 0em; ">
                 <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => model.ProfileID)"></iframe>
             </div>
 
         </td>
-        <td>
+        <td id="nameBoxes">
             @Html.DisplayFor(model => model.ProfileFirstName)
             @Html.DisplayFor(model => model.ProfileLastName)
         </td>
@@ -35,18 +34,19 @@
     </button>
 
     @Html.ActionLink("View News", "NewsFeed", null, new { id = "eventButton" })
-    @Html.ActionLink("Chat Now", "Index", "Chat", new { id = Model.ProfileID }, new { id = "eventButton" })
     @Html.ActionLink("Follower Suggestions", "search", "Profiles", null, new { id = "eventButton" })
-    @Html.ActionLink("What's my page look like to others?", "MyProfile", "Profiles", null, new { id = "eventButton", style="margin-left: 165px" })
+    @Html.ActionLink("What's my page look like to others?", "MyProfile", "Profiles", null, new { id = "eventButton", style = "margin-left: 305px" })
 
 </div>
 
 <div class="container">
     <div id="map" class="container" style="width: 92%"></div>
     <div class="row">
-
-
-        <div class="col-md-8" id="boxPostFriend" style="float: left;">
+        <!-- container element in which TalkJS will display a chat UI -->
+        <div class="col-12">
+            <div id="talkjs-container" style="width: 65%; margin-left: 340px; height: 300px"><i>Loading chat...</i></div>
+        </div>
+        <div class="col-md-8" id="boxPostFriend" style="float: left; margin-top: -300px;">
             <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
             @if (Model.PostList.Count() == 0)
             {
@@ -56,7 +56,7 @@
             {
                 foreach (var item in Model.PostList)
                 {
-                    <div id="individualPost">
+                    <div id="individualPost" >
                         <div id="postPicFrame">
                             @*POST IMAGE BELOW*@
                             <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => item.PostProfile.ID)" alt=""></iframe>
@@ -66,6 +66,16 @@
                             @*Getting first and last name and making it into a link that redirects to profile page*@
                             @{var fullName = Html.DisplayFor(model => item.PostProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.PostProfile.LASTNAME).ToString();}
                             @*If statement to redirect to whoever's post it is*@
+
+                            @* GETTING INFO TO INJECT INTO CHAT API BELOW, all hidden fields. *@
+                            <input type="hidden" id="userFirstName" value=@Html.DisplayFor(model => model.ProfileFirstName) />
+                            <input type="hidden" id="userLastName" value=@Html.DisplayFor(model => model.ProfileLastName) />
+                            <input type="hidden" id="userID" value=@Html.DisplayFor(model => model.ProfileID) />
+                            @* Fields below are for direct P2P chat*@
+                            @*<input type="hidden" id="userFirstName2" value=@Html.DisplayFor(model => item.PostProfile.FIRSTNAME ) />
+                            <input type="hidden" id="userLastName2" value=@Html.DisplayFor(model => item.PostProfile.LASTNAME) />
+                            <input type="hidden" id="userID2" value=@Html.DisplayFor(model => item.PostProfile.ID) />*@
+
                             @{if (Model.ProfileID != item.PostProfile.ID)
                                 {
                                     @Html.ActionLink(fullName, "Details", "Profiles", new { id = item.PostProfile.ID }, null)
@@ -97,6 +107,7 @@
 
                                     @*Getting first and last name and making it into a link that redirects to profile page*@
                                     @{var fullName2 = Html.DisplayFor(model => item2.CommentProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item2.CommentProfile.LASTNAME).ToString();}
+
                                     @*If statement to redirect to whoever's post it is*@
                                     @{if (Model.ProfileID != item2.CommentProfile.ID)
                                         {
@@ -116,11 +127,12 @@
                             </div>
 
                         }
-                        </div>
+                    </div>
                 }
             }
         </div>
-        <div class="col-md-3" id="boxPostFriend">
+
+        <div class="col-md-3" id="boxPostFriend" style="margin-top: 210px;">
             <div id="homeHeader">Following</div> <hr />
             @if (Model.Followed.Count() == 0)
             {
@@ -156,23 +168,16 @@
     </div>
 
 </div>
-
-<!-- container element in which TalkJS will display a chat UI -->
-@*<div id="talkjs-container" style="width: 70%; margin: 30px; height: 300px"><i>Loading chat...</i></div>*@
-
-
 <div id="helpLink"><p> Need help learning about all of the features on your Home page? Visit our <b>Help</b> tab on the navigation menu at the top of this page or <a href='/Home/HelpPage#HomeHelp'> Click here</a>.</p></div>
-
-
 <script>
-    var map;
-    function initMap() {
-        map = new google.maps.Map(document.getElementById('map'),
-            {
-                center: { lat: @Model.latitude, lng: @Model.longitude },
-                zoom: 14
-            });
-    }
+        var map;
+        function initMap() {
+            map = new google.maps.Map(document.getElementById('map'),
+                {
+                    center: { lat: @Model.latitude, lng: @Model.longitude },
+                    zoom: 14
+                });
+        }
 </script>
 
 @{ var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["mapApiKey"];
@@ -185,4 +190,6 @@
     script.src = "https://maps.googleapis.com/maps/api/js?key=" + p1 + "&callback=initMap";
     document.getElementsByTagName('script')[0].parentNode.appendChild(script);
 </script>
+
+<script type="text/javascript" src="~/Scripts/chat.js"></script>
 
