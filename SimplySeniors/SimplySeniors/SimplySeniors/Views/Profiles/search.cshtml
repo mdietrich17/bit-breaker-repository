@@ -9,9 +9,9 @@
 
 @foreach (var item in Model.results)
 {
-    <div id="individualPost">
-        <div id="statusName">
-            <img src="/Photos/noimageavailble.jpg" id="noProfilePhotoFoundImage" alt="no photo found" />
+    <div id="individualPost" style="width: 80%;">
+        <div id="statusName" style="margin-top: 0px; ">
+            <iframe border="none" marginheight="0em;" marginwidth="0em;" scrolling="no" height="160px" width="165px" src="~/PhotoDownloadForm.aspx?id=@Html.DisplayFor(model => item.id)" alt=""></iframe>
             @Html.DisplayFor(model => item.FirstName)
             @Html.DisplayFor(model => item.LastName)
             -@Html.DisplayFor(model => item.State)
@@ -20,8 +20,8 @@
         <br />
         <form>
             @Html.AntiForgeryToken()
-            @Html.ActionLink("Profile", "Details", "Profiles", new { id = Html.DisplayFor(model => item.id) }, htmlAttributes: new { @class = "btn-link", @id = "eventButton", @role = "button" })
-            <button id="eventButton" type="submit" name="your_name" onclick="follow(@Html.DisplayFor(model => item.id))" class="btn-link">Follow</button>
+            @Html.ActionLink("See Profile", "Details", "Profiles", new { id = Html.DisplayFor(model => item.id) }, htmlAttributes: new { @class = "btn-link", @id = "eventButton", @role = "button" , style="margin-left: 80px; float:right;"})
+            <button id="eventButton" type="submit" name="your_name" onclick="follow(@Html.DisplayFor(model => item.id))" class="btn-link">Follow </button>
         </form>
 
     </div>
