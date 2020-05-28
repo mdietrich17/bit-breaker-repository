@@ -21,9 +21,8 @@ Talk.ready.then(function () {
     // See https://talkjs.com/docs/Emails_and_Configurations.html for more
     // info.
 
-    //var appID = System.Web.Configuration.WebConfigurationManager.AppSettings["chatApiKey"];  // SWAP OUT FOR API KEY AFTER TESTING. 
         window.talkSession = new Talk.Session({
-        appId: "tnDbD1Bo",
+        appId: chatID,
         me: me
     });
 
