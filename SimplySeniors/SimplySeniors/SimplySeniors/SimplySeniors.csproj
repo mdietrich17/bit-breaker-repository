@@ -205,7 +205,6 @@
     <Compile Include="Controllers\PostsController.cs" />
     <Compile Include="Controllers\ProfilesController.cs" />
     <Compile Include="Controllers\UserHomePageController.cs" />
-    <Compile Include="DAL\ChatContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -346,6 +345,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\main.js" />
+    <Content Include="Scripts\memberList.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\popper-utils.js" />
     <Content Include="Scripts\popper-utils.min.js" />
@@ -494,7 +494,6 @@
     <Content Include="Views\Profiles\MyProfile.cshtml" />
     <Content Include="Views\Posts\Index.cshtml" />
     <Content Include="Views\UserHomePage\NewsFeed.cshtml" />
-    <Content Include="Views\Chat\Index.cshtml" />
     <Content Include="Views\PostComments\Create.cshtml" />
     <Content Include="Views\PostComments\Delete.cshtml" />
     <Content Include="Views\PostComments\Details.cshtml" />

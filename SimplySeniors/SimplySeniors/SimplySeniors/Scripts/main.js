@@ -215,7 +215,7 @@ function follow(id) {
         error: function () {
             alert("error");
         }
-    })
+    });
 }
 
 function itworked(message) {
