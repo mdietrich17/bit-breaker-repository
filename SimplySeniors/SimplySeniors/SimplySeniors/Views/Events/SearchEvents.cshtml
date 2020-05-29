@@ -11,6 +11,7 @@
 {
     <div class="container" style="font-size:large;" id="searchBox">
         <h3>
+            @Html.AntiForgeryToken()
             Search by name or location:
             @Html.TextBox("searchString", null, new { id = "textBox", style = "border-radius:6px; padding-left:10px; font-size:20px; width: 5000px; height: 40px;", placeholder = "Partial matches will be found" })
             <input class="form-control-lg btn-outline-primary" type="submit" id="searchBoxID" value="Search Now" style="border-radius: 10px;" />

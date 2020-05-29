@@ -214,17 +214,24 @@ function sendemail() {
 };
 
 function follow(id) {
-    var token = $('[name=__RequestVerificationToken]').val();
-    var headers = {};
-    headers["__RequestVerificationToken"] = token;
+    var token = $('input[name="__RequestVerificationToken"]').val();
+    $.ajaxPrefilter(function (options, originalOptions) {
+        if (options.type.toUpperCase() == "POST") {
+            options.data = $.param($.extend(originalOptions.data, { __RequestVerificationToken: token }));
+        }
+    });
     $.ajax({
-        headers: headers,
         type: "POST",
         dataType: "json",
         url: "/FollowLists/AjaxCreate",
-        data: { 'userid': id },
+        data: {'userid': id },
         success: function (data) {
-            alert("Successful!");
+            if (data == "failed") {
+                alert("You've already follow this person");
+            }
+            else {
+                alert("Success")
+            }
         },
         error: function () {
             alert("error");
@@ -275,3 +282,7 @@ function failure() {
             }
         }
     }
+
+
+
+

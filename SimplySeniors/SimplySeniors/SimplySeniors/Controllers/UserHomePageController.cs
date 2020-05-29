@@ -66,6 +66,7 @@ namespace SimplySeniors.Controllers
         }
         
         [HttpPost]   // FUNCTION TO OBTAIN the current user for message feature. 
+
         public JsonResult GetCurrentUser()
         {
             var id = User.Identity.GetUserId();
