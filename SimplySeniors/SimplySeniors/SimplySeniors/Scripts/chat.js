@@ -27,7 +27,6 @@ Talk.ready.then(function () {
     });
 
     // Let's show the chatbox.
-    // tnDbD1Bo
     // First, we need to define who we want to talk to.
     //
     // In this case, it's always the operator. The code below is identical
@@ -51,7 +50,7 @@ Talk.ready.then(function () {
 
 // You control the ID of a conversation. In this example, we use the item ID as
 // the conversation ID in order to tie this conversation to this item.
-var conversation = window.talkSession.getOrCreateConversation("first_group_chat");
+var conversation = window.talkSession.getOrCreateConversation("Second_group_chat");
 conversation.setParticipant(me);
 conversation.setParticipant(operator);
 var chatbox = window.talkSession.createChatbox(conversation);

@@ -10,9 +10,7 @@ ALTER TABLE [dbo].[PostLike] DROP CONSTRAINT [FK_dbo.PostLike_dbo.Profile_ID]
 ALTER TABLE [dbo].[PostLike] DROP CONSTRAINT [FK_dbo.PostLike_dbo.Post_ID]
 ALTER TABLE [dbo].[PostComment] DROP CONSTRAINT [FK_dbo.PostComment_dbo.Profile_ID]
 ALTER TABLE [dbo].[PostComment] DROP CONSTRAINT [FK_dbo.PostComment_dbo.Post_ID]
-
-
-
+GO
 DROP TABLE [dbo].[Hobbies]
 DROP TABLE [dbo].[Events]
 DROP TABLE [dbo].[Posts]
@@ -21,9 +19,25 @@ DROP TABLE [dbo].[Profile]
 DROP TABLE [dbo].[FollowList]
 DROP TABLE [dbo].[PostLike]
 DROP TABLE [dbo].[PostComment]
-
-/** UPLOADING PHOTO STUFF BELOW **/
 DROP TABLE [dbo].[Images]
 DROP PROCEDURE spUploadImage 
 DROP PROCEDURE spGetImageById
+GO
+ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetRoles_RoleId]
+ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [FK_dbo.AspNetUserRoles_dbo.AspNetUsers_UserId]
+ALTER TABLE [dbo].[AspNetUserLogins] DROP CONSTRAINT [PK_dbo.AspNetUserLogins]
+ALTER TABLE	[dbo].[AspNetRoles] DROP CONSTRAINT [PK_dbo.AspNetRoles]
+ALTER TABLE [dbo].[AspNetUserLogins] DROP CONSTRAINT [FK_dbo.AspNetUserLogins_dbo.AspNetUsers_UserId]
+ALTER TABLE [dbo].[AspNetUserClaims] DROP CONSTRAINT [FK_dbo.AspNetUserClaims_dbo.AspNetUsers_UserId]
+ALTER TABLE [dbo].[AspNetUsers] DROP CONSTRAINT [PK_dbo.AspNetUsers]
+ALTER TABLE [dbo].[AspNetUserClaims] DROP CONSTRAINT [PK_dbo.AspNetUserClaims]
+ALTER TABLE [dbo].[AspNetUserRoles] DROP CONSTRAINT [PK_dbo.AspNetUserRoles]
+GO
+DROP TABLE [dbo].[AspNetRoles]
+DROP TABLE [dbo].[AspNetUsers]
+DROP TABLE [dbo].[AspNetUserClaims]
+DROP TABLE [dbo].[AspNetUserLogins]
+DROP TABLE [dbo].[AspNetUserRoles]
+GO
+
 
