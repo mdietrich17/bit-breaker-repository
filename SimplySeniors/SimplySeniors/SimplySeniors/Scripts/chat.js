@@ -27,7 +27,6 @@ Talk.ready.then(function () {
     });
 
     // Let's show the chatbox.
-    // tnDbD1Bo
     // First, we need to define who we want to talk to.
     //
     // In this case, it's always the operator. The code below is identical
