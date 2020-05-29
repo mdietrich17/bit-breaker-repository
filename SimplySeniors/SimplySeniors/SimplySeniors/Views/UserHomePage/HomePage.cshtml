@@ -44,6 +44,10 @@
         <div class="col-12">
             <div id="talkjs-container" style="width: 65%; margin-left: 340px; height: 300px"><i>Loading chat...</i></div>
         </div>
+        @* GETTING INFO TO INJECT INTO CHAT API BELOW, all hidden fields. *@
+        <input type="hidden" id="userFirstName" value=@Html.DisplayFor(model => model.ProfileFirstName) />
+        <input type="hidden" id="userLastName" value=@Html.DisplayFor(model => model.ProfileLastName) />
+        <input type="hidden" id="userID" value=@Html.DisplayFor(model => model.ProfileID) />
         <div class="col-md-8" id="boxPostFriend" style="float: left; margin-top: -300px;">
             <div id="homeHeader"> @Html.DisplayFor(model => model.ProfileFirstName)'s Posts</div> <hr />
             @if (Model.PostList.Count() == 0)
@@ -65,14 +69,11 @@
                             @{var fullName = Html.DisplayFor(model => item.PostProfile.FIRSTNAME).ToString() + " " + Html.DisplayFor(model => item.PostProfile.LASTNAME).ToString();}
                             @*If statement to redirect to whoever's post it is*@
 
-                            @* GETTING INFO TO INJECT INTO CHAT API BELOW, all hidden fields. *@
-                            <input type="hidden" id="userFirstName" value=@Html.DisplayFor(model => model.ProfileFirstName) />
-                            <input type="hidden" id="userLastName" value=@Html.DisplayFor(model => model.ProfileLastName) />
-                            <input type="hidden" id="userID" value=@Html.DisplayFor(model => model.ProfileID) />
+
                             @* Fields below are for direct P2P chat*@
                             @*<input type="hidden" id="userFirstName2" value=@Html.DisplayFor(model => item.PostProfile.FIRSTNAME ) />
-                                <input type="hidden" id="userLastName2" value=@Html.DisplayFor(model => item.PostProfile.LASTNAME) />
-                                <input type="hidden" id="userID2" value=@Html.DisplayFor(model => item.PostProfile.ID) />*@
+                            <input type="hidden" id="userLastName2" value=@Html.DisplayFor(model => item.PostProfile.LASTNAME) />
+                            <input type="hidden" id="userID2" value=@Html.DisplayFor(model => item.PostProfile.ID) />*@
 
                             @*If the profile you click on is not yours, then get the ID of the person whos post it is*@
                             @{if (Model.ProfileID != item.PostProfile.ID)
