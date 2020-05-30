@@ -62,3 +62,6 @@ Tools, Configurations, and Packages
 
 Proof of Continuous Deployment:
 [Continuous Deployment](ContinuousDeployment.png)
+
+ER Diagram:
+[ER Diagram](ER_Diagram.jpg)
