@@ -122,6 +122,7 @@ namespace SimplySeniors.Controllers
 
         // HTTP POST method was created for searching events in the Events/index, ordered by closest/upcoming events at top, farther out ones at bottom. 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult SearchEvents(string searchString)
         {
             {

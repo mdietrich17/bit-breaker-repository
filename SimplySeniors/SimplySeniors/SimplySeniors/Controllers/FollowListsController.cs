@@ -71,8 +71,25 @@ namespace SimplySeniors.Controllers
 
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult AjaxCreate(int userid)
         {
+            string uid = User.Identity.GetUserId();
+            Profile currentUser = db1.Profiles.Where(x => x.USERID == uid).FirstOrDefault();
+            Profile followie = db1.Profiles.Where(x => x.ID == userid).FirstOrDefault();
+            List<FollowList> followLists = new List<FollowList>();
+            followLists = db.FollowLists.Where(x => x.UserID == currentUser.ID).ToList();
+            if (currentUser.ID == followie.ID || followLists.Any(x => x.FollowedUserID == followie.ID))
+            {
+                string x = "failed";
+                return new ContentResult
+                {
+                    ContentType = "application/json",
+                    ContentEncoding = System.Text.Encoding.UTF8,
+                    Content = JsonConvert.SerializeObject(x)
+                };
+            }
+
             FollowList followList = new FollowList();
             followList.FollowedUserID = userid;
             string id = User.Identity.GetUserId();
