@@ -13,6 +13,7 @@ body {
     height: 65vh;
     min-height: 300px;
     background: no-repeat center center scroll;
+  
     background-size: cover;
 }
 
