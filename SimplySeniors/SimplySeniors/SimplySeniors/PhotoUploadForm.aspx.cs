@@ -41,9 +41,9 @@ namespace SimplySeniors
                  Stream stream = postedFile.InputStream; 
                  BinaryReader binaryReader = new BinaryReader(stream);
                  byte[] bytes = binaryReader.ReadBytes((int) stream.Length);
-                 // SETTINGS FOR AZURE CONTINUOUS DEPLOYMENT BELOW. 
-                // string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
-                 string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
+                // SETTINGS FOR AZURE CONTINUOUS DEPLOYMENT BELOW. 
+                string cs = ConfigurationManager.ConnectionStrings["DefaultConnection"].ConnectionString;
+                //string cs = ConfigurationManager.ConnectionStrings["AzureConnection"].ConnectionString;
 
                 // Code below creates a new sql connections and add the fields below to the table "Images" in the backend. 
                 using (SqlConnection con = new SqlConnection(cs) )

@@ -10,8 +10,8 @@ namespace SimplySeniors.DAL
     public partial class PostLikeContext : DbContext
     {
         public PostLikeContext()
-        //    : base("name=PostLikeContext")
-           : base("name=AzureConnection")
+            : base("name=PostLikeContext")
+        //: base("name=AzureConnection")
         {
         }
 
